@@ -2,10 +2,22 @@
   "sections": {
     "main": {
       "type": "main-page",
-      "settings": {}
+      "settings": {
+      }
+    },
+    "7f1eabff-77fb-4016-9eaf-97a6fdc46601": {
+      "type": "hero",
+      "settings": {
+        "title": "Isn’t it time youtook <i>pleasure<\/i> intoyour own hands?",
+        "body": "<p>Take the quiz lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.<\/p>",
+        "image": "shopify:\/\/shop_images\/s-banner.jpg",
+        "button_text": "Take the quiz",
+        "url": "#"
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "7f1eabff-77fb-4016-9eaf-97a6fdc46601"
   ]
 }
