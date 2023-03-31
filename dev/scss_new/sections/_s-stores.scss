@@ -1,0 +1,39 @@
+@import "../mixins/rem";
+
+.s-stores{
+  .section-container {
+    @media (min-width: 769px) {
+      max-height: 100vh;
+    }
+    &:nth-child(even) {
+      flex-direction: row-reverse;
+      .section-container__block:not(:last-child){
+        border-right: none;
+        border-left: 1px solid;
+      }
+      .section-img[data-scroll].is-scrolled::after,
+      .section-img[data-scroll].is-inview::after{
+        left: 0;
+        right: 100%;
+      }
+    }
+    &:not(:last-child){
+      border-bottom: 1px solid;
+    }
+  }
+
+
+  @media (max-width: 768px) {
+    .section-container--centered {
+      padding-top: 35px;
+      padding-bottom: 35px;
+    }
+    .section-container:nth-child(2n) {
+      flex-direction: column-reverse;
+      .section-container__block:first-child{
+        border: none;
+        border-top: 1px solid;
+      }
+    }
+  }
+}

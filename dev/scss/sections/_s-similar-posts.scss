@@ -1,0 +1,24 @@
+@import "../mixins/rem";
+
+.s-similar-posts{
+
+
+  .section-container:not(:first-child){
+    border-left: 1px solid;
+  }
+
+  @media (max-width: 768px) {
+
+    .s-blogs.s-blogs--odd .section-container:nth-child(2n+1) {
+      flex-direction: column;
+    }
+
+    .s-blogs.s-blogs--odd .section-container:nth-child(2n+1) .section-container__block:first-child {
+      border-left: none;
+    }
+    .s-blogs .section-container:not(:last-child) {
+      border-bottom: 1px solid;
+      border-bottom: none;
+    }
+  }
+}

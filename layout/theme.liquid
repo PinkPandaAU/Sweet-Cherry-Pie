@@ -13,6 +13,8 @@
     <link rel="canonical" href="{{ canonical_url }}">
     <meta name="theme-color" content="">
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.6/gsap.min.js"></script>
+
     {% if settings.favicon != blank and settings.favicon contains '.png' %}
         <link rel="shortcut icon" href="{{ settings.favicon | image_url: 'master' }}" type="image/png"/>
     {% elsif settings.favicon != blank and settings.favicon contains '.ico' %}

@@ -1,0 +1,20 @@
+@mixin keyframes($name) {
+    @keyframes #{$name} {
+        @content;
+    }
+}
+
+@mixin strokeDashOffset($name, $second, $timing-function, $iteration, $start, $end, $animationPlayState) {
+    @include keyframes($name) {
+        0% {
+            stroke-dashoffset: $start;
+        }
+
+        100% {
+            stroke-dashoffset: $end;
+        }
+    }
+
+    animation: $name $second $timing-function $iteration;
+    animation-play-state: $animationPlayState;
+}

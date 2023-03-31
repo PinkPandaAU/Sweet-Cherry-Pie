@@ -1,0 +1,115 @@
+@import "../mixins/rem";
+
+.s-store-map{
+  display: flex;
+  &__container {
+    width: 50%;
+    border-right: 1px solid;
+    display: flex;
+  }
+  &__map {
+    width: 50%;
+    padding: 14px;
+    &>* {
+      width: 100%;
+      height: 100%;
+      border-radius: rem(84);
+      -webkit-mask-image: -webkit-radial-gradient(white, black);
+    }
+
+  }
+  &__content {
+    width: 50%;
+    border-right: 1px solid;
+    padding: rem(40) 14px;
+    display: flex;
+    flex-direction: column;
+  }
+  &__schedule {
+    width: 50%;
+    &>*{
+      padding: rem(40) rem(30) rem(40) 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      &>* {
+        &:first-child {
+          font-size: rem(18);
+        }
+
+        &:last-child {
+          text-transform: uppercase;
+        }
+      }
+      &:not(:last-child){
+        border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+      }
+    }
+  }
+  &__text{
+    margin: rem(20) 0;
+    &>*:not(:last-child){
+      margin-bottom: rem(35);
+    }
+    address{
+      font-style: normal;
+      text-transform: uppercase;
+    }
+    a{
+      text-decoration: underline;
+    }
+  }
+  &__btn{
+    margin-top: auto;
+  }
+
+
+
+
+  @media (max-width: 768px) {
+
+      flex-direction: column;
+
+    .s-store-map__container {
+      width: 100%;
+      flex-direction: column;
+      border-right: none!important;
+      border-left: none!important;
+    }
+
+    .s-store-map__content {
+      width: 100%;
+      border-right: none;
+      border-bottom: 1px solid;
+    }
+
+    .s-store-map__schedule {
+      width: 100%;
+    }
+
+    .s-store-map__text {
+      margin: 20px 0 25px;
+    }
+
+    .s-store-map__text > :not(:last-child) {
+      margin-bottom: 20px;
+    }
+
+    .s-store-map__schedule > * {
+      padding: 20px 10px;
+    }
+
+    .s-store-map__map {
+      width: 100%;
+      padding: 10px;
+      border-top: 1px solid;
+      height: 375px;
+    }
+
+    .s-store-map__map > * {
+      border-radius: 42px;
+      -webkit-mask-image: -webkit-radial-gradient(white, black);
+    }
+
+  }
+}

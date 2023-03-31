@@ -1,0 +1,193 @@
+@import "../mixins/rem";
+
+.s-instagram{
+  .title-h2>*{
+    letter-spacing: rem(0.76);
+  }
+
+  .message-marquee {
+    background: var(--color-primary);
+    .marquee_unit {
+      color: var(--color-black);
+      border: 1px solid rgba(179, 107, 119, 0.2);
+    }
+    .marquee_content > ::after {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Cpath id='AdobeStock_516046892' d='M0,8.018A7.982,7.982,0,0,1,7.982,16h.035A7.982,7.982,0,0,1,16,8.018V7.982A7.982,7.982,0,0,1,8.018,0H7.982A7.982,7.982,0,0,1,0,7.982Z' fill='%23b36b77'/%3E%3C/svg%3E%0A");
+    }
+  }
+
+
+
+  &__container{
+    display: flex;
+    padding: 10px 5px;
+  }
+  &__img{
+    position: relative;
+    &>*{
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 16px;
+    }
+    &::before{
+      content: '';
+      display: block;
+      width: 100%;
+      padding-top: 100%;
+    }
+  }
+  &__content {
+    width: calc(100% / 4 - 10px);
+    background: #fff;
+    border-radius: 16px;
+    margin: 0 5px;
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    &-inner{
+      padding: rem(26);
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    &-border {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+  &__images {
+    width: calc(100% / 4 * 3);
+    display: flex;
+    margin-bottom: -10px;
+    &-block{
+      width: calc(100% / 3);
+      display: flex;
+      flex-wrap: wrap;
+      &>*{
+        flex-basis: 0;
+        flex-grow: 1;
+        min-width: calc(50% - 10px);
+        margin: 0 5px 10px;
+      }
+    }
+  }
+
+  &__btns {
+    display: flex;
+    border-top: 1px solid var(--color-primary);
+    &>*{
+      flex-basis: calc(100% / 3);
+      position: relative;
+      &:not(:last-child) {
+        border-right: 1px solid var(--color-primary);
+      }
+      &::before{
+        content: '';
+        display: block;
+        width: 100%;
+        padding-top: 100%;
+      }
+      @media (min-width: 991px) {
+        &:hover {
+          .s-arrow-link__ico > * {
+            &:first-child {
+              transform: translateY(calc(-100% - 10px));
+            }
+
+            &:last-child {
+              transform: none;
+            }
+          }
+        }
+      }
+      &>*{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        &>*{
+          width: 12px;
+          height: 12px;
+          object-fit: contain;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 1024px) and (min-width: 769px){
+    .s-instagram__images-block {
+      width: calc(100% / 2);
+    }
+
+    .s-instagram__images {
+      width: calc(100% / 3 * 2);
+    }
+
+    .s-instagram__content {
+      width: calc(100% / 3 - 10px);
+    }
+    .s-instagram__images-block:nth-child(3) {
+      display: none;
+    }
+
+  }
+  @media (min-width: 769px) {
+    &__content-inner {
+      padding-top: rem(30);
+      padding-bottom: rem(36);
+    }
+    .s-button.s-button--round {
+      width: rem(36);
+      height: rem(36);
+      .s-arrow-link__ico {
+        width: rem(12);
+        height: rem(12);
+      }
+    }
+  }
+  @media (max-width: 768px) {
+    .s-instagram__container {
+      padding: 6px;
+      flex-direction: column;
+    }
+
+    .s-instagram__content {
+      width: 100%;
+      margin: 0;
+    }
+
+    .s-instagram__content-inner {
+      padding: 16px 20px 26px;
+    }
+
+    .s-instagram__title {
+      margin-bottom: 10px;
+    }
+
+    .s-instagram__images {
+      width: 100%;
+      margin-bottom: 0;
+      margin-top: 6px;
+    }
+
+    .s-instagram__images-block {
+      width: calc(100% + 6px);
+      margin: 0 -3px;
+    }
+
+    .s-instagram__images-block > * {
+      min-width: calc(50% - 6px);
+      margin: 0 3px;
+    }
+
+  }
+}

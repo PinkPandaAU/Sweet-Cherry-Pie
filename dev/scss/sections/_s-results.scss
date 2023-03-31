@@ -1,0 +1,56 @@
+@import "../mixins/rem";
+
+.s-results{
+  padding-bottom: rem(152);
+  &__head{
+    background: #fff;
+    padding: rem(52) 16px;
+    display: flex;
+    justify-content: center;
+  }
+  &__form {
+    display: flex;
+    max-width: rem(536);
+    width: 100%;
+    .s-input {
+      flex-basis: 0;
+      flex-grow: 1;
+      margin-right: rem(16);
+    }
+  }
+
+
+  &__container{
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -5px -10px;
+    &>*{
+      width: calc(50% - 10px);
+      margin: 0 5px 10px;
+    }
+  }
+  @media (max-width: 768px) {
+    padding-bottom: 70px;
+    &__head {
+      padding: 50px 16px;
+      .s-input > input {
+        height: 100%;
+      }
+    }
+
+    &__container {
+      margin: 0;
+      flex-direction: column;
+      &>*{
+        width: 100%;
+        margin: 0;
+        &:not(:last-child) {
+          margin-bottom: 36px;
+        }
+      }
+    }
+
+
+  }
+}

@@ -1,0 +1,22 @@
+@import "../vars/colors";
+
+// Color system:
+// 'colorName': 'color'
+
+@each $colorName, $colorValue in $colors {
+  .bg-#{$colorName} {
+    background-color: $colorValue;
+  }
+
+  .color-#{$colorName} {
+    color: $colorValue;
+  }
+
+  .border-#{$colorName} {
+    border: 1px solid $colorValue;
+  }
+
+  .fill-#{$colorName} {
+    fill: $colorValue;
+  }
+}

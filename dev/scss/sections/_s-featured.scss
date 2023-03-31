@@ -1,0 +1,37 @@
+@import "../mixins/rem";
+
+.s-featured{
+  padding: 136px 0 152px;
+
+  &__btn{
+    display: flex;
+    justify-content: center;
+    margin-top: 32px;
+  }
+  .s-card__tags{
+    justify-content: unset;
+  }
+
+
+  @media (max-width: 768px){
+    padding-top: 52px;
+    padding-bottom: 40px;
+    overflow: hidden;
+
+    .swiper-head {
+      margin-bottom: 20px;
+    }
+
+    &__slider {
+      width: 85%;
+      overflow: visible;
+    }
+
+    .swiper-head {
+      .swiper-head__btn,
+      .swiper-arrows{
+        display: none;
+      }
+    }
+  }
+}

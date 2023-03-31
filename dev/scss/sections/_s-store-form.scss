@@ -1,0 +1,82 @@
+@import "../mixins/rem";
+
+.s-store-form{
+
+  .section-text{
+    max-width: rem(511);
+    margin: rem(15) auto 0;
+  }
+  &__container{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: rem(660);
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+  }
+  &__form{
+    margin-top: rem(30);
+  }
+  &__row{
+    display: flex;
+    margin: 0 rem(-10) rem(20);
+  }
+  &__input{
+    flex-basis: 0;
+    flex-grow: 1;
+    margin: 0 rem(10);
+  }
+  &__submit{
+    margin-top: rem(30);
+    .s-button{
+      width: 100%;
+    }
+  }
+  &__bottom{
+    margin-top: rem(80);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    &>*:not(:last-child){
+      margin-bottom: rem(10);
+    }
+  }
+  &__btn{
+    width: max-content;
+    max-width: 100%;
+    padding: rem(10) rem(14);
+    background: var(--color-primary);
+    border-radius: rem(18);
+    -webkit-mask-image: -webkit-radial-gradient(white, black);
+  }
+
+  @media (max-width: 768px) {
+    .section-img {
+      max-height: 400px;
+    }
+
+    .s-store-form__container {
+      padding: 30px 0;
+    }
+
+    .s-store-form__input {
+      margin: 0 5px;
+    }
+
+    .s-store-form__row {
+      margin: 0 -5px 10px;
+    }
+
+    .s-store-form__submit {
+      margin-top: 0;
+    }
+
+    .s-store-form__bottom {
+      margin-top: 40px;
+    }
+
+  }
+}

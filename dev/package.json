@@ -23,10 +23,12 @@
     "gulp-sass": "^5.1.0",
     "gulp-scss-lint": "^1.0.0",
     "gulp-uglify": "^3.0.1",
-    "node-sass": "^7.0.3"
+    "node-sass": "^7.0.3",
+    "sass": "^1.58.0"
   },
   "dependencies": {
-    "babel-polyfill": "^6.26.0"
+    "babel-polyfill": "^6.26.0",
+    "gulp-flatten": "^0.4.0"
   },
   "browserslist": [
     "defaults"
