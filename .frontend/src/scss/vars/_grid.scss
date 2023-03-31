@@ -1,0 +1,18 @@
+// Grid breakpoints
+$grid-breakpoints: (
+    xs: 0,
+    sm: 576px,
+    md: 768px,
+    lg: 992px,
+    xl: 1280px,
+    xxl: 1366px,
+    xxxl: 1440px,
+    xxxxl: 1580px
+) !default;
+
+$container-gutter-sm: 16px;
+$container-gutter: 140px;
+
+$container-header-inner-width: 1800px;
+$container-inner-width: 1920px;
+$container-max-width: $container-gutter * 2 + $container-inner-width;

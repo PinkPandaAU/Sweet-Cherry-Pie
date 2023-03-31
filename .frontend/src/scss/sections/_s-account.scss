@@ -1,0 +1,122 @@
+@import "../mixins/rem";
+
+.s-account{
+  display: flex;
+  &__sidebar {
+    width: 37.5%;
+    border-right: 1px solid;
+    flex-shrink: 0;
+  }
+  &__head {
+    padding: rem(70) rem(70) rem(42);
+    border-bottom: 1px solid;
+    font-size: rem(14);
+    text-transform: uppercase;
+    &>*:not(:last-child){
+      margin-bottom: rem(10);
+    }
+  }
+  &__list{
+    &>li {
+      border-bottom: 1px solid;
+      & > * {
+        padding: rem(30) 0 rem(30) rem(70);
+        transition: background-color var(--main-transition);
+        display: inline-block;
+        width: 100%;
+        font-size: rem(20);
+        line-height: rem(26);
+        @media (min-width: 991px) {
+          &:hover {
+            background-color: var(--color-primary);
+          }
+        }
+      }
+    }
+  }
+  &__btn{
+    margin-top: rem(40);
+    margin-bottom: rem(40);
+    padding: 0 rem(70);
+    .s-button{
+      width: 100%;
+      min-height: rem(68);
+      font-size: rem(18);
+    }
+  }
+  &__content{
+    padding: rem(70);
+    width: 100%;
+    &-title{
+      margin-bottom: rem(63);
+    }
+  }
+  &__form{
+    max-width: rem(600);
+  }
+  &__row{
+    display: flex;
+    margin: 0 rem(-10) rem(20);
+  }
+  &__input{
+    flex-basis: 0;
+    flex-grow: 1;
+    margin: 0 rem(10);
+    .s-input--radio{
+      padding-top: rem(12);
+    }
+  }
+  &__submit {
+    margin-top: rem(40);
+  }
+  &__cancel{
+    margin-top: rem(25);
+    font-size: rem(18);
+    display: inline-block;
+  }
+
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    .s-account__sidebar {
+      width: 100%;
+      border-right: none;
+      border-bottom: 1px solid;
+    }
+
+    .s-account__form {
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .s-account__head {
+      padding: 40px 10px 30px;
+    }
+
+    .s-account__list > li > * {
+      padding: 20px;
+    }
+
+    .s-account__btn {
+      margin-top: 25px;
+      margin-bottom: 25px;
+      padding: 0 10px;
+    }
+
+    .s-account__content {
+      padding: 40px 10px;
+    }
+
+    .s-account__content-title {
+      margin-bottom: 30px;
+    }
+
+    .s-account__input {
+      margin: 0 5px;
+    }
+
+    .s-account__row {
+      margin: 0 -5px 10px;
+    }
+
+  }
+}

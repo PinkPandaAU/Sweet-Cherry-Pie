@@ -1,0 +1,608 @@
+<section class="s-shop-category" data-scroll-section>
+  <div class="container">
+    <div class="s-shop-category__head">
+      <div class="s-shop-category__sort">
+        <span class="s-shop-category__sort-label">
+          sort by:
+        </span>
+        <div class="s-shop-category__sort-inner">
+          <div class="s-shop-category__sort-dropdown">
+            <span>
+              <span class="output_text">Newest</span>
+              <span class="s-shop-category__sort-ico">
+                <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10">
+                  <g id="Group_11613" data-name="Group 11613" transform="translate(-1569 -769)">
+                    <line x2="10" transform="translate(1569 774)" fill="none" stroke="#1f454d" stroke-width="1"/>
+                    <line x2="10" transform="translate(1574 769) rotate(90)" class="ico-plus" fill="none" stroke="#1f454d" stroke-width="1"/>
+                  </g>
+                </svg>
+              </span>
+            </span>
+            <input type="hidden" class="output_value" name="sort">
+            <ul>
+              <li data-value="1">Price</li>
+              <li data-value="2">Popular</li>
+              <li data-value="3">New</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="s-shop-category__container" id="s-shop-category">
+      <div class="s-shop-category__filter" data-scroll data-scroll-sticky data-scroll-target="#s-shop-category">
+        <div class="s-shop-category__filter-label">
+          <span>Filter by:</span>
+        </div>
+        <ul>
+          <li>
+            <div class="s-shop-category__filter-item">
+              <span>Brand</span>
+              <span class="s-shop-category__filter-item__ico">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+                  <g transform="translate(-441 -813)">
+                    <g transform="translate(-1117 55)">
+                      <line x2="10" transform="translate(1569 774)" fill="none" stroke="#1f454d" stroke-width="1"/>
+                      <line x2="10" transform="translate(1574 769) rotate(90)" class="ico-plus" fill="none" stroke="#1f454d" stroke-width="1"/>
+                    </g>
+                    <g transform="translate(441 813)" fill="none" stroke="#1f454d" stroke-width="1">
+                      <circle cx="16" cy="16" r="16" stroke="none"/>
+                      <circle cx="16" cy="16" r="15.5" fill="none"/>
+                    </g>
+                  </g>
+                </svg>
+              </span>
+            </div>
+            <div class="s-shop-category__filter-body">
+              <ul>
+                <li>
+                  <label class="s-radio">
+                    <input type="radio" name="brand[]" data-filter-name="brand" value="" checked>
+                    <span class="s-radio__btn">All</span>
+                  </label>
+                </li>
+                <li>
+                  <label class="s-radio">
+                    <input type="radio" name="brand[]" data-filter-name="brand" value="1">
+                    <span class="s-radio__btn">1</span>
+                  </label>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <div class="s-shop-category__filter-item">
+              <span>Colour</span>
+              <span class="s-shop-category__filter-item__ico">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+                  <g transform="translate(-441 -813)">
+                    <g transform="translate(-1117 55)">
+                      <line x2="10" transform="translate(1569 774)" fill="none" stroke="#1f454d" stroke-width="1"/>
+                      <line x2="10" transform="translate(1574 769) rotate(90)" class="ico-plus" fill="none" stroke="#1f454d" stroke-width="1"/>
+                    </g>
+                    <g transform="translate(441 813)" fill="none" stroke="#1f454d" stroke-width="1">
+                      <circle cx="16" cy="16" r="16" stroke="none"/>
+                      <circle cx="16" cy="16" r="15.5" fill="none"/>
+                    </g>
+                  </g>
+                </svg>
+              </span>
+            </div>
+            <div class="s-shop-category__filter-body">
+              <ul>
+                <li>
+                  <label class="s-radio">
+                    <input type="radio" name="colour[]" data-filter-name="colour" value="" checked>
+                    <span class="s-radio__btn">All</span>
+                  </label>
+                </li>
+                <li>
+                  <label class="s-radio">
+                    <input type="radio" name="colour[]" data-filter-name="colour" value="brown">
+                    <span class="s-radio__btn">Brown</span>
+                  </label>
+                </li>
+                <li>
+                  <label class="s-radio">
+                    <input type="radio" name="colour[]" data-filter-name="colour" value="black">
+                    <span class="s-radio__btn">Black</span>
+                  </label>
+                </li>
+                <li>
+                  <label class="s-radio">
+                    <input type="radio" name="colour[]" data-filter-name="colour" value="tan">
+                    <span class="s-radio__btn">Tan</span>
+                  </label>
+                </li>
+                <li>
+                  <label class="s-radio">
+                    <input type="radio" name="colour[]" data-filter-name="colour" value="black">
+                    <span class="s-radio__btn">Black</span>
+                  </label>
+                </li>
+                <li>
+                  <label class="s-radio">
+                    <input type="radio" name="colour[]" data-filter-name="colour" value="tan">
+                    <span class="s-radio__btn">Tan</span>
+                  </label>
+                </li>
+                <li>
+                  <label class="s-radio">
+                    <input type="radio" name="colour[]" data-filter-name="colour" value="pink">
+                    <span class="s-radio__btn">Pink</span>
+                  </label>
+                </li>
+                <li>
+                  <label class="s-radio">
+                    <input type="radio" name="colour[]" data-filter-name="colour" value="brown">
+                    <span class="s-radio__btn">Brown</span>
+                  </label>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <div class="s-shop-category__filter-item">
+              <span>Price</span>
+              <span class="s-shop-category__filter-item__ico">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+                  <g transform="translate(-441 -813)">
+                    <g transform="translate(-1117 55)">
+                      <line x2="10" transform="translate(1569 774)" fill="none" stroke="#1f454d" stroke-width="1"/>
+                      <line x2="10" transform="translate(1574 769) rotate(90)" class="ico-plus" fill="none" stroke="#1f454d" stroke-width="1"/>
+                    </g>
+                    <g transform="translate(441 813)" fill="none" stroke="#1f454d" stroke-width="1">
+                      <circle cx="16" cy="16" r="16" stroke="none"/>
+                      <circle cx="16" cy="16" r="15.5" fill="none"/>
+                    </g>
+                  </g>
+                </svg>
+              </span>
+            </div>
+            <div class="s-shop-category__filter-body">
+              <ul>
+                <li>
+                  <label class="s-radio">
+                    <input type="radio" name="price[]" data-filter-name="price" value="" checked>
+                    <span class="s-radio__btn">All</span>
+                  </label>
+                </li>
+                <li>
+                  <label class="s-radio">
+                    <input type="radio" name="price[]" data-filter-name="price" value="brown">
+                    <span class="s-radio__btn">Brown</span>
+                  </label>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <div class="s-shop-category__filter-item">
+              <span>Material</span>
+              <span class="s-shop-category__filter-item__ico">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+                  <g transform="translate(-441 -813)">
+                    <g transform="translate(-1117 55)">
+                      <line x2="10" transform="translate(1569 774)" fill="none" stroke="#1f454d" stroke-width="1"/>
+                      <line x2="10" transform="translate(1574 769) rotate(90)" class="ico-plus" fill="none" stroke="#1f454d" stroke-width="1"/>
+                    </g>
+                    <g transform="translate(441 813)" fill="none" stroke="#1f454d" stroke-width="1">
+                      <circle cx="16" cy="16" r="16" stroke="none"/>
+                      <circle cx="16" cy="16" r="15.5" fill="none"/>
+                    </g>
+                  </g>
+                </svg>
+              </span>
+            </div>
+            <div class="s-shop-category__filter-body">
+              <ul>
+                <li>
+                  <label class="s-radio">
+                    <input type="radio" name="material[]" data-filter-name="material" value="" checked>
+                    <span class="s-radio__btn">All</span>
+                  </label>
+                </li>
+                <li>
+                  <label class="s-radio">
+                    <input type="radio" name="material[]" data-filter-name="material" value="brown">
+                    <span class="s-radio__btn">Brown</span>
+                  </label>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <div class="s-shop-category__filter-item">
+              <span>Power type</span>
+              <span class="s-shop-category__filter-item__ico">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+                  <g transform="translate(-441 -813)">
+                    <g transform="translate(-1117 55)">
+                      <line x2="10" transform="translate(1569 774)" fill="none" stroke="#1f454d" stroke-width="1"/>
+                      <line x2="10" transform="translate(1574 769) rotate(90)" class="ico-plus" fill="none" stroke="#1f454d" stroke-width="1"/>
+                    </g>
+                    <g transform="translate(441 813)" fill="none" stroke="#1f454d" stroke-width="1">
+                      <circle cx="16" cy="16" r="16" stroke="none"/>
+                      <circle cx="16" cy="16" r="15.5" fill="none"/>
+                    </g>
+                  </g>
+                </svg>
+              </span>
+            </div>
+            <div class="s-shop-category__filter-body">
+              <ul>
+                <li>
+                  <label class="s-radio">
+                    <input type="radio" name="power[]" data-filter-name="power" value="" checked>
+                    <span class="s-radio__btn">All</span>
+                  </label>
+                </li>
+                <li>
+                  <label class="s-radio">
+                    <input type="radio" name="power[]" data-filter-name="power" value="brown">
+                    <span class="s-radio__btn">Brown</span>
+                  </label>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <div class="s-shop-category__filter-item">
+              <span>Waterproof</span>
+              <span class="s-shop-category__filter-item__ico">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+                  <g transform="translate(-441 -813)">
+                    <g transform="translate(-1117 55)">
+                      <line x2="10" transform="translate(1569 774)" fill="none" stroke="#1f454d" stroke-width="1"/>
+                      <line x2="10" transform="translate(1574 769) rotate(90)" class="ico-plus" fill="none" stroke="#1f454d" stroke-width="1"/>
+                    </g>
+                    <g transform="translate(441 813)" fill="none" stroke="#1f454d" stroke-width="1">
+                      <circle cx="16" cy="16" r="16" stroke="none"/>
+                      <circle cx="16" cy="16" r="15.5" fill="none"/>
+                    </g>
+                  </g>
+                </svg>
+              </span>
+            </div>
+            <div class="s-shop-category__filter-body">
+              <ul>
+                <li>
+                  <label class="s-radio">
+                    <input type="radio" name="waterproof[]" data-filter-name="waterproof" value="" checked>
+                    <span class="s-radio__btn">All</span>
+                  </label>
+                </li>
+                <li>
+                  <label class="s-radio">
+                    <input type="radio" name="waterproof[]" data-filter-name="waterproof" value="brown">
+                    <span class="s-radio__btn">Brown</span>
+                  </label>
+                </li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+
+        <div class="s-shop-category__filter-label">
+          <span>Shop by category</span>
+        </div>
+        <div class="s-shop-category__filter-links">
+          <a href="" class="s-radio__btn">For gifting</a>
+          <a href="" class="s-radio__btn">For the front</a>
+          <a href="" class="s-radio__btn">For the back</a>
+          <a href="" class="s-radio__btn">For added pleasure</a>
+          <a href="" class="s-radio__btn">For him</a>
+          <a href="" class="s-radio__btn">For solo</a>
+        </div>
+      </div>
+      <div class="s-shop-category__list">
+        <article class="s-card" data-pointer-area="View" data-filter-brand="1" data-filter-colour="brown" data-scroll data-scroll-call="is-in-view">
+          <div class="s-card__inner border-image border-image--small-primary-star">
+            <a href="" class="s-card__link"></a>
+            <div class="s-card__tags">
+              <span class="tag">For the front</span>
+              <span class="tag tag--off">15% off</span>
+            </div>
+            <div class="s-card__img">
+              <img src="images/products/1.jpg" alt="">
+            </div>
+            <div class="s-card__title title-h4">
+              <h3>Fun Factory Limba Flex</h3>
+            </div>
+            <div class="s-card__text">
+              <p>$129.99</p>
+            </div>
+            <a href="" class="s-card__btn">
+              <div class="s-arrow-link">
+                <span>View Details</span>
+                <div class="s-arrow-link__ico">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="32" height="14" viewBox="0 0 32 14">
+                    <g id="Group_11387" data-name="Group 11387" transform="translate(-177 -1807)">
+                      <line id="Line_17" data-name="Line 17" x2="25" transform="translate(177 1814)" fill="none" stroke="#1f454d" stroke-miterlimit="10" stroke-width="1"/>
+                      <path id="Path_1178" data-name="Path 1178" d="M34,0a7,7,0,0,0,7,7,7,7,0,0,0-7,7" transform="translate(168 1807)" fill="none" stroke="#1f454d" stroke-linejoin="bevel" stroke-width="1"/>
+                    </g>
+                  </svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="32" height="14" viewBox="0 0 32 14">
+                    <g id="Group_11387" data-name="Group 11387" transform="translate(-177 -1807)">
+                      <line id="Line_17" data-name="Line 17" x2="25" transform="translate(177 1814)" fill="none" stroke="#1f454d" stroke-miterlimit="10" stroke-width="1"/>
+                      <path id="Path_1178" data-name="Path 1178" d="M34,0a7,7,0,0,0,7,7,7,7,0,0,0-7,7" transform="translate(168 1807)" fill="none" stroke="#1f454d" stroke-linejoin="bevel" stroke-width="1"/>
+                    </g>
+                  </svg>
+                </div>
+              </div>
+            </a>
+          </div>
+        </article>
+        <article class="s-card" data-pointer-area="View" data-filter-brand="1" data-filter-colour="black" data-scroll data-scroll-call="is-in-view">
+          <div class="s-card__inner border-image border-image--small-primary-star">
+            <a href="" class="s-card__link"></a>
+            <div class="s-card__tags">
+              <span class="tag">For the Back</span>
+              <span class="tag tag--off">15% off</span>
+            </div>
+            <div class="s-card__img">
+              <img src="images/products/2.jpg" alt="">
+            </div>
+            <div class="s-card__title title-h4">
+              <h3>Fun Factory Limba Flex</h3>
+            </div>
+            <div class="s-card__text">
+              <p>$129.99</p>
+            </div>
+            <a href="" class="s-card__btn">
+              <div class="s-arrow-link">
+                <span>View Details</span>
+                <div class="s-arrow-link__ico">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="32" height="14" viewBox="0 0 32 14">
+                    <g id="Group_11387" data-name="Group 11387" transform="translate(-177 -1807)">
+                      <line id="Line_17" data-name="Line 17" x2="25" transform="translate(177 1814)" fill="none" stroke="#1f454d" stroke-miterlimit="10" stroke-width="1"/>
+                      <path id="Path_1178" data-name="Path 1178" d="M34,0a7,7,0,0,0,7,7,7,7,0,0,0-7,7" transform="translate(168 1807)" fill="none" stroke="#1f454d" stroke-linejoin="bevel" stroke-width="1"/>
+                    </g>
+                  </svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="32" height="14" viewBox="0 0 32 14">
+                    <g id="Group_11387" data-name="Group 11387" transform="translate(-177 -1807)">
+                      <line id="Line_17" data-name="Line 17" x2="25" transform="translate(177 1814)" fill="none" stroke="#1f454d" stroke-miterlimit="10" stroke-width="1"/>
+                      <path id="Path_1178" data-name="Path 1178" d="M34,0a7,7,0,0,0,7,7,7,7,0,0,0-7,7" transform="translate(168 1807)" fill="none" stroke="#1f454d" stroke-linejoin="bevel" stroke-width="1"/>
+                    </g>
+                  </svg>
+                </div>
+              </div>
+            </a>
+          </div>
+        </article>
+        <article class="s-card" data-pointer-area="View" data-filter-brand="1" data-filter-colour="tan" data-scroll data-scroll-call="is-in-view">
+          <div class="s-card__inner border-image border-image--small-primary-star">
+            <a href="" class="s-card__link"></a>
+            <div class="s-card__tags">
+              <span class="tag">For Solo</span>
+              <span class="tag">For Gifting</span>
+            </div>
+            <div class="s-card__img">
+              <img src="images/products/3.jpg" alt="">
+            </div>
+            <div class="s-card__title title-h4">
+              <h3>Fun Factory Limba Flex</h3>
+            </div>
+            <div class="s-card__text">
+              <p>$129.99</p>
+            </div>
+            <a href="" class="s-card__btn">
+              <div class="s-arrow-link">
+                <span>View Details</span>
+                <div class="s-arrow-link__ico">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="32" height="14" viewBox="0 0 32 14">
+                    <g id="Group_11387" data-name="Group 11387" transform="translate(-177 -1807)">
+                      <line id="Line_17" data-name="Line 17" x2="25" transform="translate(177 1814)" fill="none" stroke="#1f454d" stroke-miterlimit="10" stroke-width="1"/>
+                      <path id="Path_1178" data-name="Path 1178" d="M34,0a7,7,0,0,0,7,7,7,7,0,0,0-7,7" transform="translate(168 1807)" fill="none" stroke="#1f454d" stroke-linejoin="bevel" stroke-width="1"/>
+                    </g>
+                  </svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="32" height="14" viewBox="0 0 32 14">
+                    <g id="Group_11387" data-name="Group 11387" transform="translate(-177 -1807)">
+                      <line id="Line_17" data-name="Line 17" x2="25" transform="translate(177 1814)" fill="none" stroke="#1f454d" stroke-miterlimit="10" stroke-width="1"/>
+                      <path id="Path_1178" data-name="Path 1178" d="M34,0a7,7,0,0,0,7,7,7,7,0,0,0-7,7" transform="translate(168 1807)" fill="none" stroke="#1f454d" stroke-linejoin="bevel" stroke-width="1"/>
+                    </g>
+                  </svg>
+                </div>
+              </div>
+            </a>
+          </div>
+        </article>
+        <article class="s-card" data-pointer-area="View" data-filter-colour="pink" data-scroll data-scroll-call="is-in-view">
+            <div class="s-card__inner border-image border-image--small-primary-star">
+              <a href="" class="s-card__link"></a>
+              <div class="s-card__tags">
+                <span class="tag">For the front</span>
+                <span class="tag tag--off">15% off</span>
+              </div>
+              <div class="s-card__img">
+                <img src="images/products/3.jpg" alt="">
+              </div>
+              <div class="s-card__title title-h4">
+                <h3>Fun Factory Limba Flex</h3>
+              </div>
+              <div class="s-card__text">
+                <p>$129.99</p>
+              </div>
+              <a href="" class="s-card__btn">
+                <div class="s-arrow-link">
+                  <span>View Details</span>
+                  <div class="s-arrow-link__ico">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="14" viewBox="0 0 32 14">
+                      <g id="Group_11387" data-name="Group 11387" transform="translate(-177 -1807)">
+                        <line id="Line_17" data-name="Line 17" x2="25" transform="translate(177 1814)" fill="none" stroke="#1f454d" stroke-miterlimit="10" stroke-width="1"/>
+                        <path id="Path_1178" data-name="Path 1178" d="M34,0a7,7,0,0,0,7,7,7,7,0,0,0-7,7" transform="translate(168 1807)" fill="none" stroke="#1f454d" stroke-linejoin="bevel" stroke-width="1"/>
+                      </g>
+                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="14" viewBox="0 0 32 14">
+                      <g id="Group_11387" data-name="Group 11387" transform="translate(-177 -1807)">
+                        <line id="Line_17" data-name="Line 17" x2="25" transform="translate(177 1814)" fill="none" stroke="#1f454d" stroke-miterlimit="10" stroke-width="1"/>
+                        <path id="Path_1178" data-name="Path 1178" d="M34,0a7,7,0,0,0,7,7,7,7,0,0,0-7,7" transform="translate(168 1807)" fill="none" stroke="#1f454d" stroke-linejoin="bevel" stroke-width="1"/>
+                      </g>
+                    </svg>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </article>
+        <article class="s-card" data-pointer-area="View" data-filter-colour="black" data-scroll data-scroll-call="is-in-view">
+          <div class="s-card__inner border-image border-image--small-primary-star">
+            <a href="" class="s-card__link"></a>
+            <div class="s-card__tags">
+              <span class="tag">For the Back</span>
+              <span class="tag tag--off">15% off</span>
+            </div>
+            <div class="s-card__img">
+              <img src="images/products/2.jpg" alt="">
+            </div>
+            <div class="s-card__title title-h4">
+              <h3>Fun Factory Limba Flex</h3>
+            </div>
+            <div class="s-card__text">
+              <p>$129.99</p>
+            </div>
+            <a href="" class="s-card__btn">
+              <div class="s-arrow-link">
+                <span>View Details</span>
+                <div class="s-arrow-link__ico">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="32" height="14" viewBox="0 0 32 14">
+                    <g id="Group_11387" data-name="Group 11387" transform="translate(-177 -1807)">
+                      <line id="Line_17" data-name="Line 17" x2="25" transform="translate(177 1814)" fill="none" stroke="#1f454d" stroke-miterlimit="10" stroke-width="1"/>
+                      <path id="Path_1178" data-name="Path 1178" d="M34,0a7,7,0,0,0,7,7,7,7,0,0,0-7,7" transform="translate(168 1807)" fill="none" stroke="#1f454d" stroke-linejoin="bevel" stroke-width="1"/>
+                    </g>
+                  </svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="32" height="14" viewBox="0 0 32 14">
+                    <g id="Group_11387" data-name="Group 11387" transform="translate(-177 -1807)">
+                      <line id="Line_17" data-name="Line 17" x2="25" transform="translate(177 1814)" fill="none" stroke="#1f454d" stroke-miterlimit="10" stroke-width="1"/>
+                      <path id="Path_1178" data-name="Path 1178" d="M34,0a7,7,0,0,0,7,7,7,7,0,0,0-7,7" transform="translate(168 1807)" fill="none" stroke="#1f454d" stroke-linejoin="bevel" stroke-width="1"/>
+                    </g>
+                  </svg>
+                </div>
+              </div>
+            </a>
+          </div>
+        </article>
+        <article class="s-card" data-pointer-area="View" data-filter-brand="1" data-filter-colour="tan" data-scroll data-scroll-call="is-in-view">
+          <div class="s-card__inner border-image border-image--small-primary-star">
+            <a href="" class="s-card__link"></a>
+            <div class="s-card__tags">
+              <span class="tag">For Solo</span>
+              <span class="tag">For Gifting</span>
+            </div>
+            <div class="s-card__img">
+              <img src="images/products/3.jpg" alt="">
+            </div>
+            <div class="s-card__title title-h4">
+              <h3>Fun Factory Limba Flex</h3>
+            </div>
+            <div class="s-card__text">
+              <p>$129.99</p>
+            </div>
+            <a href="" class="s-card__btn">
+              <div class="s-arrow-link">
+                <span>View Details</span>
+                <div class="s-arrow-link__ico">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="32" height="14" viewBox="0 0 32 14">
+                    <g id="Group_11387" data-name="Group 11387" transform="translate(-177 -1807)">
+                      <line id="Line_17" data-name="Line 17" x2="25" transform="translate(177 1814)" fill="none" stroke="#1f454d" stroke-miterlimit="10" stroke-width="1"/>
+                      <path id="Path_1178" data-name="Path 1178" d="M34,0a7,7,0,0,0,7,7,7,7,0,0,0-7,7" transform="translate(168 1807)" fill="none" stroke="#1f454d" stroke-linejoin="bevel" stroke-width="1"/>
+                    </g>
+                  </svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="32" height="14" viewBox="0 0 32 14">
+                    <g id="Group_11387" data-name="Group 11387" transform="translate(-177 -1807)">
+                      <line id="Line_17" data-name="Line 17" x2="25" transform="translate(177 1814)" fill="none" stroke="#1f454d" stroke-miterlimit="10" stroke-width="1"/>
+                      <path id="Path_1178" data-name="Path 1178" d="M34,0a7,7,0,0,0,7,7,7,7,0,0,0-7,7" transform="translate(168 1807)" fill="none" stroke="#1f454d" stroke-linejoin="bevel" stroke-width="1"/>
+                    </g>
+                  </svg>
+                </div>
+              </div>
+            </a>
+          </div>
+        </article>
+      </div>
+    </div>
+
+
+    <div class="s-shop-category__pagination">
+      <ul class="outline-buttons">
+        <li class="prev not-active">
+          <a href="" class="s-button s-button--white s-button--round s-arrow-link">
+            <span class="s-arrow-link__ico">
+              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16" height="16" viewBox="0 0 16 16">
+                <defs>
+                  <clipPath id="clip-path">
+                    <rect id="Rectangle_2140" data-name="Rectangle 2140" width="16" height="16" transform="translate(57.934 1235)" fill="#fff" stroke="#707070" stroke-width="1"/>
+                  </clipPath>
+                </defs>
+                <g id="Mask_Group_80" data-name="Mask Group 80" transform="translate(-57.934 -1235)" clip-path="url(#clip-path)">
+                  <path id="Path_1477" data-name="Path 1477" d="M6.5,0a6,6,0,0,1-6,6,6,6,0,0,1,6,6" transform="translate(61.5 1237)" fill="none" stroke="#b36b77" stroke-linejoin="bevel" stroke-width="1.5"/>
+                </g>
+              </svg>
+              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16" height="16" viewBox="0 0 16 16">
+                <defs>
+                  <clipPath id="clip-path">
+                    <rect id="Rectangle_2140" data-name="Rectangle 2140" width="16" height="16" transform="translate(57.934 1235)" fill="#fff" stroke="#707070" stroke-width="1"/>
+                  </clipPath>
+                </defs>
+                <g id="Mask_Group_80" data-name="Mask Group 80" transform="translate(-57.934 -1235)" clip-path="url(#clip-path)">
+                  <path id="Path_1477" data-name="Path 1477" d="M6.5,0a6,6,0,0,1-6,6,6,6,0,0,1,6,6" transform="translate(61.5 1237)" fill="none" stroke="#b36b77" stroke-linejoin="bevel" stroke-width="1.5"/>
+                </g>
+              </svg>
+            </span>
+          </a>
+        </li>
+        <li class="is-active">
+          <a href="" class="s-button s-button--white s-button--round s-arrow-link">
+            <span class="s-arrow-link__ico">
+              <span>1</span>
+              <span>1</span>
+            </span>
+          </a>
+        </li>
+        <li>
+          <a href="" class="s-button s-button--white s-button--round s-arrow-link">
+            <span class="s-arrow-link__ico">
+              <span>2</span>
+              <span>2</span>
+            </span>
+          </a>
+        </li>
+        <li>
+          <a href="" class="s-button s-button--white s-button--round s-arrow-link">
+            <span class="s-arrow-link__ico">
+              <span>3</span>
+              <span>3</span>
+            </span>
+          </a>
+        </li>
+        <li class="next">
+          <a href="" class="s-button s-button--white s-button--round s-arrow-link">
+            <span class="s-arrow-link__ico">
+              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16" height="16" viewBox="0 0 16 16">
+                <defs>
+                  <clipPath id="clip-path">
+                    <rect id="Rectangle_2140" data-name="Rectangle 2140" width="16" height="16" transform="translate(57.934 1235)" fill="#fff" stroke="#707070" stroke-width="1"/>
+                  </clipPath>
+                </defs>
+                <g id="Mask_Group_80" data-name="Mask Group 80" transform="translate(-57.934 -1235)" clip-path="url(#clip-path)">
+                  <path id="Path_1477" data-name="Path 1477" d="M6.5,0a6,6,0,0,1-6,6,6,6,0,0,1,6,6" transform="translate(61.5 1237)" fill="none" stroke="#b36b77" stroke-linejoin="bevel" stroke-width="1.5"/>
+                </g>
+              </svg>
+              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16" height="16" viewBox="0 0 16 16">
+                <defs>
+                  <clipPath id="clip-path">
+                    <rect id="Rectangle_2140" data-name="Rectangle 2140" width="16" height="16" transform="translate(57.934 1235)" fill="#fff" stroke="#707070" stroke-width="1"/>
+                  </clipPath>
+                </defs>
+                <g id="Mask_Group_80" data-name="Mask Group 80" transform="translate(-57.934 -1235)" clip-path="url(#clip-path)">
+                  <path id="Path_1477" data-name="Path 1477" d="M6.5,0a6,6,0,0,1-6,6,6,6,0,0,1,6,6" transform="translate(61.5 1237)" fill="none" stroke="#b36b77" stroke-linejoin="bevel" stroke-width="1.5"/>
+                </g>
+              </svg>
+            </span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+

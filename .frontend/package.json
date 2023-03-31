@@ -1,0 +1,42 @@
+{
+  "name": "start-front",
+  "version": "1.0.2",
+  "author": "trolizmaslom",
+  "license": "ISC",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "gulp",
+    "build": "gulp build"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.26.3",
+    "del": "^4.1.0",
+    "gulp": "^4.0.0",
+    "gulp-autoprefixer": "^6.0.0",
+    "gulp-cached": "^1.1.1",
+    "gulp-clean-css": "^4.0.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-connect-php": "^1.0.3",
+    "gulp-imagemin": "^5.0.3",
+    "gulp-rigger": "^0.5.8",
+    "gulp-sass": "^4.0.2",
+    "gulp-uglify": "^3.0.2",
+    "imagemin-pngquant": "^9.0.2",
+    "node-sass": "^4.11.0"
+  },
+  "main": "gulpfile.js",
+  "dependencies": {
+    "caniuse-lite": "^1.0.30001441",
+    "gsap": "^3.4.2",
+    "gulp-cli": "^2.3.0",
+    "gulp-favicons": "^3.0.0"
+  },
+  "keywords": [],
+  "description": "updated 23.04.2019",
+  "browserslist": [
+    "last 2 version",
+    "> 1%",
+    "maintained node versions",
+    "not dead"
+  ]
+}
