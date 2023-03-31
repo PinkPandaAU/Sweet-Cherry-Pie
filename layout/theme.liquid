@@ -13,7 +13,7 @@
     <link rel="canonical" href="{{ canonical_url }}">
     <meta name="theme-color" content="">
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.6/gsap.min.js"></script>
+    
 
     {% if settings.favicon != blank and settings.favicon contains '.png' %}
         <link rel="shortcut icon" href="{{ settings.favicon | image_url: 'master' }}" type="image/png"/>
@@ -21,20 +21,131 @@
         <link rel="shortcut icon" href="{{ settings.favicon | image_url: 'master' }}" type="image/x-icon"/>
     {% endif %}
 
+
     {{ content_for_header }}
 
     {{ 'theme.css' | asset_url | stylesheet_tag }}
+    {{ 'plugins.css' | asset_url | stylesheet_tag }}
+    {{ 'style.css' | asset_url | stylesheet_tag }}
+
 </head>
 
-<body
-    class="{% if customer %}customer-logged-in {% endif %}template-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }}{% if template.suffix != blank %} template-suffix-{{ template.suffix }}{% endif %}{% if template contains 'customers' %} template-customer-area{% endif %}">
-{% section 'header' %}
+<body class="{% if customer %}customer-logged-in {% endif %}template-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }}{% if template.suffix != blank %} template-suffix-{{ template.suffix }}{% endif %}{% if template contains 'customers' %} template-customer-area{% endif %}">
+    <div class="viewport-height"></div>
+    <div class="float-btn">
+      <a href="" class="s-button s-button--big s-button--primary-light">
+        <span>Shop now</span>
+      </a>
+    </div>
+    <div class="global-wrapper" data-scroll-container>
+    
+        {% section 'header' %}
 
-{{ content_for_layout }}
+        <main class="main">
+            {{ content_for_layout }}
+        </main>
 
-{% section 'footer' %}
+        {% section 'footer' %}
 
-<script src="{{ 'theme.js' | asset_url }}" defer></script>
+
+
+        <div style="display: none">
+            <div class="s-banner-popup" id="sign-up-popup">
+              <div class="s-banner-popup__inner">
+                <div class="s-banner-popup__content">
+                  <form class="s-banner-popup__content-inner border-image border-image--medium-primary-star">
+                    <div class="s-banner-popup__title">
+                      <span>Sign up to receive 10% off your first order!</span>
+                    </div>
+                    <div class="footer__form-input">
+                      <input type="email" name="email" placeholder="Enter your email" required>
+                    </div>
+                    <div class="footer__form-btn">
+                      <button class="s-button s-button--primary-light s-button--big" type="submit">
+                        <span>Subscribe</span>
+                      </button>
+                    </div>
+                  </form>
+                </div>
+                <div class="s-banner-popup__img">
+                  <img src="{{ "s-banner-popup.jpg" | asset_url }}" alt="" role="presentation">
+                </div>
+              </div>
+            </div>
+        </div>
+        <script>
+          let today = new Date();
+          let date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+          let time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+          let dateTime = date + ' ' + time;
+
+          let revision = dateTime;
+          let file = '{{ "sprite.svg" | asset_url }}';
+
+          function setSymbols() {
+              if (!document.createElementNS || !document.createElementNS('http://www.w3.org/2000/svg', 'svg').createSVGRect) return true;
+              var isLocalStorage = 'localStorage' in window && window['localStorage'] !== null,
+                  request,
+                  data,
+                  insertIT = function () {
+                      document.body.insertAdjacentHTML('afterbegin', data);
+                  },
+                  insert = function () {
+                      if (document.body) insertIT();
+                      else document.addEventListener('DOMContentLoaded', insertIT);
+                  };
+              if (isLocalStorage && localStorage.getItem('inlineSVGrev') == revision) {
+                  data = localStorage.getItem('inlineSVGdata');
+                  if (data) {
+                      insert();
+                      return true;
+                  }
+              }
+              try {
+                  request = new XMLHttpRequest();
+                  request.open('GET', file, true);
+                  request.onload = function () {
+                      if (request.status >= 200 && request.status < 400) {
+                          data = request.responseText;
+                          insert();
+                          if (isLocalStorage) {
+                              localStorage.setItem('inlineSVGdata', data);
+                              localStorage.setItem('inlineSVGrev', revision);
+                          }
+
+                      }
+                  }
+                  request.send();
+              } catch (e) {
+              }
+          }
+
+          setSymbols()
+
+          let TEMPLATE_PATH = 'https://bloombar.blackbook.dev/'
+        </script>
+
+        <div class="pointer-cursor" id="cursor">
+        <div class="pointer-cursor__label">
+          Scroll
+        </div>
+        </div>
+
+        <!-- Theme Script -->
+        <script src="{{ 'plugins.js' | asset_url }}" defer></script>
+        <script src="{{ 'base.js' | asset_url }}" type="module"></script>
+
+
+        <svg class="s-card__mask" width="0" height="0">
+        <defs>
+          <clipPath id="s-card-mask" clipPathUnits="objectBoundingBox" transform="scale(0.001633986928105, 0.00137741046832)">
+            <path d="M306,0c169,0,306,137,306,306v420H0V306C0,137,137,0,306,0Z"/>
+          </clipPath>
+        </defs>
+        </svg>
+
+    </div><!-- end global-wrapper  -->
+
 </body>
 </html>
   

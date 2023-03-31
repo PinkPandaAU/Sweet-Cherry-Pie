@@ -1,0 +1,56 @@
+<section class="s-instagram" data-scroll-section style="border-bottom: 1px solid;">
+  {% if section.settings.title != blank %}
+    <div class="section-heading section-heading--centered">
+      <div class="title-h2 title-animation" data-scroll data-scroll-call="title-visible">
+        <h2>{{ section.settings.title }}</h2>
+      </div>
+    </div>
+    {% endif %}
+    {% if section.blocks.size > 0 %}
+    <div class="s-instagram__container">
+      {% for block in section.blocks %}
+      <div class="s-instagram__img">
+        <img src="{{ block.settings.image | img_url:'' }}" alt="{{ block.settings.image.alt | escape }}">
+      </div>
+      {% endfor %}
+    </div>
+      {% endif %}
+  </section>
+  
+{% schema %}
+{
+  "name": "Instagram",
+  "tag": "div",
+  "settings": [
+       {
+          "type": "text",
+          "id": "title",
+          "label": "Heading"
+        }
+  ],
+  "blocks": [
+        {
+          "type": "text",
+          "name": "Add Feed",
+          "limit": 15,
+          "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Upload Image"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Instagram",
+      "blocks": [
+        {
+          "type": "text"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

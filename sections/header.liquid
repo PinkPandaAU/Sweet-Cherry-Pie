@@ -13,22 +13,37 @@
   <div class="container">
     <div class="header__container">
       <div class="header__block">
-        <nav class="header__nav mobile-hide">
-          <ul>
-            <li><a href=""><span class="s-link" data-text="Shop"><span>Shop</span></span></a></li>
-            <li><a href=""><span class="s-link" data-text="Quiz"><span>Quiz</span></span></a></li>
-            <li><a href=""><span class="s-link" data-text="Blog"><span>Blog</span></span></a></li>
-            <li><a href=""><span class="s-link" data-text="About"><span>About</span></span></a></li>
-            <li><a href=""><span class="s-link" data-text="Contact"><span>Contact</span></span></a></li>
-          </ul>
-        </nav>
+
+        {% if section.settings.menu != blank %}
+          <nav class="header__nav mobile-hide">
+            <ul>
+              {% for link in section.settings.menu.links %}
+                {% if link.links != blank %}
+                <!--<li class="has-child">
+                  <a href="{{ link.url }}"><span class="s-link" data-text="{{ link.title }}"><span>{{ link.title }}</span></span></a>
+                  <div class="header__menu">
+                    <ul class="header__menu-links">
+                   {% for childlink in link.links %}
+                      <li><a href="{{ childlink.url }}">{{ childlink.title }}</a></li>
+                     {% endfor %}
+                    </ul>
+                  </div>
+                </li>-->
+                {% else %}
+                  <li><a href="{{ link.url }}"><span class="s-link" data-text="{{ link.title }}"><span>{{ link.title }}</span></span></a></li>
+                {% endif %}
+              {% endfor %}
+            </ul>
+          </nav>
+        {% endif %}
+
         <div class="header__burger">
-          <img src="images/ico-burger-open.svg" class="header__burger-open" alt="menu">
-          <img src="images/ico-burger-close.svg" class="header__burger-close" alt="close">
+          <img src="{{ "ico-burger-open.svg" | asset_url }}" class="header__burger-open" alt="menu">
+          <img src="{{ "ico-burger-close.svg" | asset_url }}" class="header__burger-close" alt="close">
         </div>
       </div>
       <a href="index.html" class="header__logo">
-        <img src="images/logo.svg" alt="Sweat Cherry Pie">
+        <img src="{{ "logo.svg" | asset_url }}" alt="Sweet Cherry Pie Logo">
       </a>
       <div class="header__block">
         <div class="header__btns">
@@ -141,6 +156,32 @@
     </div>
   </div>
 </header>
+
+
+<div class="float-btn">
+  <a href="" class="s-button s-arrow-link">
+    <span>Shop now</span>
+    <div class="s-arrow-link__ico">
+      <svg viewBox="0 0 18.726 10.009">
+        <g transform="translate(-372.307 -637.821)">
+          <g transform="translate(367.675 654.976) rotate(-90)">
+            <path d="M16.8,18l-4.651,4.651L7.5,18" transform="translate(0)" fill="none" stroke="#fff" stroke-width="1"></path>
+          </g>
+          <path d="M-13643.693,642.825h17.615" transform="translate(14016)" fill="none" stroke="#fff" stroke-width="1"></path>
+        </g>
+      </svg>
+      <svg viewBox="0 0 18.726 10.009">
+        <g transform="translate(-372.307 -637.821)">
+          <g transform="translate(367.675 654.976) rotate(-90)">
+            <path d="M16.8,18l-4.651,4.651L7.5,18" transform="translate(0)" fill="none" stroke="#fff" stroke-width="1"></path>
+          </g>
+          <path d="M-13643.693,642.825h17.615" transform="translate(14016)" fill="none" stroke="#fff" stroke-width="1"></path>
+        </g>
+      </svg>
+    </div>
+  </a>
+</div>
+
 
   {% schema %}
 {

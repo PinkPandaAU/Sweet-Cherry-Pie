@@ -213,7 +213,7 @@
     background-size: cover;
     color: var(--color-primary-light);
     &.header-menu {
-      background-image: url("../images/s-header_menu-bg.svg");
+      background-image: url("{{ 's-header_menu-bg.svg' | asset_url }}");
     }
     &.is-open{
       opacity: 1;
