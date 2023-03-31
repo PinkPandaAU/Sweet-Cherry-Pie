@@ -1,55 +1,67 @@
-<section class="s-instagram" data-scroll-section style="border-bottom: 1px solid;">
-  {% if section.settings.title != blank %}
-    <div class="section-heading section-heading--centered">
-      <div class="title-h2 title-animation" data-scroll data-scroll-call="title-visible">
-        <h2>{{ section.settings.title }}</h2>
+<div class="s-promo-main" data-scroll-section>
+  <div class="section-container">
+    <div class="section-container__block s-promo-main__content">
+      <div class="s-promo-main__content-inner">
+        <div class="s-promo-main__title title-epic title-animation" data-scroll data-scroll-call="title-visible">
+          {% if section.settings.title != blank %}
+            <h1>{{ section.settings.title }}</h1>
+          {% endif %}
+        </div>
+        <div class="s-promo-main__text section-text text-animation" data-scroll data-scroll-call="text-visible">
+          {{ section.settings.body }}
+        </div>
+        {% if section.settings.button_text != blank and section.settings.url != blank %}
+          <div class="s-promo-main__btn text-animation" data-scroll data-scroll-call="text-visible">
+            <a href="{{ section.settings.url }}" class="s-button">
+              <span>{{ section.settings.button_text }}</span>
+            </a>
+          </div>
+        {% endif %}
       </div>
     </div>
-    {% endif %}
-    {% if section.blocks.size > 0 %}
-    <div class="s-instagram__container">
-      {% for block in section.blocks %}
-      <div class="s-instagram__img">
-        <img src="{{ block.settings.image | img_url:'' }}" alt="{{ block.settings.image.alt | escape }}">
+    <div class="section-container__block s-promo-main__img" >
+      <div class="s-promo-main__img-inner section-img" data-scroll data-scroll-call="is-in-view">
+        <div class="s-promo-main__img-border border-image border-image--medium-white-star"></div>
+        <img src="{{ section.settings.image | img_url: '' }}" alt="" data-scroll-zoom="0.07">
       </div>
-      {% endfor %}
     </div>
-      {% endif %}
-  </section>
+  </div>
+</div>
   
 {% schema %}
 {
-  "name": "Instagram",
+  "name": "Hero",
   "tag": "div",
   "settings": [
-       {
-          "type": "text",
-          "id": "title",
-          "label": "Heading"
-        }
-  ],
-  "blocks": [
-        {
-          "type": "text",
-          "name": "Add Feed",
-          "limit": 15,
-          "settings": [
-        {
-          "type": "image_picker",
-          "id": "image",
-          "label": "Upload Image"
-        }
-      ]
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading"
+    },
+    {
+      "type": "richtext",
+      "id": "body",
+      "label": "Body"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text"
+    },
+    {
+      "type": "url",
+      "id": "url",
+      "label": "Button URL"
     }
   ],
   "presets": [
     {
-      "name": "Instagram",
-      "blocks": [
-        {
-          "type": "text"
-        }
-      ]
+      "name": "Hero"
     }
   ]
 }

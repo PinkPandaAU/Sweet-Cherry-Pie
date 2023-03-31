@@ -1,5 +1,5 @@
 @mixin font-face($style-name, $file:$style-name, $weight:normal, $style:normal) {
-  $filepath: "../fonts/" + $file;
+  $filepath: "../assets/" + $file;
   @font-face {
     font-family: quote($style-name);
     src: url($filepath + '.woff') format('woff'),

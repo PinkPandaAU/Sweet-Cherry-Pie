@@ -1,0 +1,68 @@
+<section class="s-banner" data-scroll-section>
+  <div class="s-banner__bg">
+    <img src="{{ section.settings.image | img_url: '' }}" alt="" role="presentation" data-scroll-zoom="0.07">
+  </div>
+  <div class="container">
+    <div class="s-banner__content">
+
+      {% if section.settings.subheading != blank %}
+        <div class="subtitle">
+          <span>{{ section.settings.subheading }}</span>
+        </div>
+      {% endif %}
+
+      {% if section.settings.heading != blank %}
+        <div class="title-h1 title-animation" data-scroll data-scroll-call="title-visible">
+          <h2>{{ section.settings.heading }}</h2>
+        </div>
+      {% endif %}
+
+      {% if section.settings.button_text != blank and section.settings.url != blank %}
+          <a href="{{ section.settings.url }}" class="s-button s-button--transparent s-button--white s-button--big">
+            <span>{{ section.settings.button_text }}</span>
+          </a>
+      {% endif %}
+
+    </div>
+  </div>
+</section>
+
+
+{% schema %}
+{
+  "name": "Large CTA",
+  "tag": "div",
+  "settings": [
+  {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subeading"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text"
+    },
+    {
+      "type": "url",
+      "id": "url",
+      "label": "Button URL"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Large CTA"
+    }
+  ]
+}
+{% endschema %}

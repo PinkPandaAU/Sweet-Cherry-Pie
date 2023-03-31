@@ -1,0 +1,77 @@
+<section class="s-recent" data-scroll-section>
+
+  <div class="container">
+    <div class="swiper-head">
+
+      {% if section.settings.title != blank %}
+        <div class="swiper-head__title title-h2 title-animation" data-scroll data-scroll-call="title-visible">
+          <h2>{{ section.settings.title }}</h2>
+        </div>
+      {% endif %}
+
+      <div class="swiper-arrows">
+        <button class="swiper-arrows-prev">
+          <span class="s-button s-button--round s-arrow-link">
+            <span class="s-arrow-link__ico">
+              <img src="{{ 'ico-swiper-arrow.svg' | asset_url }}" alt="<">
+                <img src="{{ 'ico-swiper-arrow.svg' | asset_url }}" alt="" role="presentation">
+            </span>
+          </span>
+        </button>
+        <button class="swiper-arrows-next">
+          <span class="s-button s-button--round s-arrow-link">
+            <span class="s-arrow-link__ico">
+              <img src="{{ 'ico-swiper-arrow.svg' | asset_url }}" alt=">">
+              <img src="{{ 'ico-swiper-arrow.svg' | asset_url }}" alt="" role="presentation">
+            </span>
+          </span>
+        </button>
+      </div>
+    </div>
+
+    <div class="s-recent__slider swiper" data-pointer-area="DRAG">
+      <div class="swiper-wrapper">
+        {% for article in blogs.news.articles %} 
+          {% render 'article-blog', article: article %}
+        {%- endfor -%}
+      </div>
+    </div>
+
+    {% if section.settings.button_text != blank and section.settings.url != blank %}
+      <div class="s-recent__btn">
+        <a href="{{ section.settings.url }}" class="s-button s-button--transparent">
+          <span>{{ section.settings.button_text }}</span>
+        </a>
+      </div>
+    {% endif %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Recent articles",
+  "tag": "div",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text"
+    },
+    {
+      "type": "url",
+      "id": "url",
+      "label": "Button URL"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Recent articles"
+    }
+  ]
+}
+{% endschema %}

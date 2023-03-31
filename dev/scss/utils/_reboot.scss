@@ -245,11 +245,11 @@ a {
         transition: opacity var(--main-transition);
       }
       &::before{
-        background-image: url("../images/ico-radio-unchecked.svg");
+        background-image: url("../assets/ico-radio-unchecked.svg");
       }
       &::after{
         opacity: 0;
-        background-image: url("../images/ico-radio-checked.svg");
+        background-image: url("../assets/ico-radio-checked.svg");
       }
     }
 
@@ -515,7 +515,7 @@ a {
           top: rem(6);
           width: rem(10);
           height: rem(10);
-          background-image: url("../images/ico-star-black.svg");
+          background-image: url("../assets/ico-star-black.svg");
           background-size: contain;
           background-repeat: no-repeat;
           background-position: center;
@@ -894,7 +894,7 @@ a {
   text-align: center;
   width: rem(140);
   height: rem(94);
-  background-image: url("../images/Cursor-Shape.svg");
+  background-image: url("../assets/Cursor-Shape.svg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
@@ -1150,7 +1150,7 @@ a {
       top: 50%;
       transform: translateY(-50%);
       left: rem(9);
-      background-image: url("../images/ico-star-black.svg");
+      background-image: url("../assets/ico-star-black.svg");
       background-position: center;
       background-size: contain;
       background-repeat: no-repeat;
@@ -2099,7 +2099,7 @@ a {
     right: rem(26);
     height: rem(32);
     width: rem(32);
-    background-image: url("../images/popup-close_white.svg");
+    background-image: url("../assets/popup-close_white.svg");
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
@@ -2220,63 +2220,63 @@ a {
   &--small-primary{
     border-image-slice: 22 22 22 22;
     border-image-width: 20px 20px 20px 20px;
-    border-image-source: url("../images/borders/border-small-primary.svg");
+    border-image-source: url("../assets/border-small-primary.svg");
   }
   &--small-primary-star{
     border-image-slice: 22 22 22 22;
     border-image-width: 20px 20px 20px 20px;
-    border-image-source: url("../images/borders/border-small-primary-star.svg");
+    border-image-source: url("../assets/border-small-primary-star.svg");
   }
   &--medium-primary{
     border-image-slice: 34 34 34 34;
     border-image-width: 31px 31px 31px 31px;
-    border-image-source: url("../images/borders/border-medium-primary.svg");
+    border-image-source: url("../assets/border-medium-primary.svg");
   }
   &--medium-primary-star{
     border-image-slice: 34 34 34 34;
     border-image-width: 31px 31px 31px 31px;
-    border-image-source: url("../images/borders/border-medium-primary-star.svg");
+    border-image-source: url("../assets/border-medium-primary-star.svg");
   }
   &--large-primary{
     border-image-slice: 43 43 43 43;
     border-image-width: 39px 39px 39px 39px;
-    border-image-source: url("../images/borders/border-large-primary.svg");
+    border-image-source: url("../assets/border-large-primary.svg");
   }
   &--large-primary-star{
     border-image-slice: 43 43 43 43;
     border-image-width: 39px 39px 39px 39px;
-    border-image-source: url("../images/borders/border-large-primary-star.svg");
+    border-image-source: url("../assets/border-large-primary-star.svg");
   }
 
   &--small-white{
     border-image-slice: 22 22 22 22;
     border-image-width: 20px 20px 20px 20px;
-    border-image-source: url("../images/borders/border-small-white.svg");
+    border-image-source: url("../assets/border-small-white.svg");
   }
   &--small-white-star{
     border-image-slice: 22 22 22 22;
     border-image-width: 20px 20px 20px 20px;
-    border-image-source: url("../images/borders/border-small-white-star.svg");
+    border-image-source: url("../assets/border-small-white-star.svg");
   }
   &--medium-white{
     border-image-slice: 34 34 34 34;
     border-image-width: 31px 31px 31px 31px;
-    border-image-source: url("../images/borders/border-medium-white.svg");
+    border-image-source: url("../assets/border-medium-white.svg");
   }
   &--medium-white-star{
     border-image-slice: 34 34 34 34;
     border-image-width: 31px 31px 31px 31px;
-    border-image-source: url("../images/borders/border-medium-white-star.svg");
+    border-image-source: url("../assets/border-medium-white-star.svg");
   }
   &--large-white{
     border-image-slice: 43 43 43 43;
     border-image-width: 39px 39px 39px 39px;
-    border-image-source: url("../images/borders/border-large-white.svg");
+    border-image-source: url("../assets/border-large-white.svg");
   }
   &--large-white-star{
     border-image-slice: 43 43 43 43;
     border-image-width: 39px 39px 39px 39px;
-    border-image-source: url("../images/borders/border-large-white-star.svg");
+    border-image-source: url("../assets/border-large-white-star.svg");
   }
 
   @media (max-width: 768px) {
@@ -2285,7 +2285,7 @@ a {
     &--large-primary{
       border-image-slice: 22 22 22 22;
       border-image-width: 20px 20px 20px 20px;
-      border-image-source: url("../images/borders/border-small-primary.svg");
+      border-image-source: url("../assets/border-small-primary.svg");
     }
 
     &--medium-primary-star,
@@ -2293,7 +2293,7 @@ a {
     &--large-primary-star{
       border-image-slice: 22 22 22 22;
       border-image-width: 20px 20px 20px 20px;
-      border-image-source: url("../images/borders/border-small-primary-star.svg");
+      border-image-source: url("../assets/border-small-primary-star.svg");
     }
 
     &--small-white,
@@ -2301,14 +2301,14 @@ a {
     &--large-white{
       border-image-slice: 22 22 22 22;
       border-image-width: 20px 20px 20px 20px;
-      border-image-source: url("../images/borders/border-small-white.svg");
+      border-image-source: url("../assets/border-small-white.svg");
     }
     &--small-white-star,
     &--medium-white-star,
     &--large-white-star{
       border-image-slice: 22 22 22 22;
       border-image-width: 20px 20px 20px 20px;
-      border-image-source: url("../images/borders/border-small-white-star.svg");
+      border-image-source: url("../assets/border-small-white-star.svg");
     }
   }
 }

@@ -2,7 +2,7 @@
 
 .s-contacts{
   background-color: var(--color-black);
-  background-image: url("../images/s-contacts_bg.svg");
+  background-image: url("../assets/s-contacts_bg.svg");
   background-repeat: no-repeat;
   background-size: cover;
   padding: rem(94) 0 rem(35);
@@ -40,7 +40,7 @@
 
   @media (max-width: 768px) {
     padding: 30px 0 40px;
-    background-image: url("../images/s-header_menu-bg.svg");
+    background-image: url("../assets/s-header_menu-bg.svg");
 
     &__form {
       margin: 50px auto 0;

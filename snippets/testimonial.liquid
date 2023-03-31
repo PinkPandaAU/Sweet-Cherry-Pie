@@ -1,0 +1,11 @@
+<div class="swiper-slide">
+  <div class="s-testimonials__quote">
+    <img src="{{ 'ico-quote.svg' | asset_url }}" alt="" role="presentation">
+  </div>
+  <div class="s-testimonials__text section-text text-animation" data-scroll data-scroll-call="text-visible">
+    {{ testimonial.testimonial }}
+  </div>
+  <div class="s-testimonials__cite title-h4">
+    <cite>{{ testimonial.name }}</cite>
+  </div>
+</div>

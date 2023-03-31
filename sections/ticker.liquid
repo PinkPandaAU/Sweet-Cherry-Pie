@@ -1,0 +1,56 @@
+{% if section.settings.title != blank %}
+<div class="s-ticker" data-scroll-section>
+  <div class="marquee">
+    <div class="marquee_offset">
+      <div class="marquee_content">
+        <div class="marquee_unit">
+          <p>{{ section.settings.title }}</p>
+          <a href="{{ section.settings.url }}" class="s-ticker__badge">
+            <div class="s-ticker__badge-rotate">
+              <img src="{{ section.settings.badge_text | img_url: '' }}" alt="Shop now">
+            </div>
+            <div class="s-ticker__badge-img">
+              <img src="{{ section.settings.badge | img_url: '' }}" alt="" role="presentation">
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endif %}
+
+
+{% schema %}
+{
+  "name": "Ticker",
+  "tag": "div",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading"
+    },
+    {
+      "type": "image_picker",
+      "id": "badge",
+      "label": "Badge (Inner)"
+    },
+    {
+      "type": "image_picker",
+      "id": "badge_text",
+      "label": "Badge (Text)"
+    },
+    {
+      "type": "url",
+      "id": "url",
+      "label": "Badge URL"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Ticker"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,108 @@
+{% assign supportive_body = section.settings.collection_body %}
+
+<section class="s-occasion" data-scroll-section>
+  <div class="section-container">
+    <div class="section-container__block s-occasion__content">
+      <div class="s-occasion__container border-image border-image--large-primary">
+        <div class="subtitle">
+          {% if section.settings.title != blank %}
+            <h2>{{ section.settings.title }}</h2>
+          {% endif %}
+        </div>
+
+        {% if section.blocks.size > 0 %}
+          <ul class="s-occasion__list">
+            {% for block in section.blocks %}
+              {% if forloop.first %}
+              {% assign get_url = block.settings.collection_collection['url'] %}
+              {% endif %}
+              <li data-scroll data-scroll-call="is-in-view"><a href="{{ block.settings.collection_collection['url'] }}" data-hover="{{ forloop.index }}"><span>{{ block.settings.collection_title }}</span></a></li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+        
+        {% if supportive_body != true %}
+        <div class="s-occasion__text section-text text-animation" data-scroll data-scroll-call="text-visible">
+          {{ supportive_body }}
+        </div>
+        {% endif %}
+        
+      </div>
+    </div>
+    {% if section.blocks.size > 0 %}
+      <div class="section-container__block s-occasion__img">
+        <a href="{{ get_url }}" class="section-img" data-scroll data-scroll-call="is-in-view">
+          <!--<img src="images/s-occasion_img.jpg" data-hover-img="1" alt="" data-scroll="" data-scroll-speed="-0.5">
+          <img src="images/photos/photo1.jpg" data-hover-img="2" alt="" data-scroll="" data-scroll-speed="-0.5">
+          <img src="images/photos/photo2.jpg" data-hover-img="3" alt="" data-scroll="" data-scroll-speed="-0.5">
+          <img src="images/photos/photo5.jpg" data-hover-img="4" alt="" data-scroll="" data-scroll-speed="-0.5">
+          <img src="images/s-occasion_img.jpg" data-hover-img="5" alt="" data-scroll="" data-scroll-speed="-0.5">
+          <img src="images/photos/photo6.jpg" data-hover-img="6" alt="" data-scroll="" data-scroll-speed="-0.5">-->
+
+          {% for block in section.blocks %}
+          {% if block.settings.collection_image %}
+          <img src="{{ block.settings.collection_image | img_url:'1080x1080'}}" data-hover-img="{{ forloop.index }}" alt="{{ block.settings.collection_image.alt | escape }}" data-scroll="" data-scroll-speed="-0.5">
+          {% else %}
+           <img src="{{ block.settings.collection_collection['featured_image'] | img_url:'1080x1080' }}" data-hover-img="{{ forloop.index }}" alt="{{ block.settings.collection_image.alt | escape }}" data-scroll="" data-scroll-speed="-0.5">
+          {% endif %}
+          {% endfor %}
+
+        </a>
+      </div>
+    {% endif %}
+  </div>
+</section>
+
+
+{% schema %}
+{
+  "name": "Featured Collections",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section Heading"
+    },
+    {
+      "type": "richtext",
+      "id": "collection_body",
+      "label": "Body (General)"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "Collection",
+      "name": "Add Collection",
+      "limit": 8,
+      "settings": [
+        {
+          "type": "text",
+          "id": "collection_title",
+          "label": "Collection Title"
+        },
+        {
+          "type": "collection",
+          "id": "collection_collection",
+          "label": "Collection"
+        },
+        {
+          "type": "image_picker",
+          "id": "collection_image",
+          "label": "Collection Image"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Featured Collections",
+      "blocks": [
+        {
+          "type": "Collection"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
