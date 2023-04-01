@@ -14,10 +14,21 @@
         "button_text": "Take the quiz",
         "url": "#"
       }
+    },
+    "25bbcf56-0b6a-4596-9b92-676db94cdc7b": {
+      "type": "featured-products",
+      "settings": {
+        "heading": "Featured toys",
+        "collection": "featured",
+        "columns_desktop": 8,
+        "button_text": "Shop all",
+        "url": "shopify:\/\/collections\/all"
+      }
     }
   },
   "order": [
     "main",
-    "7f1eabff-77fb-4016-9eaf-97a6fdc46601"
+    "7f1eabff-77fb-4016-9eaf-97a6fdc46601",
+    "25bbcf56-0b6a-4596-9b92-676db94cdc7b"
   ]
 }
