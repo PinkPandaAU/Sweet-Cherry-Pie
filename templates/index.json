@@ -89,6 +89,14 @@
         "image_5": "shopify:\/\/shop_images\/photo5.jpg",
         "image_6": "shopify:\/\/shop_images\/photo6.jpg"
       }
+    },
+    "57cab785-72aa-40a2-865a-8c68fb468bed": {
+      "type": "recent-articles",
+      "settings": {
+        "title": "Recent articles",
+        "button_text": "View all",
+        "url": "shopify:\/\/blogs\/news"
+      }
     }
   },
   "order": [
@@ -98,6 +106,7 @@
     "ca2cb366-b038-4fcc-9fda-2f5cb6d46919",
     "141921e2-2b3f-45e0-8708-bbc781e4267b",
     "346baddf-ead8-4ca5-8c53-db601b529151",
-    "670b66fd-431a-430a-b106-1e49e34d417a"
+    "670b66fd-431a-430a-b106-1e49e34d417a",
+    "57cab785-72aa-40a2-865a-8c68fb468bed"
   ]
 }
