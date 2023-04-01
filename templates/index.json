@@ -113,6 +113,16 @@
         "button_text": "View all",
         "url": "shopify:\/\/blogs\/news"
       }
+    },
+    "f80fb658-ad8f-45e6-8743-4b65ccfd8f4f": {
+      "type": "large-cta",
+      "settings": {
+        "subheading": "TAKE THE QUIZ",
+        "heading": "Not sure? Take the quiz and we can help you explore!",
+        "image": "shopify:\/\/shop_images\/s-banner.jpg",
+        "button_text": "Take the quiz",
+        "url": "#"
+      }
     }
   },
   "order": [
@@ -123,6 +133,7 @@
     "141921e2-2b3f-45e0-8708-bbc781e4267b",
     "346baddf-ead8-4ca5-8c53-db601b529151",
     "670b66fd-431a-430a-b106-1e49e34d417a",
-    "57cab785-72aa-40a2-865a-8c68fb468bed"
+    "57cab785-72aa-40a2-865a-8c68fb468bed",
+    "f80fb658-ad8f-45e6-8743-4b65ccfd8f4f"
   ]
 }
