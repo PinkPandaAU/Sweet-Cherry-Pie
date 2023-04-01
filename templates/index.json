@@ -24,11 +24,21 @@
         "button_text": "Shop all",
         "url": "shopify:\/\/collections\/all"
       }
+    },
+    "ca2cb366-b038-4fcc-9fda-2f5cb6d46919": {
+      "type": "ticker",
+      "settings": {
+        "title": "I am <i>woman<\/i>, Hear me moan",
+        "badge": "shopify:\/\/shop_images\/s-ticker_img.svg",
+        "badge_text": "shopify:\/\/shop_images\/s-ticker_rotate.png",
+        "url": "shopify:\/\/collections\/all"
+      }
     }
   },
   "order": [
     "main",
     "7f1eabff-77fb-4016-9eaf-97a6fdc46601",
-    "25bbcf56-0b6a-4596-9b92-676db94cdc7b"
+    "25bbcf56-0b6a-4596-9b92-676db94cdc7b",
+    "ca2cb366-b038-4fcc-9fda-2f5cb6d46919"
   ]
 }
