@@ -46,33 +46,8 @@
         </main>
 
         {% section 'footer' %}
+        {% section 'popup' %}
 
-
-
-        <div style="display: none">
-            <div class="s-banner-popup" id="sign-up-popup">
-              <div class="s-banner-popup__inner">
-                <div class="s-banner-popup__content">
-                  <form class="s-banner-popup__content-inner border-image border-image--medium-primary-star">
-                    <div class="s-banner-popup__title">
-                      <span>Sign up to receive 10% off your first order!</span>
-                    </div>
-                    <div class="footer__form-input">
-                      <input type="email" name="email" placeholder="Enter your email" required>
-                    </div>
-                    <div class="footer__form-btn">
-                      <button class="s-button s-button--primary-light s-button--big" type="submit">
-                        <span>Subscribe</span>
-                      </button>
-                    </div>
-                  </form>
-                </div>
-                <div class="s-banner-popup__img">
-                  <img src="{{ "s-banner-popup.jpg" | asset_url }}" alt="" role="presentation">
-                </div>
-              </div>
-            </div>
-        </div>
         <script>
           let today = new Date();
           let date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();

@@ -1,10 +1,42 @@
 [
   {
     "name": "theme_info",
-    "theme_name": "Theme Name",
+    "theme_name": "Sweet Cherry Pie",
     "theme_version": "1.0.0",
-    "theme_author": "Jase Warner",
-    "theme_documentation_url": "https:\/\/THEME_DOCUMENTATION_URL.com\/",
-    "theme_support_url": "https:\/\/THEME_SUPPORT_URL.com\/"
+    "theme_author": "Pink Panda Australia",
+    "theme_documentation_url": "https:\/\/pinkpanda.com.au\/",
+    "theme_support_url": "https:\/\/pinkpanda.com.au\/"
+  },
+  {
+  "name": "Popup Settings",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "display_popup",
+        "label": "Display Popup",
+        "default": true
+      },
+      {
+        "type": "image_picker",
+        "id": "popup_image",
+        "label": "Popup Image"
+      },
+      {
+        "type": "textarea",
+        "id": "popup_message",
+        "label": "Popup Message",
+        "default": "Sign up to receive 10% off your first order!"
+      },
+      {
+        "type": "range",
+        "id": "show_popup_after",
+        "label": "Show Popup After",
+        "min": 5,
+        "max": 60,
+        "step": 1,
+        "default": 5,
+        "unit": "sec"
+      }
+    ]
   }
 ]
