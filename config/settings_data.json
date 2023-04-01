@@ -3,6 +3,17 @@
     "popup_image": "shopify:\/\/shop_images\/s-banner.jpg",
     "popup_message": "Sign up to receive 5% off your first order!",
     "show_popup_after": 12,
+    "facebook": "https:\/\/facebook.com",
+    "instagram": "https:\/\/facebook.com",
+    "instagram_handle": "@sweet.cherry.pie",
+    "twitter": "https:\/\/facebook.com",
+    "feed_tickertape": "CELEBRATE VALENTINES DAY 10% OFF STOREWIDE",
+    "feed_description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat.",
+    "feed_image_1": "shopify:\/\/shop_images\/photo9.jpg",
+    "feed_image_2": "shopify:\/\/shop_images\/photo10.jpg",
+    "feed_image_3": "shopify:\/\/shop_images\/photo11.jpg",
+    "feed_image_4": "shopify:\/\/shop_images\/photo12.jpg",
+    "feed_image_5": "shopify:\/\/shop_images\/photo13.jpg",
     "sections": {
       "header": {
         "type": "header",
