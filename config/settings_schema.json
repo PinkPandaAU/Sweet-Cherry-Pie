@@ -101,6 +101,11 @@
         "type": "image_picker",
         "id": "feed_image_5",
         "label": "Image 5"
+      },
+      {
+        "type": "image_picker",
+        "id": "feed_image_6",
+        "label": "Image 6"
       }
     ]
   }
