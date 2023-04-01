@@ -10,16 +10,26 @@
           "menu": "main-menu",
           "mobmenu": "",
           "enable_announcement": true,
-          "text": "Celebrate valentines day 10% off storewide"
+          "announcement_text": "Welcome to our store"
         }
       },
       "footer": {
         "type": "footer",
         "settings": {
+          "shop_url": "shopify:\/\/collections\/all",
+          "footer_menu_1": "",
+          "footer_menu_2": "",
+          "footer_menu_3": "",
+          "footer_text": "Sign up to receive 10% off your first order!"
         }
       },
       "popup": {
         "type": "popup",
+        "settings": {
+        }
+      },
+      "instagram": {
+        "type": "instagram",
         "settings": {
         }
       }
