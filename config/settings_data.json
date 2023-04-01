@@ -9,8 +9,8 @@
         "settings": {
           "menu": "main-menu",
           "mobmenu": "",
-          "enable_announcement": false,
-          "text": "Welcome to our store"
+          "enable_announcement": true,
+          "text": "Celebrate valentines day 10% off storewide"
         }
       },
       "footer": {
