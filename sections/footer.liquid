@@ -2,9 +2,12 @@
   <div class="container container--small">
     <div class="footer__container">
       <form class="footer__form">
-        <div class="footer__form-title title-h2">
-          <h2>Sign up to receive 10% off your first order!</h2>
-        </div>
+        {% if section.settings.footer_text != blank%}
+          <div class="footer__form-title title-h2">
+            <h2>Sign up to receive 10% off your first order!</h2>
+            <h2>{{ section.settings.footer_text }}</h2>
+          </div>
+        {% endif %}
         <div class="footer__form-input">
           <input type="email" name="email" placeholder="Enter your email" required>
         </div>
@@ -116,3 +119,36 @@
     </div>
   </div>
 </footer>
+
+{% schema %}
+{
+  "name": "Footer",
+  "settings": [
+    {
+      "type": "url",
+      "id": "shop_url",
+      "label": "Shop URL"
+    },
+    {
+      "type": "link_list",
+      "id": "footer_menu_1",
+      "label": "Footer Menu 1"
+    },
+    {
+      "type": "link_list",
+      "id": "footer_menu_2",
+      "label": "Footer Menu 2"
+    },
+    {
+      "type": "link_list",
+      "id": "footer_menu_3",
+      "label": "Footer Menu 3"
+    },
+    {
+      "type": "textarea",
+      "id": "footer_text",
+      "label": "Footer CTA"
+    }
+  ]
+}
+{% endschema %}

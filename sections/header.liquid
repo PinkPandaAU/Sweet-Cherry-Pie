@@ -1,15 +1,17 @@
 <header class="header" data-scroll-section>
-  <div class="message-marquee">
-    <div class="marquee">
-      <div class="marquee_offset">
-        <div class="marquee_content">
-          <div class="marquee_unit">
-            <p>Celebrate valentines day 10% off storewide</p>
+  {% if section.settings.enable_announcement and section.settings.text != blank%}
+    <div class="message-marquee">
+      <div class="marquee">
+        <div class="marquee_offset">
+          <div class="marquee_content">
+            <div class="marquee_unit">
+              <p>{{ section.settings.announcement_text }}</p>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
+  {% endif %}
   <div class="container">
     <div class="header__container">
       <div class="header__block">
@@ -183,7 +185,7 @@
 </div>
 
 
-  {% schema %}
+{% schema %}
 {
   "name": "Header",
   "settings": [
@@ -208,10 +210,10 @@
       "label": "Enable Announcement"
     },
     {
-          "type": "text",
-          "id": "text",
-          "default": "Welcome to our store",
-          "label": "Announcement Text"
+      "type": "text",
+      "id": "announcement_text",
+      "default": "Welcome to our store",
+      "label": "Announcement Text"
     }
   ]
 }
