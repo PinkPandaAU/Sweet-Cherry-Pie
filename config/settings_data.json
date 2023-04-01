@@ -1,5 +1,32 @@
 {
   "current": {
+    "popup_image": "shopify:\/\/shop_images\/s-banner.jpg",
+    "popup_message": "Sign up to receive 5% off your first order!",
+    "show_popup_after": 12,
+    "sections": {
+      "header": {
+        "type": "header",
+        "settings": {
+          "menu": "main-menu",
+          "mobmenu": "",
+          "enable_announcement": false,
+          "text": "Welcome to our store"
+        }
+      },
+      "footer": {
+        "type": "footer",
+        "settings": {
+        }
+      },
+      "popup": {
+        "type": "popup",
+        "settings": {
+        }
+      }
+    },
+    "content_for_index": [
+
+    ]
   },
   "presets": {
     "Default": {
