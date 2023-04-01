@@ -43,9 +43,18 @@
 
         <main class="main">
             {{ content_for_layout }}
+
+            {% section 'instagram' %}
+
         </main>
 
         {% section 'footer' %}
+
+        <!-- Theme Script -->
+        <script src="{{ 'plugins.js' | asset_url }}" async></script>
+        <script src="{{ 'base.js' | asset_url }}" type="module"></script>
+
+
         {% section 'popup' %}
 
         <script>
@@ -106,9 +115,7 @@
         </div>
         </div>
 
-        <!-- Theme Script -->
-        <script src="{{ 'plugins.js' | asset_url }}" defer></script>
-        <script src="{{ 'base.js' | asset_url }}" type="module"></script>
+        
 
 
         <svg class="s-card__mask" width="0" height="0">

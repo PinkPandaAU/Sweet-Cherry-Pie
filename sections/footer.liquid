@@ -67,7 +67,7 @@
       <div class="footer__bottom-text">
         <a href="">Privacy Policy</a>
         <a href="">Terms & Conditions</a>
-        <p>© 2023 Sweet Cherry Pie <a href="https://pinkpanda.com.au" target="_blank" class="mobile-show">Site by Pink Panda</a></p>
+        <p>© {{ "now" | date: "%Y" }} Sweet Cherry Pie <a href="https://pinkpanda.com.au" target="_blank" class="mobile-show">Site by Pink Panda</a></p>
       </div>
       <div class="footer__socials">
         <span class="mobile-show">Contact</span>
@@ -116,29 +116,3 @@
     </div>
   </div>
 </footer>
-
-
-<div style="display: none">
-  <div class="s-banner-popup" id="sign-up-popup">
-    <div class="s-banner-popup__inner">
-      <div class="s-banner-popup__content">
-        <form class="s-banner-popup__content-inner border-image border-image--medium-primary-star">
-          <div class="s-banner-popup__title">
-            <span>Sign up to receive 10% off your first order!</span>
-          </div>
-          <div class="footer__form-input">
-            <input type="email" name="email" placeholder="Enter your email" required>
-          </div>
-          <div class="footer__form-btn">
-            <button class="s-button s-button--primary-light s-button--big" type="submit">
-              <span>Subscribe</span>
-            </button>
-          </div>
-        </form>
-      </div>
-      <div class="s-banner-popup__img">
-        <img src="{{ "s-banner-popup.jpg" | asset_url }}" alt="" role="presentation">
-      </div>
-    </div>
-  </div>
-</div>
