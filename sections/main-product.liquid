@@ -18,7 +18,7 @@
           </div>
           <div class="s-product__gallery-main">
             <div class="s-product__tags">
-              <span class="tag tag--off">15% of</span>
+              <span class="tag tag--off">15% off</span>
             </div>
             <div class="swiper">
               <div class="swiper-wrapper">
@@ -35,24 +35,10 @@
         <div class="s-product__wrapper">
 
 
-        	{{ product.metafields.custom.product_features }}
-
-        	{% for product in product.metafields.custom.product_features %}
-					  {{ product.title }}
-					{% endfor %}
-
-					{% for product in product.metafields.custom.product_features %}
-					  {{ product.product_feature }}
-					{% endfor %}
-
-					{% for product in product.metafields.custom.product_features %}
-					  {{ product.product_feature | json }}
-					{% endfor %}
-
-					{% for feature in product.metafields.product_features %}
-					  {{ feature.product_feature.title }}
-					{% endfor %}
-
+{% for benefit in product.metafields.custom.benefits %}
+  <p>{{ benefit.title }}</p>
+{% endfor %}
+okay
 					
 
           <ul class="s-product__info">
