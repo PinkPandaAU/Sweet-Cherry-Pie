@@ -53,6 +53,42 @@
         "title": "",
         "collection_body": ""
       }
+    },
+    "346baddf-ead8-4ca5-8c53-db601b529151": {
+      "type": "about-main",
+      "settings": {
+        "title": "About Us",
+        "description_1": "<p>Here at Sweet Cherry Pie, we believe that all women and people with vulvas deserve to learn about their sexuality, connect with their body, and be empowered to explore and celebrate what makes them feel good through masturbation.<\/p><p>Invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam.<\/p>",
+        "description_2": "<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est.<\/p>",
+        "image_desktop": "shopify:\/\/shop_images\/s-about-main_bg.jpg",
+        "image_mobile": "shopify:\/\/shop_images\/s-about-main_bg-mob.jpg",
+        "floating_image_desktop": "shopify:\/\/shop_images\/s-about-main_img.png",
+        "floating_image_mobile": "shopify:\/\/shop_images\/s-about-main_img-mob.png"
+      }
+    },
+    "670b66fd-431a-430a-b106-1e49e34d417a": {
+      "type": "testimonials",
+      "blocks": {
+        "template--18562713157934__670b66fd-431a-430a-b106-1e49e34d417a-16803283145f296c7d-0": {
+          "type": "text",
+          "settings": {
+            "name": "",
+            "testimonial": ""
+          }
+        }
+      },
+      "block_order": [
+        "template--18562713157934__670b66fd-431a-430a-b106-1e49e34d417a-16803283145f296c7d-0"
+      ],
+      "settings": {
+        "title": "Testi.<i>moan<\/i>.ials",
+        "image_1": "shopify:\/\/shop_images\/photo1.jpg",
+        "image_2": "shopify:\/\/shop_images\/photo2.jpg",
+        "image_3": "shopify:\/\/shop_images\/photo3.jpg",
+        "image_4": "shopify:\/\/shop_images\/photo4.jpg",
+        "image_5": "shopify:\/\/shop_images\/photo5.jpg",
+        "image_6": "shopify:\/\/shop_images\/photo6.jpg"
+      }
     }
   },
   "order": [
@@ -60,6 +96,8 @@
     "7f1eabff-77fb-4016-9eaf-97a6fdc46601",
     "25bbcf56-0b6a-4596-9b92-676db94cdc7b",
     "ca2cb366-b038-4fcc-9fda-2f5cb6d46919",
-    "141921e2-2b3f-45e0-8708-bbc781e4267b"
+    "141921e2-2b3f-45e0-8708-bbc781e4267b",
+    "346baddf-ead8-4ca5-8c53-db601b529151",
+    "670b66fd-431a-430a-b106-1e49e34d417a"
   ]
 }
