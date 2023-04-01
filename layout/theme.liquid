@@ -13,13 +13,12 @@
     <link rel="canonical" href="{{ canonical_url }}">
     <meta name="theme-color" content="">
 
-    
+    <link rel="shortcut icon" type="image/png" href="">
 
-    {% if settings.favicon != blank and settings.favicon contains '.png' %}
-        <link rel="shortcut icon" href="{{ settings.favicon | image_url: 'master' }}" type="image/png"/>
-    {% elsif settings.favicon != blank and settings.favicon contains '.ico' %}
-        <link rel="shortcut icon" href="{{ settings.favicon | image_url: 'master' }}" type="image/x-icon"/>
-    {% endif %}
+    <link rel="icon" href="{{ 'favicon.ico' | asset_url }}" sizes="any"><!-- 32×32 -->
+    <link rel="icon" href="{{ 'icon.svg' | asset_url }}" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="{{ 'apple-touch-icon.png' | asset_url }}"><!-- 180×180 -->
+    
 
 
     {{ content_for_header }}

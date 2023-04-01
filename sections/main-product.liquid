@@ -1,0 +1,679 @@
+{% comment %} {% include 'dump' with product %} {% endcomment %}
+
+<section class="s-product" data-scroll-section>
+  <div class="container">
+    <div class="s-product__container">
+      <div class="s-product__left">
+        <div class="s-product__gallery">
+          <div class="s-product__gallery-next">
+            <div class="swiper">
+              <div class="swiper-wrapper">
+              	{% for image in product.images %}
+	                <div class="swiper-slide s-product__gallery-next__item">
+	                  <img src="{{ image.src | img_url: '300x300' }}" alt="{{ image.src.alt | escape }}">
+	                </div>
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+          <div class="s-product__gallery-main">
+            <div class="s-product__tags">
+              <span class="tag tag--off">15% of</span>
+            </div>
+            <div class="swiper">
+              <div class="swiper-wrapper">
+              	{% for image in product.images %}
+	                <div class="swiper-slide s-product__gallery-main__item">
+	                  <img src="{{ image.src | img_url: '1080x1080' }}" alt="{{ image.src.alt | escape }}">
+	                </div>
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="s-product__wrapper">
+
+
+        	{{ product.metafields.custom.product_features }}
+
+        	{% for product in product.metafields.custom.product_features %}
+					  {{ product.title }}
+					{% endfor %}
+
+					{% for product in product.metafields.custom.product_features %}
+					  {{ product.product_feature }}
+					{% endfor %}
+
+					{% for product in product.metafields.custom.product_features %}
+					  {{ product.product_feature | json }}
+					{% endfor %}
+
+					{% for feature in product.metafields.product_features %}
+					  {{ feature.product_feature.title }}
+					{% endfor %}
+
+					
+
+          <ul class="s-product__info">
+
+          	{% for feature in product.metafields.custom.product_features %}
+          		<li>
+						    <div class="s-product__info-ico">
+	                <img src="{{ 'ico-product-info.svg' | asset_url }}" alt="" width="32" height="32">
+	              </div>
+	              <span>{{ feature.product_feature.title }}</span>
+            	</li>
+					  {% endfor %}
+
+
+            <!--<li>
+              <div class="s-product__info-ico">
+                <img src="{{ 'ico-product-info.svg' | asset_url }}" alt="" width="32" height="32">
+              </div>
+              <span>Discreet packaging</span>
+            </li>
+            <li>
+              <div class="s-product__info-ico">
+                <img src="{{ 'ico-product-info.svg' | asset_url }}" alt="" width="32" height="32">
+              </div>
+              <span>Multi-patterns + intensities</span>
+            </li>
+            <li>
+              <div class="s-product__info-ico">
+                <img src="{{ 'ico-product-info.svg' | asset_url }}" alt="" width="32" height="32">
+              </div>
+              <span>Rechargeble battery</span>
+            </li>-->
+          </ul>
+          <div class="s-product__banner">
+          <div class="s-product__banner-bg">
+            <img src="{{ 's-banner.jpg' | asset_url }}" alt="" width="778" height="340">
+          </div>
+          <div class="s-product__banner-inner">
+            <div class="s-product__banner-title title-h2 title-animation" data-scroll data-scroll-call="title-visible">
+              <h2>I embrace my sexuality and sensuality</h2>
+            </div>
+            <div class="s-product__banner-text section-text text-animation" data-scroll data-scroll-call="text-visible">
+              <p>Need to lift your sexual vibration? Maintain or boost your own powerful and confident sexual energy by repeating this mantra daily</p>
+            </div>
+          </div>
+        </div>
+          <div class="s-accordion-list">
+            <div class="s-accordion">
+              <div class="s-accordion__head">
+                <h3>Product Description</h3>
+                <div class="s-accordion__ico">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10">
+                    <g transform="translate(-1569 -769)">
+                      <line x2="10" transform="translate(1569 774)" fill="none" stroke="#1f454d" stroke-width="1"/>
+                      <line class="ico-plus" x2="10" transform="translate(1574 769) rotate(90)" fill="none" stroke="#1f454d" stroke-width="1"/>
+                    </g>
+                  </svg>
+                </div>
+              </div>
+              <div class="s-accordion__body">
+                <div class="s-accordion__inner section-text">
+                  <p>If nurturing your sexual wellness is top of your priority list (and it totally should be!) treat yourself to the gift of blended orgasms with the help of Chinchilla!</p>
+                  <p>Watch your stress float away, as Chinchilla takes you on a journey of body-shuddering, ecstasy-riding, waves of bliss and self-discovery. Seriously, we got you!</p>
+                  <p>Equipped with both a smooth, ergonomically designed vibrating shaft, and perfect, vibrating bunny shaped ears for clitoral stimulation, Chinchilla has the power to deliver blended orgasms over and over again!</p>
+                  <p>If nurturing your sexual wellness is top of your priority list (and it totally should be!) treat yourself to the gift of blended orgasms with the help of Chinchilla!</p>
+                  <p>Self-care never felt so good!</p>
+                </div>
+              </div>
+            </div>
+            <div class="s-accordion">
+              <div class="s-accordion__head">
+                <h3>Product Description</h3>
+                <div class="s-accordion__ico">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10">
+                    <g transform="translate(-1569 -769)">
+                      <line x2="10" transform="translate(1569 774)" fill="none" stroke="#1f454d" stroke-width="1"/>
+                      <line class="ico-plus" x2="10" transform="translate(1574 769) rotate(90)" fill="none" stroke="#1f454d" stroke-width="1"/>
+                    </g>
+                  </svg>
+                </div>
+              </div>
+              <div class="s-accordion__body">
+                <div class="s-accordion__inner section-text">
+                  <p>If nurturing your sexual wellness is top of your priority list (and it totally should be!) treat yourself to the gift of blended orgasms with the help of Chinchilla!</p>
+                  <p>Watch your stress float away, as Chinchilla takes you on a journey of body-shuddering, ecstasy-riding, waves of bliss and self-discovery. Seriously, we got you!</p>
+                  <p>Equipped with both a smooth, ergonomically designed vibrating shaft, and perfect, vibrating bunny shaped ears for clitoral stimulation, Chinchilla has the power to deliver blended orgasms over and over again!</p>
+                  <p>If nurturing your sexual wellness is top of your priority list (and it totally should be!) treat yourself to the gift of blended orgasms with the help of Chinchilla!</p>
+                  <p>Self-care never felt so good!</p>
+                </div>
+              </div>
+            </div>
+            <div class="s-accordion">
+              <div class="s-accordion__head">
+                <h3>Product Description</h3>
+                <div class="s-accordion__ico">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10">
+                    <g transform="translate(-1569 -769)">
+                      <line x2="10" transform="translate(1569 774)" fill="none" stroke="#1f454d" stroke-width="1"/>
+                      <line class="ico-plus" x2="10" transform="translate(1574 769) rotate(90)" fill="none" stroke="#1f454d" stroke-width="1"/>
+                    </g>
+                  </svg>
+                </div>
+              </div>
+              <div class="s-accordion__body">
+                <div class="s-accordion__inner section-text">
+                  <p>If nurturing your sexual wellness is top of your priority list (and it totally should be!) treat yourself to the gift of blended orgasms with the help of Chinchilla!</p>
+                  <p>Watch your stress float away, as Chinchilla takes you on a journey of body-shuddering, ecstasy-riding, waves of bliss and self-discovery. Seriously, we got you!</p>
+                  <p>Equipped with both a smooth, ergonomically designed vibrating shaft, and perfect, vibrating bunny shaped ears for clitoral stimulation, Chinchilla has the power to deliver blended orgasms over and over again!</p>
+                  <p>If nurturing your sexual wellness is top of your priority list (and it totally should be!) treat yourself to the gift of blended orgasms with the help of Chinchilla!</p>
+                  <p>Self-care never felt so good!</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="s-product__right" id="product-sticky">
+        <form class="s-product__content" data-scroll-sticky-bottom="10" data-scroll-sticky-parent="#product-sticky">
+          <div class="s-product__content-category">
+            <span class="tag tag--best">Bestseller</span>
+            <span>for <a href="">Category 01</a></span>
+          </div>
+          <div class="s-product__content-title title-h1">
+          	{% assign get_first = product.title | split:" " | last %}
+						<h1>{{ product.title | remove: get_first}} <i>{{get_first}}</i></h1>
+          </div>
+
+          {% if product.product_type != blank %}
+	          <div class="s-product__content-subtitle">
+	            <span>{{ product.product_type }}</span>
+	          </div>
+          {% endif %}
+
+          <div class="s-product__content-price">
+            <div class="s-price">
+
+            	<span class="s-price__new">{{ product.price | money }}</span>
+            	{% if product.compare_at_price > product.price %}
+							<span class="s-price__old">{{ product.compare_at_price | money }}</span>
+							{% endif %}
+							
+            </div>
+            <div class="s-product__content-price__text">
+            	
+            	{% if product.show_zip_payment %}
+              	<p>or 4 interest-free payments of $9.00 with <img src="{{ 's-product_payment.svg' | asset_url }}" alt="zip" width="38" height="14"></p>
+              {% endif %}
+
+              <div class="s-product__content-review">
+                <span>1,309 Reviews</span>
+                <div class="s-stars stars-3-5">
+                  <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18" height="18" viewBox="0 0 18 18">
+                    <defs>
+                      <clipPath id="clip-path">
+                        <path d="M0,9.02A8.98,8.98,0,0,1,8.98,18H9.02A8.98,8.98,0,0,1,18,9.02V8.98A8.98,8.98,0,0,1,9.02,0H8.98A8.98,8.98,0,0,1,0,8.98Z" transform="translate(-4976.934 -2468)" fill="none" stroke="#b36b77" stroke-width="1"/>
+                      </clipPath>
+                    </defs>
+                    <g transform="translate(4976.934 2468)">
+                      <g clip-path="url(#clip-path)" >
+                        <rect class="ico-star-half" width="9.05" height="18" transform="translate(-4977 -2468)" fill="none"/>
+                      </g>
+                      <g transform="translate(-4976.934 -2468)" fill="none">
+                        <path class="ico-star" d="M0,9.02A8.98,8.98,0,0,1,8.98,18H9.02A8.98,8.98,0,0,1,18,9.02V8.98A8.98,8.98,0,0,1,9.02,0H8.98A8.98,8.98,0,0,1,0,8.98Z" stroke="none"/>
+                        <path d="M 9 13.68809127807617 C 9.983484268188477 11.64361190795898 11.64361190795898 9.983484268188477 13.68809127807617 9 C 11.64361190795898 8.016515731811523 9.983484268188477 6.356388092041016 9 4.311909198760986 C 8.016515731811523 6.356388092041016 6.356388092041016 8.016515731811523 4.311909198760986 9 C 6.356388092041016 9.983484268188477 8.016515731811523 11.64361190795898 9 13.68809127807617 M 9.019689559936523 18 L 8.980310440063477 18 C 8.980310440063477 13.04030990600586 4.959690093994141 9.019689559936523 0 9.019689559936523 L 0 8.980310440063477 C 4.959690093994141 8.980310440063477 8.980310440063477 4.959690093994141 8.980310440063477 0 L 9.019689559936523 0 C 9.019689559936523 4.959690093994141 13.04030990600586 8.980310440063477 18 8.980310440063477 L 18 9.019689559936523 C 13.04030990600586 9.019689559936523 9.019689559936523 13.04030990600586 9.019689559936523 18 Z" stroke="none" fill="#b36b77"/>
+                      </g>
+                    </g>
+                  </svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18" height="18" viewBox="0 0 18 18">
+                    <defs>
+                      <clipPath id="clip-path">
+                        <path d="M0,9.02A8.98,8.98,0,0,1,8.98,18H9.02A8.98,8.98,0,0,1,18,9.02V8.98A8.98,8.98,0,0,1,9.02,0H8.98A8.98,8.98,0,0,1,0,8.98Z" transform="translate(-4976.934 -2468)" fill="none" stroke="#b36b77" stroke-width="1"/>
+                      </clipPath>
+                    </defs>
+                    <g transform="translate(4976.934 2468)">
+                      <g clip-path="url(#clip-path)" >
+                        <rect class="ico-star-half" width="9.05" height="18" transform="translate(-4977 -2468)" fill="none"/>
+                      </g>
+                      <g transform="translate(-4976.934 -2468)" fill="none">
+                        <path class="ico-star" d="M0,9.02A8.98,8.98,0,0,1,8.98,18H9.02A8.98,8.98,0,0,1,18,9.02V8.98A8.98,8.98,0,0,1,9.02,0H8.98A8.98,8.98,0,0,1,0,8.98Z" stroke="none"/>
+                        <path d="M 9 13.68809127807617 C 9.983484268188477 11.64361190795898 11.64361190795898 9.983484268188477 13.68809127807617 9 C 11.64361190795898 8.016515731811523 9.983484268188477 6.356388092041016 9 4.311909198760986 C 8.016515731811523 6.356388092041016 6.356388092041016 8.016515731811523 4.311909198760986 9 C 6.356388092041016 9.983484268188477 8.016515731811523 11.64361190795898 9 13.68809127807617 M 9.019689559936523 18 L 8.980310440063477 18 C 8.980310440063477 13.04030990600586 4.959690093994141 9.019689559936523 0 9.019689559936523 L 0 8.980310440063477 C 4.959690093994141 8.980310440063477 8.980310440063477 4.959690093994141 8.980310440063477 0 L 9.019689559936523 0 C 9.019689559936523 4.959690093994141 13.04030990600586 8.980310440063477 18 8.980310440063477 L 18 9.019689559936523 C 13.04030990600586 9.019689559936523 9.019689559936523 13.04030990600586 9.019689559936523 18 Z" stroke="none" fill="#b36b77"/>
+                      </g>
+                    </g>
+                  </svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18" height="18" viewBox="0 0 18 18">
+                    <defs>
+                      <clipPath id="clip-path">
+                        <path d="M0,9.02A8.98,8.98,0,0,1,8.98,18H9.02A8.98,8.98,0,0,1,18,9.02V8.98A8.98,8.98,0,0,1,9.02,0H8.98A8.98,8.98,0,0,1,0,8.98Z" transform="translate(-4976.934 -2468)" fill="none" stroke="#b36b77" stroke-width="1"/>
+                      </clipPath>
+                    </defs>
+                    <g transform="translate(4976.934 2468)">
+                      <g clip-path="url(#clip-path)" >
+                        <rect class="ico-star-half" width="9.05" height="18" transform="translate(-4977 -2468)" fill="none"/>
+                      </g>
+                      <g transform="translate(-4976.934 -2468)" fill="none">
+                        <path class="ico-star" d="M0,9.02A8.98,8.98,0,0,1,8.98,18H9.02A8.98,8.98,0,0,1,18,9.02V8.98A8.98,8.98,0,0,1,9.02,0H8.98A8.98,8.98,0,0,1,0,8.98Z" stroke="none"/>
+                        <path d="M 9 13.68809127807617 C 9.983484268188477 11.64361190795898 11.64361190795898 9.983484268188477 13.68809127807617 9 C 11.64361190795898 8.016515731811523 9.983484268188477 6.356388092041016 9 4.311909198760986 C 8.016515731811523 6.356388092041016 6.356388092041016 8.016515731811523 4.311909198760986 9 C 6.356388092041016 9.983484268188477 8.016515731811523 11.64361190795898 9 13.68809127807617 M 9.019689559936523 18 L 8.980310440063477 18 C 8.980310440063477 13.04030990600586 4.959690093994141 9.019689559936523 0 9.019689559936523 L 0 8.980310440063477 C 4.959690093994141 8.980310440063477 8.980310440063477 4.959690093994141 8.980310440063477 0 L 9.019689559936523 0 C 9.019689559936523 4.959690093994141 13.04030990600586 8.980310440063477 18 8.980310440063477 L 18 9.019689559936523 C 13.04030990600586 9.019689559936523 9.019689559936523 13.04030990600586 9.019689559936523 18 Z" stroke="none" fill="#b36b77"/>
+                      </g>
+                    </g>
+                  </svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18" height="18" viewBox="0 0 18 18">
+                    <defs>
+                      <clipPath id="clip-path">
+                        <path d="M0,9.02A8.98,8.98,0,0,1,8.98,18H9.02A8.98,8.98,0,0,1,18,9.02V8.98A8.98,8.98,0,0,1,9.02,0H8.98A8.98,8.98,0,0,1,0,8.98Z" transform="translate(-4976.934 -2468)" fill="none" stroke="#b36b77" stroke-width="1"/>
+                      </clipPath>
+                    </defs>
+                    <g transform="translate(4976.934 2468)">
+                      <g clip-path="url(#clip-path)" >
+                        <rect class="ico-star-half" width="9.05" height="18" transform="translate(-4977 -2468)" fill="none"/>
+                      </g>
+                      <g transform="translate(-4976.934 -2468)" fill="none">
+                        <path class="ico-star" d="M0,9.02A8.98,8.98,0,0,1,8.98,18H9.02A8.98,8.98,0,0,1,18,9.02V8.98A8.98,8.98,0,0,1,9.02,0H8.98A8.98,8.98,0,0,1,0,8.98Z" stroke="none"/>
+                        <path d="M 9 13.68809127807617 C 9.983484268188477 11.64361190795898 11.64361190795898 9.983484268188477 13.68809127807617 9 C 11.64361190795898 8.016515731811523 9.983484268188477 6.356388092041016 9 4.311909198760986 C 8.016515731811523 6.356388092041016 6.356388092041016 8.016515731811523 4.311909198760986 9 C 6.356388092041016 9.983484268188477 8.016515731811523 11.64361190795898 9 13.68809127807617 M 9.019689559936523 18 L 8.980310440063477 18 C 8.980310440063477 13.04030990600586 4.959690093994141 9.019689559936523 0 9.019689559936523 L 0 8.980310440063477 C 4.959690093994141 8.980310440063477 8.980310440063477 4.959690093994141 8.980310440063477 0 L 9.019689559936523 0 C 9.019689559936523 4.959690093994141 13.04030990600586 8.980310440063477 18 8.980310440063477 L 18 9.019689559936523 C 13.04030990600586 9.019689559936523 9.019689559936523 13.04030990600586 9.019689559936523 18 Z" stroke="none" fill="#b36b77"/>
+                      </g>
+                    </g>
+                  </svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18" height="18" viewBox="0 0 18 18">
+                    <defs>
+                      <clipPath id="clip-path">
+                        <path d="M0,9.02A8.98,8.98,0,0,1,8.98,18H9.02A8.98,8.98,0,0,1,18,9.02V8.98A8.98,8.98,0,0,1,9.02,0H8.98A8.98,8.98,0,0,1,0,8.98Z" transform="translate(-4976.934 -2468)" fill="none" stroke="#b36b77" stroke-width="1"/>
+                      </clipPath>
+                    </defs>
+                    <g transform="translate(4976.934 2468)">
+                      <g clip-path="url(#clip-path)" >
+                        <rect class="ico-star-half" width="9.05" height="18" transform="translate(-4977 -2468)" fill="none"/>
+                      </g>
+                      <g transform="translate(-4976.934 -2468)" fill="none">
+                        <path class="ico-star" d="M0,9.02A8.98,8.98,0,0,1,8.98,18H9.02A8.98,8.98,0,0,1,18,9.02V8.98A8.98,8.98,0,0,1,9.02,0H8.98A8.98,8.98,0,0,1,0,8.98Z" stroke="none"/>
+                        <path d="M 9 13.68809127807617 C 9.983484268188477 11.64361190795898 11.64361190795898 9.983484268188477 13.68809127807617 9 C 11.64361190795898 8.016515731811523 9.983484268188477 6.356388092041016 9 4.311909198760986 C 8.016515731811523 6.356388092041016 6.356388092041016 8.016515731811523 4.311909198760986 9 C 6.356388092041016 9.983484268188477 8.016515731811523 11.64361190795898 9 13.68809127807617 M 9.019689559936523 18 L 8.980310440063477 18 C 8.980310440063477 13.04030990600586 4.959690093994141 9.019689559936523 0 9.019689559936523 L 0 8.980310440063477 C 4.959690093994141 8.980310440063477 8.980310440063477 4.959690093994141 8.980310440063477 0 L 9.019689559936523 0 C 9.019689559936523 4.959690093994141 13.04030990600586 8.980310440063477 18 8.980310440063477 L 18 9.019689559936523 C 13.04030990600586 9.019689559936523 9.019689559936523 13.04030990600586 9.019689559936523 18 Z" stroke="none" fill="#b36b77"/>
+                      </g>
+                    </g>
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="s-product__content-text">
+            <p>{{ product.description }}</p>
+          </div>
+          <ul class="s-product__variations">
+            <li class="is-big">
+              <div class="s-product__variations-row">
+                <label class="s-radio s-radio--ico">
+                  <input type="radio" name="use[]" value="solo" checked>
+                  <span class="s-radio__btn">Solo</span>
+                </label>
+                <label class="s-radio s-radio--ico">
+                  <input type="radio" name="use[]" value="partner">
+                  <span class="s-radio__btn">Partner</span>
+                </label>
+              </div>
+            </li>
+            <li>
+              <span>Size</span>
+
+              <div class="s-shop-category__sort-dropdown">
+                <span>
+                  <span class="output_text">5-inch</span>
+                  <span class="s-shop-category__sort-ico">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10">
+                      <g id="Group_11613" data-name="Group 11613" transform="translate(-1569 -769)">
+                        <line x2="10" transform="translate(1569 774)" fill="none" stroke="#1f454d" stroke-width="1"/>
+                        <line x2="10" transform="translate(1574 769) rotate(90)" class="ico-plus" fill="none" stroke="#1f454d" stroke-width="1"/>
+                      </g>
+                    </svg>
+                  </span>
+                </span>
+                <ul class="s-product__variations-row">
+                  <li>
+                    <label class="s-radio">
+                      <input type="radio" name="size[]" value="5" checked>
+                      <span class="s-radio__btn">5-inch</span>
+                    </label>
+                  </li>
+                  <li>
+                    <label class="s-radio">
+                      <input type="radio" name="size[]" value="6">
+                      <span class="s-radio__btn">6-inch</span>
+                    </label>
+                  </li>
+                  <li>
+                    <label class="s-radio">
+                      <input type="radio" name="size[]" value="7">
+                      <span class="s-radio__btn">7-inch</span>
+                    </label>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li>
+              <span>Colour</span>
+
+              <div class="s-shop-category__sort-dropdown">
+                <span>
+                  <span class="output_text">Pink</span>
+                  <span class="s-shop-category__sort-ico">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10">
+                      <g id="Group_11613" data-name="Group 11613" transform="translate(-1569 -769)">
+                        <line x2="10" transform="translate(1569 774)" fill="none" stroke="#1f454d" stroke-width="1"/>
+                        <line x2="10" transform="translate(1574 769) rotate(90)" class="ico-plus" fill="none" stroke="#1f454d" stroke-width="1"/>
+                      </g>
+                    </svg>
+                  </span>
+                </span>
+                <ul class="s-product__variations-row">
+                  <li>
+                    <label class="s-radio">
+                      <input type="radio" name="colour[]" value="5" checked>
+                      <span class="s-radio__btn">Pink</span>
+                    </label>
+                  </li>
+                  <li>
+                    <label class="s-radio">
+                      <input type="radio" name="colour[]" value="6">
+                      <span class="s-radio__btn">Brown</span>
+                    </label>
+                  </li>
+                  <li>
+                    <label class="s-radio">
+                      <input type="radio" name="colour[]" value="7">
+                      <span class="s-radio__btn">Black</span>
+                    </label>
+                  </li>
+                  <li>
+                    <label class="s-radio">
+                      <input type="radio" name="colour[]" value="7">
+                      <span class="s-radio__btn">Tan</span>
+                    </label>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li>
+              <span>quantity</span>
+              <div class="s-product__variations-row">
+                <div class="s-quantity">
+                  <button type="button" class="s-quantity__btn btn-minus s-button s-button--round s-button--transparent s-arrow-link">
+                    <span class="s-arrow-link__ico">
+                      <img src="{{ 'ico-minus.svg' | asset_url }}" alt="-">
+                      <img src="{{ 'ico-minus.svg' | asset_url }}" alt="" role="presentation">
+                    </span>
+                  </button>
+                  <input type="number" name="quantity" value="1" step="1" min="1" max="" readonly>
+                  <button type="button" class="s-quantity__btn btn-plus s-button s-button--round s-button--transparent s-arrow-link">
+                    <span class="s-arrow-link__ico">
+                      <img src="{{ 'ico-plus.svg' | asset_url }}" alt="+">
+                      <img src="{{ 'ico-plus.svg' | asset_url }}" alt="" role="presentation">
+                    </span>
+                  </button>
+                </div>
+              </div>
+            </li>
+          </ul>
+          <div class="s-product__submit">
+            <button type="submit" class="s-button s-button--big s-button--black">
+              <span>Add to cart</span>
+            </button>
+          </div>
+          <div class="s-product__also">
+            <div class="s-product__also-title title-h4 title-animation" data-scroll data-scroll-call="title-visible">
+              <h2>Add to your order</h2>
+            </div>
+            <div class="s-product__also-container">
+              <article class="s-product__also-item">
+                <div class="s-product__also-img">
+                  <img src="{{ '3.jpg' | asset_url }}" alt="">
+                </div>
+                <div class="s-product__also-content">
+                  <div class="s-product__also-name title-h5 title-animation" data-scroll data-scroll-call="title-visible">
+                    <h3>Chinchilla</h3>
+                  </div>
+                  <div class="s-product__also-row">
+                    <div class="s-price s-price--smallest">
+                      <div class="s-price__new">
+                        <span>$129.99</span>
+                      </div>
+                    </div>
+                    <a href="" class="s-product__also-btn">
+                      <span>Add</span>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14">
+                        <g id="Group_11618" data-name="Group 11618" transform="translate(-1569 -769)">
+                          <line id="Line_29" data-name="Line 29" x2="14" transform="translate(1569 776)" fill="none" stroke="#1f454d" stroke-width="1"/>
+                          <line id="Line_30" data-name="Line 30" x2="14" transform="translate(1576 769) rotate(90)" fill="none" stroke="#1f454d" stroke-width="1"/>
+                        </g>
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+              </article>
+              <article class="s-product__also-item">
+                <div class="s-product__also-img">
+                  <img src="{{ '3.jpg' | asset_url }}" alt="">
+                </div>
+                <div class="s-product__also-content">
+                  <div class="s-product__also-name title-h5 title-animation" data-scroll data-scroll-call="title-visible">
+                    <h3>Chinchilla</h3>
+                  </div>
+                  <div class="s-product__also-row">
+                    <div class="s-price s-price--smallest">
+                      <div class="s-price__new">
+                        <span>$129.99</span>
+                      </div>
+                      <div class="s-price__old">
+                        <span>$129.99</span>
+                      </div>
+                    </div>
+                    <a href="" class="s-product__also-btn">
+                      <span>Add</span>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14">
+                        <g id="Group_11618" data-name="Group 11618" transform="translate(-1569 -769)">
+                          <line id="Line_29" data-name="Line 29" x2="14" transform="translate(1569 776)" fill="none" stroke="#1f454d" stroke-width="1"/>
+                          <line id="Line_30" data-name="Line 30" x2="14" transform="translate(1576 769) rotate(90)" fill="none" stroke="#1f454d" stroke-width="1"/>
+                        </g>
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+        </form>
+
+        <div class="s-product__wrapper mobile-show">
+          <ul class="s-product__info">
+            <li>
+              <div class="s-product__info-ico">
+                <img src="{{ 'ico-product-info.svg' | asset_url }}" alt="" width="32" height="32">
+              </div>
+              <span>Discreet packaging</span>
+            </li>
+            <li>
+              <div class="s-product__info-ico">
+                <img src="{{ 'ico-product-info.svg' | asset_url }}" alt="" width="32" height="32">
+              </div>
+              <span>Multi-patterns + intensities</span>
+            </li>
+            <li>
+              <div class="s-product__info-ico">
+                <img src="{{ 'ico-product-info.svg' | asset_url }}" alt="" width="32" height="32">
+              </div>
+              <span>Rechargeble battery</span>
+            </li>
+          </ul>
+          <div class="s-product__banner">
+            <div class="s-product__banner-bg">
+              <img src="{{ 's-banner.jpg' | asset_url }}" alt="" width="778" height="340">
+            </div>
+            <div class="s-product__banner-inner">
+              <div class="s-product__banner-title title-h2 title-animation" data-scroll data-scroll-call="title-visible">
+                <h2>I embrace my sexuality and sensuality</h2>
+              </div>
+              <div class="s-product__banner-text section-text text-animation" data-scroll data-scroll-call="text-visible">
+                <p>Need to lift your sexual vibration? Maintain or boost your own powerful and confident sexual energy by repeating this mantra daily</p>
+              </div>
+            </div>
+          </div>
+          <div class="s-accordion-list">
+            <div class="s-accordion">
+              <div class="s-accordion__head">
+                <h3>Product Description</h3>
+                <div class="s-accordion__ico">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10">
+                    <g transform="translate(-1569 -769)">
+                      <line x2="10" transform="translate(1569 774)" fill="none" stroke="#1f454d" stroke-width="1"/>
+                      <line class="ico-plus" x2="10" transform="translate(1574 769) rotate(90)" fill="none" stroke="#1f454d" stroke-width="1"/>
+                    </g>
+                  </svg>
+                </div>
+              </div>
+              <div class="s-accordion__body">
+                <div class="s-accordion__inner section-text">
+                  <p>If nurturing your sexual wellness is top of your priority list (and it totally should be!) treat yourself to the gift of blended orgasms with the help of Chinchilla!</p>
+                  <p>Watch your stress float away, as Chinchilla takes you on a journey of body-shuddering, ecstasy-riding, waves of bliss and self-discovery. Seriously, we got you!</p>
+                  <p>Equipped with both a smooth, ergonomically designed vibrating shaft, and perfect, vibrating bunny shaped ears for clitoral stimulation, Chinchilla has the power to deliver blended orgasms over and over again!</p>
+                  <p>If nurturing your sexual wellness is top of your priority list (and it totally should be!) treat yourself to the gift of blended orgasms with the help of Chinchilla!</p>
+                  <p>Self-care never felt so good!</p>
+                </div>
+              </div>
+            </div>
+            <div class="s-accordion">
+              <div class="s-accordion__head">
+                <h3>Product Description</h3>
+                <div class="s-accordion__ico">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10">
+                    <g transform="translate(-1569 -769)">
+                      <line x2="10" transform="translate(1569 774)" fill="none" stroke="#1f454d" stroke-width="1"/>
+                      <line class="ico-plus" x2="10" transform="translate(1574 769) rotate(90)" fill="none" stroke="#1f454d" stroke-width="1"/>
+                    </g>
+                  </svg>
+                </div>
+              </div>
+              <div class="s-accordion__body">
+                <div class="s-accordion__inner section-text">
+                  <p>If nurturing your sexual wellness is top of your priority list (and it totally should be!) treat yourself to the gift of blended orgasms with the help of Chinchilla!</p>
+                  <p>Watch your stress float away, as Chinchilla takes you on a journey of body-shuddering, ecstasy-riding, waves of bliss and self-discovery. Seriously, we got you!</p>
+                  <p>Equipped with both a smooth, ergonomically designed vibrating shaft, and perfect, vibrating bunny shaped ears for clitoral stimulation, Chinchilla has the power to deliver blended orgasms over and over again!</p>
+                  <p>If nurturing your sexual wellness is top of your priority list (and it totally should be!) treat yourself to the gift of blended orgasms with the help of Chinchilla!</p>
+                  <p>Self-care never felt so good!</p>
+                </div>
+              </div>
+            </div>
+            <div class="s-accordion">
+              <div class="s-accordion__head">
+                <h3>Product Description</h3>
+                <div class="s-accordion__ico">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10">
+                    <g transform="translate(-1569 -769)">
+                      <line x2="10" transform="translate(1569 774)" fill="none" stroke="#1f454d" stroke-width="1"/>
+                      <line class="ico-plus" x2="10" transform="translate(1574 769) rotate(90)" fill="none" stroke="#1f454d" stroke-width="1"/>
+                    </g>
+                  </svg>
+                </div>
+              </div>
+              <div class="s-accordion__body">
+                <div class="s-accordion__inner section-text">
+                  <p>If nurturing your sexual wellness is top of your priority list (and it totally should be!) treat yourself to the gift of blended orgasms with the help of Chinchilla!</p>
+                  <p>Watch your stress float away, as Chinchilla takes you on a journey of body-shuddering, ecstasy-riding, waves of bliss and self-discovery. Seriously, we got you!</p>
+                  <p>Equipped with both a smooth, ergonomically designed vibrating shaft, and perfect, vibrating bunny shaped ears for clitoral stimulation, Chinchilla has the power to deliver blended orgasms over and over again!</p>
+                  <p>If nurturing your sexual wellness is top of your priority list (and it totally should be!) treat yourself to the gift of blended orgasms with the help of Chinchilla!</p>
+                  <p>Self-care never felt so good!</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+{% schema %}
+  {
+    "name": "Product pages",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "show_zip_payment",
+        "label": "Show zip payment",
+        "info": "NOTE: ZipPay must first be activated as an App. Please then contact Pink Panda to configure the dynamic price calculation.",
+        "default": false
+      },
+      {
+       "type":      "header",
+       "content":   "Product gift option"
+      },
+       {
+        "type": "text",
+        "id": "label_1",
+        "label": "Label 1"
+      },
+       {
+        "type": "product",
+        "id": "product_1",
+        "label": "Product gift 1"
+      },
+        {
+        "type": "product",
+        "id": "product_2",
+        "label": "Product gift 2"
+      },
+      {
+        "type": "text",
+        "id": "label_2",
+        "label": "Label 2"
+      },
+        {
+        "type": "product",
+        "id": "product_3",
+        "label": "Product gift 3"
+      },
+      {
+        "type": "product",
+        "id": "product_4",
+        "label": "Product gift 4"
+      },
+      {
+        "type": "product",
+        "id": "product_5",
+        "label": "Product gift 5"
+      },
+      {
+        "type": "product",
+        "id": "product_6",
+        "label": "Product gift 6"
+      },
+      {
+        "type": "header",
+        "content":   "Gift option Images"
+      },
+      {
+        "type": "image_picker",
+        "id": "product_image_1",
+        "label": "Image 1"
+      },
+      {
+        "type": "image_picker",
+        "id": "product_image_2",
+        "label": "Image 2"
+      },
+      {
+        "type": "image_picker",
+        "id": "product_image_3",
+        "label": "Image 3"
+      },
+      {
+        "type": "image_picker",
+        "id": "product_image_4",
+        "label": "Image 4"
+      },
+      {
+        "type": "image_picker",
+        "id": "product_image_5",
+        "label": "Image 5"
+      },
+      {
+        "type": "image_picker",
+        "id": "product_image_6",
+        "label": "Image 6"
+      }
+    ]
+  }
+{% endschema %}
