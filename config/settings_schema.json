@@ -68,6 +68,11 @@
     "name": "Instagram Feed",
     "settings": [
       {
+        "type": "text",
+        "id": "feed_tickertape",
+        "label": "Tickertape text"
+      },
+      {
         "type": "textarea",
         "id": "feed_description",
         "label": "Feed Description"

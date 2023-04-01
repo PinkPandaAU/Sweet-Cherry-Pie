@@ -4,7 +4,7 @@
       <div class="marquee_offset">
         <div class="marquee_content">
           <div class="marquee_unit">
-            <p>Celebrate valentines day 10% off storewide</p>
+            <p>{{ settings.feed_tickertape }}</p>
           </div>
         </div>
       </div>
@@ -15,15 +15,15 @@
       <div class="s-instagram__content-border border-image border-image--small-primary-star">
         <div class="s-instagram__content-inner">
           <div class="s-instagram__title title-h3 title-animation" data-scroll data-scroll-call="title-visible">
-            <h2>@sweet.cherry.pie</h2>
+            <h2>{{ settings.instagram_handle }}</h2>
           </div>
           <div class="s-instagram__text section-text text-animation" data-scroll data-scroll-call="text-visible">
-            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat.</p>
+            <p>{{ settings.feed_description }}</p>
           </div>
         </div>
         <ul class="s-instagram__btns">
           <li>
-            <a href="">
+            <a href="{{ settings.facebook }}" target="_blank">
               <span class="s-button s-button--primary-dark s-button--round s-button--transparent s-arrow-link">
                 <span class="s-arrow-link__ico">
                   <svg xmlns="http://www.w3.org/2000/svg" width="6.427" height="12" viewBox="0 0 6.427 12">
@@ -37,7 +37,7 @@
             </a>
           </li>
           <li>
-            <a href="">
+            <a href="{{ settings.instagram }}" target="_blank">
               <span class="s-button s-button--primary-dark s-button--round s-button--transparent s-arrow-link">
                 <span class="s-arrow-link__ico">
                   <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12">
@@ -51,7 +51,7 @@
             </a>
           </li>
           <li>
-            <a href="">
+            <a href="{{ settings.twitter }}" target="_blank">
               <span class="s-button s-button--primary-dark s-button--round s-button--transparent s-arrow-link">
                 <span class="s-arrow-link__ico">
                   <svg xmlns="http://www.w3.org/2000/svg" width="12.289" height="10" viewBox="0 0 12.289 10">
@@ -70,35 +70,35 @@
     <a href="" class="s-instagram__images" data-pointer-area="CONNECT">
       <div class="s-instagram__images-block mobile-hide">
         <div class="s-instagram__img">
-          <img src="/images/photos/photo9.jpg" alt="">
+          <img src="{{ settings.feed_image_1 | img_url: '' }}" alt="">
         </div>
       </div>
       <div class="s-instagram__images-block mobile-hide">
         <div class="s-instagram__img">
-          <img src="/images/photos/photo10.jpg" alt="">
+          <img src="{{ settings.feed_image_2 | img_url: '' }}" alt="">
         </div>
         <div class="s-instagram__img">
-          <img src="/images/photos/photo11.jpg" alt="">
+          <img src="{{ settings.feed_image_3 | img_url: '' }}" alt="">
         </div>
         <div class="s-instagram__img">
-          <img src="/images/photos/photo12.jpg" alt="">
+          <img src="{{ settings.feed_image_4 | img_url: '' }}" alt="">
         </div>
         <div class="s-instagram__img">
-          <img src="/images/photos/photo13.jpg" alt="">
+          <img src="{{ settings.feed_image_5 | img_url: '' }}" alt="">
         </div>
       </div>
       <div class="s-instagram__images-block mobile-hide">
         <div class="s-instagram__img">
-          <img src="/images/photos/photo14.jpg" alt="">
+          <img src="{{ settings.feed_image_1 | img_url: '' }}" alt="">
         </div>
       </div>
 
       <div class="s-instagram__images-block mobile-show">
         <div class="s-instagram__img">
-          <img src="/images/photos/photo10.jpg" alt="">
+          <img src="{{ settings.feed_image_2 | img_url: '' }}" alt="">
         </div>
         <div class="s-instagram__img">
-          <img src="/images/photos/photo11.jpg" alt="">
+          <img src="{{ settings.feed_image_3 | img_url: '' }}" alt="">
         </div>
       </div>
     </a>
