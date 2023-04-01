@@ -28,9 +28,9 @@
         "type": "footer",
         "settings": {
           "shop_url": "shopify:\/\/collections\/all",
-          "footer_menu_1": "",
-          "footer_menu_2": "",
-          "footer_menu_3": "",
+          "footer_menu_1": "footer-categories",
+          "footer_menu_2": "footer-categories",
+          "footer_menu_3": "footer-terms",
           "footer_text": "Sign up to receive 10% off your first order!"
         }
       },
