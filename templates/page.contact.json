@@ -9,14 +9,23 @@
       "type": "contact",
       "settings": {
         "title": "Let’s chat",
-        "body": "<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat.<\/p>",
-        "button_text": "",
-        "url": ""
+        "body": "<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat.<\/p>"
+      }
+    },
+    "5ad75e99-0785-4b13-b27b-9c70eaa32609": {
+      "type": "large-cta",
+      "settings": {
+        "subheading": "TAKE THE QUIZ",
+        "heading": "Not sure? Take the quiz and we can help you explore!",
+        "image": "shopify:\/\/shop_images\/s-banner.jpg",
+        "button_text": "Take the quiz",
+        "url": "#"
       }
     }
   },
   "order": [
     "main",
-    "a71f77c5-12bc-4e9a-879d-08c36d183304"
+    "a71f77c5-12bc-4e9a-879d-08c36d183304",
+    "5ad75e99-0785-4b13-b27b-9c70eaa32609"
   ]
 }
