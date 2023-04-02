@@ -8,6 +8,23 @@
     "theme_support_url": "https:\/\/pinkpanda.com.au\/"
   },
   {
+    "name": "Product Settings",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "show_zip_payment",
+        "label": "Show zip payment",
+        "info": "NOTE: ZipPay must first be activated as an App. Please then contact Pink Panda to configure the dynamic price calculation.",
+        "default": false
+      },
+      {
+        "type": "text",
+        "id": "featured_text",
+        "label": "Featured Toys Heading"
+      }
+    ]
+  },
+  {
     "name": "Popup Settings",
     "settings": [
       {

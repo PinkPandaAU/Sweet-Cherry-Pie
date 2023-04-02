@@ -187,6 +187,7 @@
 						<h1>{{ product.title | remove: get_first}} <i>{{get_first}}</i></h1>
           </div>
 
+
           {% if product.product_type != blank %}
 	          <div class="s-product__content-subtitle">
 	            <span>{{ product.product_type }}</span>
@@ -204,7 +205,7 @@
             </div>
             <div class="s-product__content-price__text">
             	
-            	{% if product.show_zip_payment %}
+            	{% if settings.show_zip_payment %}
               	<p>or 4 interest-free payments of $9.00 with <img src="{{ 's-product_payment.svg' | asset_url }}" alt="zip" width="38" height="14"></p>
               {% endif %}
 
@@ -649,7 +650,7 @@
         </button>
       </div>
       <div class="swiper-head__title title-h2 title-animation" data-scroll data-scroll-call="title-visible">
-        <h2>{{ product.featured_text }}</h2>
+        <h2>{{ settings.featured_text }}</h2>
       </div>
       <div class="swiper-head__btn">
         <a href="{{ collections.all.url }}" class="s-button s-button--transparent">
@@ -686,18 +687,6 @@
   {
     "name": "Product pages",
     "settings": [
-      {
-        "type": "checkbox",
-        "id": "show_zip_payment",
-        "label": "Show zip payment",
-        "info": "NOTE: ZipPay must first be activated as an App. Please then contact Pink Panda to configure the dynamic price calculation.",
-        "default": false
-      },
-      {
-        "type": "text",
-        "id": "featured_text",
-        "label": "Featured Toys Heading"
-      },
       {
        "type":      "header",
        "content":   "Product gift option"
