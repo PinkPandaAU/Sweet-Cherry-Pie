@@ -2,10 +2,36 @@
   "sections": {
     "main": {
       "type": "main-cart",
-      "settings": {}
+      "settings": {
+      }
+    },
+    "bbdebd90-c7e0-4238-a2bd-fb6a5d455f54": {
+      "type": "testimonials",
+      "blocks": {
+        "template--18562713747758__bbdebd90-c7e0-4238-a2bd-fb6a5d455f54-16804050236e31d81f-0": {
+          "type": "text",
+          "settings": {
+            "name": "",
+            "testimonial": ""
+          }
+        }
+      },
+      "block_order": [
+        "template--18562713747758__bbdebd90-c7e0-4238-a2bd-fb6a5d455f54-16804050236e31d81f-0"
+      ],
+      "settings": {
+        "title": "Testi.<i>moan<\/i>.ials",
+        "image_1": "shopify:\/\/shop_images\/photo1.jpg",
+        "image_2": "shopify:\/\/shop_images\/photo2.jpg",
+        "image_3": "shopify:\/\/shop_images\/photo3.jpg",
+        "image_4": "shopify:\/\/shop_images\/photo4.jpg",
+        "image_5": "shopify:\/\/shop_images\/photo5.jpg",
+        "image_6": "shopify:\/\/shop_images\/photo6.jpg"
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "bbdebd90-c7e0-4238-a2bd-fb6a5d455f54"
   ]
 }
