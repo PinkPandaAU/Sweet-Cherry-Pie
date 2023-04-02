@@ -8,8 +8,8 @@
     "95bfaaf4-0d16-4df2-8d16-6d7a267882d5": {
       "type": "breadcrumb",
       "settings": {
-        "title_override": "Common questions",
-        "layout": "image_right",
+        "title_override": "Common <i>questions<\/i>",
+        "layout": "default",
         "body": "<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum<\/p>",
         "image": "shopify:\/\/shop_images\/s-about-main_bg.jpg"
       }
