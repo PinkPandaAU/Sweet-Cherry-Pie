@@ -108,6 +108,9 @@
   </div>
 
   <div class="header__mob-menu header-menu">
+    <div class="header-menu__bg">
+      <img src="{{ 's-header_menu-bg.svg' | asset_url }}" alt="" role="presentation">
+    </div>
     <div class="header__mob-menu__inner">
       <div class="header__mob-menu__nav">
         <ul>
@@ -129,7 +132,7 @@
   <div class="header__mob-menu header-search">
     <div class="header__mob-menu__inner">
       <form class="header__mob-menu__search">
-        <input type="text" name="search" placeholder="Search for toys.." required>
+        <input type="text" name="search" id="menu-search-input" placeholder="Search for toys.." required>
         <div class="header__mob-menu__bottom">
           <button type="submit" class="s-button s-button--big s-button--primary-light">
             <span>Search</span>

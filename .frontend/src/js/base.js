@@ -409,56 +409,6 @@ function blocks() {
             })
         },
 
-        '.s-gifts': function (sections) {
-            sections.each(function () {
-                let section = $(this)
-                let slider = section.find('.swiper')[0]
-                let swiper = {destroyed: true}
-                let arrowPrev = section.find('.swiper-arrows-prev')[0]
-                let arrowNext = section.find('.swiper-arrows-next')[0]
-                swiper = new Swiper(slider, {
-                    slidesPerView: 1,
-                    spaceBetween: 10,
-                    speed: 600,
-                    navigation: {
-                        nextEl: arrowNext,
-                        prevEl: arrowPrev,
-                    },
-                    breakpoints: {
-                        769: {
-                            slidesPerView: 4,
-                        },
-                        575: {
-                            slidesPerView: 2,
-                        },
-                    }
-                })
-
-                swiper.on('slideChangeTransitionEnd', function () {
-                    checkScroll()
-                })
-
-                // function checkWidth() {
-                //     if($(window).width() >= 575) {
-                //         if(swiper.destroyed) {
-                //
-                //             scroller.update()
-                //         }
-                //     } else {
-                //         if(!swiper.destroyed) {
-                //             swiper.destroy()
-                //             scroller.update()
-                //         }
-                //     }
-                // }
-                //
-                // checkWidth()
-                // $(window).on('resize', checkWidth)
-            })
-        },
-        '.s-stores': function () {
-            setResizeUpdate()
-        },
 
         //category
         '.s-shop-category': function (sections) {
@@ -488,6 +438,11 @@ function blocks() {
 
                     $grid.isotope({ filter: filterSelector })
 
+                    if($(filterSelector).length){
+                        cardsContainer.removeClass('no-results')
+                    } else {
+                        cardsContainer.addClass('no-results')
+                    }
                     setTimeout(function () {
                         scroller.update()
                         checkScroll()
@@ -639,167 +594,14 @@ function blocks() {
                 timing: 300
             })
         },
-        '.s-similar': function (sections) {
-            sections.each(function () {
-                let section = $(this)
-                let slider = section.find('.swiper')[0]
-                let arrowPrev = section.find('.swiper-arrows-prev')[0]
-                let arrowNext = section.find('.swiper-arrows-next')[0]
-
-                let swiper = new Swiper(slider, {
-                    slidesPerView: 1,
-                    spaceBetween: 20,
-                    speed: 600,
-                    navigation: {
-                        nextEl: arrowNext,
-                        prevEl: arrowPrev,
-                    },
-                    breakpoints: {
-                        769: {
-                            slidesPerView: 4
-                        },
-                        575: {
-                            slidesPerView: 2,
-                            spaceBetween: 0
-                        },
-                    }
-                })
-
-                swiper.on('slideChangeTransitionEnd', function () {
-                    checkScroll()
-                })
-            })
-        },
 
         //post
         '.s-promo__bg': function () {
             setResizeUpdate()
         },
-        '.s-similar-posts': function (sections) {
-            sections.each(function () {
-                let section = $(this)
-                let slider = section.find('.swiper')[0]
-                let arrowPrev = section.find('.swiper-arrows-prev')[0]
-                let arrowNext = section.find('.swiper-arrows-next')[0]
 
-
-                let swiper = new Swiper(slider, {
-                    slidesPerView: 1,
-                    spaceBetween: 1,
-                    speed: 600,
-                    navigation: {
-                        nextEl: arrowNext,
-                        prevEl: arrowPrev,
-                    },
-                })
-
-                swiper.on('slideChangeTransitionEnd', function () {
-                    checkScroll()
-                })
-            })
-        },
-
-        //store
-        '.s-store-map': function (section) {
-
-        },
 
         //common
-        '.text-section': function (section) {
-            let accBtns = section.find('.text-section__sidebar-inner>ul>li>a')
-
-            function closeAccordions(accToClose) {
-                let thisBody = accToClose.find('>ul')
-                thisBody.slideUp(300)
-                accToClose.removeClass('is-open')
-            }
-            function toggleAccordion() {
-                let thisHead = $(this)
-                let accordion = thisHead.closest('li')
-                let thisBody = accordion.find('>ul')
-
-                thisBody.slideToggle(300)
-                accordion.toggleClass('is-open')
-
-                //to close else
-                let elseAccordions = accordion.closest('ul').find('li.is-open').not(accordion)
-                closeAccordions(elseAccordions)
-
-                setTimeout(function () {
-                    scroller.update()
-                }, 300)
-            }
-
-            accBtns.on('click', toggleAccordion)
-        },
-        '.s-input--select': function (selects){
-            $('.s-input--select li').on('click', function () {
-                let thisContainer = $(this).closest('.s-input--select')
-
-                thisContainer.find('input[type="hidden"]').val($(this).attr('data-value'))
-                thisContainer.find('input[type="text"]').val($(this).text())
-            })
-            dropdown({
-                containerClass: 's-input--select',
-                btnSelector: '>input[type="text"]',
-                closeBtnClass: '',
-                dropdownSelector: 'ul',
-                timing: 300
-            })
-        },
-        '.s-input--number': function () {
-            let inpNumber = '.s-input--number'
-            let inpNumberEl = '.s-input--number input'
-
-            let minusBtn = '.s-input__number-minus'
-            let plusBtn = '.s-input__number-plus'
-
-
-            $(document).on('click', minusBtn, function () {
-                let inputEl = $(this).closest(inpNumber).find('input')
-                let thisMin = (inputEl.attr('min') && parseInt(inputEl.attr('min')) >= 0) ? parseInt(inputEl.attr('min')) : 1
-                let thisMax = (inputEl.attr('max') && parseInt(inputEl.attr('max')) >= thisMin) ? parseInt(inputEl.attr('max')) : false
-                let thisVal = parseInt(inputEl.val())
-
-                if (!thisVal) {
-                    inputEl.val(thisMin)
-                    return;
-                }
-
-                if (thisVal - 1 >= thisMin)
-                    inputEl.val(thisVal - 1)
-            })
-            $(document).on('click', plusBtn, function () {
-                let inputEl = $(this).closest(inpNumber).find('input')
-                let thisMin = (inputEl.attr('min') && parseInt(inputEl.attr('min')) >= 0) ? parseInt(inputEl.attr('min')) : 1
-                let thisMax = (inputEl.attr('max') && parseInt(inputEl.attr('max')) >= thisMin) ? parseInt(inputEl.attr('max')) : false
-                let thisVal = parseInt(inputEl.val())
-
-                if (!thisVal && thisVal !== 0) {
-                    inputEl.val(thisMin)
-                    return;
-                }
-                if (!thisMax) {
-                    inputEl.val(thisVal + 1)
-                    return;
-                }
-                if (thisVal + 1 <= thisMax)
-                    inputEl.val(thisVal + 1)
-            })
-            $(document).on('focusout', inpNumberEl, function () {
-                    let inputEl = $(this)
-                    let thisMin = (inputEl.attr('min') && parseInt(inputEl.attr('min')) >= 0) ? parseInt(inputEl.attr('min')) : 1
-                    let thisMax = (inputEl.attr('max') && parseInt(inputEl.attr('max')) >= thisMin) ? parseInt(inputEl.attr('max')) : false
-                    let thisVal = parseInt(inputEl.val())
-
-                    if (!thisVal)
-                        $(this).val(thisMin)
-                    if (thisVal < thisMin)
-                        $(this).val(thisMin)
-                    if (thisMax && thisVal > thisMax)
-                        $(this).val(thisMax)
-                })
-        },
         '.s-accordion': function (accordions) {
             let accBtns = accordions.find('.s-accordion__head')
 
@@ -833,7 +635,7 @@ function blocks() {
         },
         '.float-btn': function (btn) {
             scroller.on('scroll', function (e) {
-                if (e.direction === 'down') {
+                if (e.direction === 'down' || btn.hasClass('s-product__fixed-btn')) {
                     if(!$('.header').hasClass('menu-open') && !$('.header').hasClass('menu-open-search'))
                         btn.addClass('is-active')
                 } else {
@@ -1225,6 +1027,7 @@ function blocks() {
         '.header__mob-menu.header-search': function (menu) {
             let openBtn = $('.header__search-btn')
             let header = $('.header')
+            let searchInput = document.getElementById('menu-search-input')
 
             menu.css('height', viewportEl.height() - $('.header__container').height())
 
@@ -1247,14 +1050,11 @@ function blocks() {
                 $('.header__mob-menu.header-menu').removeClass('is-open')
                 $('.header__burger').removeClass('is-open')
 
-                if(menu.hasClass('is-open')){
-                    header.removeClass('menu-open-search').removeClass('is-hidden')
-                    scroller.start()
-                    $('html').removeClass('overflow-hidden')
-                    menu.find('input')[0].blur()
+                menu.toggleClass('is-open')
+                openBtn.toggleClass('is-open')
 
-                    fixHeaderScroll()
-                } else {
+                if(menu.hasClass('is-open')){
+                    searchInput.focus();
                     if(header.hasClass('is-scrolling')) {
                         menu.css('height', viewportEl.height() - $('.header__container').height())
                     } else {
@@ -1263,16 +1063,20 @@ function blocks() {
                     header.addClass('menu-open-search')
                     scroller.stop()
                     $('html').addClass('overflow-hidden')
-                    setTimeout(function () {
-                        menu.find('input')[0].focus()
-                    }, 500)
+                } else {
+                    searchInput.blur();
+                    header.removeClass('menu-open-search').removeClass('is-hidden')
+                    scroller.start()
+                    $('html').removeClass('overflow-hidden')
+
+                    fixHeaderScroll()
                 }
 
-                menu.toggleClass('is-open')
-                openBtn.toggleClass('is-open')
             }
 
-            openBtn.on('click', toggleMenu)
+
+
+            openBtn[0].onclick = toggleMenu
         },
 
 
