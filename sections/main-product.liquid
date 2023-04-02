@@ -206,7 +206,7 @@
             <div class="s-product__content-price__text">
             	
             	{% if settings.show_zip_payment %}
-              	<p>or 4 interest-free payments of $9.00 with <img src="{{ 's-product_payment.svg' | asset_url }}" alt="zip" width="38" height="14"></p>
+              	<p>or 4 interest-free payments of {{ product.price | divided_by: 4 | money }} with <img src="{{ 's-product_payment.svg' | asset_url }}" alt="zip" width="38" height="14"></p>
               {% endif %}
 
               {% if product.metafields.custom.reviews %}
@@ -663,11 +663,14 @@
       <div class="swiper-wrapper">
 
       	{% assign firstcollection = product.collections.first.handle %}
+      	{% assign current_product = product %}
 
       	{% for product in collections[firstcollection].products limit:6 %}
-          {% render 'article-product',
-            product: product
-          %}
+      		{% if product.handle != current_product.handle %}
+	          {% render 'article-product',
+	            product: product
+	          %}
+          {% endif %}
         {% endfor %}
 
         
@@ -681,90 +684,3 @@
     </div>
   </div>
 </section>
-
-
-{% schema %}
-  {
-    "name": "Product pages",
-    "settings": [
-      {
-       "type":      "header",
-       "content":   "Product gift option"
-      },
-       {
-        "type": "text",
-        "id": "label_1",
-        "label": "Label 1"
-      },
-       {
-        "type": "product",
-        "id": "product_1",
-        "label": "Product gift 1"
-      },
-        {
-        "type": "product",
-        "id": "product_2",
-        "label": "Product gift 2"
-      },
-      {
-        "type": "text",
-        "id": "label_2",
-        "label": "Label 2"
-      },
-        {
-        "type": "product",
-        "id": "product_3",
-        "label": "Product gift 3"
-      },
-      {
-        "type": "product",
-        "id": "product_4",
-        "label": "Product gift 4"
-      },
-      {
-        "type": "product",
-        "id": "product_5",
-        "label": "Product gift 5"
-      },
-      {
-        "type": "product",
-        "id": "product_6",
-        "label": "Product gift 6"
-      },
-      {
-        "type": "header",
-        "content":   "Gift option Images"
-      },
-      {
-        "type": "image_picker",
-        "id": "product_image_1",
-        "label": "Image 1"
-      },
-      {
-        "type": "image_picker",
-        "id": "product_image_2",
-        "label": "Image 2"
-      },
-      {
-        "type": "image_picker",
-        "id": "product_image_3",
-        "label": "Image 3"
-      },
-      {
-        "type": "image_picker",
-        "id": "product_image_4",
-        "label": "Image 4"
-      },
-      {
-        "type": "image_picker",
-        "id": "product_image_5",
-        "label": "Image 5"
-      },
-      {
-        "type": "image_picker",
-        "id": "product_image_6",
-        "label": "Image 6"
-      }
-    ]
-  }
-{% endschema %}
