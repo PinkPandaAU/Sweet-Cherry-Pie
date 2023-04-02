@@ -57,7 +57,7 @@
     ]
   },
   {
-    "name": "Socials",
+    "name": "Socials / Contact",
     "settings": [
       {
         "type": "url",
@@ -78,6 +78,11 @@
         "type": "url",
         "id": "twitter",
         "label": "Twitter URL"
+      },
+      {
+        "type": "text",
+        "id": "email",
+        "label": "Email"
       }
     ]
   },
