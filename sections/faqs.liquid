@@ -1,0 +1,66 @@
+<div class="s-faq" data-scroll-section>
+  {% if section.blocks.size > 0 %}
+    <div class="s-accordion-list">
+      {% for block in section.blocks %}
+        <div class="s-accordion s-accordion--big">
+          <div class="s-accordion__head">
+            <div class="title-h3 title-animation" data-scroll data-scroll-call="title-visible">
+              <h2>{{ block.settings.title }}</h2>
+            </div>
+            <div class="s-accordion__ico">
+              <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10">
+                <g transform="translate(-1569 -769)">
+                  <line x2="10" transform="translate(1569 774)" fill="none" stroke="#1f454d" stroke-width="1"/>
+                  <line class="ico-plus" x2="10" transform="translate(1574 769) rotate(90)" fill="none" stroke="#1f454d" stroke-width="1"/>
+                </g>
+              </svg>
+            </div>
+          </div>
+          <div class="s-accordion__body">
+            <div class="s-accordion__inner section-text">
+              {{ block.settings.details }}
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  {% endif %}
+</div>
+
+{% schema %}
+{
+  "name": "FAQs",
+  "settings": [
+   {
+      "type": "html",
+      "id": "title",
+      "label": "Heading"
+    }        
+  ],
+  "blocks": [
+        {
+          "type": "text",
+          "name": "Faqs",
+          "limit": 15,
+          "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Question"
+        },
+        {
+          "type": "richtext",
+          "id": "details",
+          "label": "Answer"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "FAQs"
+    }
+  ]
+}
+{% endschema %}
+
