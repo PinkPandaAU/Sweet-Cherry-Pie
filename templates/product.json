@@ -2,7 +2,18 @@
   "sections": {
     "main": {
       "type": "main-product",
-      "settings": {}
+      "settings": {
+        "show_zip_payment": true,
+        "featured_text": "Featured toys",
+        "label_1": "",
+        "product_1": "",
+        "product_2": "",
+        "label_2": "",
+        "product_3": "",
+        "product_4": "",
+        "product_5": "",
+        "product_6": ""
+      }
     }
   },
   "order": [
