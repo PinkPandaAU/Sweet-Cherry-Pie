@@ -3,20 +3,45 @@
     "main": {
       "type": "main-product",
       "settings": {
-        "show_zip_payment": true,
-        "featured_text": "Featured toys",
-        "label_1": "",
-        "product_1": "",
-        "product_2": "",
-        "label_2": "",
-        "product_3": "",
-        "product_4": "",
-        "product_5": "",
-        "product_6": ""
+      }
+    },
+    "f93c1abd-474b-4329-b71f-8c8daff55316": {
+      "type": "testimonials",
+      "blocks": {
+        "template--18562714468654__f93c1abd-474b-4329-b71f-8c8daff55316-1680396802cc5bfea5-0": {
+          "type": "text",
+          "settings": {
+            "name": "Emma M",
+            "testimonial": "<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est<\/p>"
+          }
+        },
+        "a6e1e410-bb86-4f44-aada-1265d1313bc9": {
+          "type": "text",
+          "settings": {
+            "name": "Jo H",
+            "testimonial": "<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est<\/p>"
+          }
+        },
+        "4c414014-2886-4ae3-ae1a-fba91c4fe78f": {
+          "type": "text",
+          "settings": {
+            "name": "Adam B",
+            "testimonial": "<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "template--18562714468654__f93c1abd-474b-4329-b71f-8c8daff55316-1680396802cc5bfea5-0",
+        "a6e1e410-bb86-4f44-aada-1265d1313bc9",
+        "4c414014-2886-4ae3-ae1a-fba91c4fe78f"
+      ],
+      "settings": {
+        "title": ""
       }
     }
   },
   "order": [
-    "main"
+    "main",
+    "f93c1abd-474b-4329-b71f-8c8daff55316"
   ]
 }
