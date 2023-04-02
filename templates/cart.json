@@ -28,10 +28,21 @@
         "image_5": "shopify:\/\/shop_images\/photo5.jpg",
         "image_6": "shopify:\/\/shop_images\/photo6.jpg"
       }
+    },
+    "a7239620-c320-4929-a094-416175d1b220": {
+      "type": "large-cta",
+      "settings": {
+        "subheading": "TAKE THE QUIZ",
+        "heading": "Not sure? Take the quiz and we can help you explore!",
+        "image": "shopify:\/\/shop_images\/s-banner.jpg",
+        "button_text": "Take the quiz",
+        "url": "#"
+      }
     }
   },
   "order": [
     "main",
-    "bbdebd90-c7e0-4238-a2bd-fb6a5d455f54"
+    "bbdebd90-c7e0-4238-a2bd-fb6a5d455f54",
+    "a7239620-c320-4929-a094-416175d1b220"
   ]
 }
