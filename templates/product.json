@@ -36,12 +36,29 @@
         "4c414014-2886-4ae3-ae1a-fba91c4fe78f"
       ],
       "settings": {
-        "title": "Testi<i>moan<\/i>ials"
+        "title": "Testi<i>moan<\/i>ials",
+        "image_1": "shopify:\/\/shop_images\/photo1.jpg",
+        "image_2": "shopify:\/\/shop_images\/photo2.jpg",
+        "image_3": "shopify:\/\/shop_images\/photo3.jpg",
+        "image_4": "shopify:\/\/shop_images\/photo4.jpg",
+        "image_5": "shopify:\/\/shop_images\/photo5.jpg",
+        "image_6": "shopify:\/\/shop_images\/photo6.jpg"
+      }
+    },
+    "7caa5fbf-8d18-4814-9799-63733669961d": {
+      "type": "large-cta",
+      "settings": {
+        "subheading": "TAKE THE QUIZ",
+        "heading": "Not sure? Take the quiz and we can help you explore!",
+        "image": "shopify:\/\/shop_images\/s-banner.jpg",
+        "button_text": "Take the quiz",
+        "url": "#"
       }
     }
   },
   "order": [
     "main",
-    "f93c1abd-474b-4329-b71f-8c8daff55316"
+    "f93c1abd-474b-4329-b71f-8c8daff55316",
+    "7caa5fbf-8d18-4814-9799-63733669961d"
   ]
 }
