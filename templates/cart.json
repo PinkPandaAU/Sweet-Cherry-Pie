@@ -1,5 +1,13 @@
 {
   "sections": {
+    "e9945a6f-ab46-42bf-bbc5-1e3f8109a4ed": {
+      "type": "breadcrumb",
+      "settings": {
+        "title_override": "Your <i>cart<\/i>",
+        "layout": "default",
+        "body": ""
+      }
+    },
     "main": {
       "type": "main-cart",
       "settings": {
@@ -57,6 +65,7 @@
     }
   },
   "order": [
+    "e9945a6f-ab46-42bf-bbc5-1e3f8109a4ed",
     "main",
     "bbdebd90-c7e0-4238-a2bd-fb6a5d455f54",
     "a7239620-c320-4929-a094-416175d1b220"
