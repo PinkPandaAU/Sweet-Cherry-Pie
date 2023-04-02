@@ -23,10 +23,26 @@
             "title": "Do you deliver?",
             "details": "<p>Yes we do!<\/p>"
           }
+        },
+        "8a37f6c7-79b5-40ea-9b83-422008d040b2": {
+          "type": "text",
+          "settings": {
+            "title": "Do your orders have discrete packaging?",
+            "details": "<p>Yes<\/p>"
+          }
+        },
+        "e4f1e3ef-3d5e-4e01-b720-aca9972bb035": {
+          "type": "text",
+          "settings": {
+            "title": "Another question",
+            "details": "<p>Here is the answer<\/p>"
+          }
         }
       },
       "block_order": [
-        "85e74480-a240-40d7-b89a-42357b70930d"
+        "85e74480-a240-40d7-b89a-42357b70930d",
+        "8a37f6c7-79b5-40ea-9b83-422008d040b2",
+        "e4f1e3ef-3d5e-4e01-b720-aca9972bb035"
       ],
       "settings": {
         "title": ""
