@@ -17,9 +17,11 @@
             </div>
           </div>
           <div class="s-product__gallery-main">
+          	{% if product.compare_at_price > product.price %}
             <div class="s-product__tags">
-              <span class="tag tag--off">15% off</span>
+              <span class="tag tag--off">{% if product.compare_at_price_max > product.price %}{{ product.compare_at_price_max | minus: product.price | times: 100.0 | divided_by: product.compare_at_price_max | money_without_currency | times: 100 | remove: '.0'}}% off{% endif %}</span>
             </div>
+            {% endif %}
             <div class="swiper">
               <div class="swiper-wrapper">
               	{% for image in product.images %}
@@ -34,58 +36,45 @@
 
         <div class="s-product__wrapper">
 
-
-{% for benefit in product.metafields.custom.benefits %}
-  <p>{{ benefit.title }}</p>
-{% endfor %}
-okay
-					
-
           <ul class="s-product__info">
 
-          	{% for feature in product.metafields.custom.product_features %}
+          	{% for feature in product.metafields.custom.product_features.value %}
           		<li>
 						    <div class="s-product__info-ico">
-	                <img src="{{ 'ico-product-info.svg' | asset_url }}" alt="" width="32" height="32">
+	                <img src="{{ feature.image | img_url: '' }}" alt="" width="32" height="32">
 	              </div>
-	              <span>{{ feature.product_feature.title }}</span>
+	              <span>{{ feature.title }}</span>
             	</li>
 					  {% endfor %}
 
-
-            <!--<li>
-              <div class="s-product__info-ico">
-                <img src="{{ 'ico-product-info.svg' | asset_url }}" alt="" width="32" height="32">
-              </div>
-              <span>Discreet packaging</span>
-            </li>
-            <li>
-              <div class="s-product__info-ico">
-                <img src="{{ 'ico-product-info.svg' | asset_url }}" alt="" width="32" height="32">
-              </div>
-              <span>Multi-patterns + intensities</span>
-            </li>
-            <li>
-              <div class="s-product__info-ico">
-                <img src="{{ 'ico-product-info.svg' | asset_url }}" alt="" width="32" height="32">
-              </div>
-              <span>Rechargeble battery</span>
-            </li>-->
           </ul>
-          <div class="s-product__banner">
-          <div class="s-product__banner-bg">
-            <img src="{{ 's-banner.jpg' | asset_url }}" alt="" width="778" height="340">
-          </div>
-          <div class="s-product__banner-inner">
-            <div class="s-product__banner-title title-h2 title-animation" data-scroll data-scroll-call="title-visible">
-              <h2>I embrace my sexuality and sensuality</h2>
-            </div>
-            <div class="s-product__banner-text section-text text-animation" data-scroll data-scroll-call="text-visible">
-              <p>Need to lift your sexual vibration? Maintain or boost your own powerful and confident sexual energy by repeating this mantra daily</p>
-            </div>
-          </div>
-        </div>
+
+          {% if product.metafields.custom.mantra_text %}
+	          <div class="s-product__banner">
+
+		          <div class="s-product__banner-bg">
+		          	{% if product.metafields.custom.mantra_image %}
+			            <img src="{{ product.metafields.custom.mantra_image | img_url: '' }}" alt="" width="778" height="340">
+		            {% else %}
+			            <img src="{{ 's-banner.jpg' | asset_url }}" alt="" width="778" height="340">
+			          {% endif %}
+		          </div>
+
+		          <div class="s-product__banner-inner">
+		            <div class="s-product__banner-title title-h2 title-animation" data-scroll data-scroll-call="title-visible">
+		              <h2>{{ product.metafields.custom.mantra_text }}</h2>
+		            </div>
+		            <div class="s-product__banner-text section-text text-animation" data-scroll data-scroll-call="text-visible">
+		              <p>Need to lift your sexual vibration? Maintain or boost your own powerful and confident sexual energy by repeating this mantra daily</p>
+		            </div>
+		          </div>
+		        </div>
+	        {% endif %}
+
+
           <div class="s-accordion-list">
+
+          	{% if product.metafields.custom.product_description.value %}
             <div class="s-accordion">
               <div class="s-accordion__head">
                 <h3>Product Description</h3>
@@ -100,17 +89,23 @@ okay
               </div>
               <div class="s-accordion__body">
                 <div class="s-accordion__inner section-text">
-                  <p>If nurturing your sexual wellness is top of your priority list (and it totally should be!) treat yourself to the gift of blended orgasms with the help of Chinchilla!</p>
+
+                	{{ product.metafields.custom.product_description | metafield_tag }}
+
+                  <!--<p>If nurturing your sexual wellness is top of your priority list (and it totally should be!) treat yourself to the gift of blended orgasms with the help of Chinchilla!</p>
                   <p>Watch your stress float away, as Chinchilla takes you on a journey of body-shuddering, ecstasy-riding, waves of bliss and self-discovery. Seriously, we got you!</p>
                   <p>Equipped with both a smooth, ergonomically designed vibrating shaft, and perfect, vibrating bunny shaped ears for clitoral stimulation, Chinchilla has the power to deliver blended orgasms over and over again!</p>
                   <p>If nurturing your sexual wellness is top of your priority list (and it totally should be!) treat yourself to the gift of blended orgasms with the help of Chinchilla!</p>
-                  <p>Self-care never felt so good!</p>
+                  <p>Self-care never felt so good!</p>-->
                 </div>
               </div>
             </div>
+            {% endif %}
+
+            {% if product.metafields.custom.product_specifications.value %}
             <div class="s-accordion">
               <div class="s-accordion__head">
-                <h3>Product Description</h3>
+                <h3>Product Specifications</h3>
                 <div class="s-accordion__ico">
                   <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10">
                     <g transform="translate(-1569 -769)">
@@ -122,17 +117,16 @@ okay
               </div>
               <div class="s-accordion__body">
                 <div class="s-accordion__inner section-text">
-                  <p>If nurturing your sexual wellness is top of your priority list (and it totally should be!) treat yourself to the gift of blended orgasms with the help of Chinchilla!</p>
-                  <p>Watch your stress float away, as Chinchilla takes you on a journey of body-shuddering, ecstasy-riding, waves of bliss and self-discovery. Seriously, we got you!</p>
-                  <p>Equipped with both a smooth, ergonomically designed vibrating shaft, and perfect, vibrating bunny shaped ears for clitoral stimulation, Chinchilla has the power to deliver blended orgasms over and over again!</p>
-                  <p>If nurturing your sexual wellness is top of your priority list (and it totally should be!) treat yourself to the gift of blended orgasms with the help of Chinchilla!</p>
-                  <p>Self-care never felt so good!</p>
+                  {{ product.metafields.custom.product_specifications | metafield_tag }}
                 </div>
               </div>
             </div>
+						{% endif %}
+
+						{% if product.metafields.custom.how_to_use_this_product.value %}
             <div class="s-accordion">
               <div class="s-accordion__head">
-                <h3>Product Description</h3>
+                <h3>How to use this product</h3>
                 <div class="s-accordion__ico">
                   <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10">
                     <g transform="translate(-1569 -769)">
@@ -144,23 +138,50 @@ okay
               </div>
               <div class="s-accordion__body">
                 <div class="s-accordion__inner section-text">
-                  <p>If nurturing your sexual wellness is top of your priority list (and it totally should be!) treat yourself to the gift of blended orgasms with the help of Chinchilla!</p>
-                  <p>Watch your stress float away, as Chinchilla takes you on a journey of body-shuddering, ecstasy-riding, waves of bliss and self-discovery. Seriously, we got you!</p>
-                  <p>Equipped with both a smooth, ergonomically designed vibrating shaft, and perfect, vibrating bunny shaped ears for clitoral stimulation, Chinchilla has the power to deliver blended orgasms over and over again!</p>
-                  <p>If nurturing your sexual wellness is top of your priority list (and it totally should be!) treat yourself to the gift of blended orgasms with the help of Chinchilla!</p>
-                  <p>Self-care never felt so good!</p>
+                  {{ product.metafields.custom.how_to_use_this_product | metafield_tag }}
                 </div>
               </div>
             </div>
+            {% endif %}
+
+
+            {% if product.metafields.custom.shipping_and_delivery.value %}
+            <div class="s-accordion">
+              <div class="s-accordion__head">
+                <h3>Shipping and delivery</h3>
+                <div class="s-accordion__ico">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10">
+                    <g transform="translate(-1569 -769)">
+                      <line x2="10" transform="translate(1569 774)" fill="none" stroke="#1f454d" stroke-width="1"/>
+                      <line class="ico-plus" x2="10" transform="translate(1574 769) rotate(90)" fill="none" stroke="#1f454d" stroke-width="1"/>
+                    </g>
+                  </svg>
+                </div>
+              </div>
+              <div class="s-accordion__body">
+                <div class="s-accordion__inner section-text">
+                  {{ product.metafields.custom.shipping_and_delivery | metafield_tag }}
+                </div>
+              </div>
+            </div>
+            {% endif %}
+
           </div>
         </div>
       </div>
       <div class="s-product__right" id="product-sticky">
         <form class="s-product__content" data-scroll-sticky-bottom="10" data-scroll-sticky-parent="#product-sticky">
+
           <div class="s-product__content-category">
-            <span class="tag tag--best">Bestseller</span>
-            <span>for <a href="">Category 01</a></span>
+          	{% if product.metafields.custom.tagline %}
+	            <span class="tag tag--best">{{ product.metafields.custom.tagline }}</span>
+	            {% assign first_collection = product.collections.first %}
+							{% if first_collection %}
+							  <span>for <a href="{{ first_collection.url }}">{{ first_collection.title }}</a></span>
+							{% endif %}
+            {% endif %}
           </div>
+
           <div class="s-product__content-title title-h1">
           	{% assign get_first = product.title | split:" " | last %}
 						<h1>{{ product.title | remove: get_first}} <i>{{get_first}}</i></h1>
@@ -187,9 +208,18 @@ okay
               	<p>or 4 interest-free payments of $9.00 with <img src="{{ 's-product_payment.svg' | asset_url }}" alt="zip" width="38" height="14"></p>
               {% endif %}
 
+              {% if product.metafields.custom.reviews %}
+              {% assign reviews = product.metafields.custom.reviews | times: 100 %}
               <div class="s-product__content-review">
-                <span>1,309 Reviews</span>
-                <div class="s-stars stars-3-5">
+                <span>{{ reviews  | money_without_currency | replace: '.00', '' }} Reviews</span>
+
+                {% if product.metafields.custom.star_rating %}
+                	{% assign star_rating = product.metafields.custom.star_rating %}
+                {% else %}
+                	{% assign star_rating = '4.5' %}
+                {% endif %}
+
+                <div class="s-stars stars-{{ star_rating | replace: '.', '-' | replace: '-0', '' }}">
                   <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18" height="18" viewBox="0 0 18 18">
                     <defs>
                       <clipPath id="clip-path">
@@ -254,6 +284,7 @@ okay
                       </g>
                     </g>
                   </svg>
+                  
                   <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18" height="18" viewBox="0 0 18 18">
                     <defs>
                       <clipPath id="clip-path">
@@ -272,6 +303,8 @@ okay
                   </svg>
                 </div>
               </div>
+              {% endif %}
+
             </div>
           </div>
           <div class="s-product__content-text">
@@ -280,14 +313,16 @@ okay
           <ul class="s-product__variations">
             <li class="is-big">
               <div class="s-product__variations-row">
+
                 <label class="s-radio s-radio--ico">
-                  <input type="radio" name="use[]" value="solo" checked>
+                  <input type="radio" name="use[]" value="solo" {% if product.metafields.custom.solo %} {{ 'checked' }} {% endif %}>
                   <span class="s-radio__btn">Solo</span>
                 </label>
                 <label class="s-radio s-radio--ico">
-                  <input type="radio" name="use[]" value="partner">
+                  <input type="radio" name="use2[]" value="partner" {% if product.metafields.custom.partner %} {{ 'checked' }} {% endif %}>
                   <span class="s-radio__btn">Partner</span>
                 </label>
+
               </div>
             </li>
             <li>
@@ -308,7 +343,7 @@ okay
                 <ul class="s-product__variations-row">
                   <li>
                     <label class="s-radio">
-                      <input type="radio" name="size[]" value="5" checked>
+                      <input type="radio" name="size[]" value="5">
                       <span class="s-radio__btn">5-inch</span>
                     </label>
                   </li>
@@ -481,6 +516,7 @@ okay
               <span>Rechargeble battery</span>
             </li>
           </ul>
+
           <div class="s-product__banner">
             <div class="s-product__banner-bg">
               <img src="{{ 's-banner.jpg' | asset_url }}" alt="" width="778" height="340">
@@ -494,7 +530,10 @@ okay
               </div>
             </div>
           </div>
+
           <div class="s-accordion-list">
+
+          	{% if product.metafields.custom.product_description.value %}
             <div class="s-accordion">
               <div class="s-accordion__head">
                 <h3>Product Description</h3>
@@ -509,17 +548,18 @@ okay
               </div>
               <div class="s-accordion__body">
                 <div class="s-accordion__inner section-text">
-                  <p>If nurturing your sexual wellness is top of your priority list (and it totally should be!) treat yourself to the gift of blended orgasms with the help of Chinchilla!</p>
-                  <p>Watch your stress float away, as Chinchilla takes you on a journey of body-shuddering, ecstasy-riding, waves of bliss and self-discovery. Seriously, we got you!</p>
-                  <p>Equipped with both a smooth, ergonomically designed vibrating shaft, and perfect, vibrating bunny shaped ears for clitoral stimulation, Chinchilla has the power to deliver blended orgasms over and over again!</p>
-                  <p>If nurturing your sexual wellness is top of your priority list (and it totally should be!) treat yourself to the gift of blended orgasms with the help of Chinchilla!</p>
-                  <p>Self-care never felt so good!</p>
+
+                	{{ product.metafields.custom.product_description | metafield_tag }}
+
                 </div>
               </div>
             </div>
+            {% endif %}
+
+            {% if product.metafields.custom.product_specifications.value %}
             <div class="s-accordion">
               <div class="s-accordion__head">
-                <h3>Product Description</h3>
+                <h3>Product Specifications</h3>
                 <div class="s-accordion__ico">
                   <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10">
                     <g transform="translate(-1569 -769)">
@@ -531,17 +571,16 @@ okay
               </div>
               <div class="s-accordion__body">
                 <div class="s-accordion__inner section-text">
-                  <p>If nurturing your sexual wellness is top of your priority list (and it totally should be!) treat yourself to the gift of blended orgasms with the help of Chinchilla!</p>
-                  <p>Watch your stress float away, as Chinchilla takes you on a journey of body-shuddering, ecstasy-riding, waves of bliss and self-discovery. Seriously, we got you!</p>
-                  <p>Equipped with both a smooth, ergonomically designed vibrating shaft, and perfect, vibrating bunny shaped ears for clitoral stimulation, Chinchilla has the power to deliver blended orgasms over and over again!</p>
-                  <p>If nurturing your sexual wellness is top of your priority list (and it totally should be!) treat yourself to the gift of blended orgasms with the help of Chinchilla!</p>
-                  <p>Self-care never felt so good!</p>
+                  {{ product.metafields.custom.specifications | metafield_tag }}
                 </div>
               </div>
             </div>
+						{% endif %}
+
+						{% if product.metafields.custom.how_to_use_this_product.value %}
             <div class="s-accordion">
               <div class="s-accordion__head">
-                <h3>Product Description</h3>
+                <h3>How to use this product</h3>
                 <div class="s-accordion__ico">
                   <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10">
                     <g transform="translate(-1569 -769)">
@@ -553,14 +592,33 @@ okay
               </div>
               <div class="s-accordion__body">
                 <div class="s-accordion__inner section-text">
-                  <p>If nurturing your sexual wellness is top of your priority list (and it totally should be!) treat yourself to the gift of blended orgasms with the help of Chinchilla!</p>
-                  <p>Watch your stress float away, as Chinchilla takes you on a journey of body-shuddering, ecstasy-riding, waves of bliss and self-discovery. Seriously, we got you!</p>
-                  <p>Equipped with both a smooth, ergonomically designed vibrating shaft, and perfect, vibrating bunny shaped ears for clitoral stimulation, Chinchilla has the power to deliver blended orgasms over and over again!</p>
-                  <p>If nurturing your sexual wellness is top of your priority list (and it totally should be!) treat yourself to the gift of blended orgasms with the help of Chinchilla!</p>
-                  <p>Self-care never felt so good!</p>
+                  {{ product.metafields.custom.how_to_use_this_product | metafield_tag }}
                 </div>
               </div>
             </div>
+            {% endif %}
+
+            {% if product.metafields.custom.shipping_and_delivery.value %}
+            <div class="s-accordion">
+              <div class="s-accordion__head">
+                <h3>Shipping and delivery</h3>
+                <div class="s-accordion__ico">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10">
+                    <g transform="translate(-1569 -769)">
+                      <line x2="10" transform="translate(1569 774)" fill="none" stroke="#1f454d" stroke-width="1"/>
+                      <line class="ico-plus" x2="10" transform="translate(1574 769) rotate(90)" fill="none" stroke="#1f454d" stroke-width="1"/>
+                    </g>
+                  </svg>
+                </div>
+              </div>
+              <div class="s-accordion__body">
+                <div class="s-accordion__inner section-text">
+                  {{ product.metafields.custom.shipping_and_delivery | metafield_tag }}
+                </div>
+              </div>
+            </div>
+            {% endif %}
+
           </div>
         </div>
       </div>
@@ -569,6 +627,59 @@ okay
 </section>
 
 
+<section class="s-featured" data-scroll-section>
+  <div class="container">
+    <div class="swiper-head">
+      <div class="swiper-arrows">
+        <button class="swiper-arrows-prev">
+          <span class="s-button s-button--round s-arrow-link">
+            <span class="s-arrow-link__ico">
+              <img src="{{ 'ico-swiper-arrow.svg' | asset_url }}" alt="<">
+                <img src="{{ 'ico-swiper-arrow.svg' | asset_url }}" alt="" role="presentation">
+            </span>
+          </span>
+        </button>
+        <button class="swiper-arrows-next">
+          <span class="s-button s-button--round s-arrow-link">
+            <span class="s-arrow-link__ico">
+              <img src="{{ 'ico-swiper-arrow.svg' | asset_url }}" alt=">">
+              <img src="{{ 'ico-swiper-arrow.svg' | asset_url }}" alt="" role="presentation">
+            </span>
+          </span>
+        </button>
+      </div>
+      <div class="swiper-head__title title-h2 title-animation" data-scroll data-scroll-call="title-visible">
+        <h2>{{ product.featured_text }}</h2>
+      </div>
+      <div class="swiper-head__btn">
+        <a href="{{ collections.all.url }}" class="s-button s-button--transparent">
+          <span>Shop all</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="s-featured__slider swiper" data-pointer-area="DRAG">
+      <div class="swiper-wrapper">
+
+      	{% assign firstcollection = product.collections.first.handle %}
+
+      	{% for product in collections[firstcollection].products limit:6 %}
+          {% render 'article-product',
+            product: product
+          %}
+        {% endfor %}
+
+        
+      </div>
+    </div>
+
+    <div class="s-featured__btn mobile-show">
+      <a href="{{ collections.all.url }}" class="s-button s-button--transparent">
+        <span>Shop all</span>
+      </a>
+    </div>
+  </div>
+</section>
 
 
 {% schema %}
@@ -581,6 +692,11 @@ okay
         "label": "Show zip payment",
         "info": "NOTE: ZipPay must first be activated as an App. Please then contact Pink Panda to configure the dynamic price calculation.",
         "default": false
+      },
+      {
+        "type": "text",
+        "id": "featured_text",
+        "label": "Featured Toys Heading"
       },
       {
        "type":      "header",

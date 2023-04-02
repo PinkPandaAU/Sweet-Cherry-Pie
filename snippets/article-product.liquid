@@ -3,11 +3,25 @@
     <a href="{{ product.url}}" class="s-card__link"></a>
     <div class="s-card__tags">
       <span class="tag">For the front</span>
-      <span class="tag tag--off">15% off</span>
+
+      {% if product.compare_at_price > product.price %}
+        <span class="tag tag--off">{% if product.compare_at_price_max > product.price %}{{ product.compare_at_price_max | minus: product.price | times: 100.0 | divided_by: product.compare_at_price_max | money_without_currency | times: 100 | remove: '.0'}}% off{% endif %}</span>
+      {% endif %}
     </div>
     <div class="s-card__img">
-      <img src="{{ '1.jpg' | asset_url }}" alt="">
-      <img src="{{ '2.jpg' | asset_url }}" alt="">
+
+      {% if product.metafields.custom.isolated_image %}
+        <img src="{{ product.metafields.custom.isolated_image | img_url: '' }}" alt="" width="778" height="340">
+      {% else %}
+        <img src="{{ product.images.first | img_url: 'master' }}" alt="" width="778" height="340">
+      {% endif %}
+
+      {% if product.metafields.custom.hover_image %}
+        <img src="{{ product.metafields.custom.hover_image | img_url: '' }}" alt="" width="778" height="340">
+      {% else %}
+        <img src="{{ product.images.last | img_url: 'master' }}" alt="" width="778" height="340">
+      {% endif %}
+
     </div>
     <div class="s-card__title title-h4">
       <h3>{{ product.title }}</h3>
