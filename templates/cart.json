@@ -11,13 +11,29 @@
         "template--18562713747758__bbdebd90-c7e0-4238-a2bd-fb6a5d455f54-16804050236e31d81f-0": {
           "type": "text",
           "settings": {
-            "name": "",
-            "testimonial": ""
+            "name": "Take the quiz",
+            "testimonial": "<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est.<\/p>"
+          }
+        },
+        "e8f5dc40-bafe-4e33-9aca-04ac4b76259b": {
+          "type": "text",
+          "settings": {
+            "name": "Jo H.",
+            "testimonial": "<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. <\/p>"
+          }
+        },
+        "6f2e24bb-a8c7-4876-ba0d-1d51d18694e9": {
+          "type": "text",
+          "settings": {
+            "name": "Jane D.",
+            "testimonial": "<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est.<\/p>"
           }
         }
       },
       "block_order": [
-        "template--18562713747758__bbdebd90-c7e0-4238-a2bd-fb6a5d455f54-16804050236e31d81f-0"
+        "template--18562713747758__bbdebd90-c7e0-4238-a2bd-fb6a5d455f54-16804050236e31d81f-0",
+        "e8f5dc40-bafe-4e33-9aca-04ac4b76259b",
+        "6f2e24bb-a8c7-4876-ba0d-1d51d18694e9"
       ],
       "settings": {
         "title": "Testi.<i>moan<\/i>.ials",
