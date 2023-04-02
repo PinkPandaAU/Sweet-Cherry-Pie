@@ -1,0 +1,580 @@
+<!--<section class="s-promo" data-scroll-section style="border-bottom: 1px solid;">
+  {% if collection.featured_image != blank %}
+    <div class="section-container">
+      <div class="section-container__block section-container--centered s-promo__bg">
+        <div class="s-promo__img"  data-scroll data-scroll-call="is-in-view">
+          <img src="{{ collection.featured_image | img_url:'1920x1920' }}" data-scroll data-scroll-speed="-0.5" alt="" role="presentation">
+        </div>
+      </div>
+    </div>
+    {% endif %}
+  
+  
+    <div class="container">
+      <div class="s-promo__content">
+        <div class="s-breadcrumbs">
+          <ul>
+            <li><a href="{{ shop.url }}">Home</a> </li>
+            <li>{{ collection.title }}</li>
+          </ul>
+        </div>
+        <div class="title-h1 title-animation" data-scroll data-scroll-call="title-visible">
+          {% assign get_first =  collection.title | split:" " | last %}
+          <h1>{{ collection.title | remove: get_first}} <i>{{get_first}}</i></h1>
+        </div>
+        {% if collection.description != blank %}
+        <div class="section-text text-animation" data-scroll data-scroll-call="text-visible">
+          {{ collection.description }}
+        </div>
+       {% endif %}
+      </div>
+    </div>
+  </section>-->
+
+<section class="s-promo" data-scroll-section>
+  <div class="container">
+    <div class="s-promo__container">
+      <div class="s-promo__content">
+        <div class="s-breadcrumbs">
+          <ul>
+            <li><a href="{{ shop.url }}">Home</a></li>
+            <li>{{ collection.title }}</li>
+          </ul>
+        </div>
+        <div class="title-epic title-animation" data-scroll data-scroll-call="title-visible">
+          <h1>{{ collection.title }}</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% paginate collection.products by section.settings.columns_desktop %}
+<section class="s-shop-category" data-scroll-section>
+  <div class="container">
+    <div class="s-shop-category__head">
+      <div class="s-shop-category__sort">
+        <span class="s-shop-category__sort-label">
+          sort by:
+        </span>
+        <div class="s-shop-category__sort-inner">
+          <div class="s-shop-category__sort-dropdown">
+            <span>
+              <span class="output_text">Newest</span>
+              <span class="s-shop-category__sort-ico">
+                <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10">
+                  <g id="Group_11613" data-name="Group 11613" transform="translate(-1569 -769)">
+                    <line x2="10" transform="translate(1569 774)" fill="none" stroke="#1f454d" stroke-width="1"/>
+                    <line x2="10" transform="translate(1574 769) rotate(90)" class="ico-plus" fill="none" stroke="#1f454d" stroke-width="1"/>
+                  </g>
+                </svg>
+              </span>
+            </span>
+            <input type="hidden" class="output_value" name="sort">
+            <ul>
+              <li data-value="1">Price</li>
+              <li data-value="2">Popular</li>
+              <li data-value="3">New</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="s-shop-category__container" id="s-shop-category">
+      <div class="s-shop-category__filter" data-scroll data-scroll-sticky data-scroll-target="#s-shop-category">
+        <div class="s-shop-category__filter-label">
+          <span>Filter by:</span>
+        </div>
+        <ul>
+          <li>
+            <div class="s-shop-category__filter-item">
+              <span>Brand</span>
+              <span class="s-shop-category__filter-item__ico">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+                  <g transform="translate(-441 -813)">
+                    <g transform="translate(-1117 55)">
+                      <line x2="10" transform="translate(1569 774)" fill="none" stroke="#1f454d" stroke-width="1"/>
+                      <line x2="10" transform="translate(1574 769) rotate(90)" class="ico-plus" fill="none" stroke="#1f454d" stroke-width="1"/>
+                    </g>
+                    <g transform="translate(441 813)" fill="none" stroke="#1f454d" stroke-width="1">
+                      <circle cx="16" cy="16" r="16" stroke="none"/>
+                      <circle cx="16" cy="16" r="15.5" fill="none"/>
+                    </g>
+                  </g>
+                </svg>
+              </span>
+            </div>
+            <div class="s-shop-category__filter-body">
+              <ul>
+                <li>
+                  <label class="s-radio">
+                    <input type="radio" name="brand[]" data-filter-name="brand" value="" checked>
+                    <span class="s-radio__btn">All</span>
+                  </label>
+                </li>
+                <li>
+                  <label class="s-radio">
+                    <input type="radio" name="brand[]" data-filter-name="brand" value="1">
+                    <span class="s-radio__btn">1</span>
+                  </label>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <div class="s-shop-category__filter-item">
+              <span>Colour</span>
+              <span class="s-shop-category__filter-item__ico">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+                  <g transform="translate(-441 -813)">
+                    <g transform="translate(-1117 55)">
+                      <line x2="10" transform="translate(1569 774)" fill="none" stroke="#1f454d" stroke-width="1"/>
+                      <line x2="10" transform="translate(1574 769) rotate(90)" class="ico-plus" fill="none" stroke="#1f454d" stroke-width="1"/>
+                    </g>
+                    <g transform="translate(441 813)" fill="none" stroke="#1f454d" stroke-width="1">
+                      <circle cx="16" cy="16" r="16" stroke="none"/>
+                      <circle cx="16" cy="16" r="15.5" fill="none"/>
+                    </g>
+                  </g>
+                </svg>
+              </span>
+            </div>
+            <div class="s-shop-category__filter-body">
+              <ul>
+                <li>
+                  <label class="s-radio">
+                    <input type="radio" name="colour[]" data-filter-name="colour" value="" checked>
+                    <span class="s-radio__btn">All</span>
+                  </label>
+                </li>
+                <li>
+                  <label class="s-radio">
+                    <input type="radio" name="colour[]" data-filter-name="colour" value="brown">
+                    <span class="s-radio__btn">Brown</span>
+                  </label>
+                </li>
+                <li>
+                  <label class="s-radio">
+                    <input type="radio" name="colour[]" data-filter-name="colour" value="black">
+                    <span class="s-radio__btn">Black</span>
+                  </label>
+                </li>
+                <li>
+                  <label class="s-radio">
+                    <input type="radio" name="colour[]" data-filter-name="colour" value="tan">
+                    <span class="s-radio__btn">Tan</span>
+                  </label>
+                </li>
+                <li>
+                  <label class="s-radio">
+                    <input type="radio" name="colour[]" data-filter-name="colour" value="black">
+                    <span class="s-radio__btn">Black</span>
+                  </label>
+                </li>
+                <li>
+                  <label class="s-radio">
+                    <input type="radio" name="colour[]" data-filter-name="colour" value="tan">
+                    <span class="s-radio__btn">Tan</span>
+                  </label>
+                </li>
+                <li>
+                  <label class="s-radio">
+                    <input type="radio" name="colour[]" data-filter-name="colour" value="pink">
+                    <span class="s-radio__btn">Pink</span>
+                  </label>
+                </li>
+                <li>
+                  <label class="s-radio">
+                    <input type="radio" name="colour[]" data-filter-name="colour" value="brown">
+                    <span class="s-radio__btn">Brown</span>
+                  </label>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <div class="s-shop-category__filter-item">
+              <span>Price</span>
+              <span class="s-shop-category__filter-item__ico">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+                  <g transform="translate(-441 -813)">
+                    <g transform="translate(-1117 55)">
+                      <line x2="10" transform="translate(1569 774)" fill="none" stroke="#1f454d" stroke-width="1"/>
+                      <line x2="10" transform="translate(1574 769) rotate(90)" class="ico-plus" fill="none" stroke="#1f454d" stroke-width="1"/>
+                    </g>
+                    <g transform="translate(441 813)" fill="none" stroke="#1f454d" stroke-width="1">
+                      <circle cx="16" cy="16" r="16" stroke="none"/>
+                      <circle cx="16" cy="16" r="15.5" fill="none"/>
+                    </g>
+                  </g>
+                </svg>
+              </span>
+            </div>
+            <div class="s-shop-category__filter-body">
+              <ul>
+                <li>
+                  <label class="s-radio">
+                    <input type="radio" name="price[]" data-filter-name="price" value="" checked>
+                    <span class="s-radio__btn">All</span>
+                  </label>
+                </li>
+                <li>
+                  <label class="s-radio">
+                    <input type="radio" name="price[]" data-filter-name="price" value="brown">
+                    <span class="s-radio__btn">Brown</span>
+                  </label>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <div class="s-shop-category__filter-item">
+              <span>Material</span>
+              <span class="s-shop-category__filter-item__ico">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+                  <g transform="translate(-441 -813)">
+                    <g transform="translate(-1117 55)">
+                      <line x2="10" transform="translate(1569 774)" fill="none" stroke="#1f454d" stroke-width="1"/>
+                      <line x2="10" transform="translate(1574 769) rotate(90)" class="ico-plus" fill="none" stroke="#1f454d" stroke-width="1"/>
+                    </g>
+                    <g transform="translate(441 813)" fill="none" stroke="#1f454d" stroke-width="1">
+                      <circle cx="16" cy="16" r="16" stroke="none"/>
+                      <circle cx="16" cy="16" r="15.5" fill="none"/>
+                    </g>
+                  </g>
+                </svg>
+              </span>
+            </div>
+            <div class="s-shop-category__filter-body">
+              <ul>
+                <li>
+                  <label class="s-radio">
+                    <input type="radio" name="material[]" data-filter-name="material" value="" checked>
+                    <span class="s-radio__btn">All</span>
+                  </label>
+                </li>
+                <li>
+                  <label class="s-radio">
+                    <input type="radio" name="material[]" data-filter-name="material" value="brown">
+                    <span class="s-radio__btn">Brown</span>
+                  </label>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <div class="s-shop-category__filter-item">
+              <span>Power type</span>
+              <span class="s-shop-category__filter-item__ico">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+                  <g transform="translate(-441 -813)">
+                    <g transform="translate(-1117 55)">
+                      <line x2="10" transform="translate(1569 774)" fill="none" stroke="#1f454d" stroke-width="1"/>
+                      <line x2="10" transform="translate(1574 769) rotate(90)" class="ico-plus" fill="none" stroke="#1f454d" stroke-width="1"/>
+                    </g>
+                    <g transform="translate(441 813)" fill="none" stroke="#1f454d" stroke-width="1">
+                      <circle cx="16" cy="16" r="16" stroke="none"/>
+                      <circle cx="16" cy="16" r="15.5" fill="none"/>
+                    </g>
+                  </g>
+                </svg>
+              </span>
+            </div>
+            <div class="s-shop-category__filter-body">
+              <ul>
+                <li>
+                  <label class="s-radio">
+                    <input type="radio" name="power[]" data-filter-name="power" value="" checked>
+                    <span class="s-radio__btn">All</span>
+                  </label>
+                </li>
+                <li>
+                  <label class="s-radio">
+                    <input type="radio" name="power[]" data-filter-name="power" value="brown">
+                    <span class="s-radio__btn">Brown</span>
+                  </label>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <div class="s-shop-category__filter-item">
+              <span>Waterproof</span>
+              <span class="s-shop-category__filter-item__ico">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+                  <g transform="translate(-441 -813)">
+                    <g transform="translate(-1117 55)">
+                      <line x2="10" transform="translate(1569 774)" fill="none" stroke="#1f454d" stroke-width="1"/>
+                      <line x2="10" transform="translate(1574 769) rotate(90)" class="ico-plus" fill="none" stroke="#1f454d" stroke-width="1"/>
+                    </g>
+                    <g transform="translate(441 813)" fill="none" stroke="#1f454d" stroke-width="1">
+                      <circle cx="16" cy="16" r="16" stroke="none"/>
+                      <circle cx="16" cy="16" r="15.5" fill="none"/>
+                    </g>
+                  </g>
+                </svg>
+              </span>
+            </div>
+            <div class="s-shop-category__filter-body">
+              <ul>
+                <li>
+                  <label class="s-radio">
+                    <input type="radio" name="waterproof[]" data-filter-name="waterproof" value="" checked>
+                    <span class="s-radio__btn">All</span>
+                  </label>
+                </li>
+                <li>
+                  <label class="s-radio">
+                    <input type="radio" name="waterproof[]" data-filter-name="waterproof" value="brown">
+                    <span class="s-radio__btn">Brown</span>
+                  </label>
+                </li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+
+        <div class="s-shop-category__filter-label">
+          <span>Shop by category</span>
+        </div>
+        <div class="s-shop-category__filter-links">
+          <a href="" class="s-radio__btn">For gifting</a>
+          <a href="" class="s-radio__btn">For the front</a>
+          <a href="" class="s-radio__btn">For the back</a>
+          <a href="" class="s-radio__btn">For added pleasure</a>
+          <a href="" class="s-radio__btn">For him</a>
+          <a href="" class="s-radio__btn">For solo</a>
+        </div>
+      </div>
+
+      <div class="s-shop-category__list">
+        
+          {% assign layout_style = "grid" %}
+          {% for product in collection.products %}
+            {% render 'collection-product',
+              product: product,
+              grid_style:layout_style,
+              filter_tag: get_tag
+            %}
+          {% endfor %}
+        
+      </div>
+
+
+    </div>
+
+
+    <div class="s-shop-category__pagination">
+      <ul class="outline-buttons">
+        <li class="prev not-active">
+          <a href="" class="s-button s-button--white s-button--round s-arrow-link">
+            <span class="s-arrow-link__ico">
+              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16" height="16" viewBox="0 0 16 16">
+                <defs>
+                  <clipPath id="clip-path">
+                    <rect id="Rectangle_2140" data-name="Rectangle 2140" width="16" height="16" transform="translate(57.934 1235)" fill="#fff" stroke="#707070" stroke-width="1"/>
+                  </clipPath>
+                </defs>
+                <g id="Mask_Group_80" data-name="Mask Group 80" transform="translate(-57.934 -1235)" clip-path="url(#clip-path)">
+                  <path id="Path_1477" data-name="Path 1477" d="M6.5,0a6,6,0,0,1-6,6,6,6,0,0,1,6,6" transform="translate(61.5 1237)" fill="none" stroke="#b36b77" stroke-linejoin="bevel" stroke-width="1.5"/>
+                </g>
+              </svg>
+              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16" height="16" viewBox="0 0 16 16">
+                <defs>
+                  <clipPath id="clip-path">
+                    <rect id="Rectangle_2140" data-name="Rectangle 2140" width="16" height="16" transform="translate(57.934 1235)" fill="#fff" stroke="#707070" stroke-width="1"/>
+                  </clipPath>
+                </defs>
+                <g id="Mask_Group_80" data-name="Mask Group 80" transform="translate(-57.934 -1235)" clip-path="url(#clip-path)">
+                  <path id="Path_1477" data-name="Path 1477" d="M6.5,0a6,6,0,0,1-6,6,6,6,0,0,1,6,6" transform="translate(61.5 1237)" fill="none" stroke="#b36b77" stroke-linejoin="bevel" stroke-width="1.5"/>
+                </g>
+              </svg>
+            </span>
+          </a>
+        </li>
+        <li class="is-active">
+          <a href="" class="s-button s-button--white s-button--round s-arrow-link">
+            <span class="s-arrow-link__ico">
+              <span>1</span>
+              <span>1</span>
+            </span>
+          </a>
+        </li>
+        <li>
+          <a href="" class="s-button s-button--white s-button--round s-arrow-link">
+            <span class="s-arrow-link__ico">
+              <span>2</span>
+              <span>2</span>
+            </span>
+          </a>
+        </li>
+        <li>
+          <a href="" class="s-button s-button--white s-button--round s-arrow-link">
+            <span class="s-arrow-link__ico">
+              <span>3</span>
+              <span>3</span>
+            </span>
+          </a>
+        </li>
+        <li class="next">
+          <a href="" class="s-button s-button--white s-button--round s-arrow-link">
+            <span class="s-arrow-link__ico">
+              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16" height="16" viewBox="0 0 16 16">
+                <defs>
+                  <clipPath id="clip-path">
+                    <rect id="Rectangle_2140" data-name="Rectangle 2140" width="16" height="16" transform="translate(57.934 1235)" fill="#fff" stroke="#707070" stroke-width="1"/>
+                  </clipPath>
+                </defs>
+                <g id="Mask_Group_80" data-name="Mask Group 80" transform="translate(-57.934 -1235)" clip-path="url(#clip-path)">
+                  <path id="Path_1477" data-name="Path 1477" d="M6.5,0a6,6,0,0,1-6,6,6,6,0,0,1,6,6" transform="translate(61.5 1237)" fill="none" stroke="#b36b77" stroke-linejoin="bevel" stroke-width="1.5"/>
+                </g>
+              </svg>
+              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16" height="16" viewBox="0 0 16 16">
+                <defs>
+                  <clipPath id="clip-path">
+                    <rect id="Rectangle_2140" data-name="Rectangle 2140" width="16" height="16" transform="translate(57.934 1235)" fill="#fff" stroke="#707070" stroke-width="1"/>
+                  </clipPath>
+                </defs>
+                <g id="Mask_Group_80" data-name="Mask Group 80" transform="translate(-57.934 -1235)" clip-path="url(#clip-path)">
+                  <path id="Path_1477" data-name="Path 1477" d="M6.5,0a6,6,0,0,1-6,6,6,6,0,0,1,6,6" transform="translate(61.5 1237)" fill="none" stroke="#b36b77" stroke-linejoin="bevel" stroke-width="1.5"/>
+                </g>
+              </svg>
+            </span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+{% endpaginate %}
+
+
+
+
+
+{% paginate collection.products by section.settings.columns_desktop %}
+  <section class="s-shop-category" data-scroll-section style="border-bottom: 1px solid;">
+    <div class="section-heading">
+      <div class="title-h2 title-animation" data-scroll data-scroll-call="title-visible">
+        <h2>Shop <i>{{ collection.title | remove: get_first}}</i> {{get_first}}</h2>
+      </div>
+     {% if section.settings.enable_sorting %}
+      {% assign sort_by = collection.sort_by | default: collection.default_sort_by %}
+      <div class="s-shop-category__sort">
+        <span class="s-shop-category__sort-label">
+          sort by:
+        </span>
+        <div class="s-shop-category__sort-dropdown">
+       {% for option in collection.sort_options %}
+         {% if option.value == sort_by %}
+          <span>{{ option.name }}</span>
+           {% break %}
+           {% endif %}
+         {% endfor %}
+          <ul>
+           {% for option in collection.sort_options %}
+            <li value="{{ option.value }}" class="custom_sort_opt">{{ option.name }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+       {% endif %}
+    </div>
+  
+    <div class="s-shop-category__container" id="s-shop-category">
+      {% if section.settings.enable_filter %}
+        <div class="s-shop-category__filter" data-scroll data-scroll-sticky data-scroll-target="#s-shop-category">
+          <div class="s-shop-category__filter-label">
+            <span>Filter by:</span>
+          </div>
+          {% assign get_tag = collection.all_tags %}
+          {% if get_tag.size > 0 %}
+            <ul class="custom_filter_p" data-handle="/collections/{{collection.handle}}">
+              {% for filter in get_tag %}
+                {% if filter != 'product_gift' and filter != 'synced' %}
+                <li>
+                  <label>
+                    <input type="radio" name="filter" class="custom_col_filter" data-tag="{{ filter }}" {% if current_tags != blank and current_tags contains filter%}checked{% endif %} value="1">
+                    <span>{{ filter }}</span>
+                  </label>
+                </li>
+                {% endif %}
+              {% endfor %}
+            </ul>
+          {% endif %}
+        </div>
+      {% endif %}
+      <div class="s-shop-category__list">
+        <div class="s-shop-category__cards s-card--even">
+          {% assign layout_style = "grid" %}
+          {% for product in collection.products %}
+            {% render 'featured-collection-grid',
+              product: product,
+              grid_style:layout_style,
+              filter_tag: get_tag
+            %}
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+    
+    <div class="s-shop-category__pagination">
+      {% if paginate.pages > 1 %}
+      {% if paginate.parts.size > 0 %}
+      <ul>
+        <li class="prev {% if paginate.previous %}{% else %}not-active{% endif %}">
+          {% if paginate.previous %}
+          <a href="{{ paginate.previous.url }}">prev</a>
+          {% endif %}
+        </li>
+        {% for part in paginate.parts %}
+        <li>{%- if part.is_link -%}<a href="{{ part.url }}">{{ part.title }}</a>{% else %}{{ part.title }}{% endif %}</li>
+        {% endfor %}
+        {% if paginate.next %}
+        <li class="next"><a href="{{ paginate.next.url }}">next</a></li>
+        {% endif %}
+      </ul>
+        {% endif %}
+    {% endif %}
+    </div>
+    
+    {% endpaginate %}
+  </section>
+
+
+{% schema %}
+{
+  "name": "main-collection",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "range",
+      "id": "columns_desktop",
+      "min": 9,
+      "max": 27,
+      "step": 3,
+      "default": 9,
+      "label": "Products Per Page"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_sorting",
+      "default": true,
+      "label": "Enable filtering"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_filter",
+      "default": true,
+      "label": "Enable Filter"
+    },
+    {
+      "type": "text",
+      "id": "filter_tag",
+      "label": "Add Tags and separated with ','"
+    }
+  ]
+}
+{% endschema %}

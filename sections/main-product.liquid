@@ -187,10 +187,9 @@
 						<h1>{{ product.title | remove: get_first}} <i>{{get_first}}</i></h1>
           </div>
 
-
-          {% if product.product_type != blank %}
+          {% if product.type != blank %}
 	          <div class="s-product__content-subtitle">
-	            <span>{{ product.product_type }}</span>
+	            <span>{{ product.type }}</span>
 	          </div>
           {% endif %}
 

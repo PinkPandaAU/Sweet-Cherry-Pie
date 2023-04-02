@@ -1,0 +1,23 @@
+<div class="header__btns-cart">
+	<a href="{{ routes.cart_url }}" class="s-button s-button--round s-arrow-link">
+	  <span class="s-arrow-link__ico">
+	    <svg xmlns="http://www.w3.org/2000/svg" width="13.25" height="15" viewBox="0 0 13.25 15">
+	    <g id="bag" transform="translate(-4.5 -2.5)">
+	      <rect id="Rectangle_283" data-name="Rectangle 283" width="12.25" height="10.5" transform="translate(5 6.5)" fill="none" stroke="#1f454d" stroke-linecap="square" stroke-width="1"/>
+	      <path id="Path_994" data-name="Path 994" d="M8,6.5a3.5,3.5,0,0,1,7,0" transform="translate(-0.375)" fill="none" stroke="#1f454d" stroke-linecap="square" stroke-width="1"/>
+	    </g>
+	  </svg>
+	    <svg xmlns="http://www.w3.org/2000/svg" width="13.25" height="15" viewBox="0 0 13.25 15">
+	    <g id="bag" transform="translate(-4.5 -2.5)">
+	      <rect id="Rectangle_283" data-name="Rectangle 283" width="12.25" height="10.5" transform="translate(5 6.5)" fill="none" stroke="#1f454d" stroke-linecap="square" stroke-width="1"/>
+	      <path id="Path_994" data-name="Path 994" d="M8,6.5a3.5,3.5,0,0,1,7,0" transform="translate(-0.375)" fill="none" stroke="#1f454d" stroke-linecap="square" stroke-width="1"/>
+	    </g>
+	  </svg>
+	  </span>
+	</a>
+	{% if cart.item_count > 0 %}
+		<span class="header__btns-cart__num">
+		  <span>{{ cart.item_count }}</span>
+		</span>
+	{% endif %}
+</div>

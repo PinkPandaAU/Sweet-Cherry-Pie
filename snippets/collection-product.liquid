@@ -1,8 +1,8 @@
-<article class="s-card swiper-slide" data-scroll data-scroll-call="is-in-view">
+<article class="s-card" data-pointer-area="View" data-filter-brand="1" data-filter-colour="brown" data-scroll data-scroll-call="is-in-view">
   <div class="s-card__inner border-image border-image--small-primary-star">
     <a href="{{ product.url}}" class="s-card__link"></a>
     <div class="s-card__tags">
-
+      
       {% assign first_collection = product.collections.first %}
       {% if first_collection %}
         <span class="tag">{{ first_collection.title }}</span>
