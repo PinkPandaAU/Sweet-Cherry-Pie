@@ -13,10 +13,29 @@
         "body": "<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum<\/p>",
         "image": "shopify:\/\/shop_images\/s-about-main_bg.jpg"
       }
+    },
+    "5fc58506-5e6a-48d1-9c1e-b2a739bea5e8": {
+      "type": "faqs",
+      "blocks": {
+        "85e74480-a240-40d7-b89a-42357b70930d": {
+          "type": "text",
+          "settings": {
+            "title": "Do you deliver?",
+            "details": "<p>Yes we do!<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "85e74480-a240-40d7-b89a-42357b70930d"
+      ],
+      "settings": {
+        "title": ""
+      }
     }
   },
   "order": [
     "main",
-    "95bfaaf4-0d16-4df2-8d16-6d7a267882d5"
+    "95bfaaf4-0d16-4df2-8d16-6d7a267882d5",
+    "5fc58506-5e6a-48d1-9c1e-b2a739bea5e8"
   ]
 }
