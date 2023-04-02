@@ -4,9 +4,18 @@
       "type": "main-page",
       "settings": {
       }
+    },
+    "95bfaaf4-0d16-4df2-8d16-6d7a267882d5": {
+      "type": "breadcrumb",
+      "settings": {
+        "title_override": "Common <i>questions<\/i>",
+        "layout": "default",
+        "body": ""
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "95bfaaf4-0d16-4df2-8d16-6d7a267882d5"
   ]
 }
