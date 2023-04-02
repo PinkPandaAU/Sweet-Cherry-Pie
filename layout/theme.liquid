@@ -41,7 +41,18 @@
         {% section 'header' %}
 
         <main class="main">
-            {{ content_for_layout }}
+
+            {% if request.path contains '/policies' %}
+
+              {% section 'breadcrumb' %}
+
+              <section class="s-terms" data-scroll-section>
+                {{ content_for_layout }}
+              </section>
+
+            {% else %}
+              {{ content_for_layout }}
+            {% endif %}
 
             {% section 'instagram' %}
 
