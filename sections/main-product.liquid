@@ -325,86 +325,58 @@
 
               </div>
             </li>
-            <li>
-              <span>Size</span>
 
-              <div class="s-shop-category__sort-dropdown">
-                <span>
-                  <span class="output_text">5-inch</span>
-                  <span class="s-shop-category__sort-ico">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10">
-                      <g id="Group_11613" data-name="Group 11613" transform="translate(-1569 -769)">
-                        <line x2="10" transform="translate(1569 774)" fill="none" stroke="#1f454d" stroke-width="1"/>
-                        <line x2="10" transform="translate(1574 769) rotate(90)" class="ico-plus" fill="none" stroke="#1f454d" stroke-width="1"/>
-                      </g>
-                    </svg>
-                  </span>
-                </span>
-                <ul class="s-product__variations-row">
+            <input name="id[]" value="{{ product.selected_or_first_available_variant.id }}" type="hidden">
+            
+            {% unless product.has_only_default_variant %}
+              {% assign product_options = product.options_with_values %}
+              {% if product_options.size > 0 %}
+                {% for option in product_options %}
                   <li>
-                    <label class="s-radio">
-                      <input type="radio" name="size[]" value="5">
-                      <span class="s-radio__btn">5-inch</span>
-                    </label>
-                  </li>
-                  <li>
-                    <label class="s-radio">
-                      <input type="radio" name="size[]" value="6">
-                      <span class="s-radio__btn">6-inch</span>
-                    </label>
-                  </li>
-                  <li>
-                    <label class="s-radio">
-                      <input type="radio" name="size[]" value="7">
-                      <span class="s-radio__btn">7-inch</span>
-                    </label>
-                  </li>
-                </ul>
-              </div>
-            </li>
-            <li>
-              <span>Colour</span>
+                    <span>{{ option.name }}</span>
+                    <div class="s-shop-category__sort-dropdown">
+                      <span>
+                        <span class="output_text">{{ option.values.first }}</span>
+                        <span class="s-shop-category__sort-ico">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10">
+                            <g id="Group_11613" data-name="Group 11613" transform="translate(-1569 -769)">
+                              <line x2="10" transform="translate(1569 774)" fill="none" stroke="#1f454d" stroke-width="1"/>
+                              <line x2="10" transform="translate(1574 769) rotate(90)" class="ico-plus" fill="none" stroke="#1f454d" stroke-width="1"/>
+                            </g>
+                          </svg>
+                        </span>
+                      </span>
 
-              <div class="s-shop-category__sort-dropdown">
-                <span>
-                  <span class="output_text">Pink</span>
-                  <span class="s-shop-category__sort-ico">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10">
-                      <g id="Group_11613" data-name="Group 11613" transform="translate(-1569 -769)">
-                        <line x2="10" transform="translate(1569 774)" fill="none" stroke="#1f454d" stroke-width="1"/>
-                        <line x2="10" transform="translate(1574 769) rotate(90)" class="ico-plus" fill="none" stroke="#1f454d" stroke-width="1"/>
-                      </g>
-                    </svg>
-                  </span>
-                </span>
-                <ul class="s-product__variations-row">
-                  <li>
-                    <label class="s-radio">
-                      <input type="radio" name="colour[]" value="5" checked>
-                      <span class="s-radio__btn">Pink</span>
-                    </label>
+                      {% for value in option.values %}
+                        <input type="hidden" class="selected-var" value="{{ value | escape }}">
+                        <span>{{ value | escape }}</span>
+                        {% break %}
+                      {% endfor %}
+                      <ul class="s-product__variations-row variants-primary">
+                        {% for value in option.values %}
+                          <li data-value="{{ value | escape }}">
+                            <label class="s-radio">
+                              <input type="radio" name="{{ option.name | handleize }}[]" value="{{value | escape}}" {% if forloop.first %} checked {% endif %}>
+                              <span class="s-radio__btn">{{ value }}</span>
+                            </label>
+                          </li>
+                        {% endfor %}
+                      </ul>
+                    </div>
                   </li>
-                  <li>
-                    <label class="s-radio">
-                      <input type="radio" name="colour[]" value="6">
-                      <span class="s-radio__btn">Brown</span>
-                    </label>
-                  </li>
-                  <li>
-                    <label class="s-radio">
-                      <input type="radio" name="colour[]" value="7">
-                      <span class="s-radio__btn">Black</span>
-                    </label>
-                  </li>
-                  <li>
-                    <label class="s-radio">
-                      <input type="radio" name="colour[]" value="7">
-                      <span class="s-radio__btn">Tan</span>
-                    </label>
-                  </li>
-                </ul>
-              </div>
-            </li>
+                {% endfor %}
+              {% endif %}
+              <select style="display:none;" id="custom_select_id">
+                {% for variant in product.variants %}
+                  <option {% if variant==current_variant %}selected="selected" {% endif %} {% unless variant.available %}
+                    disabled="disabled" {% endunless %} value="{{ variant.id }}" price="{{ variant.price | money }}"
+                    compare="{{ variant.compare_at_price | money }}">
+                    {{ variant.title }}
+                  </option>
+                {% endfor %}
+              </select>
+            {% endunless %}
+
             <li>
               <span>quantity</span>
               <div class="s-product__variations-row">
@@ -415,7 +387,7 @@
                       <img src="{{ 'ico-minus.svg' | asset_url }}" alt="" role="presentation">
                     </span>
                   </button>
-                  <input type="number" name="quantity" value="1" step="1" min="1" max="" readonly>
+                  <input type="number" id="quantity" name="quantity" value="1" step="1" min="1" max="" readonly>
                   <button type="button" class="s-quantity__btn btn-plus s-button s-button--round s-button--transparent s-arrow-link">
                     <span class="s-arrow-link__ico">
                       <img src="{{ 'ico-plus.svg' | asset_url }}" alt="+">
@@ -427,9 +399,17 @@
             </li>
           </ul>
           <div class="s-product__submit">
-            <button type="submit" class="s-button s-button--big s-button--black">
-              <span>Add to cart</span>
+            <button type="submit" name="add"
+              class="s-button s-button s-button--big s-button--black {%if product.has_only_default_variant %} simple-product {% endif %}"
+              {% if product.available %} id="buy-now" {% else %} disabled="disabled" {% endif %}>
+              <span>
+                {% if product.available %}Add to Cart{% else %}Sold Out{% endif %}
+              </span>
             </button>
+            <a href="/cart" name="view" id="view-cart" class="s-button s-button s-button--big s-button--black"
+              style="display: none;">
+              <span>View Cart</span>
+            </a>
           </div>
           <div class="s-product__also">
             <div class="s-product__also-title title-h4 title-animation" data-scroll data-scroll-call="title-visible">
@@ -683,3 +663,178 @@
     </div>
   </div>
 </section>
+<script>
+  let variantsObj = [];
+  let primaryObj = [];
+  let primaryVariantID = [];
+  let adding = false;
+  let selectedValues = {};
+
+  const inputElements = document.querySelectorAll('.variants-primary input[type="radio"]');
+
+  inputElements.forEach(input => {
+
+    // Check if the input element is checked by default
+    if (input.checked) {
+      const groupName = input.getAttribute('name');
+      const groupValue = input.value;
+
+      selectedValues[groupName] = groupValue;
+    }
+    input.addEventListener('change', () => {
+      if (input.checked) { // Get the group name and value of the input element
+        const groupName = input.getAttribute('name');
+        const groupValue = input.value;
+        selectedValues[groupName] = groupValue;
+
+        // Get an array of selected values
+        const selectedValuesArray = Object.values(selectedValues);
+        primaryObj = [];
+        primaryObj = [...selectedValuesArray];
+        console.log(primaryObj);
+        getVariant();
+      }
+    });
+  });
+  primaryObj = Object.values(selectedValues);
+
+  function getCartTotal() {
+    const xhttp = new XMLHttpRequest();
+
+    // Define a callback function
+    xhttp.onload = function () {
+      document.getElementById('cart-total').innerHTML = JSON.parse(xhttp.responseText)['cart-total'];
+    }
+
+    // Send a request
+    xhttp.open('GET', '/?sections=cart-total', true);
+    xhttp.send();
+  }
+
+  function addToCart() {
+    let formData = {
+      'items': []
+    };
+    adding = true;
+    document.getElementById('buy-now').innerHTML = '<span>Adding...</span>';
+    let qauntity = document.getElementById('quantity').value;
+    formData.items.push({ 'id': primaryVariantID, 'quantity': qauntity });
+    variantsObj.forEach(function (value) {
+      formData.items.push({ 'id': value, 'quantity': qauntity });
+    });
+    fetch(window.Shopify.routes.root + 'cart/add.js', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(formData)
+    }).then(response => {
+      document.getElementById('buy-now').style.display = "none";
+      document.getElementById('view-cart').style.display = "inline-flex";
+      getCartTotal();
+      adding = false;
+    }).catch((error) => {
+      console.error('Error:', error);
+      document.getElementById('buy-now').innerHTML = '<span>ERROR</span>';
+      adding = false;
+    });
+  }
+
+  document.getElementById('buy-now').addEventListener('click', function (event) {
+    event.preventDefault();
+    if (event.currentTarget.classList.contains('view-cart')) {
+      window.location.href = '/cart';
+    } else {
+      if (event.currentTarget.classList.contains('simple-product')) {
+        primaryVariantID = document.querySelector('input[name="id[]"]').value;
+      }
+      if (!adding) {
+        addToCart();
+      }
+    }
+  });
+  function getVariant() {
+    var handle = "{{product.handle}}";
+    console.log(handle, "handle")
+
+    fetch(window.Shopify.routes.root + 'products/' + handle + '.js')
+      .then(response => response.json())
+      .then(product => {
+        if (product.variants) {
+          product.variants.forEach(element => {
+            if (JSON.stringify(element.options) == JSON.stringify(primaryObj)) {
+              primaryVariantID = element.id;
+              document.querySelector('.s-price__new').childNodes[0].textContent = "$" + element.price / 100;
+            }
+          });
+        }
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+      });
+  }
+  const primaryOptions = document.querySelectorAll('.s-shop-category__sort-dropdown ul');
+
+  if (primaryOptions != null && primaryOptions != "") {
+    primaryOptions.forEach((element, counter) => {
+      let i = 0;
+      for (let child of element.children) {
+        if (child.classList.contains('primary_sel')) {
+          child.addEventListener('click', function (event) {
+            let productId = event.target.getAttribute("data-value");
+            let previousVal = "";
+            let siblingTarget = "";
+            for (let sibling of event.target.parentNode.parentNode.children) {
+              if (sibling.classList.contains('selected-var')) {
+                siblingTarget = sibling;
+              }
+              if (sibling.classList.contains('remove-custom_related_sel')) {
+                sibling.classList.add('active');
+              }
+            }
+            previousVal = siblingTarget.value;
+            event.target.parentNode.parentNode.classList.add('added');
+
+            // Remove old variant ID
+            var index = primaryObj.indexOf(previousVal);
+            if (index !== -1) {
+              primaryObj.splice(index, 1);
+            }
+            siblingTarget.value = productId;
+
+            // primaryObj.push(productId);
+            primaryObj.splice(counter, 0, productId);
+          });
+
+          if (i == 0) {
+            let productId = child.getAttribute("data-value");
+            let previousVal = "";
+            let siblingTarget = "";
+            for (let sibling of child.parentNode.parentNode.children) {
+              if (sibling.classList.contains('selected-var')) {
+                siblingTarget = sibling;
+              }
+              if (sibling.classList.contains('remove-custom_related_sel')) {
+                sibling.classList.add('active');
+              }
+            }
+            previousVal = siblingTarget.value;
+            child.parentNode.parentNode.classList.add('added');
+
+            // Remove old variant ID
+            var index = primaryObj.indexOf(previousVal);
+            if (index !== -1) {
+              primaryObj.splice(index, 1);
+            }
+            siblingTarget.value = productId;
+
+            // primaryObj.push(productId);
+            primaryObj.splice(counter, 0, productId);
+          }
+        }
+        i++;
+      }
+    });
+    getVariant();
+  }
+</script>
