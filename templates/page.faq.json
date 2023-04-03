@@ -79,6 +79,13 @@
             "title": "What payment options do you offer?",
             "details": "<p>Currently we offer payment via Mastercard, Visa, American Express and Paypal.<\/p><p>We hope to add AfterPay and Zippay options in the near future.<\/p>"
           }
+        },
+        "da2038a9-f4eb-422a-a251-1a0c58721194": {
+          "type": "text",
+          "settings": {
+            "title": "Do you have a store I can visit?",
+            "details": "<p>No, at this stage we are an online store only.<\/p>"
+          }
         }
       },
       "block_order": [
@@ -90,7 +97,8 @@
         "c35c1198-e785-4bfd-a6f7-067eb0a123bd",
         "130eed0e-4ff8-47e2-ab48-e26e26fbd95e",
         "166dfe01-905c-4dae-95c5-26342eee8c4b",
-        "2c27b793-1d84-4603-b6ee-f656817dca3c"
+        "2c27b793-1d84-4603-b6ee-f656817dca3c",
+        "da2038a9-f4eb-422a-a251-1a0c58721194"
       ],
       "settings": {
         "title": ""
