@@ -28,14 +28,14 @@
           "type": "text",
           "settings": {
             "title": "Do your orders have discrete packaging?",
-            "details": "<p>Yes<\/p>"
+            "details": "<p>Absolutely! No need to worry about nosey neighbours or your postman having any idea what is being delivered to your door when you order from Sweet Cherry Pie. Our beautifully packaged presentation boxes are totally hidden in a plain, boring parcel or satchel with no mention of who sent yo the parcel. Perfectly discreet!<\/p>"
           }
         },
         "e4f1e3ef-3d5e-4e01-b720-aca9972bb035": {
           "type": "text",
           "settings": {
-            "title": "Another question",
-            "details": "<p>Here is the answer<\/p>"
+            "title": "How do I choose the right product for me?",
+            "details": "<p>If you're not sure which product is right for you, we recommend taking our quiz. &lt;link to quiz&gt;<\/p><p>Still not sure? Our knowledgable and friendly customer service team are happy to answer any questions you may have. Simply contact admin@sweetcherrypie.com.<\/p>"
           }
         },
         "ba7c0b21-604a-421d-8fe3-6add58a0bbf6": {
