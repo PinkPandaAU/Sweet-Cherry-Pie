@@ -65,6 +65,13 @@
             "title": "How should store my intimate pleasure device?",
             "details": "<p>We recommend storing your toy(s) separately in a cool, dry place  in the storage pouch provided. This prevents it from collecting dust or picking up bacteria between uses. <\/p>"
           }
+        },
+        "166dfe01-905c-4dae-95c5-26342eee8c4b": {
+          "type": "text",
+          "settings": {
+            "title": "how will I know how to operate my device?",
+            "details": "<p>Each product comes with simply, easy-to-follow instructions. however, if you are still experiencing difficulties please don not hesitate to contact our friendly customer service team for help at admin@sweetcherrypie.com.<\/p>"
+          }
         }
       },
       "block_order": [
@@ -74,7 +81,8 @@
         "ba7c0b21-604a-421d-8fe3-6add58a0bbf6",
         "cbd0ef2e-7b6f-4b7f-9ae8-9a07da1e54fb",
         "c35c1198-e785-4bfd-a6f7-067eb0a123bd",
-        "130eed0e-4ff8-47e2-ab48-e26e26fbd95e"
+        "130eed0e-4ff8-47e2-ab48-e26e26fbd95e",
+        "166dfe01-905c-4dae-95c5-26342eee8c4b"
       ],
       "settings": {
         "title": ""
