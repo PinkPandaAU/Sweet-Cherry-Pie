@@ -44,13 +44,21 @@
             "title": "How do I clean my intimate toy?",
             "details": "<p>Whilst keeping your intimate toy clean is of the utmost importance, it's also pretty simple. Your Sweet Cherry Pie device can be sanitised before and after use with antibacterial soap and water or our toy cleaner. For more in-depth information on the how's and why's of keeping your toy clean head to our article The Do's and Don't of Cleaning Your Sex Toy. &lt;link to article&gt;<\/p>"
           }
+        },
+        "cbd0ef2e-7b6f-4b7f-9ae8-9a07da1e54fb": {
+          "type": "text",
+          "settings": {
+            "title": "Are these products safe to use inside my body?",
+            "details": "<p>We are very passionate about ensuring the health and wellness of our customers. All of the products in the Sweet Cherry Pie range are made from body-safe silicone and high quality ABS, which are smooth and skin friendly for your ultimate comfort and pleasure.<\/p>"
+          }
         }
       },
       "block_order": [
         "85e74480-a240-40d7-b89a-42357b70930d",
         "8a37f6c7-79b5-40ea-9b83-422008d040b2",
         "e4f1e3ef-3d5e-4e01-b720-aca9972bb035",
-        "ba7c0b21-604a-421d-8fe3-6add58a0bbf6"
+        "ba7c0b21-604a-421d-8fe3-6add58a0bbf6",
+        "cbd0ef2e-7b6f-4b7f-9ae8-9a07da1e54fb"
       ],
       "settings": {
         "title": ""
