@@ -21,7 +21,7 @@
           "type": "text",
           "settings": {
             "title": "Do you deliver?",
-            "details": "<p>Yes we do!<\/p>"
+            "details": "<p>Yes we do! At this stage we do not offer pick up at our warehouse, so all orders are delivered.<\/p><p><\/p>"
           }
         },
         "8a37f6c7-79b5-40ea-9b83-422008d040b2": {
