@@ -10,7 +10,7 @@
       "settings": {
         "title_override": "Common <i>questions<\/i>",
         "layout": "default",
-        "body": "<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum<\/p>",
+        "body": "<p>Got a question? <\/p><p>Find the answer to commonly asked questions below. <\/p><p>Can't find what you are looking for here? Contact our friendly customer service team at admin@sweetcherrypie.com for further information or advice.<\/p>",
         "image": "shopify:\/\/shop_images\/s-about-main_bg.jpg"
       }
     },
