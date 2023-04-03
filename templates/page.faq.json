@@ -51,6 +51,13 @@
             "title": "Are these products safe to use inside my body?",
             "details": "<p>We are very passionate about ensuring the health and wellness of our customers. All of the products in the Sweet Cherry Pie range are made from body-safe silicone and high quality ABS, which are smooth and skin friendly for your ultimate comfort and pleasure.<\/p>"
           }
+        },
+        "c35c1198-e785-4bfd-a6f7-067eb0a123bd": {
+          "type": "text",
+          "settings": {
+            "title": "What type of lubricant can I use with my toy?",
+            "details": "<p>We recommend only using water-based lubricants, as other lubricants may deteriorate the material that your toy is made from and render it unfit for use.<\/p>"
+          }
         }
       },
       "block_order": [
@@ -58,7 +65,8 @@
         "8a37f6c7-79b5-40ea-9b83-422008d040b2",
         "e4f1e3ef-3d5e-4e01-b720-aca9972bb035",
         "ba7c0b21-604a-421d-8fe3-6add58a0bbf6",
-        "cbd0ef2e-7b6f-4b7f-9ae8-9a07da1e54fb"
+        "cbd0ef2e-7b6f-4b7f-9ae8-9a07da1e54fb",
+        "c35c1198-e785-4bfd-a6f7-067eb0a123bd"
       ],
       "settings": {
         "title": ""
