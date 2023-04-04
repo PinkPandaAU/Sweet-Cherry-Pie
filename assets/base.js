@@ -787,6 +787,92 @@ function blocks() {
                 (e = t.hasClass("btn-minus") ? !0 : e) ? m < (o = i - a) ? n.val(o) : n.val(m): (o = i + a, void 0 !== d && d <= o ? n.val(d) : n.val(o)), n.trigger("change")
             })
         },
+        '.s-quantitycart': function () {
+            let inpNumber = '.s-quantitycart'
+            let inpNumberEl = '.s-quantitycart input'
+
+            let minusBtn = '.s-quantitycart__btn.btn-minus'
+            let plusBtn = '.s-quantitycart__btn.btn-plus'
+
+
+            function loadCart() {
+                // Create an XMLHttpRequest object
+                const xhttp = new XMLHttpRequest();
+
+                // Define a callback function
+                xhttp.onload = function () {
+                    // Here you can use the Data
+                    jQuery('#cart-items').html(JSON.parse(xhttp.responseText)['cart-items']);
+                    $('#cart-items').removeClass('in-process');
+                }
+
+                // Send a request
+                xhttp.open('GET', '/?sections=cart-items', true);
+                xhttp.send();
+            }
+
+            function updateCart(empty = false) {
+                let quantityPlus = [];
+                if (!empty) {
+                    $('.s-cart__list .s-quantitycart input').each(function () {
+                        quantityPlus.push($(this).val());
+                    });
+                } else {
+                    $('.s-cart__list .s-quantitycart input').each(function () {
+                        quantityPlus.push(0);
+                    });
+                }
+
+                jQuery.post(window.Shopify.routes.root + 'cart/update.js', { updates: quantityPlus }, function (response) {
+                    loadCart();
+                });
+            }
+
+            $(document).on('click', minusBtn, function (e) {
+                e.preventDefault();
+                let inputEl = $(this).closest(inpNumber).find('input');
+                let thisVal = parseInt(inputEl.val());
+                inputEl.val(thisVal - 1);
+
+                $('#cart-items').addClass('in-process');
+                setTimeout(() => {
+                    updateCart();
+                }, 500);
+            })
+            $(document).on('click', '#empty-cart', function (e) {
+                e.preventDefault();
+                updateCart(true);
+            });
+            $(document).on('click', plusBtn, function (e) {
+                e.preventDefault();
+                let inputEl = $(this).closest(inpNumber).find('input');
+                let thisVal = parseInt(inputEl.val())
+                // if(thisVal < parseInt(inputEl.attr('max'))) {
+                inputEl.val(thisVal + 1);
+                $('#cart-items').addClass('in-process');
+                setTimeout(() => {
+                    updateCart();
+                }, 500);
+                // }
+            })
+            $(document).on('focusout', inpNumberEl, function () {
+                let inputEl = $(this)
+                let thisMin = (inputEl.attr('min') && parseInt(inputEl.attr('min')) >= 0) ? parseInt(inputEl.attr('min')) : 1
+                let thisMax = (inputEl.attr('max') && parseInt(inputEl.attr('max')) >= thisMin) ? parseInt(inputEl.attr('max')) : false
+                let thisVal = parseInt(inputEl.val())
+
+                if (!thisVal)
+                    $(this).val(thisMin)
+                if (thisVal < thisMin)
+                    $(this).val(thisMin)
+                if (thisMax && thisVal > thisMax)
+                    $(this).val(thisMax)
+
+                setTimeout(() => {
+                    updateCart();
+                }, 500);
+            })
+        },
         '.title-animation': function (allTitles) {
                 const titles = gsap.utils.toArray('.title-animation>*')
 

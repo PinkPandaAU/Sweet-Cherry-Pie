@@ -25,6 +25,10 @@
         border-bottom: none;
       }
     }
+    &.in-process {
+      opacity: 0.4;
+      cursor: disabled;
+    }
   }
   &__block {
     display: flex;

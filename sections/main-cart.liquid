@@ -1,102 +1,70 @@
 <section class="s-cart" data-scroll-section>
   <div class="container">
     <div class="s-cart__container">
-      <ul class="s-cart__list">
-        <li>
-          <div class="s-cart__block">
-            <div class="s-cart__block-item">
-              <div class="s-cart__item">
-                <div class="s-cart__item-img">
-                  <img src="{{ '4.jpg' | asset_url }}" alt="">
-                </div>
-                <div class="s-cart__item-title title-h3 title-animation" data-scroll data-scroll-call="title-visible">
-                  <h2>Fun Factory Limba Flex</h2>
-                </div>
-              </div>
-            </div>
-            <div class="s-cart__block-item">
-              <div class="s-cart__row">
-                <div class="s-cart__row-label">
-                  <span>Price:</span>
-                </div>
-                <div class="s-price s-price--small">
-                  <div class="s-price__new">
-                    <span>$129.95</span>
+      <ul class="s-cart__list" id="cart-items">
+        {% for item in cart.items %}
+          <li>
+            <div class="s-cart__block">
+              <div class="s-cart__block-item">
+                <div class="s-cart__item">
+                  <div class="s-cart__item-img">
+                    <img src="{{ item.image | img_url:'' }}" alt="{{ item.image.alt | escape }}">
+                  </div>
+                  <div class="s-cart__item-title title-h3 title-animation" data-scroll data-scroll-call="title-visible">
+                    <h3>{{ item.product.title }}</h3>
+                    {% if item.variant != blank and item.variant.title != 'Default Title' %}<div class="variant">{{ item.variant.title }}</div>{% endif %}
                   </div>
                 </div>
               </div>
-              <div class="s-cart__row">
-                <div class="s-cart__row-label">
-                  <span>Quantity:</span>
-                </div>
-                <div class="s-quantity">
-                  <button type="button" class="s-quantity__btn btn-minus s-button s-button--round s-button--transparent s-arrow-link">
-                    <span class="s-arrow-link__ico">
-                      <img src="{{ 'ico-minus.svg' | asset_url }}" alt="-">
-                      <img src="{{ 'ico-minus.svg' | asset_url }}" alt="" role="presentation">
-                    </span>
-                  </button>
-                  <input type="number" name="quantity" value="1" step="1" min="1" max="" readonly="">
-                  <button type="button" class="s-quantity__btn btn-plus s-button s-button--round s-button--transparent s-arrow-link">
-                    <span class="s-arrow-link__ico">
-                      <img src="{{ 'ico-plus.svg' | asset_url }}" alt="+">
-                      <img src="{{ 'ico-plus.svg' | asset_url }}" alt="" role="presentation">
-                    </span>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </li>
-        <li>
-          <div class="s-cart__block">
-            <div class="s-cart__block-item">
-              <div class="s-cart__item">
-                <div class="s-cart__item-img">
-                  <img src="{{ '4.jpg' | asset_url }}" alt="">
-                </div>
-                <div class="s-cart__item-title title-h3 title-animation" data-scroll data-scroll-call="title-visible">
-                  <h2>Fun Factory Limba Flex</h2>
-                </div>
-              </div>
-            </div>
-            <div class="s-cart__block-item">
-              <div class="s-cart__row">
-                <div class="s-cart__row-label">
-                  <span>Price:</span>
-                </div>
-                <div class="s-price s-price--small">
-                  <div class="s-price__new">
-                    <span>$129.95</span>
+              <div class="s-cart__block-item">
+                <div class="s-cart__row">
+                  <div class="s-cart__row-label">
+                    <span>Total:</span>
                   </div>
-                  <div class="s-price__old">
-                    <span>$129.95</span>
+                  <div class="s-price s-price--small">
+                    <div class="s-price__new">
+                      <span>{{ item.original_line_price | money }}</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="s-cart__row">
+                  <div class="s-cart__row-label">
+                    <span>Quantity:</span>
+                  </div>
+                  <div class="s-quantitycart">
+                    <button type="button" class="s-quantitycart__btn btn-minus s-button s-button--round s-button--transparent s-arrow-link">
+                      <span class="s-arrow-link__ico">
+                        <img src="{{ 'ico-minus.svg' | asset_url }}" alt="-">
+                        <img
+                          src="{{ 'ico-minus.svg' | asset_url }}"
+                          alt=""
+                          role="presentation">
+                      </span>
+                    </button>
+                    <input
+                      type="number"
+                      name="quantity"
+                      value="{{ item.quantity }}"
+                      step="1"
+                      data-index="{{ item.index | plus: 1 }}"
+                      min="0"
+                      maxlength="3"
+                      readonly="">
+                    <button type="button" class="s-quantitycart__btn btn-plus s-button s-button--round s-button--transparent s-arrow-link">
+                      <span class="s-arrow-link__ico">
+                        <img src="{{ 'ico-plus.svg' | asset_url }}" alt="+">
+                        <img
+                          src="{{ 'ico-plus.svg' | asset_url }}"
+                          alt=""
+                          role="presentation">
+                      </span>
+                    </button>
                   </div>
                 </div>
               </div>
-              <div class="s-cart__row">
-                <div class="s-cart__row-label">
-                  <span>Quantity:</span>
-                </div>
-                <div class="s-quantity">
-                  <button type="button" class="s-quantity__btn btn-minus s-button s-button--round s-button--transparent s-arrow-link">
-                    <span class="s-arrow-link__ico">
-                      <img src="{{ 'ico-minus.svg' | asset_url }}" alt="-">
-                      <img src="{{ 'ico-minus.svg' | asset_url }}" alt="" role="presentation">
-                    </span>
-                  </button>
-                  <input type="number" name="quantity" value="1" step="1" min="1" max="" readonly="">
-                  <button type="button" class="s-quantity__btn btn-plus s-button s-button--round s-button--transparent s-arrow-link">
-                    <span class="s-arrow-link__ico">
-                      <img src="{{ 'ico-plus.svg' | asset_url }}" alt="+">
-                      <img src="{{ 'ico-plus.svg' | asset_url }}" alt="" role="presentation">
-                    </span>
-                  </button>
-                </div>
-              </div>
             </div>
-          </div>
-        </li>
+          </li>
+        {% endfor %}
       </ul>
 
       <div class="s-cart__block">
@@ -124,7 +92,7 @@
             </div>
             <div class="s-price s-price--big">
               <div class="s-price__new">
-                <span>$129.95</span>
+                <span>{{ cart.total_price | money }}</span>
               </div>
             </div>
           </div>
@@ -132,26 +100,52 @@
       </div>
 
       <div class="s-cart__submit">
-        <a href="" class="s-button s-button--black s-button--big">
+        <a href="/checkout" class="s-button s-button--black s-button--big">
           <span>Checkout</span>
         </a>
       </div>
+      <button onclick="emptyCart()">Empty Cart</button>
     </div>
   </div>
 </section>
 
+<script>
+ function emptyCart() {
+  fetch('/cart/clear.js', {
+    method: 'POST',
+    credentials: 'same-origin',
+    headers: {
+      'Content-Type': 'application/json',
+      'X-Requested-With': 'XMLHttpRequest'
+    }
+  })
+  .then(response => {
+    const cartItems = document.querySelectorAll('.s-cart__list li');
+    cartItems.forEach(item => item.remove());
 
+    const subtotal = document.querySelector('.s-cart__block-item .s-price__new span');
+    subtotal.innerText = '$0.00';
+
+    console.log('Cart emptied successfully');
+  })
+  .catch(error => {
+    console.error('Error while emptying cart:', error);
+  });
+ }
+  
+
+</script>
 
 {% schema %}
-{
-  "name": "main-cart",
-  "tag": "div",
-  "settings": [
-    {
-      "type": "textarea",
-      "id": "card_message",
-      "label": "Card Text"
-    }
-  ]
-}
+  {
+    "name": "main-cart",
+    "tag": "div",
+    "settings": [
+      {
+        "type": "textarea",
+        "id": "card_message",
+        "label": "Card Text"
+      }
+    ]
+  }
 {% endschema %}

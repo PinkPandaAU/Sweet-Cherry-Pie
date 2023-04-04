@@ -1,0 +1,63 @@
+{% for item in cart.items %}
+    <li>
+    <div class="s-cart__block">
+        <div class="s-cart__block-item">
+        <div class="s-cart__item">
+            <div class="s-cart__item-img">
+            <img src="{{ item.image | img_url:'' }}" alt="{{ item.image.alt | escape }}">
+            </div>
+            <div class="s-cart__item-title title-h3 title-animation" data-scroll data-scroll-call="title-visible">
+            <h3>{{ item.product.title }}</h3>
+            {% if item.variant != blank and item.variant.title != 'Default Title' %}<div class="variant">{{ item.variant.title }}</div>{% endif %}
+            </div>
+        </div>
+        </div>
+        <div class="s-cart__block-item">
+        <div class="s-cart__row">
+            <div class="s-cart__row-label">
+            <span>Total:</span>
+            </div>
+            <div class="s-price s-price--small">
+            <div class="s-price__new">
+                <span>{{ item.original_line_price | money }}</span>
+            </div>
+            </div>
+        </div>
+        <div class="s-cart__row">
+            <div class="s-cart__row-label">
+            <span>Quantity:</span>
+            </div>
+            <div class="s-quantitycart">
+            <button type="button" class="s-quantitycart__btn btn-minus s-button s-button--round s-button--transparent s-arrow-link">
+                <span class="s-arrow-link__ico">
+                <img src="{{ 'ico-minus.svg' | asset_url }}" alt="-">
+                <img
+                    src="{{ 'ico-minus.svg' | asset_url }}"
+                    alt=""
+                    role="presentation">
+                </span>
+            </button>
+            <input
+                type="number"
+                name="quantity"
+                value="{{ item.quantity }}"
+                step="1"
+                data-index="{{ item.index | plus: 1 }}"
+                min="0"
+                maxlength="3"
+                readonly="">
+            <button type="button" class="s-quantitycart__btn btn-plus s-button s-button--round s-button--transparent s-arrow-link">
+                <span class="s-arrow-link__ico">
+                <img src="{{ 'ico-plus.svg' | asset_url }}" alt="+">
+                <img
+                    src="{{ 'ico-plus.svg' | asset_url }}"
+                    alt=""
+                    role="presentation">
+                </span>
+            </button>
+            </div>
+        </div>
+        </div>
+    </div>
+    </li>
+{% endfor %}
