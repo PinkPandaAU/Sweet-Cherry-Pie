@@ -1,0 +1,422 @@
+<div class="s-promo-blog" data-scroll-section>
+  <div class="s-promo-blog__container">
+    <div class="s-promo-blog__img">
+      <img src="{{ article.image.src | img_url: '1080x1080' }}" alt="{{ page_title }} image" width="640" height="600">
+    </div>
+    <div class="s-promo-blog__content">
+      <div class="s-breadcrumbs">
+        <ul>
+          <li><a href="{{ shop.url }}">Home</a></li>
+          <li><a href="{{ blog_url }}">Blog</a></li>
+          <!--<li>Blog Category</li>-->
+        </ul>
+      </div>
+      <div class="title-epic title-animation" data-scroll data-scroll-call="title-visible">
+        <h1>{{ page_title }}</h1>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="s-blog-single" data-scroll-section>
+  <div class="s-blog-single__container" id="blog-container">
+    <aside class="s-blog-single__aside" data-scroll data-scroll-sticky data-scroll-target="#blog-container">
+      <div class="s-blog-single__aside-title title-h4 title-animation" data-scroll data-scroll-call="title-visible">
+        <h2>In this article:</h2>
+      </div>
+      <ul>
+        <li>
+          <a href="#1">
+            <span>This is the title of Section 01</span>
+            <img src="{{ 'ico-link.svg' | asset_url }}" alt="Scroll">
+          </a>
+        </li>
+        <li>
+          <a href="#2">
+            <span>This is the title of Section 02</span>
+            <img src="{{ 'ico-link.svg' | asset_url }}" alt="Scroll">
+          </a>
+        </li>
+        <li>
+          <a href="#3">
+            <span>This is the title of Section 03</span>
+            <img src="{{ 'ico-link.svg' | asset_url }}" alt="Scroll">
+          </a>
+        </li>
+        <li>
+          <a href="#4">
+            <span>This is the title of Section 04</span>
+            <img src="{{ 'ico-link.svg' | asset_url }}" alt="Scroll">
+          </a>
+        </li>
+        <li>
+          <a href="#5">
+            <span>This is the title of Section 05</span>
+            <img src="{{ 'ico-link.svg' | asset_url }}" alt="Scroll">
+          </a>
+        </li>
+      </ul>
+    </aside>
+    <div class="s-blog-single__content">
+      <div class="s-blog-single__tags">
+        <span>{{ article.published_at | date: "%d %B %Y" }}</span>
+
+        {% assign content = article.content | strip_html %}
+		{% assign word_count = content | number_of_words %}
+		{% assign reading_time = word_count | divided_by: 200 | ceil %}
+
+		{% if reading_time > 0 %}
+        	<span>{{ reading_time }} min read</span>
+        {% endif %}
+
+      </div>
+      <div class="s-blog-single__text">
+        <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+      </div>
+      <div class="section-text">
+        <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+        <div class="section-text__img">
+          <img src="{{ 's-blog-single_img1.jpg' | asset_url }}" alt="" width="457" height="300">
+          <img src="{{ 's-blog-single_img2.jpg' | asset_url }}" alt="" width="457" height="300">
+        </div>
+        <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+        <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. </p>
+
+        <h4 id="1">This is the title of a section</h4>
+        <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.</p>
+        <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. </p>
+
+        <h4 id="2">This is the title of another section</h4>
+        <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.</p>
+        <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. </p>
+
+        <div class="section-text__img">
+          <img src="{{ 's-blog-single_img3.jpg' | asset_url }}" alt="" width="457" height="300">
+        </div>
+
+        <h4 id="3">This is the title of another section</h4>
+        <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.</p>
+        <ul>
+          <li>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed d</li>
+          <li>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed d</li>
+          <li>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed d</li>
+          <li>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed d</li>
+        </ul>
+        <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. </p>
+      </div>
+      <div class="s-blog-single__bottom">
+        <span>By: <i>{{ article.author }}</i></span>
+        <div class="s-blog-single__share">
+          <span>Share to:</span>
+          <ul>
+            <li>
+              <a href="https://www.facebook.com/sharer/sharer.php?u={{ canonical_url | url_encode }}" class="s-button s-button--primary-dark s-button--round s-button--transparent s-arrow-link" target="_blank">
+                <span class="s-arrow-link__ico">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="6.427" height="12" viewBox="0 0 6.427 12">
+                    <path d="M7.615,6.75l.333-2.172H5.865V3.169A1.086,1.086,0,0,1,7.089,2h.947V.147A11.553,11.553,0,0,0,6.355,0,2.651,2.651,0,0,0,3.517,2.923V4.578H1.609V6.75H3.517V12H5.865V6.75Z" transform="translate(-1.609)" fill="#b36b77"></path>
+                  </svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="6.427" height="12" viewBox="0 0 6.427 12">
+                    <path d="M7.615,6.75l.333-2.172H5.865V3.169A1.086,1.086,0,0,1,7.089,2h.947V.147A11.553,11.553,0,0,0,6.355,0,2.651,2.651,0,0,0,3.517,2.923V4.578H1.609V6.75H3.517V12H5.865V6.75Z" transform="translate(-1.609)" fill="#b36b77"></path>
+                  </svg>
+                </span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% render 'article-featured-products' %}
+
+<section class="s-recent" data-scroll-section>
+
+  <div class="container">
+    <div class="swiper-head">
+      
+    <div class="swiper-head__title title-h2 title-animation" data-scroll data-scroll-call="title-visible">
+      <h2>Other articles</h2>
+    </div>
+      
+      <div class="swiper-arrows">
+        <button class="swiper-arrows-prev">
+          <span class="s-button s-button--round s-arrow-link">
+            <span class="s-arrow-link__ico">
+              <img src="{{ 'ico-swiper-arrow.svg' | asset_url }}" alt="<">
+                <img src="{{ 'ico-swiper-arrow.svg' | asset_url }}" alt="" role="presentation">
+            </span>
+          </span>
+        </button>
+        <button class="swiper-arrows-next">
+          <span class="s-button s-button--round s-arrow-link">
+            <span class="s-arrow-link__ico">
+              <img src="{{ 'ico-swiper-arrow.svg' | asset_url }}" alt=">">
+              <img src="{{ 'ico-swiper-arrow.svg' | asset_url }}" alt="" role="presentation">
+            </span>
+          </span>
+        </button>
+      </div>
+    </div>
+
+    <div class="s-recent__slider swiper" data-pointer-area="DRAG">
+      <div class="swiper-wrapper">
+      	{% assign current_article_id = article.id %}
+        {% for article in blogs.news.articles %} 
+        	{% if article.id != current_article_id %}
+         	{% render 'article-blog', article: article %}
+         	{% endif %}
+        {%- endfor -%}
+      </div>
+    </div>
+
+	  <div class="s-recent__btn">
+	    <a href="{{ blog_url }}" class="s-button s-button--transparent">
+	      <span>View all</span>
+	    </a>
+	  </div>
+
+  </div>
+</section>
+
+
+{% schema %}
+  {
+    "name": "Article Data",
+    "settings": [
+      {
+        "type": "text",
+        "id": "heading",
+        "label": "Heading",
+        "default": "Table of Contents"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "question",
+        "name": "Question",
+        "settings": [
+          {
+            "type": "text",
+            "id": "question",
+            "label": "Question"
+          },
+          {
+            "type": "richtext",
+            "id": "answer-new",
+            "label": "Answer"
+          },
+          {
+            "type": "textarea",
+            "id": "answer",
+            "label": "HTML"
+          },
+          {
+            "type": "header",
+            "content": "Image Blocks"
+          },
+          {
+            "type": "checkbox",
+            "id": "wide_layout",
+            "label": "Wide Layout",
+            "info": "When wide layout is enabled. We show both (Image One) and (Image Two) with each content else only (Image One) is displayed"
+          },
+          {
+            "type": "header",
+            "content": "Block 1"
+          },
+          {
+            "type": "text",
+            "id": "block-one-title",
+            "label": "Title"
+          },
+          {
+            "type": "richtext",
+            "id": "block-one-text",
+            "label": "Content"
+          },
+          {
+            "type": "image_picker",
+            "id": "block-one-image",
+            "label": "Image One"
+          },
+          {
+            "type": "image_picker",
+            "id": "block-one-image2",
+            "label": "Image Two",
+            "info": "Image Two is displayed when Wide(layout) is selected"
+          },
+          {
+            "type": "header",
+            "content": "Block 2"
+          },
+          {
+            "type": "text",
+            "id": "block-two-title",
+            "label": "Title"
+          },
+          {
+            "type": "richtext",
+            "id": "block-two-text",
+            "label": "Content"
+          },
+          {
+            "type": "image_picker",
+            "id": "block-two-image",
+            "label": "Image One"
+          },
+          {
+            "type": "image_picker",
+            "id": "block-two-image2",
+            "label": "Image Two",
+            "info": "Image Two is displayed when Wide(layout) is selected"
+          },
+          {
+            "type": "header",
+            "content": "Block 3"
+          },
+          {
+            "type": "text",
+            "id": "block-three-title",
+            "label": "Title"
+          },
+          {
+            "type": "richtext",
+            "id": "block-three-text",
+            "label": "Content"
+          },
+          {
+            "type": "image_picker",
+            "id": "block-three-image",
+            "label": "Image One"
+          },
+          {
+            "type": "image_picker",
+            "id": "block-three-image2",
+            "label": "Image Two",
+            "info": "Image Two is displayed when Wide(layout) is selected"
+          },
+          {
+            "type": "header",
+            "content": "Block 4"
+          },
+          {
+            "type": "text",
+            "id": "block-four-title",
+            "label": "Title"
+          },
+          {
+            "type": "richtext",
+            "id": "block-four-text",
+            "label": "Content"
+          },
+          {
+            "type": "image_picker",
+            "id": "block-four-image",
+            "label": "Image One"
+          },
+          {
+            "type": "image_picker",
+            "id": "block-four-image2",
+            "label": "Image Two",
+            "info": "Image Two is displayed when Wide(layout) is selected"
+          },
+          {
+            "type": "header",
+            "content": "Block 5"
+          },
+          {
+            "type": "text",
+            "id": "block-five-title",
+            "label": "Title"
+          },
+          {
+            "type": "richtext",
+            "id": "block-five-text",
+            "label": "Content"
+          },
+          {
+            "type": "image_picker",
+            "id": "block-five-image",
+            "label": "Image One"
+          },
+          {
+            "type": "image_picker",
+            "id": "block-five-image2",
+            "label": "Image Two",
+            "info": "Image Two is displayed when Wide(layout) is selected"
+          },
+          {
+            "type": "header",
+            "content": "Block 6"
+          },
+          {
+            "type": "text",
+            "id": "block-six-title",
+            "label": "Title"
+          },
+          {
+            "type": "richtext",
+            "id": "block-six-text",
+            "label": "Content"
+          },
+          {
+            "type": "image_picker",
+            "id": "block-six-image",
+            "label": "Image One"
+          },
+          {
+            "type": "image_picker",
+            "id": "block-six-image2",
+            "label": "Image Two",
+            "info": "Image Two is displayed when Wide(layout) is selected"
+          }
+        ]
+      },
+      {
+        "type": "single-image",
+        "name": "Single Image",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+          }
+        ]
+      },
+      {
+        "type": "nested-start",
+        "name": "Nested Question Start",
+        "settings": [
+          {
+            "type": "text",
+            "id": "nestedheading",
+            "label": "Nested Heading"
+          },
+          {
+            "type": "richtext",
+            "id": "nestedcontent",
+            "label": "Content"
+          }
+        ]
+      },
+      {
+        "type": "nested-end",
+        "name": "Nested Question End"
+      }
+    ],
+    "presets": [
+        {
+          "name": "Article Data",
+          "blocks": [
+            {
+              "type": "Question",
+              "type": "nested-start",
+              "type": "nested-end",
+              "type": "single-image"
+            }
+          ]
+        }
+    ]
+  }
+{% endschema %}

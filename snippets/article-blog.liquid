@@ -4,8 +4,7 @@
   </a>
   <div class="s-post-card__inner">
 
-    {% assign post_tags = article.tags | split: ',' %}
-    {% assign first_tag = post_tags.first | strip %}
+    {% assign first_tag = article.tags.first %}
     {% if first_tag %}
       <div class="s-post-card__category">
         <a href="{{ blog.url }}/tagged/{{ first_tag | handleize }}" class="tag">{{ first_tag }}</a>
