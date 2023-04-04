@@ -1,11 +1,21 @@
 {
   "sections": {
+    "08aaed49-4d9e-4052-8f40-7e4f2e4cd6f2": {
+      "type": "breadcrumb",
+      "settings": {
+        "title_override": "The blog",
+        "layout": "default",
+        "body": ""
+      }
+    },
     "main": {
       "type": "main-blog",
-      "settings": {}
+      "settings": {
+      }
     }
   },
   "order": [
+    "08aaed49-4d9e-4052-8f40-7e4f2e4cd6f2",
     "main"
   ]
 }
