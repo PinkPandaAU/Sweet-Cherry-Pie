@@ -1,12 +1,18 @@
 <article class="s-post-card swiper-slide">
-  <a href="" class="s-post-card__img section-img" data-scroll data-scroll-call="is-in-view">
+  <a href="{{ article.url }}" class="s-post-card__img section-img" data-scroll data-scroll-call="is-in-view">
     <img src="{{ article.image.src | img_url: '1080x1080' }}" alt="">
   </a>
   <div class="s-post-card__inner">
-    <div class="s-post-card__category">
-      <a href="" class="tag">Category 01</a>
-    </div>
-    <a href="" class="s-post-card__title title-h4">
+
+    {% assign post_tags = article.tags | split: ',' %}
+    {% assign first_tag = post_tags.first | strip %}
+    {% if first_tag %}
+      <div class="s-post-card__category">
+        <a href="{{ blog.url }}/tagged/{{ first_tag | handleize }}" class="tag">{{ first_tag }}</a>
+      </div>
+    {% endif %}
+    
+    <a href="{{ article.url }}" class="s-post-card__title title-h4">
       <h3>{{ article.title | truncate: 80 | escape }}</h3>
     </a>
     <div class="s-post-card__text">

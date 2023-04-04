@@ -7,14 +7,14 @@
         </div>
         <ul>
           {% for category in blog.all_tags %}
-            <li><a href="{{ blog.url }}/tagged/{{ category | handleize }}" class="s-button s-button--transparent">{{ category }}</a></li>
+            <li><a href="{{ blog.url }}/tagged/{{ category | handleize }}" class="s-button s-button--transparent"><span>{{ category }}</span></a></li>
           {% endfor %}
         </ul>
       </div>
     </div>
   </div>
 
-  {% paginate blog.articles by section.settings.columns_desktop %}
+  {% paginate blog.articles by 8 %}
 
   <div class="s-results__container">
 
@@ -25,9 +25,13 @@
   </div>
 
   <div class="s-shop-category__pagination">
-    <ul class="outline-buttons">
-      <li class="prev not-active">
-        <a href="" class="s-button s-button--white s-button--round s-arrow-link">
+
+    {% if paginate.pages > 1 %}
+      {% if paginate.parts.size > 0 %}
+      <ul class="outline-buttons">
+        <li class="prev {% if paginate.previous %}{% else %}not-active{% endif %}">
+          
+          <a href="{{ paginate.previous.url }}" class="s-button s-button--white s-button--round s-arrow-link">
             <span class="s-arrow-link__ico">
               <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16" height="16" viewBox="0 0 16 16">
                 <defs>
@@ -50,35 +54,15 @@
                 </g>
               </svg>
             </span>
-        </a>
-      </li>
-      <li class="is-active">
-        <a href="" class="s-button s-button--white s-button--round s-arrow-link">
-            <span class="s-arrow-link__ico">
-              <span>1</span>
-              <span>1</span>
-            </span>
-        </a>
-      </li>
-      <li>
-        <a href="" class="s-button s-button--white s-button--round s-arrow-link">
-            <span class="s-arrow-link__ico">
-              <span>2</span>
-              <span>2</span>
-            </span>
-        </a>
-      </li>
-      <li>
-        <a href="" class="s-button s-button--white s-button--round s-arrow-link">
-            <span class="s-arrow-link__ico">
-              <span>3</span>
-              <span>3</span>
-            </span>
-        </a>
-      </li>
-      <li class="next">
-        <a href="" class="s-button s-button--white s-button--round s-arrow-link">
-            <span class="s-arrow-link__ico">
+          </a>
+          
+        </li>
+        {% for part in paginate.parts %}
+        <li class="{%- if part.is_link -%}{% else %}is-active{% endif %}"><a href="{{ part.url }}" class="s-button s-button--white s-button--round s-arrow-link"><span class="s-arrow-link__ico"><span>{{ part.title }}</span><span>{{ part.title }}</span></a></span></li>
+        {% endfor %}
+        <li class="next {% if paginate.next %}{% else %}not-active{% endif %}">
+          <a href="{{ paginate.next.url }}" class="s-button s-button--white s-button--round s-arrow-link">
+          <span class="s-arrow-link__ico">
               <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16" height="16" viewBox="0 0 16 16">
                 <defs>
                   <clipPath id="clip-path">
@@ -100,45 +84,17 @@
                 </g>
               </svg>
             </span>
-        </a>
-      </li>
-    </ul>
+          </a>
+        </li>
+      </ul>
+      {% endif %}
+    {% endif %}
   </div>
 
   {% endpaginate %}
 
 </section>
 
-
-
-{% paginate blog.articles by section.settings.columns_desktop %}
-<div class="s-blogs" data-scroll-section style="border-bottom: 1px solid;">
-  {%- for article in blog.articles -%}
-    {% render 'article-cards', article: article %}
-  {% endfor %}
-
-  <div class="s-shop-category__pagination">
-      {% if paginate.pages > 1 %}
-      {% if paginate.parts.size > 0 %}
-      <ul>
-        <li class="prev {% if paginate.previous %}{% else %}not-active{% endif %}">
-          {% if paginate.previous %}
-          <a href="{{ paginate.previous.url }}">prev</a>
-          {% endif %}
-        </li>
-        {% for part in paginate.parts %}
-        <li>{%- if part.is_link -%}<a href="{{ part.url }}">{{ part.title }}</a>{% else %}{{ part.title }}{% endif %}</li>
-        {% endfor %}
-        {% if paginate.next %}
-        <li class="next"><a href="{{ paginate.next.url }}">next</a></li>
-        {% endif %}
-      </ul>
-        {% endif %}
-    {% endif %}
-    </div>
-    
-    {% endpaginate %}
-</div>
 
 {% schema %}
 {
@@ -149,10 +105,10 @@
     {
       "type": "range",
       "id": "columns_desktop",
-      "min": 9,
-      "max": 27,
-      "step": 3,
-      "default": 9,
+      "min": 8,
+      "max": 12,
+      "step": 2,
+      "default": 8,
       "label": "Articles per Page"
     }
   ]
