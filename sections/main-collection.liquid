@@ -98,14 +98,22 @@
 <section class="s-shop-category" data-scroll-section>
   <div class="container">
     <div class="s-shop-category__head">
-      <div class="s-shop-category__sort">
-        <span class="s-shop-category__sort-label">
-          sort by:
-        </span>
-        <div class="s-shop-category__sort-inner">
-          <div class="s-shop-category__sort-dropdown">
+      {% if section.settings.enable_sorting %}
+        {% assign sort_by = collection.sort_by | default: collection.default_sort_by %}
+        <div class="s-shop-category__sort">
+          <span class="s-shop-category__sort-label">
+            sort by:
+          </span>
+          <div class="s-shop-category__sort-inner">
+            <div class="s-shop-category__sort-dropdown">
             <span>
-              <span class="output_text">Newest</span>
+              <span class="output_text">
+                {% for option in collection.sort_options %}
+                  {% if option.value == sort_by %}
+                    {{ option.name }}
+                  {% endif %}
+                {% endfor %}
+              </span>
               <span class="s-shop-category__sort-ico">
                 <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10">
                   <g id="Group_11613" data-name="Group 11613" transform="translate(-1569 -769)">
@@ -115,15 +123,17 @@
                 </svg>
               </span>
             </span>
-            <input type="hidden" class="output_value" name="sort">
-            <ul>
-              <li data-value="1">Price</li>
-              <li data-value="2">Popular</li>
-              <li data-value="3">New</li>
-            </ul>
+              <input type="hidden" class="output_value" name="sort" value="{{ sort_by }}">
+              <ul class="custom_sort_p" data-handle="/collections/{{collection.handle}}">
+                {% for option in collection.sort_options %}
+                  <li value="{{ option.value }}" class="custom_sort_opt">{{ option.name }}</li>
+                {% endfor %}
+              </ul>
+            </div>
           </div>
         </div>
-      </div>
+      {% endif %}
+      
     </div>
 
     <div class="s-shop-category__container" id="s-shop-category">
@@ -412,161 +422,6 @@
 
 
     <div class="s-shop-category__pagination">
-      <ul class="outline-buttons">
-        <li class="prev not-active">
-          <a href="" class="s-button s-button--white s-button--round s-arrow-link">
-            <span class="s-arrow-link__ico">
-              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16" height="16" viewBox="0 0 16 16">
-                <defs>
-                  <clipPath id="clip-path">
-                    <rect id="Rectangle_2140" data-name="Rectangle 2140" width="16" height="16" transform="translate(57.934 1235)" fill="#fff" stroke="#707070" stroke-width="1"/>
-                  </clipPath>
-                </defs>
-                <g id="Mask_Group_80" data-name="Mask Group 80" transform="translate(-57.934 -1235)" clip-path="url(#clip-path)">
-                  <path id="Path_1477" data-name="Path 1477" d="M6.5,0a6,6,0,0,1-6,6,6,6,0,0,1,6,6" transform="translate(61.5 1237)" fill="none" stroke="#b36b77" stroke-linejoin="bevel" stroke-width="1.5"/>
-                </g>
-              </svg>
-              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16" height="16" viewBox="0 0 16 16">
-                <defs>
-                  <clipPath id="clip-path">
-                    <rect id="Rectangle_2140" data-name="Rectangle 2140" width="16" height="16" transform="translate(57.934 1235)" fill="#fff" stroke="#707070" stroke-width="1"/>
-                  </clipPath>
-                </defs>
-                <g id="Mask_Group_80" data-name="Mask Group 80" transform="translate(-57.934 -1235)" clip-path="url(#clip-path)">
-                  <path id="Path_1477" data-name="Path 1477" d="M6.5,0a6,6,0,0,1-6,6,6,6,0,0,1,6,6" transform="translate(61.5 1237)" fill="none" stroke="#b36b77" stroke-linejoin="bevel" stroke-width="1.5"/>
-                </g>
-              </svg>
-            </span>
-          </a>
-        </li>
-        <li class="is-active">
-          <a href="" class="s-button s-button--white s-button--round s-arrow-link">
-            <span class="s-arrow-link__ico">
-              <span>1</span>
-              <span>1</span>
-            </span>
-          </a>
-        </li>
-        <li>
-          <a href="" class="s-button s-button--white s-button--round s-arrow-link">
-            <span class="s-arrow-link__ico">
-              <span>2</span>
-              <span>2</span>
-            </span>
-          </a>
-        </li>
-        <li>
-          <a href="" class="s-button s-button--white s-button--round s-arrow-link">
-            <span class="s-arrow-link__ico">
-              <span>3</span>
-              <span>3</span>
-            </span>
-          </a>
-        </li>
-        <li class="next">
-          <a href="" class="s-button s-button--white s-button--round s-arrow-link">
-            <span class="s-arrow-link__ico">
-              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16" height="16" viewBox="0 0 16 16">
-                <defs>
-                  <clipPath id="clip-path">
-                    <rect id="Rectangle_2140" data-name="Rectangle 2140" width="16" height="16" transform="translate(57.934 1235)" fill="#fff" stroke="#707070" stroke-width="1"/>
-                  </clipPath>
-                </defs>
-                <g id="Mask_Group_80" data-name="Mask Group 80" transform="translate(-57.934 -1235)" clip-path="url(#clip-path)">
-                  <path id="Path_1477" data-name="Path 1477" d="M6.5,0a6,6,0,0,1-6,6,6,6,0,0,1,6,6" transform="translate(61.5 1237)" fill="none" stroke="#b36b77" stroke-linejoin="bevel" stroke-width="1.5"/>
-                </g>
-              </svg>
-              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16" height="16" viewBox="0 0 16 16">
-                <defs>
-                  <clipPath id="clip-path">
-                    <rect id="Rectangle_2140" data-name="Rectangle 2140" width="16" height="16" transform="translate(57.934 1235)" fill="#fff" stroke="#707070" stroke-width="1"/>
-                  </clipPath>
-                </defs>
-                <g id="Mask_Group_80" data-name="Mask Group 80" transform="translate(-57.934 -1235)" clip-path="url(#clip-path)">
-                  <path id="Path_1477" data-name="Path 1477" d="M6.5,0a6,6,0,0,1-6,6,6,6,0,0,1,6,6" transform="translate(61.5 1237)" fill="none" stroke="#b36b77" stroke-linejoin="bevel" stroke-width="1.5"/>
-                </g>
-              </svg>
-            </span>
-          </a>
-        </li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-{% endpaginate %}
-
-
-
-
-
-{% paginate collection.products by section.settings.columns_desktop %}
-  <section class="s-shop-category" data-scroll-section style="border-bottom: 1px solid;">
-    <div class="section-heading">
-      <div class="title-h2 title-animation" data-scroll data-scroll-call="title-visible">
-        <h2>Shop <i>{{ collection.title | remove: get_first}}</i> {{get_first}}</h2>
-      </div>
-     {% if section.settings.enable_sorting %}
-      {% assign sort_by = collection.sort_by | default: collection.default_sort_by %}
-      <div class="s-shop-category__sort">
-        <span class="s-shop-category__sort-label">
-          sort by:
-        </span>
-        <div class="s-shop-category__sort-dropdown">
-       {% for option in collection.sort_options %}
-         {% if option.value == sort_by %}
-          <span>{{ option.name }}</span>
-           {% break %}
-           {% endif %}
-         {% endfor %}
-          <ul>
-           {% for option in collection.sort_options %}
-            <li value="{{ option.value }}" class="custom_sort_opt">{{ option.name }}</li>
-            {% endfor %}
-          </ul>
-        </div>
-      </div>
-       {% endif %}
-    </div>
-  
-    <div class="s-shop-category__container" id="s-shop-category">
-      {% if section.settings.enable_filter %}
-        <div class="s-shop-category__filter" data-scroll data-scroll-sticky data-scroll-target="#s-shop-category">
-          <div class="s-shop-category__filter-label">
-            <span>Filter by:</span>
-          </div>
-          {% assign get_tag = collection.all_tags %}
-          {% if get_tag.size > 0 %}
-            <ul class="custom_filter_p" data-handle="/collections/{{collection.handle}}">
-              {% for filter in get_tag %}
-                {% if filter != 'product_gift' and filter != 'synced' %}
-                <li>
-                  <label>
-                    <input type="radio" name="filter" class="custom_col_filter" data-tag="{{ filter }}" {% if current_tags != blank and current_tags contains filter%}checked{% endif %} value="1">
-                    <span>{{ filter }}</span>
-                  </label>
-                </li>
-                {% endif %}
-              {% endfor %}
-            </ul>
-          {% endif %}
-        </div>
-      {% endif %}
-      <div class="s-shop-category__list">
-        <div class="s-shop-category__cards s-card--even">
-          {% assign layout_style = "grid" %}
-          {% for product in collection.products %}
-            {% render 'featured-collection-grid',
-              product: product,
-              grid_style:layout_style,
-              filter_tag: get_tag
-            %}
-          {% endfor %}
-        </div>
-      </div>
-    </div>
-    
-    <div class="s-shop-category__pagination">
       {% if paginate.pages > 1 %}
       {% if paginate.parts.size > 0 %}
       <ul>
@@ -585,11 +440,25 @@
         {% endif %}
     {% endif %}
     </div>
-    
-    {% endpaginate %}
-  </section>
+  </div>
+</section>
+{% endpaginate %}
 
-
+<script> 
+document.addEventListener("DOMContentLoaded", function() {
+  var radioGroup = document.getElementsByClassName("custom_sort_opt");
+  for (var i = 0; i < radioGroup.length; i++) {
+    radioGroup[i].addEventListener("click", function() {
+      var selectedValue = this.getAttribute("value");
+      console.log(selectedValue, "selected")
+      var imgElement = document.querySelector(".custom_sort_p");
+      var srcValue = imgElement.getAttribute("data-handle");
+      var newUrl = srcValue + "?sort_by=" + selectedValue;
+      window.location.href = newUrl;
+    });
+  }
+});
+</script>
 {% schema %}
 {
   "name": "main-collection",
