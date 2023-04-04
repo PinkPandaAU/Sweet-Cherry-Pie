@@ -454,6 +454,24 @@
     }
   }
 
+  @media (min-width: 769px) {
+
+    .s-button.s-button--round {
+      min-width: 25px;
+      min-height: 25px;
+    }
+
+    .s-button.s-button--round .s-arrow-link__ico {
+      min-width: 12px;
+      min-height: 12px;
+    }
+
+    .header__search-inner > input {
+      min-height: 25px;
+    }
+
+  }
+
   @media (max-width: 991px) {
     &__burger,
     &__shop{

@@ -229,6 +229,22 @@
 
 
 
+  @media (max-width: 1280px) {
+    &__list {
+      margin: 0 -10px rem(-36);
+      & > * {
+        margin: 0 10px rem(36);
+        width: calc(100% / 3 - 20px);
+      }
+    }
+  }
+  @media (max-width: 1080px) {
+    &__list {
+      & > * {
+        width: calc(100% / 2 - 20px);
+      }
+    }
+  }
   @media (max-width: 768px) {
     padding-top: 50px;
     padding-bottom: 50px;

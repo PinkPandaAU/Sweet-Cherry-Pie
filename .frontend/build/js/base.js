@@ -530,7 +530,7 @@ function blocks() {
                         slidesPerView: 5,
                         spaceBetween: 16,
                     },
-                    991: {
+                    992: {
                         slidesPerView: 'auto',
                         spaceBetween: 20,
                         direction: 'vertical',
@@ -968,7 +968,7 @@ function blocks() {
             function toggleMenu() {
                 $('.float-btn').removeClass('is-active')
 
-                if($(window).width() > 768){
+                if($(window).width() > 991){
                     if($('.header').hasClass('is-open')){
                         $('.header').removeClass('menu-open-search')
                         scroller.start()
@@ -1091,6 +1091,232 @@ function blocks() {
                 })
             }, 10000)
         },
+        '.s-quiz': function (popup) {
+            let container = popup.find('.s-quiz__container')
+            let btnClose = popup.find('.s-quiz__close')
+            let btnPrev = popup.find('.s-quiz__bottom-prev')
+            let btnNext = popup.find('.s-quiz__bottom-next, .s-quiz__step-skip')
+            let btnList = popup.find('.s-quiz__bottom-current ul')
+            let steps = popup.find('.s-quiz__step')
+            let stepInputs = steps.find('[required]')
+            let stepTitles = popup.find('.s-quiz__title>*')
+            let stepNum = popup.find('.s-quiz__num')
+            let step = 0;
+            let lastStep = steps.length - 1;
+            let openOnce = true
+            let prevHeight = 0
+
+            let twice = 2
+
+            function isFinal() {
+                console.log('final step!')
+            }
+
+            function validateStep(e = false) {
+                let thisStep = steps.eq(step)
+                let thisInputs = thisStep.find('[required]')
+                let isValid = true;
+                let names = []
+
+                thisInputs.each(function () {
+                    if($(this).attr('name'))
+                        names.push($(this).attr('name'))
+                })
+                names = names.filter((item, index) => names.indexOf(item) === index);
+                names.forEach(function (name) {
+                    let thisInput = thisStep.find('[name="'+name+'"]')
+
+                    switch (thisInput.attr('type')){
+                        case 'radio':
+                        case 'checkbox':
+                            let thisValid = false;
+
+                            thisInput.each(function () {
+                                if(this.checked)
+                                    thisValid = true
+                            })
+                            if(!thisValid)
+                                isValid = false
+                        break;
+                        default:
+                            if(!$(this).val())
+                                isValid = false
+                        break;
+                    }
+                })
+
+                if(isValid){
+                    if(e)
+                        setStepNext()
+                    popup.removeClass('is-error')
+                } else {
+                    if(!openOnce)
+                        popup.addClass('is-error')
+                }
+
+                return isValid;
+            }
+            function setStep(index) {
+                let isValid = validateStep()
+                if(index !== 0 && !isValid) return;
+                let animInputsTimeout = 0
+
+                function animateNext() {
+                    let nextStep = steps.eq(index)
+                    let nextTitle = stepTitles.eq(index)
+                    let nextAnimInputs = nextStep.find('.anim-fade')
+
+                    nextStep.show()
+                    nextTitle.show()
+                    container.css({'transition': 'height .6s ease, transform .5s cubic-bezier(.25,.99,.52,.9)', 'height': 'auto'})
+                    let nextHeight = container[0].offsetHeight
+
+                    if(prevHeight)
+                        container.css({'height': prevHeight})
+
+                    setTimeout(function () {
+                        nextTitle.addClass('is-active')
+                        if(prevHeight) {
+                            container.css({'height': nextHeight})
+                        }
+                        setTimeout(function () {
+                            container.removeAttr('style')
+                        }, 650)
+                    }, 50)
+
+                    animInputsTimeout = 0
+                    nextAnimInputs.each(function () {
+                        let item = $(this)
+                        setTimeout(function () {
+                            item.addClass('is-active')
+                        }, animInputsTimeout)
+
+                        animInputsTimeout += 100
+                    })
+
+                    let btnListLi = btnList.first().closest('ul').find('li')
+
+                    btnListLi.removeClass('is-active')
+                    btnListLi.eq(step).addClass('is-active')
+
+                    if(step !== 0){
+                        btnPrev.fadeIn(300)
+                    } else {
+                        btnPrev.fadeOut(300)
+                    }
+
+                    if(step !== lastStep){
+                        popup.find('.s-quiz__bottom-next').fadeIn(300)
+                    } else {
+                        popup.find('.s-quiz__bottom-next').fadeOut(300)
+                    }
+
+                    if(step+1 < 10){
+                        stepNum.text('0'+(step+1))
+                    } else {
+                        stepNum.text(step+1)
+                    }
+                }
+                function resetPrev(prevIndex) {
+                    let prevStep = steps.eq(prevIndex)
+                    let prevTitle = stepTitles.eq(prevIndex)
+                    let prevAnimInputs = prevStep.find('.anim-fade')
+                    twice--;
+                    prevHeight = container[0].offsetHeight
+                    prevStep.hide()
+                    prevTitle.removeClass('is-active out-anim').hide()
+                    prevAnimInputs.removeClass('is-active out-anim')
+                }
+
+                if(!openOnce) {
+                    let currTitle = stepTitles.eq(step)
+                    let animInputs = steps.eq(step).find('.anim-fade')
+
+                    currTitle.addClass('out-anim')
+                    animInputs.each(function () {
+                        let item = $(this)
+                        setTimeout(function () {
+                            item.addClass('out-anim')
+                        }, animInputsTimeout)
+
+                        animInputsTimeout += 50
+                    })
+
+                    let prevStep = step
+                    step = index
+
+                    setTimeout(function () {
+                        resetPrev(prevStep)
+                        animateNext()
+                    }, 250)
+                } else {
+                    animateNext()
+                }
+
+
+                openOnce = false
+            }
+            function setStepPrev() {
+                if(step-1 >= 0)
+                    setStep(step-1)
+            }
+            function setStepNext() {
+                if (step+1 <= steps.length-1) {
+                    setStep(step + 1)
+                } else {
+                    isFinal()
+                }
+            }
+
+
+            function openPopup() {
+                popup.fadeIn(200)
+                setTimeout(function () {
+                    popup.addClass('is-open')
+                    popup.addClass('was-open')
+                    if(openOnce) {
+                        setStep(0)
+                    }
+                },10)
+            }
+            function closePopup() {
+                popup.removeClass('is-open')
+                setTimeout(function () {
+                    popup.fadeOut(300)
+                },200)
+            }
+
+
+            for(let i = 2; i <= lastStep+1; i++){
+                let newBtn = btnList.find('li:first-child').clone()
+                newBtn.find('.s-arrow-link__ico').html('<span>'+i+'</span><span>'+i+'</span>')
+                btnList.append(newBtn)
+            }
+            btnList = btnList.find('.s-button')
+            btnList.first().closest('li').addClass('is-active')
+
+            btnClose.on('click', closePopup)
+            btnPrev.on('click', setStepPrev)
+            btnNext.on('click', setStepNext)
+            // btnList.on('click', function (e) {
+            //     e.preventDefault()
+            //     let thisIndex = $(this).closest('li').index()
+            //     if(thisIndex < step || (thisIndex === step+1 && validateStep()))
+            //         setStep(thisIndex)
+            // })
+
+            stepInputs.on('change', validateStep)
+            $('a[href="take-quiz"]').on('click', function (e) {
+                e.preventDefault()
+                openPopup()
+            })
+            $(document).on('click', function (e) {
+                let target = $(e.target)
+
+                if((target.hasClass('s-quiz') || !target.closest('.s-quiz__container').length) && !target.closest('[href="take-quiz"]').length)
+                    closePopup()
+            })
+        }
     }
 
 
@@ -1138,7 +1364,6 @@ $(document).ready(function () {
     setTimeout(function () {
         scroller.update()
     }, 2000)
-
 
 
     $('a[href*="openPopup-"], [class*="openPopup"]').on('click', function (e) {

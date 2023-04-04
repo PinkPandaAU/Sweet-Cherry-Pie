@@ -1,5 +1,5 @@
 @mixin font-face($style-name, $file:$style-name, $weight:normal, $style:normal) {
-  $filepath: "../assets/" + $file;
+  $filepath: "../fonts/" + $file;
   @font-face {
     font-family: quote($style-name);
     src: url($filepath + '.woff') format('woff'),
@@ -11,19 +11,19 @@
 }
 
 @include font-face('Aeonik-Air', 'Aeonik-Air', normal, normal);
-@include font-face('Aeonik-Airitalic', 'Aeonik-Airitalic', normal, normal);
+@include font-face('Aeonik-AirItalic', 'Aeonik-AirItalic', normal, normal);
 @include font-face('Aeonik-Black', 'Aeonik-Black', normal, normal);
-@include font-face('Aeonik-Blackitalic', 'Aeonik-Blackitalic', normal, normal);
+@include font-face('Aeonik-BlackItalic', 'Aeonik-BlackItalic', normal, normal);
 @include font-face('Aeonik-Bold', 'Aeonik-Bold', normal, normal);
-@include font-face('Aeonik-Bolditalic', 'Aeonik-Bolditalic', normal, normal);
+@include font-face('Aeonik-BoldItalic', 'Aeonik-BoldItalic', normal, normal);
 @include font-face('Aeonik-Light', 'Aeonik-Light', normal, normal);
-@include font-face('Aeonik-Lightitalic', 'Aeonik-Lightitalic', normal, normal);
+@include font-face('Aeonik-LightItalic', 'Aeonik-LightItalic', normal, normal);
 @include font-face('Aeonik-Medium', 'Aeonik-Medium', normal, normal);
-@include font-face('Aeonik-Mediumitalic', 'Aeonik-Mediumitalic', normal, normal);
+@include font-face('Aeonik-MediumItalic', 'Aeonik-MediumItalic', normal, normal);
 @include font-face('Aeonik-Regular', 'Aeonik-Regular',normal, normal);
 @include font-face('Aeonik-RegularItalic', 'Aeonik-RegularItalic', normal, normal);
 @include font-face('Aeonik-Thin', 'Aeonik-Thin', normal, normal);
-@include font-face('Aeonik-Thinitalic', 'Aeonik-Thinitalic', normal, normal);
+@include font-face('Aeonik-ThinItalic', 'Aeonik-ThinItalic', normal, normal);
 
 @include font-face('QueensTrial', 'QueensTrial-Medium', normal, normal);
 @include font-face('QueensItalic', 'Queens-MediumIt', normal, normal);
@@ -31,19 +31,19 @@
 
 :root {
   --font-aeonik-air: "Aeonik-Air", -Apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-  --font-aeonik-airitalic: "Aeonik-Airitalic", -Apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  --font-aeonik-airitalic: "Aeonik-AirItalic", -Apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   --font-aeonik-black: "Aeonik-Black", -Apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-  --font-aeonik-blackitalic: "Aeonik-Blackitalic", -Apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  --font-aeonik-blackitalic: "Aeonik-BlackItalic", -Apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   --font-aeonik-bold: "Aeonik-Bold", -Apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-  --font-aeonik-bolditalic: "Aeonik-Bolditalic", -Apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  --font-aeonik-bolditalic: "Aeonik-BoldItalic", -Apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   --font-aeonik-light: "Aeonik-Light", -Apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-  --font-aeonik-lightitalic: "Aeonik-Lightitalic", -Apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  --font-aeonik-lightitalic: "Aeonik-LightItalic", -Apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   --font-aeonik-medium: "Aeonik-Medium", -Apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-  --font-aeonik-mediumitalic: "Aeonik-Mediumitalic", -Apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  --font-aeonik-mediumitalic: "Aeonik-MediumItalic", -Apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   --font-aeonik-regular: "Aeonik-Regular", -Apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   --font-aeonik-regularitalic: "Aeonik-RegularItalic", -Apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   --font-aeonik-thin: "Aeonik-Thin", -Apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-  --font-aeonik-thinitalic: "Aeonik-Thinitalic", -Apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  --font-aeonik-thinitalic: "Aeonik-ThinItalic", -Apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 
   --font-queensvar: "QueensTrial", -Apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   --font-queensvar-italic: "QueensItalic", -Apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";

@@ -120,6 +120,21 @@
       }
     }
   }
+  &.s-promo--centered {
+    @media (min-width: 769px) {
+      .s-promo__content {
+        min-height: Min(45.741vh, 30.875rem);
+        justify-content: center;
+
+        .s-breadcrumbs {
+          margin-bottom: rem(33);
+        }
+      }
+      .title-epic {
+        max-width: rem(810);
+      }
+    }
+  }
 
 
 

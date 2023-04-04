@@ -24,6 +24,120 @@
 </head>
 <body>
 <div class="viewport-height"></div>
+
+<div class="s-quiz" data-scroll-section>
+  <div class="s-quiz__inner">
+    <div class="s-quiz__container">
+      <button type="button" class="s-quiz__close s-button s-button--transparent s-button--round s-arrow-link">
+        <span class="s-arrow-link__ico">
+          <img src="images/ico-close_black.svg" alt="Close">
+          <img src="images/ico-close_black.svg" alt="" role="presentation">
+        </span>
+      </button>
+      <div class="s-quiz__subtitle">
+        <span>Question <span class="s-quiz__num">01</span></span>
+      </div>
+      <div class="s-quiz__title title-h2">
+        <span>What is your budget?</span>
+        <span>What is your budget 2?</span>
+        <span>Enter your email to receive an instant 10% off!</span>
+      </div>
+      <form class="s-quiz__steps">
+        <div class="s-quiz__step">
+          <div class="s-quiz__step-row anim-fade">
+            <label class="s-radio s-radio--big">
+              <input type="radio" name="step1[]" value="1" required>
+              <span class="s-radio__btn">Under $100</span>
+            </label>
+          </div>
+          <div class="s-quiz__step-row anim-fade">
+            <label class="s-radio s-radio--big">
+              <input type="radio" name="step1[]" value="2" required>
+              <span class="s-radio__btn">Under $200</span>
+            </label>
+          </div>
+          <div class="s-quiz__step-row anim-fade">
+            <label class="s-radio s-radio--big">
+              <input type="radio" name="step1[]" value="3" required>
+              <span class="s-radio__btn">I would prefer to know all my options</span>
+            </label>
+          </div>
+
+          <div class="s-quiz__step-text">
+            <p>Please make a selection in order to proceed to the next step</p>
+          </div>
+        </div>
+        <div class="s-quiz__step">
+          <div class="s-quiz__step-row anim-fade">
+            <label class="s-radio s-radio--big">
+              <input type="radio" name="step2[]" value="1" required>
+              <span class="s-radio__btn">Under $100</span>
+            </label>
+          </div>
+          <div class="s-quiz__step-row anim-fade">
+            <label class="s-radio s-radio--big">
+              <input type="radio" name="step2[]" value="3" required>
+              <span class="s-radio__btn">I would prefer to know all my options</span>
+            </label>
+          </div>
+
+          <div class="s-quiz__step-text">
+            <p>Please make a selection in order to proceed to the next step</p>
+          </div>
+        </div>
+        <div class="s-quiz__step">
+          <div class="s-quiz__step-row anim-fade">
+            <div class="s-input s-input--big">
+              <input type="email" name="email" placeholder="name@example.com">
+            </div>
+          </div>
+          <div class="s-quiz__step-final anim-fade">
+            <button type="button" class="s-button s-button--big s-button--black">
+              <span>Show results</span>
+            </button>
+            <button type="button" class="s-arrow-link s-quiz__step-skip">
+              <span>Skip</span>
+              <div class="s-arrow-link__ico">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="14" viewBox="0 0 32 14">
+                  <g id="Group_11387" data-name="Group 11387" transform="translate(-177 -1807)">
+                    <line id="Line_17" data-name="Line 17" x2="25" transform="translate(177 1814)" fill="none" stroke="#1f454d" stroke-miterlimit="10" stroke-width="1"></line>
+                    <path id="Path_1178" data-name="Path 1178" d="M34,0a7,7,0,0,0,7,7,7,7,0,0,0-7,7" transform="translate(168 1807)" fill="none" stroke="#1f454d" stroke-linejoin="bevel" stroke-width="1"></path>
+                  </g>
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="14" viewBox="0 0 32 14">
+                  <g id="Group_11387" data-name="Group 11387" transform="translate(-177 -1807)">
+                    <line id="Line_17" data-name="Line 17" x2="25" transform="translate(177 1814)" fill="none" stroke="#1f454d" stroke-miterlimit="10" stroke-width="1"></line>
+                    <path id="Path_1178" data-name="Path 1178" d="M34,0a7,7,0,0,0,7,7,7,7,0,0,0-7,7" transform="translate(168 1807)" fill="none" stroke="#1f454d" stroke-linejoin="bevel" stroke-width="1"></path>
+                  </g>
+                </svg>
+              </div>
+            </button>
+          </div>
+        </div>
+      </form>
+      <div class="s-quiz__bottom">
+        <button type="button" class="s-quiz__bottom-prev s-button s-button--transparent s-button--big" disabled>
+          <span>Previous</span>
+        </button>
+        <div class="s-quiz__bottom-current">
+          <ul class="outline-buttons">
+            <li>
+              <div class="s-button s-button--transparent s-button--round s-arrow-link">
+                <span class="s-arrow-link__ico">
+                  <span>1</span>
+                  <span>1</span>
+                </span>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <button type="button" class="s-quiz__bottom-next s-button s-button--transparent s-button--big">
+          <span>Next</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
 <div class="float-btn">
   <a href="" class="s-button s-button--big s-button--primary-light">
     <span>Shop now</span>
@@ -48,7 +162,7 @@
           <nav class="header__nav mobile-hide">
             <ul>
               <li><a href=""><span class="s-link" data-text="Shop"><span>Shop</span></span></a></li>
-              <li><a href=""><span class="s-link" data-text="Quiz"><span>Quiz</span></span></a></li>
+              <li><a href="take-quiz"><span class="s-link" data-text="Quiz"><span>Quiz</span></span></a></li>
               <li><a href=""><span class="s-link" data-text="Blog"><span>Blog</span></span></a></li>
               <li><a href=""><span class="s-link" data-text="About"><span>About</span></span></a></li>
               <li><a href=""><span class="s-link" data-text="Contact"><span>Contact</span></span></a></li>
@@ -149,7 +263,7 @@
         <div class="header__mob-menu__nav">
           <ul>
             <li class="is-big"><a href=""><span class="s-link" data-text="Shop"><span>Shop</span></span></a></li>
-            <li class="is-big"><a href=""><span class="s-link" data-text="Quiz"><span>Quiz</span></span></a></li>
+            <li class="is-big"><a href="take-quiz"><span class="s-link" data-text="Quiz"><span>Quiz</span></span></a></li>
             <li><a href=""><span class="s-link" data-text="Blog"><span>Blog</span></span></a></li>
             <li><a href=""><span class="s-link" data-text="About"><span>About</span></span></a></li>
             <li><a href=""><span class="s-link" data-text="Contact"><span>Contact</span></span></a></li>
@@ -397,7 +511,7 @@
           </ul>
         </div>
         <div class="footer__links">
-          <a href="" class="footer__title">
+          <a href="take-quiz" class="footer__title">
             <span>Quiz</span>
           </a>
           <a href="" class="footer__title">
@@ -544,6 +658,7 @@
   
       let TEMPLATE_PATH = 'https://cherry.blackbook.dev/'
   </script>
+  
   
   <div class="pointer-cursor" id="cursor">
     <div class="pointer-cursor__label">

@@ -86,9 +86,48 @@
     }
   }
 
+  @media (max-width: 1600px) {
+    .s-testimonials__elem.elem1 {
+      /* left: 11%; */
+      left: 6%;
+    }
+
+    .s-testimonials__elem.elem4 {
+      /* right: 16%; */
+      right: 11%;
+    }
+
+    .s-testimonials__elem.elem5 {
+      /* right: 6%; */
+      right: 1%;
+    }
+
+    .s-testimonials__elem.elem6 {
+      /* right: 14%; */
+      right: 9%;
+    }
+
+    .s-testimonials__elem.elem2 {
+      /* left: 6%; */
+      left: 1%;
+    }
+
+    .s-testimonials__elem.elem3 {
+      /* left: 11.5%; */
+      left: 6.5%;
+    }
+
+  }
+  @media (max-width: 991px) {
+    .s-testimonials__container{
+      width: 61%;
+    }
+  }
   @media (max-width: 768px) {
     padding: 50px 0 68px;
-
+    .s-testimonials__container{
+      width: 100%;
+    }
     &>.container>.s-testimonials__elem {
       display: none;
     }

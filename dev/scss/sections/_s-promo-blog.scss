@@ -1,0 +1,54 @@
+@import "../mixins/rem";
+
+.s-promo-blog{
+  background: var(--color-black);
+  position: relative;
+
+  .s-breadcrumbs {
+    margin-bottom: rem(33);
+  }
+  &__container{
+    display: flex;
+  }
+  &__content{
+    display: flex;
+    flex-direction: column;
+    min-height: Min(55.741vh,37.625rem);
+    padding: rem(64) rem(36) rem(74) rem(84);
+    justify-content: center;
+    color: var(--color-primary-light);
+  }
+  &__img{
+    position: relative;
+    width: calc(100% / 3);
+    flex-shrink: 0;
+    &>*{
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  @media (max-width: 768px) {
+    padding: 0;
+
+    .s-breadcrumbs {
+      margin-bottom: 6px;
+    }
+    &__content {
+      width: 100%;
+      padding: 30px 16px 40px;
+    }
+    &__img {
+      width: 100%;
+      height: 300px;
+    }
+
+    &__container {
+      flex-direction: column-reverse;
+    }
+  }
+}

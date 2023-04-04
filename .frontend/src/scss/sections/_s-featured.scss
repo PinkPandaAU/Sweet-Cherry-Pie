@@ -1,12 +1,12 @@
 @import "../mixins/rem";
 
 .s-featured{
-  padding: 136px 0 152px;
+  padding: rem(136) 0 rem(152);
 
   &__btn{
     display: flex;
     justify-content: center;
-    margin-top: 32px;
+    margin-top: rem(32);
   }
   .s-card__tags{
     justify-content: unset;
