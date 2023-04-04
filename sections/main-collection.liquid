@@ -40,11 +40,21 @@
           <div class="s-breadcrumbs">
             <ul>
               <li><a href="{{ shop.url }}">Home</a></li>
-              <li>{{ collection.title }}</li>
+              <li>
+                {% if page_title == 'Products' %}
+                  <h1>Shop</h1>
+                {% else %}
+                  <h1>{{ collection.title }}</h1>
+                {% endif %}
+              </li>
             </ul>
           </div>
           <div class="title-epic title-animation" data-scroll data-scroll-call="title-visible">
-            <h1>{{ collection.title }}</h1>
+            {% if page_title == 'Products' %}
+              <h1>Shop</h1>
+            {% else %}
+              <h1>{{ collection.title }}</h1>
+            {% endif %}
           </div>
         </div>
       </div>
@@ -118,7 +128,7 @@
 
     <div class="s-shop-category__container" id="s-shop-category">
       <div class="s-shop-category__filter" data-scroll data-scroll-sticky data-scroll-target="#s-shop-category">
-        <div class="s-shop-category__filter-label">
+        <!--<div class="s-shop-category__filter-label">
           <span>Filter by:</span>
         </div>
         <ul>
@@ -369,17 +379,18 @@
             </div>
           </li>
         </ul>
+        -->
 
         <div class="s-shop-category__filter-label">
           <span>Shop by category</span>
         </div>
         <div class="s-shop-category__filter-links">
-          <a href="" class="s-radio__btn">For gifting</a>
-          <a href="" class="s-radio__btn">For the front</a>
-          <a href="" class="s-radio__btn">For the back</a>
-          <a href="" class="s-radio__btn">For added pleasure</a>
-          <a href="" class="s-radio__btn">For him</a>
-          <a href="" class="s-radio__btn">For solo</a>
+          {% for collection in collections %}
+            {% if collection.handle != 'frontpage' %}
+              <a href="{{ collection.url }}" class="s-radio__btn">{{ collection.title }}</a>
+            {% endif %}
+          {% endfor %}
+
         </div>
       </div>
 
