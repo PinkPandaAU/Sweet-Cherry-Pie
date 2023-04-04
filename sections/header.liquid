@@ -50,8 +50,9 @@
       <div class="header__block">
         <div class="header__btns">
           <div class="header__search">
-            <form class="header__search-inner">
-              <input type="text" name="search" placeholder="Search for toys.." required>
+            <form class="header__search-inner" action="{{ routes.search_url }}">
+              <input type="hidden" name="type" value="product">
+              <input type="text" placeholder="Search for toys.."  name="q" value="{{ search.terms | escape }}" required>
               <button type="submit" class="s-button s-button--round s-button--black s-arrow-link">
                 <span class="s-arrow-link__ico">
                   <svg xmlns="http://www.w3.org/2000/svg" width="14.854" height="14.854" viewBox="0 0 14.854 14.854">
@@ -152,8 +153,9 @@
   </div>
   <div class="header__mob-menu header-search">
     <div class="header__mob-menu__inner">
-      <form class="header__mob-menu__search">
-        <input type="text" name="search" id="menu-search-input" placeholder="Search for toys.." required>
+      <form class="header__mob-menu__search" action="{{ routes.search_url }}">
+        <input type="hidden" name="type" value="product">
+        <input type="text" id="menu-search-input" placeholder="Search for toys.." name="q" value="{{ search.terms | escape }}" required>
         <div class="header__mob-menu__bottom">
           <button type="submit" class="s-button s-button--big s-button--primary-light">
             <span>Search</span>

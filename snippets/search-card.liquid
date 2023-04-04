@@ -1,0 +1,42 @@
+<article class="s-post-card">
+    <a href="{{ product.url}}" class="s-post-card__img section-img is-inview is-scrolled" data-scroll="" data-scroll-call="is-in-view">
+        {% if product.metafields.custom.isolated_image %}
+            <img src="{{ product.metafields.custom.isolated_image | img_url: '' }}" alt="{{ product.title }}">
+        {% else %}
+            <img src="{{ product.images.first | img_url: 'master' }}" alt="{{ product.title }}">
+        {% endif %}
+    </a>
+    <div class="s-post-card__inner">
+        <a href="" class="s-post-card__title title-h4">
+            <h2>{{ product.title }} - <p>{{ product.price | money }}</p></h2>
+        </a>
+        <div class="s-post-card__text">
+            <p>{{ product.description | truncate: 200 }}</p>
+        </div>
+        <a href="{{ product.url}}" class="s-post-card__btn">
+            <div class="s-arrow-link">
+                <span>Buy Now</span>
+                <div class="s-arrow-link__ico">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="14" viewBox="0 0 32 14">
+                        <g id="Group_11387" data-name="Group 11387" transform="translate(-177 -1807)">
+                            <line id="Line_17" data-name="Line 17" x2="25" transform="translate(177 1814)" fill="none"
+                                stroke="#1f454d" stroke-miterlimit="10" stroke-width="1"></line>
+                            <path id="Path_1178" data-name="Path 1178" d="M34,0a7,7,0,0,0,7,7,7,7,0,0,0-7,7"
+                                transform="translate(168 1807)" fill="none" stroke="#1f454d" stroke-linejoin="bevel"
+                                stroke-width="1"></path>
+                        </g>
+                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="14" viewBox="0 0 32 14">
+                        <g id="Group_11387" data-name="Group 11387" transform="translate(-177 -1807)">
+                            <line id="Line_17" data-name="Line 17" x2="25" transform="translate(177 1814)" fill="none"
+                                stroke="#1f454d" stroke-miterlimit="10" stroke-width="1"></line>
+                            <path id="Path_1178" data-name="Path 1178" d="M34,0a7,7,0,0,0,7,7,7,7,0,0,0-7,7"
+                                transform="translate(168 1807)" fill="none" stroke="#1f454d" stroke-linejoin="bevel"
+                                stroke-width="1"></path>
+                        </g>
+                    </svg>
+                </div>
+            </div>
+        </a>
+    </div>
+</article>
