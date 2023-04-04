@@ -2364,63 +2364,63 @@ a {
   &--small-primary{
     border-image-slice: 22 22 22 22;
     border-image-width: 20px 20px 20px 20px;
-    border-image-source: url("../images/borders/border-small-primary.svg");
+    border-image-source: url("../assets//border-small-primary.svg");
   }
   &--small-primary-star{
     border-image-slice: 22 22 22 22;
     border-image-width: 20px 20px 20px 20px;
-    border-image-source: url("../images/borders/border-small-primary-star.svg");
+    border-image-source: url("../assets//border-small-primary-star.svg");
   }
   &--medium-primary{
     border-image-slice: 34 34 34 34;
     border-image-width: 31px 31px 31px 31px;
-    border-image-source: url("../images/borders/border-medium-primary.svg");
+    border-image-source: url("../assets//border-medium-primary.svg");
   }
   &--medium-primary-star{
     border-image-slice: 34 34 34 34;
     border-image-width: 31px 31px 31px 31px;
-    border-image-source: url("../images/borders/border-medium-primary-star.svg");
+    border-image-source: url("../assets//border-medium-primary-star.svg");
   }
   &--large-primary{
     border-image-slice: 43 43 43 43;
     border-image-width: 39px 39px 39px 39px;
-    border-image-source: url("../images/borders/border-large-primary.svg");
+    border-image-source: url("../assets//border-large-primary.svg");
   }
   &--large-primary-star{
     border-image-slice: 43 43 43 43;
     border-image-width: 39px 39px 39px 39px;
-    border-image-source: url("../images/borders/border-large-primary-star.svg");
+    border-image-source: url("../assets//border-large-primary-star.svg");
   }
 
   &--small-white{
     border-image-slice: 22 22 22 22;
     border-image-width: 20px 20px 20px 20px;
-    border-image-source: url("../images/borders/border-small-white.svg");
+    border-image-source: url("../assets//border-small-white.svg");
   }
   &--small-white-star{
     border-image-slice: 22 22 22 22;
     border-image-width: 20px 20px 20px 20px;
-    border-image-source: url("../images/borders/border-small-white-star.svg");
+    border-image-source: url("../assets//border-small-white-star.svg");
   }
   &--medium-white{
     border-image-slice: 34 34 34 34;
     border-image-width: 31px 31px 31px 31px;
-    border-image-source: url("../images/borders/border-medium-white.svg");
+    border-image-source: url("../assets//border-medium-white.svg");
   }
   &--medium-white-star{
     border-image-slice: 34 34 34 34;
     border-image-width: 31px 31px 31px 31px;
-    border-image-source: url("../images/borders/border-medium-white-star.svg");
+    border-image-source: url("../assets//border-medium-white-star.svg");
   }
   &--large-white{
     border-image-slice: 43 43 43 43;
     border-image-width: 39px 39px 39px 39px;
-    border-image-source: url("../images/borders/border-large-white.svg");
+    border-image-source: url("../assets//border-large-white.svg");
   }
   &--large-white-star{
     border-image-slice: 43 43 43 43;
     border-image-width: 39px 39px 39px 39px;
-    border-image-source: url("../images/borders/border-large-white-star.svg");
+    border-image-source: url("../assets//border-large-white-star.svg");
   }
 
   @media (max-width: 768px) {
@@ -2429,7 +2429,7 @@ a {
     &--large-primary{
       border-image-slice: 22 22 22 22;
       border-image-width: 20px 20px 20px 20px;
-      border-image-source: url("../images/borders/border-small-primary.svg");
+      border-image-source: url("../assets//border-small-primary.svg");
     }
 
     &--medium-primary-star,
@@ -2437,7 +2437,7 @@ a {
     &--large-primary-star{
       border-image-slice: 22 22 22 22;
       border-image-width: 20px 20px 20px 20px;
-      border-image-source: url("../images/borders/border-small-primary-star.svg");
+      border-image-source: url("../assets//border-small-primary-star.svg");
     }
 
     &--small-white,
@@ -2445,14 +2445,14 @@ a {
     &--large-white{
       border-image-slice: 22 22 22 22;
       border-image-width: 20px 20px 20px 20px;
-      border-image-source: url("../images/borders/border-small-white.svg");
+      border-image-source: url("../assets//border-small-white.svg");
     }
     &--small-white-star,
     &--medium-white-star,
     &--large-white-star{
       border-image-slice: 22 22 22 22;
       border-image-width: 20px 20px 20px 20px;
-      border-image-source: url("../images/borders/border-small-white-star.svg");
+      border-image-source: url("../assets//border-small-white-star.svg");
     }
   }
 }
