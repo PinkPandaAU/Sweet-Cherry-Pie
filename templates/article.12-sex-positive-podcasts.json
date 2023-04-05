@@ -47,12 +47,6 @@
             "block-six-text": ""
           }
         },
-        "28d42918-2a44-4cee-9965-31df0ac91bce": {
-          "type": "single-image",
-          "settings": {
-            "image_one": "shopify:\/\/shop_images\/sextras.jpg"
-          }
-        },
         "906b5a64-6ffb-43b9-becd-f04c7c35a71b": {
           "type": "question",
           "settings": {
@@ -225,7 +219,6 @@
       "block_order": [
         "bb6aa059-f133-49d4-b1f0-8b7f2f1be9dc",
         "8eb79cab-30bc-4373-9b28-dd31007917e6",
-        "28d42918-2a44-4cee-9965-31df0ac91bce",
         "906b5a64-6ffb-43b9-becd-f04c7c35a71b",
         "1743ce7f-831b-4c29-92d6-f9e595712588",
         "5324542f-6dc9-48cc-bceb-47470411fce8",
