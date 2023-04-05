@@ -1,11 +1,39 @@
 {
   "sections": {
-	"main": {
-	  "type": "main-article",
-	  "settings": {}
-	}
+    "main": {
+      "type": "main-article",
+      "blocks": {
+        "bb6aa059-f133-49d4-b1f0-8b7f2f1be9dc": {
+          "type": "question",
+          "settings": {
+            "question": "Question 1",
+            "answer-new": "<p>Answer 1<\/p>",
+            "answer": "",
+            "wide_layout": false,
+            "block-one-title": "",
+            "block-one-text": "",
+            "block-two-title": "",
+            "block-two-text": "",
+            "block-three-title": "",
+            "block-three-text": "",
+            "block-four-title": "",
+            "block-four-text": "",
+            "block-five-title": "",
+            "block-five-text": "",
+            "block-six-title": "",
+            "block-six-text": ""
+          }
+        }
+      },
+      "block_order": [
+        "bb6aa059-f133-49d4-b1f0-8b7f2f1be9dc"
+      ],
+      "settings": {
+        "heading": "In this article:"
+      }
+    }
   },
   "order": [
-	"main"
+    "main"
   ]
 }
