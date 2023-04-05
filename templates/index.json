@@ -19,7 +19,7 @@
       "type": "featured-products",
       "settings": {
         "heading": "Featured toys",
-        "collection": "featured",
+        "collection": "solo",
         "columns_desktop": 8,
         "button_text": "Shop all",
         "url": "shopify:\/\/collections\/all"
