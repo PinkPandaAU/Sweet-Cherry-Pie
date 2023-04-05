@@ -82,13 +82,15 @@
         align-items: flex-start;
         width: 50%;
         flex-shrink: 0;
-        padding: 58px 36px 68px;
-        .s-breadcrumbs{
-          margin-bottom: rem(16);
-        }
-
+        padding: rem(67) rem(36) rem(68);
         @media (min-width: 769px) {
           min-height: Min(52vh, 35rem);
+          .s-breadcrumbs {
+            margin-bottom: rem(36);
+          }
+          & > :not(.s-breadcrumbs):not(:last-child) {
+            margin-bottom: rem(50);
+          }
         }
       }
 

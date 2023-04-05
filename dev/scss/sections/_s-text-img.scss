@@ -1,20 +1,121 @@
 @import "../mixins/rem";
 
-.s-text-img{
+.s-text-img {
+  &__container {
+    display: flex;
+    min-height: Min(88.8889vh, 60rem);
+  }
+  &__img {
+    width: 50%;
+    flex-shrink: 0;
+    position: relative;
+    @media (min-width: 769px) {
+      .section-img {
+        &::before {
+          content: none;
+        }
+      }
+    }
+    &:first-child{
+      .section-img {
+        &[data-scroll].is-inview::after,
+        &[data-scroll].is-scrolled::after {
+          left: 0;
+          right: 100%;
+        }
+      }
+    }
+    &-bg{
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 1;
+      &>*{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+    &-inner{
+      position: relative;
+      z-index: 2;
+    }
 
-  .section-img::before {
-    padding-top: 37%;
+    &.s-text-img__img--small {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: var(--color-primary);
+      .s-text-img__img-inner {
+        height: 80%;
+        width: 80%;
+        max-width: rem(605);
+        max-height: rem(605);
+        border-radius: rem(16);
+        overflow: hidden;
+        img,
+        &::after{
+          border-radius: rem(16);
+        }
+
+      }
+    }
   }
-  &__img{
-    padding: 14px;
+  &__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: rem(110);
+    width: 50%;
+    &:last-child{
+      background: #fff;
+    }
+    [class*="title-"]{
+      max-width: rem(500);
+      &:not(:last-child){
+        margin-bottom: rem(31);
+      }
+      @media (min-width: 769px) {
+        font-size: rem(52);
+        line-height: rem(50);
+      }
+    }
+    .section-text{
+      max-width: rem(620);
+    }
   }
+
 
   @media (max-width: 768px) {
-    &__img{
-      padding: 10px;
+    .s-text-img__container {
+      flex-direction: column;
     }
-    .section-img::before {
-      padding-top: 70%;
+
+    .s-text-img__img {
+      width: 100%;
+      order: 2;
     }
+
+    .s-text-img__content {
+      padding: 40px 16px;
+      width: 100%;
+      order: 1;
+    }
+
+    .s-text-img__content [class*="title-"]:not(:last-child) {
+      margin-bottom: 15px;
+    }
+
+    .s-text-img__img.s-text-img__img--small .s-text-img__img-inner {
+      height: auto;
+      width: 100%;
+    }
+
+    .s-text-img__img.s-text-img__img--small {
+      padding: 30px;
+    }
+
   }
 }
