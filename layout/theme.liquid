@@ -119,7 +119,46 @@
 
           setSymbols()
 
-          let TEMPLATE_PATH = 'https://bloombar.blackbook.dev/'
+          let TEMPLATE_PATH = 'https://bloombarflowers.com/';
+
+          var myHeaders = new Headers();
+            myHeaders.append("Content-Type", "application/json");
+          var requestOptions = {
+            method: "get",
+            headers: myHeaders,
+            redirect: "follow",
+          };
+          fetch("https://v1.nocodeapi.com/sweetcherrypie/instagram/yWBtrSWDqKCloCop", requestOptions)
+          .then(response => response.text())
+          .then(result => {
+            var get_data = JSON.parse(result);
+            let div1 = document.createElement('div');
+            div1.setAttribute('class', 's-instagram__images-block mobile-hide');
+            let div2 = document.createElement('div');
+            div2.setAttribute('class', 's-instagram__images-block mobile-hide');
+            let div1Child = document.createElement('div');
+            div1Child.setAttribute('class', 's-instagram__img');
+            for (let i = 0; i <= get_data.data.length; i++) {
+              if(i == 0) {
+                image = document.createElement('img');
+                image.setAttribute('src', get_data.data[i].media_url);
+                div1Child.appendChild(image);
+                div1.appendChild(div1Child);
+              }
+              if(i > 0 && i < 5) {
+                const div2Child = document.createElement('div');
+                div2Child.setAttribute('class', 's-instagram__img');
+                image = document.createElement('img');
+                image.setAttribute('src', get_data.data[i].media_url);
+                div2Child.appendChild(image);
+                div2.appendChild(div2Child);
+              }
+            }
+            document.querySelector('.s-instagram__images').appendChild(div1);
+            document.querySelector('.s-instagram__images').appendChild(div2);
+          })
+          .catch(error => console.log('error', error));
+
         </script>
 
         <div class="pointer-cursor" id="cursor">
