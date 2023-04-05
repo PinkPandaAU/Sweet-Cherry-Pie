@@ -1,7 +1,7 @@
 <div class="s-promo-blog" data-scroll-section>
   <div class="s-promo-blog__container">
     <div class="s-promo-blog__img">
-      <img src="{{ article.image.src | img_url: '1080x1080' }}" alt="{{ page_title }} image" width="640" height="600">
+      <img src="{{ article.image.src | img_url: '1080x1080' }}" alt="{{ article.title }} image" width="640" height="600">
     </div>
     <div class="s-promo-blog__content">
       <div class="s-breadcrumbs">
@@ -12,7 +12,7 @@
         </ul>
       </div>
       <div class="title-epic title-animation" data-scroll data-scroll-call="title-visible">
-        <h1>{{ page_title }}</h1>
+        <h1>{{ article.title }}</h1>
       </div>
     </div>
   </div>
@@ -22,39 +22,36 @@
   <div class="s-blog-single__container" id="blog-container">
     <aside class="s-blog-single__aside" data-scroll data-scroll-sticky data-scroll-target="#blog-container">
       <div class="s-blog-single__aside-title title-h4 title-animation" data-scroll data-scroll-call="title-visible">
-        <h2>In this article:</h2>
+        <h2>{{ section.settings.heading }}</h2>
       </div>
       <ul>
-        <li>
-          <a href="#1">
-            <span>This is the title of Section 01</span>
-            <img src="{{ 'ico-link.svg' | asset_url }}" alt="Scroll">
-          </a>
-        </li>
-        <li>
-          <a href="#2">
-            <span>This is the title of Section 02</span>
-            <img src="{{ 'ico-link.svg' | asset_url }}" alt="Scroll">
-          </a>
-        </li>
-        <li>
-          <a href="#3">
-            <span>This is the title of Section 03</span>
-            <img src="{{ 'ico-link.svg' | asset_url }}" alt="Scroll">
-          </a>
-        </li>
-        <li>
-          <a href="#4">
-            <span>This is the title of Section 04</span>
-            <img src="{{ 'ico-link.svg' | asset_url }}" alt="Scroll">
-          </a>
-        </li>
-        <li>
-          <a href="#5">
-            <span>This is the title of Section 05</span>
-            <img src="{{ 'ico-link.svg' | asset_url }}" alt="Scroll">
-          </a>
-        </li>
+
+        {% for block in section.blocks %}
+          {% if block.type == 'question' and block.settings.question != blank %}
+            <li>
+              <a href="#{{ block.settings.question | handleize }}">
+                <span>{{ block.settings.question }}</span>
+                <img src="{{ 'ico-link.svg' | asset_url }}" alt="Scroll">
+              </a>
+            </li>
+          {% endif %}
+
+          {% if block.type == 'nested-start' %}
+            <li class="has-child">
+              <a href="#{{ block.settings.nestedheading | handleize }}">
+                <span>{{ block.settings.nestedheading }}</span>
+                <img src="{{ 'ico-link.svg' | asset_url }}" alt="Scroll">
+              </a>
+              <ul>
+          {% endif %}
+
+          {% if block.type == 'nested-end' %}
+              </ul>
+            </li>
+          {% endif %}
+
+        {% endfor %} 
+      
       </ul>
     </aside>
     <div class="s-blog-single__content">
@@ -71,38 +68,54 @@
 
       </div>
       <div class="s-blog-single__text">
-        <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+
+        {% assign isNested = false %}
+        {% for block in section.blocks %}
+
+          {% if block.settings.content %}
+            {{ block.settings.content }}
+          {% endif %}
+
+        {% endfor %} 
+
       </div>
       <div class="section-text">
-        <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
-        <div class="section-text__img">
-          <img src="{{ 's-blog-single_img1.jpg' | asset_url }}" alt="" width="457" height="300">
-          <img src="{{ 's-blog-single_img2.jpg' | asset_url }}" alt="" width="457" height="300">
-        </div>
-        <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
-        <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. </p>
 
-        <h4 id="1">This is the title of a section</h4>
-        <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.</p>
-        <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. </p>
+        {% assign isNested = false %}
+        {% for block in section.blocks %}
 
-        <h4 id="2">This is the title of another section</h4>
-        <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.</p>
-        <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. </p>
+          {% comment %} QUESTION START {% endcomment %}
+          {% if block.type == 'question' %}
 
-        <div class="section-text__img">
-          <img src="{{ 's-blog-single_img3.jpg' | asset_url }}" alt="" width="457" height="300">
-        </div>
+            {% if block.settings.question != blank %}
+              {% if isNested %}
+                <h4 id="{{ block.settings.question | handleize }}">{{ block.settings.question }}</h4>
+              {% else %}
+                <h4 id="{{ block.settings.question | handleize }}">{{ block.settings.question }}</h4>
+              {% endif %}
+            {% endif %}
 
-        <h4 id="3">This is the title of another section</h4>
-        <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.</p>
-        <ul>
-          <li>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed d</li>
-          <li>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed d</li>
-          <li>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed d</li>
-          <li>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed d</li>
-        </ul>
-        <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. </p>
+            {% if block.settings.answer %}
+              {{ block.settings.answer }}
+            {% endif %}
+
+            {% if block.settings.answer-new %}
+              {{ block.settings.answer-new }}
+            {% endif %}
+            
+          {% endif %}
+
+          {% if block.type == 'single-image' %}
+            <div class="section-text__img">
+              <img src="{{ block.settings.image_one | img_url:'' }}" alt="" width="457" height="300">
+                {% if block.settings.image_two != blank  %}
+                  <img src="{{ block.settings.image_two | img_url:'' }}" alt="" width="457" height="300">
+                {% endif %}
+            </div>
+          {% endif %}
+
+        {% endfor %} 
+
       </div>
       <div class="s-blog-single__bottom">
         <span>By: <i>{{ article.author }}</i></span>
@@ -188,10 +201,21 @@
         "type": "text",
         "id": "heading",
         "label": "Heading",
-        "default": "Table of Contents"
+        "default": "In this article:"
       }
     ],
     "blocks": [
+      {
+        "type": "article-content",
+        "name": "Article Content",
+        "settings": [
+          {
+            "type": "richtext",
+            "id": "content",
+            "label": "Content"
+          }
+        ]
+      },
       {
         "type": "question",
         "name": "Question",
@@ -379,7 +403,12 @@
         "settings": [
           {
             "type": "image_picker",
-            "id": "image",
+            "id": "image_one",
+            "label": "Image"
+          },
+          {
+            "type": "image_picker",
+            "id": "image_two",
             "label": "Image"
           }
         ]

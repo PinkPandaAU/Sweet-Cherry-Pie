@@ -1,21 +1,27 @@
 <footer class="footer" data-scroll-section>
   <div class="container container--small">
     <div class="footer__container">
-      <form class="footer__form">
+      {% form 'customer', id: 'newsletter-form', class:"footer__form" %}
         {% if section.settings.footer_text != blank %}
           <div class="footer__form-title title-h2">
             <h2>{{ section.settings.footer_text }}</h2>
           </div>
         {% endif %}
+        {% if form.posted_successfully? %}
+            <p class="form-message">Thank you for Subscribing!</p>
+        {% else %}
         <div class="footer__form-input">
-          <input type="email" name="email" placeholder="Enter your email" required>
+          <input type="hidden" name="contact[tags]" value="newsletter">
+          <input type="email" name="contact[email]" placeholder="Enter your email" value="{% if customer %}{{ customer.email }}{% endif %}" autocorrect="off" autocapitalize="off" required>
         </div>
         <div class="footer__form-btn">
           <button class="s-button s-button--transparent s-button--big" type="submit">
             <span>Subscribe</span>
           </button>
         </div>
-      </form>
+        {% endif %}
+        {{ form.errors | default_errors }}
+      {% endform %}
       <div class="footer__shop">
         <a href="{{ section.settings.shop_url }}" class="footer__title mobile-hide">
           <h3>Shop</h3>
