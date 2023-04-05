@@ -904,7 +904,7 @@ a {
   }
 }
 
-.s-quantity{
+.s-quantity, .s-quantitycart {
   display: flex;
   &>* {
     flex-shrink: 0;
@@ -2134,7 +2134,7 @@ a {
   }
   @media (max-width: 768px) {
     flex-direction: column;
-    .text-section__blocks {;
+    .text-section__blocks {
       margin: 3rem -10px;
     }
     .text-section__block {

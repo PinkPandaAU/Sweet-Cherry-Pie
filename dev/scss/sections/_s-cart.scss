@@ -7,6 +7,11 @@
     width: 100%;
     max-width: rem(1228);
     margin: 0 auto;
+        
+    &.in-process {
+      opacity: 0.4;
+      cursor: disabled;
+    }
   }
   &__list {
     width: 100%;
@@ -24,10 +29,6 @@
       &:last-child{
         border-bottom: none;
       }
-    }
-    &.in-process {
-      opacity: 0.4;
-      cursor: disabled;
     }
   }
   &__block {
@@ -95,8 +96,6 @@
       color: #fff;
     }
   }
-
-
   @media (max-width: 768px) {
     padding: 50px 0;
     .s-cart__block {
