@@ -25,7 +25,7 @@
 <body>
 <div class="viewport-height"></div>
 
-<div class="s-quiz" data-scroll-section>
+<div class="s-quiz">
   <div class="s-quiz__inner">
     <div class="s-quiz__container">
       <button type="button" class="s-quiz__close s-button s-button--transparent s-button--round s-arrow-link">
@@ -138,10 +138,165 @@
     </div>
   </div>
 </div>
-<div class="float-btn">
-  <a href="" class="s-button s-button--big s-button--primary-light">
-    <span>Shop now</span>
-  </a>
+
+<div class="s-mini-cart">
+  <div class="s-mini-cart__inner">
+    <div class="s-mini-cart__container">
+      <div class="s-mini-cart__head">
+        <div class="title-h2 title-animation" data-scroll data-scroll-call="title-visible">
+          <span>Cart</span>
+        </div>
+        <button type="button" class="s-mini-cart__close s-button s-button--transparent s-button--round s-arrow-link">
+          <span class="s-arrow-link__ico">
+            <img src="images/ico-close_black.svg" alt="Close">
+            <img src="images/ico-close_black.svg" alt="" role="presentation">
+          </span>
+        </button>
+      </div>
+      <div class="s-mini-cart__body">
+        <ul class="s-mini-cart__list">
+          <li class="s-mini-cart__item">
+            <div class="s-mini-cart__item-img">
+              <img src="images/products/4.jpg" alt="">
+            </div>
+            <div class="s-mini-cart__item-content">
+              <div class="s-cart__item-title title-h4">
+                <h2>Fun Factory Limba Flex</h2>
+              </div>
+              <div class="s-price s-price--smallest">
+                <div class="s-price__new">
+                  <span>$129.95</span>
+                </div>
+              </div>
+              <div class="s-quantity">
+                <button type="button" class="s-quantity__btn btn-minus s-button s-button--round s-button--transparent s-arrow-link">
+                      <span class="s-arrow-link__ico">
+                        <img src="images/ico-minus.svg" alt="-">
+                        <img src="images/ico-minus.svg" alt="" role="presentation">
+                      </span>
+                </button>
+                <input type="number" name="quantity" value="1" step="1" min="1" max="" readonly="">
+                <button type="button" class="s-quantity__btn btn-plus s-button s-button--round s-button--transparent s-arrow-link">
+                      <span class="s-arrow-link__ico">
+                        <img src="images/ico-plus.svg" alt="+">
+                        <img src="images/ico-plus.svg" alt="" role="presentation">
+                      </span>
+                </button>
+              </div>
+            </div>
+            <button type="button" class="s-mini-cart__item-remove">
+              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="15" height="15" viewBox="0 0 15 15">
+                <defs>
+                  <clipPath id="clip-path">
+                    <rect id="Rectangle_2158" data-name="Rectangle 2158" width="15" height="15" transform="translate(1850.5 299.5)" fill="#fff" stroke="#707070" stroke-width="1"/>
+                  </clipPath>
+                </defs>
+                <g id="Mask_Group_86" data-name="Mask Group 86" transform="translate(-1850.5 -299.5)" clip-path="url(#clip-path)">
+                  <g id="Group_12073" data-name="Group 12073" transform="translate(21.535 -52.464)">
+                    <line id="Line_29" data-name="Line 29" x2="11.314" transform="translate(1832.465 363.464) rotate(-45)" fill="none" stroke="#1f454d" stroke-width="1"/>
+                    <line id="Line_30" data-name="Line 30" x2="11.314" transform="translate(1832.465 355.464) rotate(45)" fill="none" stroke="#1f454d" stroke-width="1"/>
+                  </g>
+                </g>
+              </svg>
+            </button>
+          </li>
+          <li class="s-mini-cart__item">
+            <div class="s-mini-cart__item-img">
+              <img src="images/products/4.jpg" alt="">
+            </div>
+            <div class="s-mini-cart__item-content">
+              <div class="s-cart__item-title title-h4">
+                <h2>Fun Factory Limba Flex</h2>
+              </div>
+              <div class="s-price s-price--smallest">
+                <div class="s-price__new">
+                  <span>$129.95</span>
+                </div>
+              </div>
+              <div class="s-quantity">
+                <button type="button" class="s-quantity__btn btn-minus s-button s-button--round s-button--transparent s-arrow-link">
+                      <span class="s-arrow-link__ico">
+                        <img src="images/ico-minus.svg" alt="-">
+                        <img src="images/ico-minus.svg" alt="" role="presentation">
+                      </span>
+                </button>
+                <input type="number" name="quantity" value="1" step="1" min="1" max="" readonly="">
+                <button type="button" class="s-quantity__btn btn-plus s-button s-button--round s-button--transparent s-arrow-link">
+                      <span class="s-arrow-link__ico">
+                        <img src="images/ico-plus.svg" alt="+">
+                        <img src="images/ico-plus.svg" alt="" role="presentation">
+                      </span>
+                </button>
+              </div>
+            </div>
+            <button type="button" class="s-mini-cart__item-remove">
+              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="15" height="15" viewBox="0 0 15 15">
+                <defs>
+                  <clipPath id="clip-path">
+                    <rect id="Rectangle_2158" data-name="Rectangle 2158" width="15" height="15" transform="translate(1850.5 299.5)" fill="#fff" stroke="#707070" stroke-width="1"/>
+                  </clipPath>
+                </defs>
+                <g id="Mask_Group_86" data-name="Mask Group 86" transform="translate(-1850.5 -299.5)" clip-path="url(#clip-path)">
+                  <g id="Group_12073" data-name="Group 12073" transform="translate(21.535 -52.464)">
+                    <line id="Line_29" data-name="Line 29" x2="11.314" transform="translate(1832.465 363.464) rotate(-45)" fill="none" stroke="#1f454d" stroke-width="1"/>
+                    <line id="Line_30" data-name="Line 30" x2="11.314" transform="translate(1832.465 355.464) rotate(45)" fill="none" stroke="#1f454d" stroke-width="1"/>
+                  </g>
+                </g>
+              </svg>
+            </button>
+          </li>
+        </ul>
+        <div class="s-mini-cart__bottom s-cart__block">
+          <div class="s-cart__block-item">
+            <div class="s-coupon">
+              <div class="s-coupon__title">
+                <h3>Discount code</h3>
+              </div>
+              <div class="s-coupon__row">
+                <div class="s-coupon__input">
+                  <input type="text" name="coupon" placeholder="XXXX-XXXX">
+                </div>
+                <div class="s-coupon__btn">
+                  <button type="button" class="s-button s-button--transparent">
+                    <span>Apply</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="s-cart__block-item">
+            <div class="s-cart__row">
+              <div class="s-cart__row-label">
+                <h2>SubTotal:</h2>
+              </div>
+              <div class="s-price s-price--big">
+                <div class="s-price__new">
+                  <span>$129.95</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="s-mini-cart__btn">
+          <a href="" class="s-button s-button--black s-button--big">
+            <span>Checkout</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="s-mini-cart__empty">
+        <div class="s-mini-cart__empty-ico">
+          <img src="images/ico-cart-big.svg" alt="Empty cart">
+        </div>
+        <div class="title-h2 title-animation" data-scroll data-scroll-call="title-visible">
+          <span>There are currently no items in your cart</span>
+        </div>
+        <a href="" class="s-button s-button--big s-button--black">
+          <span>Shop now</span>
+        </a>
+      </div>
+    </div>
+  </div>
 </div>
 <div class="global-wrapper" data-scroll-container>
   <header class="header" data-scroll-section>
@@ -227,7 +382,7 @@
             </div>
   
             <div class="header__btns-cart">
-              <a href="" class="s-button s-button--round s-arrow-link">
+              <a href="mini-cart" class="s-button s-button--round s-arrow-link">
                 <span class="s-arrow-link__ico">
                   <svg xmlns="http://www.w3.org/2000/svg" width="13.25" height="15" viewBox="0 0 13.25 15">
                   <g id="bag" transform="translate(-4.5 -2.5)">
@@ -291,303 +446,580 @@
     </div>
   </header>
   <main class="main">
-  <section class="s-promo" data-scroll-section>
-    <div class="section-container">
-      <div class="section-container__block section-container--centered s-promo__bg">
-        <div class="s-promo__img"  data-scroll data-scroll-call="is-in-view">
-          <img src="images/banner_bg.png" data-scroll data-scroll-speed="-0.5" alt="" role="presentation">
-        </div>
-      </div>
-      <div class="section-container__block">
-        <div class="s-breadcrumbs">
-          <ul>
-            <li><a href="main.html">Home</a> </li>
-            <li>About us</li>
-          </ul>
-        </div>
-        <div class="title-h1 title-animation" data-scroll data-scroll-call="title-visible">
-          <h1>Just a <i>lil</i> About Us</h1>
-        </div>
-        <div class="section-text text-animation" data-scroll data-scroll-call="text-visible">
-          <p>Since Studio Botanic’s explosive launch in 2013, we have cultivated a tremendously talented team of florists. With the seasonality of the events industry, we wanted to keep our close knit family together and their fingertips to the florals. From this desire BloomBar was born. </p>
-          <p>Opening on August 5th 2016 we launched the baby sister brand in Westfield Marion as a Pop-Up concept for Westfield Marion's New Food Hall Launch. The store was so well received, we extended the pop-up for a full year… to now a permanent feature and a destination flower shop for many in Adelaide!</p>
-        </div>
-      </div>
-    </div>
-  </section>
-  <section class="s-about" data-scroll-section>
-    <div class="s-about__container">
-      <div class="s-about__content">
-        <div class="title-h2 title-animation" data-scroll data-scroll-call="title-visible">
-          <h2>Pop into either location and let our <i>gorgeous</i> staff and <i>beautiful</i> blooms sweep <i>you</i> off your feet!</h2>
-        </div>
-        <div class="section-text text-animation" data-scroll data-scroll-call="text-visible">
-          <p>The business is so well supported by our amazing and tremendously loyal customers, that we have now flourished into Gilbert Street in Adelaide's CBD with a flagship <a href="">store</a>. Allowing us to design a more curated and immersive experience for our shoppers with additional giftware and services - which were not possible in our Marion Kiosk.</p>
-        </div>
-      </div>
-      <div class="s-about__img">
-        <div class="section-img"  data-scroll data-scroll-call="is-in-view">
-          <img src="images/flowers/img3.png" alt="" data-scroll="" data-scroll-speed="-0.5">
-        </div>
-      </div>
-    </div>
-    <div class="s-about__blocks">
-      <article class="s-about__block">
-        <div class="s-about__block-inner">
-          <div class="s-about__block-img">
-            <img src="images/flowers/img8.png" alt="">
-          </div>
-          <div class="s-about__block-title title-h3">
-            <h3>See Adelaide CBD opening hours & location details</h3>
-          </div>
-          <a href="" class="s-arrow-link">
-            <span>City Opening hours</span>
-            <div class="s-arrow-link__ico">
-              <svg viewBox="0 0 18.726 10.009">
-                <g transform="translate(-372.307 -637.821)">
-                  <g transform="translate(367.675 654.976) rotate(-90)">
-                    <path d="M16.8,18l-4.651,4.651L7.5,18" transform="translate(0)" fill="none" stroke="#fff" stroke-width="1"></path>
-                  </g>
-                  <path d="M-13643.693,642.825h17.615" transform="translate(14016)" fill="none" stroke="#fff" stroke-width="1"></path>
-                </g>
-              </svg>
-              <svg viewBox="0 0 18.726 10.009">
-                <g transform="translate(-372.307 -637.821)">
-                  <g transform="translate(367.675 654.976) rotate(-90)">
-                    <path d="M16.8,18l-4.651,4.651L7.5,18" transform="translate(0)" fill="none" stroke="#fff" stroke-width="1"></path>
-                  </g>
-                  <path d="M-13643.693,642.825h17.615" transform="translate(14016)" fill="none" stroke="#fff" stroke-width="1"></path>
-                </g>
-              </svg>
+    <section class="s-promo s-promo--big" data-scroll-section>
+      <div class="container">
+        <div class="s-promo__container">
+          <div class="s-promo__content">
+            <div class="s-breadcrumbs">
+              <ul>
+                <li><a href="main.html">Home</a></li>
+                <li>About</li>
+              </ul>
             </div>
-          </a>
-        </div>
-      </article>
-      <article class="s-about__block">
-        <div class="s-about__block-inner">
-          <div class="s-about__block-img">
-            <img src="images/flowers/img4.png" alt="">
-          </div>
-          <div class="s-about__block-title title-h3">
-            <h3>See Marion Westfield opening hours & location details</h3>
-          </div>
-          <a href="" class="s-arrow-link">
-            <span>Marion opening hours</span>
-            <div class="s-arrow-link__ico">
-              <svg viewBox="0 0 18.726 10.009">
-                <g transform="translate(-372.307 -637.821)">
-                  <g transform="translate(367.675 654.976) rotate(-90)">
-                    <path d="M16.8,18l-4.651,4.651L7.5,18" transform="translate(0)" fill="none" stroke="#fff" stroke-width="1"></path>
-                  </g>
-                  <path d="M-13643.693,642.825h17.615" transform="translate(14016)" fill="none" stroke="#fff" stroke-width="1"></path>
-                </g>
-              </svg>
-              <svg viewBox="0 0 18.726 10.009">
-                <g transform="translate(-372.307 -637.821)">
-                  <g transform="translate(367.675 654.976) rotate(-90)">
-                    <path d="M16.8,18l-4.651,4.651L7.5,18" transform="translate(0)" fill="none" stroke="#fff" stroke-width="1"></path>
-                  </g>
-                  <path d="M-13643.693,642.825h17.615" transform="translate(14016)" fill="none" stroke="#fff" stroke-width="1"></path>
-                </g>
-              </svg>
+            <div class="title-epic title-animation" data-scroll data-scroll-call="title-visible">
+              <h1>A bit about us</h1>
             </div>
-          </a>
-        </div>
-      </article>
-      <article class="s-about__block">
-        <div class="s-about__block-inner">
-          <div class="s-about__block-img">
-            <img src="images/flowers/img2.png" alt="">
-          </div>
-          <div class="s-about__block-title title-h3">
-            <h3>Contact us lorem ipsum</h3>
-          </div>
-          <a href="tel:1300848466" class="s-button s-button--transparent s-arrow-link">
-            <span>1300 848 466</span>
-            <div class="s-arrow-link__ico">
-              <svg viewBox="0 0 18.726 10.009">
-                <g transform="translate(-372.307 -637.821)">
-                  <g transform="translate(367.675 654.976) rotate(-90)">
-                    <path d="M16.8,18l-4.651,4.651L7.5,18" transform="translate(0)" fill="none" stroke="#fff" stroke-width="1"></path>
-                  </g>
-                  <path d="M-13643.693,642.825h17.615" transform="translate(14016)" fill="none" stroke="#fff" stroke-width="1"></path>
-                </g>
-              </svg>
-              <svg viewBox="0 0 18.726 10.009">
-                <g transform="translate(-372.307 -637.821)">
-                  <g transform="translate(367.675 654.976) rotate(-90)">
-                    <path d="M16.8,18l-4.651,4.651L7.5,18" transform="translate(0)" fill="none" stroke="#fff" stroke-width="1"></path>
-                  </g>
-                  <path d="M-13643.693,642.825h17.615" transform="translate(14016)" fill="none" stroke="#fff" stroke-width="1"></path>
-                </g>
-              </svg>
+            <div class="s-promo__text section-text text-animation" data-scroll data-scroll-call="text-visible">
+              <p>Here at Sweet Cherry Pie, we believe that all women and people with vulvas deserve to learn about their sexuality, connect with their body, and be empowered to explore and celebrate what makes them feel good through masturbation.</p>
             </div>
-          </a>
+          </div>
+          <div class="s-promo__img section-img" data-scroll data-scroll-call="is-in-view">
+            <img src="images/s-promo-about.jpg" alt="About us" data-scroll-zoom="0.07">
+          </div>
         </div>
-      </article>
-    </div>
-  </section>
-  
-  <section class="s-promo" data-scroll-section>
-    <div class="container">
-  
-      <div class="s-promo__content">
-        <div class="title-h2 title-animation" data-scroll data-scroll-call="title-visible">
-          <h1>Flower <i>delivery</i> throughout Adelaide</h1>
-        </div>
-        <div class="section-text text-animation" data-scroll data-scroll-call="text-visible">
-          <p>On top of our gorgeous <a href="">bouquets</a> in-store, we also offer flower bouquet <a href="">delivery</a> Adelaide-wide. No matter the occasion, be it to say “congratulations!”, “I’m thinking of you” or just “thank you”, you’re sure to find the perfect arrangement at BloomBar. We also only use the best of the season!</p>
-        </div>
-  
       </div>
-    </div>
-  </section>
-
-  <section class="s-banner" data-scroll-section>
-    <div class="section-container">
-      <div class="section-container__block section-container--centered s-banner__container">
-        <div class="s-banner__bg">
-          <img src="images/banner_bg.png" alt="" role="presentation">
+    
+    </section>
+    <section class="s-text-img" data-scroll-section>
+      <div class="s-text-img__container">
+        <div class="s-text-img__img s-text-img__img--small">
+          <div class="s-text-img__img-bg">
+            <img src="images/s-text-img_bg.svg" alt="" role="presentation">
+          </div>
+          <div class="s-text-img__img-inner section-img" data-scroll data-scroll-call="is-in-view">
+            <img src="images/s-text-img_about1.jpg" alt="" data-scroll-zoom="0.06">
+          </div>
         </div>
-        <div class="s-banner__content">
+        <div class="s-text-img__content">
           <div class="title-h2 title-animation" data-scroll data-scroll-call="title-visible">
-            <h2>Order flowers online <i>today</i> or pop into <i>your</i> local BloomBar store</h2>
+            <h2>Do you feel awkward talking about your sexual pleasure?</h2>
           </div>
-          <div class="section-text text-animation" data-scroll data-scroll-call="text-visible">
-            <p>Be mesmerised by our pastel bouquets, make a statement with our bright flower arrangements or show your love is forever with our everlasting flower range.</p>
+          <div class="section-text">
+            <p>Forget shame, forget guilt, forget stigma! Masturbation is a natural human act, and one of the most satisfying ways to practice self-care and relax and it can even improve partnered sex. After all, if you get to know your sexual body, and learn what really makes you tick, it’s a lot easier to teach your partner to do the same. When you think about it, how well can we really know our own body if we leave all of the exploration of it up to someone else? It’s like giving someone directions to the moon…we know the general direction to head in, but we’ve never been there ourselves!</p>
           </div>
-          <a href="" class="s-button s-button--transparent s-button--white s-arrow-link">
-            <span>Shop now</span>
-            <div class="s-arrow-link__ico">
-              <svg viewBox="0 0 18.726 10.009">
-                <g transform="translate(-372.307 -637.821)">
-                  <g transform="translate(367.675 654.976) rotate(-90)">
-                    <path d="M16.8,18l-4.651,4.651L7.5,18" transform="translate(0)" fill="none" stroke="#fff" stroke-width="1"></path>
-                  </g>
-                  <path d="M-13643.693,642.825h17.615" transform="translate(14016)" fill="none" stroke="#fff" stroke-width="1"></path>
-                </g>
-              </svg>
-              <svg viewBox="0 0 18.726 10.009">
-                <g transform="translate(-372.307 -637.821)">
-                  <g transform="translate(367.675 654.976) rotate(-90)">
-                    <path d="M16.8,18l-4.651,4.651L7.5,18" transform="translate(0)" fill="none" stroke="#fff" stroke-width="1"></path>
-                  </g>
-                  <path d="M-13643.693,642.825h17.615" transform="translate(14016)" fill="none" stroke="#fff" stroke-width="1"></path>
-                </g>
-              </svg>
+        </div>
+      </div>
+    </section>
+    
+    <section class="s-text-img" data-scroll-section>
+      <div class="s-text-img__container">
+        <div class="s-text-img__content">
+          <div class="title-h2 title-animation" data-scroll data-scroll-call="title-visible">
+            <h2>You’re not alone!</h2>
+          </div>
+          <div class="section-text">
+            <p>According to a recent Australian study only 1 in 4 women masturbate regularly, which is half the rate of men. The truth is, for many of us, it’s still seen as a dirty little secret. But it’s time to step into our power and call BS on the archaic idea that only “sluts” enjoy sex, and that our pleasure is somehow secondary to our male counterparts.</p>
+            <p>It’s also time to debunk outdated myths that  teach us that female orgasms are simply more elusive than male orgasms.</p>
+          </div>
+        </div>
+        <div class="s-text-img__img">
+          <div class="s-text-img__img-inner section-img" data-scroll data-scroll-call="is-in-view">
+            <img src="images/s-text-img_about2.jpg" alt="" data-scroll-zoom="0.07">
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="s-about-main" data-scroll-section>
+      <div class="s-about-main__bg">
+        <picture>
+          <source media="(max-width: 768px)" srcset="images/s-about-main_bg-mob.jpg">
+          <img src="images/s-about-main_bg.jpg" alt="About Us" data-scroll-zoom="0.07">
+        </picture>
+      </div>
+      <div class="s-about-main__container" data-parallax-container>
+        <div class="container">
+          <div class="s-about-main__scroller" id="scroller_container">
+            <div class="s-about-main__scroller-img" data-scroll data-scroll-sticky data-scroll-dont-check data-scroll-target="#scroller_container">
+              <img src="images/s-about-main_img.png" alt="" role="presentation">
             </div>
+            <div class="s-about-main__scroller-text">
+              <div class="subtitle">
+                <h2>About Us</h2>
+              </div>
+              <div class="s-about-main__scroller-text__inner title-h1">
+                <p>Here at Sweet Cherry Pie, we believe that all women and people with vulvas deserve to learn about their sexuality, connect with their body, and be empowered to explore and celebrate what makes them feel good through masturbation.</p>
+                <p>Invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam.</p>
+              </div>
+              <div class="s-about-main__scroller-img mobile-show">
+                <img src="images/s-about-main_img-mob.png" alt="" role="presentation">
+              </div>
+              <div class="s-about-main__text section-text text-animation" data-scroll data-scroll-call="text-visible">
+                <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est.</p>
+              </div>
+            </div>
+          </div>
+          <div class="s-about-main__elem elem1" data-parallax data-sensitivity="0.07" data-rotation-sensitivity="0.02" data-scroll-reverse>
+            <img src="images/s-about-main_elem1.svg" alt="" role="presentation">
+          </div>
+          <div class="s-about-main__elem elem2" data-parallax data-sensitivity="0.04" data-rotation-sensitivity="0.01">
+            <img src="images/s-about-main_elem1.svg" alt="" role="presentation">
+          </div>
+          <div class="s-about-main__elem elem3" data-parallax data-sensitivity="0.06" data-rotation-sensitivity="0.01" data-scroll-reverse>
+            <img src="images/s-about-main_elem2.svg" alt="" role="presentation">
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="s-featured" data-scroll-section>
+      <div class="container">
+        <div class="swiper-head">
+          <div class="swiper-arrows">
+            <button class="swiper-arrows-prev">
+              <span class="s-button s-button--round s-arrow-link">
+                <span class="s-arrow-link__ico">
+                  <img src="images/ico-swiper-arrow.svg" alt="<">
+                    <img src="images/ico-swiper-arrow.svg" alt="" role="presentation">
+                </span>
+              </span>
+            </button>
+            <button class="swiper-arrows-next">
+              <span class="s-button s-button--round s-arrow-link">
+                <span class="s-arrow-link__ico">
+                  <img src="images/ico-swiper-arrow.svg" alt=">">
+                  <img src="images/ico-swiper-arrow.svg" alt="" role="presentation">
+                </span>
+              </span>
+            </button>
+          </div>
+          <div class="swiper-head__title title-h2 title-animation" data-scroll data-scroll-call="title-visible">
+            <h2>Featured toys</h2>
+          </div>
+          <div class="swiper-head__btn">
+            <a href="" class="s-button s-button--transparent">
+              <span>Shop all</span>
+            </a>
+          </div>
+        </div>
+    
+        <div class="s-featured__slider swiper" data-pointer-area="DRAG">
+          <div class="swiper-wrapper">
+            <article class="s-card swiper-slide" data-scroll data-scroll-call="is-in-view">
+              <div class="s-card__inner border-image border-image--small-primary-star">
+                <a href="" class="s-card__link"></a>
+                <div class="s-card__tags">
+                  <span class="tag">For the front</span>
+                  <span class="tag tag--off">15% off</span>
+                </div>
+                <div class="s-card__img-offset"></div>
+                <div class="s-card__img">
+                  <img src="images/products/1.jpg" alt="">
+                  <img src="images/photos/photo1.jpg" alt="">
+                </div>
+                <div class="s-card__title title-h4">
+                  <h3>Fun Factory Limba Flex</h3>
+                </div>
+                <div class="s-card__text">
+                  <p>$129.99</p>
+                </div>
+                <a href="" class="s-card__btn">
+                  <div class="s-arrow-link">
+                    <span>View Details</span>
+                    <div class="s-arrow-link__ico">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="32" height="14" viewBox="0 0 32 14">
+                        <g id="Group_11387" data-name="Group 11387" transform="translate(-177 -1807)">
+                          <line id="Line_17" data-name="Line 17" x2="25" transform="translate(177 1814)" fill="none" stroke="#1f454d" stroke-miterlimit="10" stroke-width="1"/>
+                          <path id="Path_1178" data-name="Path 1178" d="M34,0a7,7,0,0,0,7,7,7,7,0,0,0-7,7" transform="translate(168 1807)" fill="none" stroke="#1f454d" stroke-linejoin="bevel" stroke-width="1"/>
+                        </g>
+                      </svg>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="32" height="14" viewBox="0 0 32 14">
+                        <g id="Group_11387" data-name="Group 11387" transform="translate(-177 -1807)">
+                          <line id="Line_17" data-name="Line 17" x2="25" transform="translate(177 1814)" fill="none" stroke="#1f454d" stroke-miterlimit="10" stroke-width="1"/>
+                          <path id="Path_1178" data-name="Path 1178" d="M34,0a7,7,0,0,0,7,7,7,7,0,0,0-7,7" transform="translate(168 1807)" fill="none" stroke="#1f454d" stroke-linejoin="bevel" stroke-width="1"/>
+                        </g>
+                      </svg>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </article>
+            <article class="s-card swiper-slide" data-scroll data-scroll-call="is-in-view">
+              <div class="s-card__inner border-image border-image--small-primary-star">
+                <a href="" class="s-card__link"></a>
+                <div class="s-card__tags">
+                  <span class="tag">For the Back</span>
+                  <span class="tag tag--off">15% off</span>
+                </div>
+                <div class="s-card__img-offset"></div>
+    <div class="s-card__img">
+                  <img src="images/products/2.jpg" alt="">
+                  <img src="images/photos/photo2.jpg" alt="">
+                </div>
+                <div class="s-card__title title-h4">
+                  <h3>Fun Factory Limba Flex</h3>
+                </div>
+                <div class="s-card__text">
+                  <p>$129.99</p>
+                </div>
+                <a href="" class="s-card__btn">
+                  <div class="s-arrow-link">
+                    <span>View Details</span>
+                    <div class="s-arrow-link__ico">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="32" height="14" viewBox="0 0 32 14">
+                        <g id="Group_11387" data-name="Group 11387" transform="translate(-177 -1807)">
+                          <line id="Line_17" data-name="Line 17" x2="25" transform="translate(177 1814)" fill="none" stroke="#1f454d" stroke-miterlimit="10" stroke-width="1"/>
+                          <path id="Path_1178" data-name="Path 1178" d="M34,0a7,7,0,0,0,7,7,7,7,0,0,0-7,7" transform="translate(168 1807)" fill="none" stroke="#1f454d" stroke-linejoin="bevel" stroke-width="1"/>
+                        </g>
+                      </svg>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="32" height="14" viewBox="0 0 32 14">
+                        <g id="Group_11387" data-name="Group 11387" transform="translate(-177 -1807)">
+                          <line id="Line_17" data-name="Line 17" x2="25" transform="translate(177 1814)" fill="none" stroke="#1f454d" stroke-miterlimit="10" stroke-width="1"/>
+                          <path id="Path_1178" data-name="Path 1178" d="M34,0a7,7,0,0,0,7,7,7,7,0,0,0-7,7" transform="translate(168 1807)" fill="none" stroke="#1f454d" stroke-linejoin="bevel" stroke-width="1"/>
+                        </g>
+                      </svg>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </article>
+            <article class="s-card swiper-slide" data-scroll data-scroll-call="is-in-view">
+              <div class="s-card__inner border-image border-image--small-primary-star">
+                <a href="" class="s-card__link"></a>
+                <div class="s-card__tags">
+                  <span class="tag">For Solo</span>
+                  <span class="tag">For Gifting</span>
+                </div>
+                <div class="s-card__img-offset"></div>
+    <div class="s-card__img">
+                  <img src="images/products/3.jpg" alt="">
+                  <img src="images/photos/photo3.jpg" alt="">
+                </div>
+                <div class="s-card__title title-h4">
+                  <h3>Fun Factory Limba Flex</h3>
+                </div>
+                <div class="s-card__text">
+                  <p>$129.99</p>
+                </div>
+                <a href="" class="s-card__btn">
+                  <div class="s-arrow-link">
+                    <span>View Details</span>
+                    <div class="s-arrow-link__ico">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="32" height="14" viewBox="0 0 32 14">
+                        <g id="Group_11387" data-name="Group 11387" transform="translate(-177 -1807)">
+                          <line id="Line_17" data-name="Line 17" x2="25" transform="translate(177 1814)" fill="none" stroke="#1f454d" stroke-miterlimit="10" stroke-width="1"/>
+                          <path id="Path_1178" data-name="Path 1178" d="M34,0a7,7,0,0,0,7,7,7,7,0,0,0-7,7" transform="translate(168 1807)" fill="none" stroke="#1f454d" stroke-linejoin="bevel" stroke-width="1"/>
+                        </g>
+                      </svg>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="32" height="14" viewBox="0 0 32 14">
+                        <g id="Group_11387" data-name="Group 11387" transform="translate(-177 -1807)">
+                          <line id="Line_17" data-name="Line 17" x2="25" transform="translate(177 1814)" fill="none" stroke="#1f454d" stroke-miterlimit="10" stroke-width="1"/>
+                          <path id="Path_1178" data-name="Path 1178" d="M34,0a7,7,0,0,0,7,7,7,7,0,0,0-7,7" transform="translate(168 1807)" fill="none" stroke="#1f454d" stroke-linejoin="bevel" stroke-width="1"/>
+                        </g>
+                      </svg>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </article>
+            <article class="s-card swiper-slide" data-scroll data-scroll-call="is-in-view">
+              <div class="s-card__inner border-image border-image--small-primary-star">
+                <a href="" class="s-card__link"></a>
+                <div class="s-card__tags">
+                  <span class="tag">For the front</span>
+                  <span class="tag tag--off">15% off</span>
+                </div>
+                <div class="s-card__img-offset"></div>
+    <div class="s-card__img">
+                  <img src="images/products/3.jpg" alt="">
+                  <img src="images/photos/photo4.jpg" alt="">
+                </div>
+                <div class="s-card__title title-h4">
+                  <h3>Fun Factory Limba Flex</h3>
+                </div>
+                <div class="s-card__text">
+                  <p>$129.99</p>
+                </div>
+                <a href="" class="s-card__btn">
+                  <div class="s-arrow-link">
+                    <span>View Details</span>
+                    <div class="s-arrow-link__ico">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="32" height="14" viewBox="0 0 32 14">
+                        <g id="Group_11387" data-name="Group 11387" transform="translate(-177 -1807)">
+                          <line id="Line_17" data-name="Line 17" x2="25" transform="translate(177 1814)" fill="none" stroke="#1f454d" stroke-miterlimit="10" stroke-width="1"/>
+                          <path id="Path_1178" data-name="Path 1178" d="M34,0a7,7,0,0,0,7,7,7,7,0,0,0-7,7" transform="translate(168 1807)" fill="none" stroke="#1f454d" stroke-linejoin="bevel" stroke-width="1"/>
+                        </g>
+                      </svg>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="32" height="14" viewBox="0 0 32 14">
+                        <g id="Group_11387" data-name="Group 11387" transform="translate(-177 -1807)">
+                          <line id="Line_17" data-name="Line 17" x2="25" transform="translate(177 1814)" fill="none" stroke="#1f454d" stroke-miterlimit="10" stroke-width="1"/>
+                          <path id="Path_1178" data-name="Path 1178" d="M34,0a7,7,0,0,0,7,7,7,7,0,0,0-7,7" transform="translate(168 1807)" fill="none" stroke="#1f454d" stroke-linejoin="bevel" stroke-width="1"/>
+                        </g>
+                      </svg>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </article>
+          </div>
+        </div>
+    
+        <div class="s-featured__btn mobile-show">
+          <a href="" class="s-button s-button--transparent">
+            <span>Shop all</span>
           </a>
         </div>
       </div>
-    </div>
-  </section>
-  <section class="s-instagram" data-scroll-section>
-    <div class="message-marquee">
-      <div class="marquee">
-        <div class="marquee_offset">
-          <div class="marquee_content">
-            <div class="marquee_unit">
-              <p>Celebrate valentines day 10% off storewide</p>
-            </div>
+    </section>
+    <section class="s-recent" data-scroll-section>
+      <div class="container">
+        <div class="swiper-head">
+          <div class="swiper-head__title title-h2 title-animation" data-scroll data-scroll-call="title-visible">
+            <h2>Recent articles</h2>
           </div>
+          <div class="swiper-arrows">
+            <button class="swiper-arrows-prev">
+              <span class="s-button s-button--round s-arrow-link">
+                <span class="s-arrow-link__ico">
+                  <img src="images/ico-swiper-arrow.svg" alt="<">
+                    <img src="images/ico-swiper-arrow.svg" alt="" role="presentation">
+                </span>
+              </span>
+            </button>
+            <button class="swiper-arrows-next">
+              <span class="s-button s-button--round s-arrow-link">
+                <span class="s-arrow-link__ico">
+                  <img src="images/ico-swiper-arrow.svg" alt=">">
+                  <img src="images/ico-swiper-arrow.svg" alt="" role="presentation">
+                </span>
+              </span>
+            </button>
+          </div>
+        </div>
+    
+        <div class="s-recent__slider swiper" data-pointer-area="DRAG">
+          <div class="swiper-wrapper">
+            <article class="s-post-card swiper-slide">
+              <a href="" class="s-post-card__img section-img" data-scroll data-scroll-call="is-in-view">
+                <img src="images/photos/photo7.jpg" alt="">
+              </a>
+              <div class="s-post-card__inner">
+                <div class="s-post-card__category">
+                  <a href="" class="tag">Category 01</a>
+                </div>
+                <a href="" class="s-post-card__title title-h4">
+                  <h3>X Sex Positive Podcasts You Need to Add to Your Playlist Stat</h3>
+                </a>
+                <div class="s-post-card__text">
+                  <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor..9</p>
+                </div>
+                <a href="" class="s-post-card__btn">
+                  <div class="s-arrow-link">
+                    <span>Read More</span>
+                    <div class="s-arrow-link__ico">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="32" height="14" viewBox="0 0 32 14">
+                        <g id="Group_11387" data-name="Group 11387" transform="translate(-177 -1807)">
+                          <line id="Line_17" data-name="Line 17" x2="25" transform="translate(177 1814)" fill="none" stroke="#1f454d" stroke-miterlimit="10" stroke-width="1"/>
+                          <path id="Path_1178" data-name="Path 1178" d="M34,0a7,7,0,0,0,7,7,7,7,0,0,0-7,7" transform="translate(168 1807)" fill="none" stroke="#1f454d" stroke-linejoin="bevel" stroke-width="1"/>
+                        </g>
+                      </svg>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="32" height="14" viewBox="0 0 32 14">
+                        <g id="Group_11387" data-name="Group 11387" transform="translate(-177 -1807)">
+                          <line id="Line_17" data-name="Line 17" x2="25" transform="translate(177 1814)" fill="none" stroke="#1f454d" stroke-miterlimit="10" stroke-width="1"/>
+                          <path id="Path_1178" data-name="Path 1178" d="M34,0a7,7,0,0,0,7,7,7,7,0,0,0-7,7" transform="translate(168 1807)" fill="none" stroke="#1f454d" stroke-linejoin="bevel" stroke-width="1"/>
+                        </g>
+                      </svg>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </article>
+            <article class="s-post-card swiper-slide">
+              <a href="" class="s-post-card__img section-img" data-scroll data-scroll-call="is-in-view">
+                <img src="images/photos/photo8.jpg" alt="">
+              </a>
+              <div class="s-post-card__inner">
+                <div class="s-post-card__category">
+                  <a href="" class="tag">Category 01</a>
+                </div>
+                <a href="" class="s-post-card__title title-h4">
+                  <h3>X Sex Positive Podcasts You Need to Add to Your Playlist Stat</h3>
+                </a>
+                <div class="s-post-card__text">
+                  <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor..9</p>
+                </div>
+                <a href="" class="s-post-card__btn">
+                  <div class="s-arrow-link">
+                    <span>Read More</span>
+                    <div class="s-arrow-link__ico">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="32" height="14" viewBox="0 0 32 14">
+                        <g id="Group_11387" data-name="Group 11387" transform="translate(-177 -1807)">
+                          <line id="Line_17" data-name="Line 17" x2="25" transform="translate(177 1814)" fill="none" stroke="#1f454d" stroke-miterlimit="10" stroke-width="1"/>
+                          <path id="Path_1178" data-name="Path 1178" d="M34,0a7,7,0,0,0,7,7,7,7,0,0,0-7,7" transform="translate(168 1807)" fill="none" stroke="#1f454d" stroke-linejoin="bevel" stroke-width="1"/>
+                        </g>
+                      </svg>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="32" height="14" viewBox="0 0 32 14">
+                        <g id="Group_11387" data-name="Group 11387" transform="translate(-177 -1807)">
+                          <line id="Line_17" data-name="Line 17" x2="25" transform="translate(177 1814)" fill="none" stroke="#1f454d" stroke-miterlimit="10" stroke-width="1"/>
+                          <path id="Path_1178" data-name="Path 1178" d="M34,0a7,7,0,0,0,7,7,7,7,0,0,0-7,7" transform="translate(168 1807)" fill="none" stroke="#1f454d" stroke-linejoin="bevel" stroke-width="1"/>
+                        </g>
+                      </svg>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </article>
+            <article class="s-post-card swiper-slide">
+              <a href="" class="s-post-card__img section-img" data-scroll data-scroll-call="is-in-view">
+                <img src="images/photos/photo6.jpg" alt="">
+              </a>
+              <div class="s-post-card__inner">
+                <div class="s-post-card__category">
+                  <a href="" class="tag">Category 01</a>
+                </div>
+                <a href="" class="s-post-card__title title-h4">
+                  <h3>X Sex Positive Podcasts You Need to Add to Your Playlist Stat</h3>
+                </a>
+                <div class="s-post-card__text">
+                  <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor..9</p>
+                </div>
+                <a href="" class="s-post-card__btn">
+                  <div class="s-arrow-link">
+                    <span>Read More</span>
+                    <div class="s-arrow-link__ico">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="32" height="14" viewBox="0 0 32 14">
+                        <g id="Group_11387" data-name="Group 11387" transform="translate(-177 -1807)">
+                          <line id="Line_17" data-name="Line 17" x2="25" transform="translate(177 1814)" fill="none" stroke="#1f454d" stroke-miterlimit="10" stroke-width="1"/>
+                          <path id="Path_1178" data-name="Path 1178" d="M34,0a7,7,0,0,0,7,7,7,7,0,0,0-7,7" transform="translate(168 1807)" fill="none" stroke="#1f454d" stroke-linejoin="bevel" stroke-width="1"/>
+                        </g>
+                      </svg>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="32" height="14" viewBox="0 0 32 14">
+                        <g id="Group_11387" data-name="Group 11387" transform="translate(-177 -1807)">
+                          <line id="Line_17" data-name="Line 17" x2="25" transform="translate(177 1814)" fill="none" stroke="#1f454d" stroke-miterlimit="10" stroke-width="1"/>
+                          <path id="Path_1178" data-name="Path 1178" d="M34,0a7,7,0,0,0,7,7,7,7,0,0,0-7,7" transform="translate(168 1807)" fill="none" stroke="#1f454d" stroke-linejoin="bevel" stroke-width="1"/>
+                        </g>
+                      </svg>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </article>
+          </div>
+        </div>
+    
+        <div class="s-recent__btn">
+          <a href="" class="s-button s-button--transparent">
+            <span>View all</span>
+          </a>
         </div>
       </div>
-    </div>
-    <div class="s-instagram__container">
-      <div class="s-instagram__content">
-        <div class="s-instagram__content-border border-image border-image--small-primary-star">
-          <div class="s-instagram__content-inner">
-            <div class="s-instagram__title title-h3 title-animation" data-scroll data-scroll-call="title-visible">
-              <h2>@sweet.cherry.pie</h2>
-            </div>
-            <div class="s-instagram__text section-text text-animation" data-scroll data-scroll-call="text-visible">
-              <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat.</p>
-            </div>
-          </div>
-          <ul class="s-instagram__btns">
-            <li>
-              <a href="">
-                <span class="s-button s-button--primary-dark s-button--round s-button--transparent s-arrow-link">
-                  <span class="s-arrow-link__ico">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="6.427" height="12" viewBox="0 0 6.427 12">
-                      <path d="M7.615,6.75l.333-2.172H5.865V3.169A1.086,1.086,0,0,1,7.089,2h.947V.147A11.553,11.553,0,0,0,6.355,0,2.651,2.651,0,0,0,3.517,2.923V4.578H1.609V6.75H3.517V12H5.865V6.75Z" transform="translate(-1.609)" fill="#b36b77"/>
-                    </svg>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="6.427" height="12" viewBox="0 0 6.427 12">
-                      <path d="M7.615,6.75l.333-2.172H5.865V3.169A1.086,1.086,0,0,1,7.089,2h.947V.147A11.553,11.553,0,0,0,6.355,0,2.651,2.651,0,0,0,3.517,2.923V4.578H1.609V6.75H3.517V12H5.865V6.75Z" transform="translate(-1.609)" fill="#b36b77"/>
-                    </svg>
-                  </span>
-                </span>
-              </a>
-            </li>
-            <li>
-              <a href="">
-                <span class="s-button s-button--primary-dark s-button--round s-button--transparent s-arrow-link">
-                  <span class="s-arrow-link__ico">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12">
-                      <path d="M8.4,0A3.6,3.6,0,0,1,12,3.6V8.4A3.6,3.6,0,0,1,8.4,12H3.6A3.6,3.6,0,0,1,0,8.4V3.6A3.6,3.6,0,0,1,3.6,0ZM6,3A3,3,0,1,0,9,6,3,3,0,0,0,6,3ZM9.6,1.8a.645.645,0,0,0-.6.6.6.6,0,0,0,1.2,0A.645.645,0,0,0,9.6,1.8ZM6,4.2A1.8,1.8,0,1,0,7.8,6,1.8,1.8,0,0,0,6,4.2Z" fill="#b36b77" fill-rule="evenodd"/>
-                    </svg>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12">
-                      <path d="M8.4,0A3.6,3.6,0,0,1,12,3.6V8.4A3.6,3.6,0,0,1,8.4,12H3.6A3.6,3.6,0,0,1,0,8.4V3.6A3.6,3.6,0,0,1,3.6,0ZM6,3A3,3,0,1,0,9,6,3,3,0,0,0,6,3ZM9.6,1.8a.645.645,0,0,0-.6.6.6.6,0,0,0,1.2,0A.645.645,0,0,0,9.6,1.8ZM6,4.2A1.8,1.8,0,1,0,7.8,6,1.8,1.8,0,0,0,6,4.2Z" fill="#b36b77" fill-rule="evenodd"/>
-                    </svg>
-                  </span>
-                </span>
-              </a>
-            </li>
-            <li>
-              <a href="">
-                <span class="s-button s-button--primary-dark s-button--round s-button--transparent s-arrow-link">
-                  <span class="s-arrow-link__ico">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="12.289" height="10" viewBox="0 0 12.289 10">
-                      <path d="M13.7,5.685a5.1,5.1,0,0,1-1.448.4,2.53,2.53,0,0,0,1.109-1.4,5.01,5.01,0,0,1-1.6.612A2.521,2.521,0,0,0,7.4,7.023a2.468,2.468,0,0,0,.065.576,7.145,7.145,0,0,1-5.2-2.638,2.526,2.526,0,0,0,.784,3.37,2.463,2.463,0,0,1-1.146-.315v.031a2.523,2.523,0,0,0,2.023,2.474,2.538,2.538,0,0,1-.664.089,2.379,2.379,0,0,1-.474-.047,2.525,2.525,0,0,0,2.357,1.753A5.055,5.055,0,0,1,2.015,13.4a5.11,5.11,0,0,1-.6-.036A7.047,7.047,0,0,0,5.273,14.5a7.131,7.131,0,0,0,7.18-7.182c0-.109,0-.219-.008-.326A5.132,5.132,0,0,0,13.7,5.685Z" transform="translate(-1.413 -4.5)" fill="#b36b77"/>
-                    </svg>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="12.289" height="10" viewBox="0 0 12.289 10">
-                      <path d="M13.7,5.685a5.1,5.1,0,0,1-1.448.4,2.53,2.53,0,0,0,1.109-1.4,5.01,5.01,0,0,1-1.6.612A2.521,2.521,0,0,0,7.4,7.023a2.468,2.468,0,0,0,.065.576,7.145,7.145,0,0,1-5.2-2.638,2.526,2.526,0,0,0,.784,3.37,2.463,2.463,0,0,1-1.146-.315v.031a2.523,2.523,0,0,0,2.023,2.474,2.538,2.538,0,0,1-.664.089,2.379,2.379,0,0,1-.474-.047,2.525,2.525,0,0,0,2.357,1.753A5.055,5.055,0,0,1,2.015,13.4a5.11,5.11,0,0,1-.6-.036A7.047,7.047,0,0,0,5.273,14.5a7.131,7.131,0,0,0,7.18-7.182c0-.109,0-.219-.008-.326A5.132,5.132,0,0,0,13.7,5.685Z" transform="translate(-1.413 -4.5)" fill="#b36b77"/>
-                    </svg>
-                  </span>
-                </span>
-              </a>
-            </li>
-          </ul>
-        </div>
-      </div>
-      <a href="" class="s-instagram__images" data-pointer-area="CONNECT">
-        <div class="s-instagram__images-block mobile-hide">
-          <div class="s-instagram__img">
-            <img src="/images/photos/photo9.jpg" alt="">
-          </div>
-        </div>
-        <div class="s-instagram__images-block mobile-hide">
-          <div class="s-instagram__img">
-            <img src="/images/photos/photo10.jpg" alt="">
-          </div>
-          <div class="s-instagram__img">
-            <img src="/images/photos/photo11.jpg" alt="">
-          </div>
-          <div class="s-instagram__img">
-            <img src="/images/photos/photo12.jpg" alt="">
-          </div>
-          <div class="s-instagram__img">
-            <img src="/images/photos/photo13.jpg" alt="">
-          </div>
-        </div>
-        <div class="s-instagram__images-block mobile-hide">
-          <div class="s-instagram__img">
-            <img src="/images/photos/photo14.jpg" alt="">
-          </div>
-        </div>
-  
-        <div class="s-instagram__images-block mobile-show">
-          <div class="s-instagram__img">
-            <img src="/images/photos/photo10.jpg" alt="">
-          </div>
-          <div class="s-instagram__img">
-            <img src="/images/photos/photo11.jpg" alt="">
-          </div>
-        </div>
-      </a>
-    </div>
-  </section>
+    </section>
 
+    <section class="s-banner" data-scroll-section>
+      <div class="s-banner__bg">
+        <img src="images/s-banner.jpg" alt="" role="presentation" data-scroll-zoom="0.07">
+      </div>
+      <div class="container">
+        <div class="s-banner__content">
+          <div class="subtitle">
+            <span>Take The Quiz</span>
+          </div>
+          <div class="title-h1 title-animation" data-scroll data-scroll-call="title-visible">
+            <h2>Not sure? Take the quiz and we can help you explore!</h2>
+          </div>
+    
+          <a href="take-quiz" class="s-button s-button--transparent s-button--white s-button--big">
+            <span>Take the quiz</span>
+          </a>
+        </div>
+      </div>
+    </section>
+    <section class="s-instagram" data-scroll-section>
+      <div class="message-marquee">
+        <div class="marquee">
+          <div class="marquee_offset">
+            <div class="marquee_content">
+              <div class="marquee_unit">
+                <p>Celebrate valentines day 10% off storewide</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="s-instagram__container">
+        <div class="s-instagram__content">
+          <div class="s-instagram__content-border border-image border-image--small-primary-star">
+            <div class="s-instagram__content-inner">
+              <div class="s-instagram__title title-h3 title-animation" data-scroll data-scroll-call="title-visible">
+                <h2>@sweet.cherry.pie</h2>
+              </div>
+              <div class="s-instagram__text section-text text-animation" data-scroll data-scroll-call="text-visible">
+                <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat.</p>
+              </div>
+            </div>
+            <ul class="s-instagram__btns">
+              <li>
+                <a href="">
+                  <span class="s-button s-button--primary-dark s-button--round s-button--transparent s-arrow-link">
+                    <span class="s-arrow-link__ico">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="6.427" height="12" viewBox="0 0 6.427 12">
+                        <path d="M7.615,6.75l.333-2.172H5.865V3.169A1.086,1.086,0,0,1,7.089,2h.947V.147A11.553,11.553,0,0,0,6.355,0,2.651,2.651,0,0,0,3.517,2.923V4.578H1.609V6.75H3.517V12H5.865V6.75Z" transform="translate(-1.609)" fill="#b36b77"/>
+                      </svg>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="6.427" height="12" viewBox="0 0 6.427 12">
+                        <path d="M7.615,6.75l.333-2.172H5.865V3.169A1.086,1.086,0,0,1,7.089,2h.947V.147A11.553,11.553,0,0,0,6.355,0,2.651,2.651,0,0,0,3.517,2.923V4.578H1.609V6.75H3.517V12H5.865V6.75Z" transform="translate(-1.609)" fill="#b36b77"/>
+                      </svg>
+                    </span>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="">
+                  <span class="s-button s-button--primary-dark s-button--round s-button--transparent s-arrow-link">
+                    <span class="s-arrow-link__ico">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12">
+                        <path d="M8.4,0A3.6,3.6,0,0,1,12,3.6V8.4A3.6,3.6,0,0,1,8.4,12H3.6A3.6,3.6,0,0,1,0,8.4V3.6A3.6,3.6,0,0,1,3.6,0ZM6,3A3,3,0,1,0,9,6,3,3,0,0,0,6,3ZM9.6,1.8a.645.645,0,0,0-.6.6.6.6,0,0,0,1.2,0A.645.645,0,0,0,9.6,1.8ZM6,4.2A1.8,1.8,0,1,0,7.8,6,1.8,1.8,0,0,0,6,4.2Z" fill="#b36b77" fill-rule="evenodd"/>
+                      </svg>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12">
+                        <path d="M8.4,0A3.6,3.6,0,0,1,12,3.6V8.4A3.6,3.6,0,0,1,8.4,12H3.6A3.6,3.6,0,0,1,0,8.4V3.6A3.6,3.6,0,0,1,3.6,0ZM6,3A3,3,0,1,0,9,6,3,3,0,0,0,6,3ZM9.6,1.8a.645.645,0,0,0-.6.6.6.6,0,0,0,1.2,0A.645.645,0,0,0,9.6,1.8ZM6,4.2A1.8,1.8,0,1,0,7.8,6,1.8,1.8,0,0,0,6,4.2Z" fill="#b36b77" fill-rule="evenodd"/>
+                      </svg>
+                    </span>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="">
+                  <span class="s-button s-button--primary-dark s-button--round s-button--transparent s-arrow-link">
+                    <span class="s-arrow-link__ico">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="12.289" height="10" viewBox="0 0 12.289 10">
+                        <path d="M13.7,5.685a5.1,5.1,0,0,1-1.448.4,2.53,2.53,0,0,0,1.109-1.4,5.01,5.01,0,0,1-1.6.612A2.521,2.521,0,0,0,7.4,7.023a2.468,2.468,0,0,0,.065.576,7.145,7.145,0,0,1-5.2-2.638,2.526,2.526,0,0,0,.784,3.37,2.463,2.463,0,0,1-1.146-.315v.031a2.523,2.523,0,0,0,2.023,2.474,2.538,2.538,0,0,1-.664.089,2.379,2.379,0,0,1-.474-.047,2.525,2.525,0,0,0,2.357,1.753A5.055,5.055,0,0,1,2.015,13.4a5.11,5.11,0,0,1-.6-.036A7.047,7.047,0,0,0,5.273,14.5a7.131,7.131,0,0,0,7.18-7.182c0-.109,0-.219-.008-.326A5.132,5.132,0,0,0,13.7,5.685Z" transform="translate(-1.413 -4.5)" fill="#b36b77"/>
+                      </svg>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="12.289" height="10" viewBox="0 0 12.289 10">
+                        <path d="M13.7,5.685a5.1,5.1,0,0,1-1.448.4,2.53,2.53,0,0,0,1.109-1.4,5.01,5.01,0,0,1-1.6.612A2.521,2.521,0,0,0,7.4,7.023a2.468,2.468,0,0,0,.065.576,7.145,7.145,0,0,1-5.2-2.638,2.526,2.526,0,0,0,.784,3.37,2.463,2.463,0,0,1-1.146-.315v.031a2.523,2.523,0,0,0,2.023,2.474,2.538,2.538,0,0,1-.664.089,2.379,2.379,0,0,1-.474-.047,2.525,2.525,0,0,0,2.357,1.753A5.055,5.055,0,0,1,2.015,13.4a5.11,5.11,0,0,1-.6-.036A7.047,7.047,0,0,0,5.273,14.5a7.131,7.131,0,0,0,7.18-7.182c0-.109,0-.219-.008-.326A5.132,5.132,0,0,0,13.7,5.685Z" transform="translate(-1.413 -4.5)" fill="#b36b77"/>
+                      </svg>
+                    </span>
+                  </span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <a href="" class="s-instagram__images" data-pointer-area="CONNECT">
+          <div class="s-instagram__images-block mobile-hide">
+            <div class="s-instagram__img">
+              <img src="/images/photos/photo9.jpg" alt="">
+            </div>
+          </div>
+          <div class="s-instagram__images-block mobile-hide">
+            <div class="s-instagram__img">
+              <img src="/images/photos/photo10.jpg" alt="">
+            </div>
+            <div class="s-instagram__img">
+              <img src="/images/photos/photo11.jpg" alt="">
+            </div>
+            <div class="s-instagram__img">
+              <img src="/images/photos/photo12.jpg" alt="">
+            </div>
+            <div class="s-instagram__img">
+              <img src="/images/photos/photo13.jpg" alt="">
+            </div>
+          </div>
+          <div class="s-instagram__images-block mobile-hide">
+            <div class="s-instagram__img">
+              <img src="/images/photos/photo14.jpg" alt="">
+            </div>
+          </div>
+    
+          <div class="s-instagram__images-block mobile-show">
+            <div class="s-instagram__img">
+              <img src="/images/photos/photo10.jpg" alt="">
+            </div>
+            <div class="s-instagram__img">
+              <img src="/images/photos/photo11.jpg" alt="">
+            </div>
+          </div>
+        </a>
+      </div>
+    </section>
   </main>
   <footer class="footer" data-scroll-section>
     <div class="container container--small">
