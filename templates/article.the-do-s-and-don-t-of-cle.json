@@ -6,8 +6,29 @@
         "bb6aa059-f133-49d4-b1f0-8b7f2f1be9dc": {
           "type": "question",
           "settings": {
-            "question": "Question 1",
-            "answer-new": "<p>Answer 1<\/p>",
+            "question": "The Do's and Don'ts",
+            "answer-new": "<p>We know that when you are basking in the afterglow of an orgasmic tryst with one of your favourite sexccessories, the last thing you’re thinking about is cleaning – but in order to keep your sex toy (and yourself) in tip top condition, it is important to clean it thoroughly after every use. Bacteria left on sex toys can multiply exponentially if they are not washed routinely, and can result in yeast infections, urinary tract infections, and bacterial vaginosis flareups – none of which are particularly pleasant! Fortunately, keeping your intimate toy clean and safe for use is easy when you know how.<\/p><p>All of the toys in the Sweet Cherry Pie range are made from high-grade, body safe silicone so cleaning them after each use can be done with either our purpose-made, <a href=\"\/products\/cleaning-solution\" title=\"Toy Cleaner\">sex toy cleaner<\/a>, or with an antibacterial soap (such as what you use to wash your hands) and water. Unless your toy is specifically stated as waterproof, never submerge it in water as this may damage the internal motor. Instead, use a soapy washcloth to clean and dry thoroughly with a clean, dry towel.<\/p><p>Considering how sensitive and absorbent genital tissue is, particularly in those of us with vulvas and vaginas, it is paramount that you <span style=\"text-decoration:underline\">do not<\/span> clean your toy with harsh chemicals such as bleach or other toxic cleaning fluids.<\/p><p>When you are confident that your toy is clean and dry it is important to store it carefully so that it isn’t likely to pick up bacteria. We recommend storing your toy in the lint-free, calico Sweet Cherry Pie storage bag that your toy arrived in. This will prevent it from picking up germs and dust between uses. Your toy can then be stored in a cool, dry place out of the way of direct sunlight. If you have more than one sex toy, it is also recommended that you store them separately.<\/p>",
+            "answer": "",
+            "wide_layout": false,
+            "block-one-title": "",
+            "block-one-text": "",
+            "block-two-title": "",
+            "block-two-text": "",
+            "block-three-title": "",
+            "block-three-text": "",
+            "block-four-title": "",
+            "block-four-text": "",
+            "block-five-title": "",
+            "block-five-text": "",
+            "block-six-title": "",
+            "block-six-text": ""
+          }
+        },
+        "8eb79cab-30bc-4373-9b28-dd31007917e6": {
+          "type": "question",
+          "settings": {
+            "question": "Summary",
+            "answer-new": "<p>So, in summary, to safeguard your health and prolong the life of your sex toy, be sure to clean it before and after each use.<\/p>",
             "answer": "",
             "wide_layout": false,
             "block-one-title": "",
@@ -26,7 +47,8 @@
         }
       },
       "block_order": [
-        "bb6aa059-f133-49d4-b1f0-8b7f2f1be9dc"
+        "bb6aa059-f133-49d4-b1f0-8b7f2f1be9dc",
+        "8eb79cab-30bc-4373-9b28-dd31007917e6"
       ],
       "settings": {
         "heading": "In this article:"
