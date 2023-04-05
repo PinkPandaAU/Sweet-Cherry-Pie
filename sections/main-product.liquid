@@ -175,7 +175,7 @@
           <div class="s-product__content-category">
           	{% if product.metafields.custom.tagline %}
 	            <span class="tag tag--best">{{ product.metafields.custom.tagline }}</span>
-	            {% assign first_collection = product.collections.first %}
+	            {% assign first_collection = product.collections.last %}
 							{% if first_collection %}
 							  <span>for <a href="{{ first_collection.url }}">{{ first_collection.title }}</a></span>
 							{% endif %}
