@@ -14,94 +14,22 @@
         "image": "shopify:\/\/shop_images\/s-about-main_bg.jpg"
       }
     },
-    "5fc58506-5e6a-48d1-9c1e-b2a739bea5e8": {
-      "type": "faqs",
-      "blocks": {
-        "85e74480-a240-40d7-b89a-42357b70930d": {
-          "type": "text",
-          "settings": {
-            "title": "Do you deliver?",
-            "details": "<p>Yes we do! At this stage we do not offer pick up at our warehouse, so all orders are delivered.<\/p><p><\/p>"
-          }
-        },
-        "8a37f6c7-79b5-40ea-9b83-422008d040b2": {
-          "type": "text",
-          "settings": {
-            "title": "Do your orders have discreet packaging?",
-            "details": "<p>Absolutely! No need to worry about nosey neighbours or your postman having any idea what is being delivered to your door when you order from Sweet Cherry Pie. Our beautifully packaged presentation boxes are totally hidden in a plain, boring parcel or satchel with no mention of who sent yo the parcel. Perfectly discreet!<\/p>"
-          }
-        },
-        "e4f1e3ef-3d5e-4e01-b720-aca9972bb035": {
-          "type": "text",
-          "settings": {
-            "title": "How do I choose the right product for me?",
-            "details": "<p>If you're not sure which product is right for you, we recommend taking our quiz. &lt;link to quiz&gt;<\/p><p>Still not sure? Our knowledgable and friendly customer service team are happy to answer any questions you may have. Simply contact admin@sweetcherrypie.com.<\/p>"
-          }
-        },
-        "ba7c0b21-604a-421d-8fe3-6add58a0bbf6": {
-          "type": "text",
-          "settings": {
-            "title": "How do I clean my intimate toy?",
-            "details": "<p>Whilst keeping your intimate toy clean is of the utmost importance, it's also pretty simple. Your Sweet Cherry Pie device can be sanitised before and after use with antibacterial soap and water or our toy cleaner. For more in-depth information on the how's and why's of keeping your toy clean head to our article The Do's and Don't of Cleaning Your Sex Toy. &lt;link to article&gt;<\/p>"
-          }
-        },
-        "cbd0ef2e-7b6f-4b7f-9ae8-9a07da1e54fb": {
-          "type": "text",
-          "settings": {
-            "title": "Are these products safe to use inside my body?",
-            "details": "<p>We are very passionate about ensuring the health and wellness of our customers. All of the products in the Sweet Cherry Pie range are made from body-safe silicone and high quality ABS, which are smooth and skin friendly for your ultimate comfort and pleasure.<\/p>"
-          }
-        },
-        "c35c1198-e785-4bfd-a6f7-067eb0a123bd": {
-          "type": "text",
-          "settings": {
-            "title": "What type of lubricant can I use with my toy?",
-            "details": "<p>We recommend only using water-based lubricants, as other lubricants may deteriorate the material that your toy is made from and render it unfit for use.<\/p>"
-          }
-        },
-        "130eed0e-4ff8-47e2-ab48-e26e26fbd95e": {
-          "type": "text",
-          "settings": {
-            "title": "How should I store my intimate pleasure device?",
-            "details": "<p>We recommend storing your toy(s) separately in a cool, dry place  in the storage pouch provided. This prevents it from collecting dust or picking up bacteria between uses. <\/p>"
-          }
-        },
-        "166dfe01-905c-4dae-95c5-26342eee8c4b": {
-          "type": "text",
-          "settings": {
-            "title": "How will I know how to operate my device?",
-            "details": "<p>Each product comes with simply, easy-to-follow instructions. however, if you are still experiencing difficulties please don not hesitate to contact our friendly customer service team for help at admin@sweetcherrypie.com.<\/p>"
-          }
-        },
-        "2c27b793-1d84-4603-b6ee-f656817dca3c": {
-          "type": "text",
-          "settings": {
-            "title": "What payment options do you offer?",
-            "details": "<p>Currently we offer payment via Mastercard, Visa, American Express and Paypal.<\/p><p>We hope to add AfterPay and Zippay options in the near future.<\/p>"
-          }
-        },
-        "da2038a9-f4eb-422a-a251-1a0c58721194": {
-          "type": "text",
-          "settings": {
-            "title": "Do you have a store I can visit?",
-            "details": "<p>No, at this stage we are an online store only.<\/p>"
-          }
-        }
-      },
-      "block_order": [
-        "85e74480-a240-40d7-b89a-42357b70930d",
-        "8a37f6c7-79b5-40ea-9b83-422008d040b2",
-        "e4f1e3ef-3d5e-4e01-b720-aca9972bb035",
-        "ba7c0b21-604a-421d-8fe3-6add58a0bbf6",
-        "cbd0ef2e-7b6f-4b7f-9ae8-9a07da1e54fb",
-        "c35c1198-e785-4bfd-a6f7-067eb0a123bd",
-        "130eed0e-4ff8-47e2-ab48-e26e26fbd95e",
-        "166dfe01-905c-4dae-95c5-26342eee8c4b",
-        "2c27b793-1d84-4603-b6ee-f656817dca3c",
-        "da2038a9-f4eb-422a-a251-1a0c58721194"
-      ],
+    "35386bf7-68e7-41bc-b418-af25aeb1077e": {
+      "type": "image-with-text",
       "settings": {
-        "title": ""
+        "layout": "image_left",
+        "heading": "Do you feel awkward talking about your sexual pleasure?",
+        "body": "<p>Forget shame, forget guilt, forget stigma! Masturbation is a natural human act, and one of the most satisfying ways to practice self-care and relax and it can even improve partnered sex. After all, if you get to know your sexual body, and learn what really makes you tick, it’s a lot easier to teach your partner to do the same. When you think about it, how well can we really know our own body if we leave all of the exploration of it up to someone else? It’s like giving someone directions to the moon…we know the general direction to head in, but we’ve never been there ourselves!<\/p>",
+        "image": "shopify:\/\/shop_images\/s-text-img_about1.jpg"
+      }
+    },
+    "130a9cbd-237d-4cc8-9e08-0050c7cc31b7": {
+      "type": "image-with-text",
+      "settings": {
+        "layout": "image_right",
+        "heading": "You’re not alone!",
+        "body": "<p>According to a recent Australian study only 1 in 4 women masturbate regularly, which is half the rate of men. The truth is, for many of us, it’s still seen as a dirty little secret. But it’s time to step into our power and call BS on the archaic idea that only “sluts” enjoy sex, and that our pleasure is somehow secondary to our male counterparts.<\/p><p>It’s also time to debunk outdated myths that  teach us that female orgasms are simply more elusive than male orgasms.<\/p><p><\/p>",
+        "image": "shopify:\/\/shop_images\/Zena-Hover.jpg"
       }
     },
     "47791f95-634a-4d4e-a839-9e2ee941dec9": {
@@ -118,7 +46,8 @@
   "order": [
     "main",
     "95bfaaf4-0d16-4df2-8d16-6d7a267882d5",
-    "5fc58506-5e6a-48d1-9c1e-b2a739bea5e8",
+    "35386bf7-68e7-41bc-b418-af25aeb1077e",
+    "130a9cbd-237d-4cc8-9e08-0050c7cc31b7",
     "47791f95-634a-4d4e-a839-9e2ee941dec9"
   ]
 }
