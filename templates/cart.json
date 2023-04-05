@@ -11,6 +11,7 @@
     "main": {
       "type": "main-cart",
       "settings": {
+        "card_message": ""
       }
     },
     "bbdebd90-c7e0-4238-a2bd-fb6a5d455f54": {
@@ -45,10 +46,10 @@
       ],
       "settings": {
         "title": "Testi.<i>moan<\/i>.ials",
-        "image_1": "shopify:\/\/shop_images\/photo1.jpg",
+        "image_1": "shopify:\/\/shop_images\/Testimonials-01.jpg",
         "image_2": "shopify:\/\/shop_images\/photo2.jpg",
-        "image_3": "shopify:\/\/shop_images\/photo3.jpg",
-        "image_4": "shopify:\/\/shop_images\/photo4.jpg",
+        "image_3": "shopify:\/\/shop_images\/Testimonials-03.jpg",
+        "image_4": "shopify:\/\/shop_images\/Testimonials-06.jpg",
         "image_5": "shopify:\/\/shop_images\/photo5.jpg",
         "image_6": "shopify:\/\/shop_images\/photo6.jpg"
       }
