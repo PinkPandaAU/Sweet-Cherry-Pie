@@ -222,6 +222,28 @@
             "block-six-title": "",
             "block-six-text": ""
           }
+        },
+        "c0e64681-ced4-4d85-9700-abd23d71a125": {
+          "type": "question",
+          "settings": {
+            "question": "Better in Bed – A Sex and Sexuality Podcast",
+            "answer-new": "<p>Created by certified sex coach and educator Sara Tang, this podcast features intimate conversations about navigating sex in the modern world. On this frank, informative and lighthearted show, we tackle the taboos that many people commonly experience around sex. Expect banter and open hearted discussions between the hosts and their guests, as we dish up inspiration around how to get Better in Bed.<\/p><p>Featured as the Best Sex Podcast on Esquire, The Guardian and more! <\/p><p><a href=\"https:\/\/podcasts.apple.com\/us\/podcast\/better-in-bed-a-sex-sexuality-podcast\/id1286933381\">Listen here<\/a><\/p>",
+            "answer": "",
+            "wide_layout": false,
+            "block-one-title": "",
+            "block-one-text": "",
+            "block-one-image": "shopify:\/\/shop_images\/better_in_bed.jpg",
+            "block-two-title": "",
+            "block-two-text": "",
+            "block-three-title": "",
+            "block-three-text": "",
+            "block-four-title": "",
+            "block-four-text": "",
+            "block-five-title": "",
+            "block-five-text": "",
+            "block-six-title": "",
+            "block-six-text": ""
+          }
         }
       },
       "block_order": [
@@ -234,7 +256,8 @@
         "5f0e6c50-b28c-4f60-9867-12091b6c1880",
         "4daf9078-b392-4dae-a7e6-4473fef91ee0",
         "bdfd76a0-d4a9-464c-abac-18c0cb2c9e3d",
-        "2cb12ee1-7dad-48f4-9882-6936b8b1a501"
+        "2cb12ee1-7dad-48f4-9882-6936b8b1a501",
+        "c0e64681-ced4-4d85-9700-abd23d71a125"
       ],
       "settings": {
         "heading": "In this article:"
