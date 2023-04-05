@@ -211,7 +211,7 @@
               {% if product.metafields.custom.reviews %}
               {% assign reviews = product.metafields.custom.reviews | times: 100 %}
               <div class="s-product__content-review">
-                <span>{{ reviews  | money_without_currency | replace: '.00', '' }} Reviews</span>
+                <!--<span>{{ reviews  | money_without_currency | replace: '.00', '' }} Reviews</span>-->
 
                 {% if product.metafields.custom.star_rating %}
                 	{% assign star_rating = product.metafields.custom.star_rating %}
