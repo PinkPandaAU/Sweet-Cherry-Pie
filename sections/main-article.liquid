@@ -102,6 +102,10 @@
             {% if block.settings.answer-new %}
               {{ block.settings.answer-new }}
             {% endif %}
+
+            {% if block.settings.block-one-image %}
+              <img src="{{ block.settings.block-one-image | img_url:'' }}" alt="" style="max-width: 400px; width: 100%;">
+            {% endif %}
             
           {% endif %}
 
