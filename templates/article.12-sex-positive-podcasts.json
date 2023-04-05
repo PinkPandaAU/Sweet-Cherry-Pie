@@ -244,6 +244,28 @@
             "block-six-title": "",
             "block-six-text": ""
           }
+        },
+        "5c7926de-b95f-4f59-be7c-9130214a4542": {
+          "type": "question",
+          "settings": {
+            "question": "The Pleasure Podcast",
+            "answer-new": "<p>Writer and actor Naomi Sheldon and sexual function doctor Anand Patel explore the relationship we have with our bodies when it comes to sex, intimacy and pleasure in this new series of interviews with sexologists, DJs, novelists, therapists and more. It's a whole new kind of sex education. For your aural pleasure.<\/p><p><a href=\"https:\/\/podcasts.apple.com\/gb\/podcast\/the-pleasure-podcast\/id1461440965\">Listen here<\/a><\/p>",
+            "answer": "",
+            "wide_layout": false,
+            "block-one-title": "",
+            "block-one-text": "",
+            "block-one-image": "shopify:\/\/shop_images\/the_pleasure_podcast.jpg",
+            "block-two-title": "",
+            "block-two-text": "",
+            "block-three-title": "",
+            "block-three-text": "",
+            "block-four-title": "",
+            "block-four-text": "",
+            "block-five-title": "",
+            "block-five-text": "",
+            "block-six-title": "",
+            "block-six-text": ""
+          }
         }
       },
       "block_order": [
@@ -257,7 +279,8 @@
         "4daf9078-b392-4dae-a7e6-4473fef91ee0",
         "bdfd76a0-d4a9-464c-abac-18c0cb2c9e3d",
         "2cb12ee1-7dad-48f4-9882-6936b8b1a501",
-        "c0e64681-ced4-4d85-9700-abd23d71a125"
+        "c0e64681-ced4-4d85-9700-abd23d71a125",
+        "5c7926de-b95f-4f59-be7c-9130214a4542"
       ],
       "settings": {
         "heading": "In this article:"
