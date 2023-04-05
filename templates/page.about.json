@@ -8,9 +8,9 @@
     "95bfaaf4-0d16-4df2-8d16-6d7a267882d5": {
       "type": "breadcrumb",
       "settings": {
-        "title_override": "Common <i>questions<\/i>",
-        "layout": "default",
-        "body": "<p>Got a question? <\/p><p>Find the answer to commonly asked questions below. <\/p><p>Can't find what you are looking for here? Contact our friendly customer service team at admin@sweetcherrypie.com for further information or advice.<\/p>",
+        "title_override": "A bit about us",
+        "layout": "image_right",
+        "body": "<p>Here at Sweet Cherry Pie, we believe that all women and people with vulvas deserve to learn about their sexuality, connect with their body, and be empowered to explore and celebrate what makes them feel good through masturbation.<\/p>",
         "image": "shopify:\/\/shop_images\/s-about-main_bg.jpg"
       }
     },
