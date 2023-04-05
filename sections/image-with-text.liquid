@@ -1,68 +1,60 @@
-{% if section.settings.layout == 'default' %}
+{% if section.settings.layout == 'image_left' %}
 
-<section class="s-promo" data-scroll-section>
-  <div class="container">
-    <div class="s-promo__container">
-      <div class="s-promo__content">
-        <div class="s-breadcrumbs">
-          <ul>
-            <li><a href="{{ shop.url }}">Home</a></li>
-            <li>{{ page_title }}</li>
-          </ul>
+  <section class="s-text-img" data-scroll-section>
+    <div class="s-text-img__container">
+      <div class="s-text-img__img s-text-img__img--small">
+        <div class="s-text-img__img-bg">
+          <img src="{{ 's-text-img_bg.svg' | asset_url }}" alt="" role="presentation">
         </div>
-        <div class="title-epic title-animation" data-scroll data-scroll-call="title-visible">
+        <div class="s-text-img__img-inner section-img" data-scroll data-scroll-call="is-in-view">
+          <img src="{{ section.settings.image | img_url: '' }}" alt="" data-scroll-zoom="0.06">
+        </div>
+      </div>
+      <div class="s-text-img__content">
+        <div class="title-h2 title-animation" data-scroll data-scroll-call="title-visible">
 
-          {% if section.settings.title_override != blank %}
-            <h1>{{ section.settings.title_override }}</h1>
-          {% else %}
-            <h1>{{ page_title }}</h1>
+          {% if section.settings.heading != blank %}
+            <h2>{{ section.settings.heading }}</h2>
           {% endif %}
+
         </div>
 
-        {% if section.settings.body != blank %}
-          <div class="s-promo__text section-text text-animation" data-scroll data-scroll-call="text-visible">
-            {{ section.settings.body }}
-          </div>
-        {% endif %}
+        <div class="section-text">
 
+          {% if section.settings.body != blank %}
+            {{ section.settings.body }}
+          {% endif %}
+
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
+
 
 {% else %}
   
-  <section class="s-promo s-promo--big" data-scroll-section>
-    <div class="container">
-      <div class="s-promo__container">
-        <div class="s-promo__content">
-          <div class="s-breadcrumbs">
-            <ul>
-              <li><a href="{{ shop.url }}">Home</a></li>
-              <li>{{ page_title }}</li>
-            </ul>
-          </div>
-          <div class="title-epic title-animation" data-scroll data-scroll-call="title-visible">
-            {% if section.settings.title_override != blank %}
-              <h1>{{ section.settings.title_override }}</h1>
-            {% else %}
-              <h1>{{ page_title }}</h1>
-            {% endif %}
-          </div>
+  <section class="s-text-img" data-scroll-section>
+    <div class="s-text-img__container">
+      <div class="s-text-img__content">
+        <div class="title-h2 title-animation" data-scroll data-scroll-call="title-visible">
+          {% if section.settings.heading != blank %}
+            <h2>{{ section.settings.heading }}</h2>
+          {% endif %}
+        </div>
+        <div class="section-text">
 
           {% if section.settings.body != blank %}
-            <div class="s-promo__text section-text text-animation" data-scroll data-scroll-call="text-visible">
-              {{ section.settings.body }}
-            </div>
+            {{ section.settings.body }}
           {% endif %}
 
         </div>
-        <div class="s-promo__img section-img" data-scroll data-scroll-call="is-in-view">
-          <img src="{{ section.settings.image | img_url: '' }}" alt="For the front" data-scroll-zoom="0.07">
+      </div>
+      <div class="s-text-img__img">
+        <div class="s-text-img__img-inner section-img" data-scroll data-scroll-call="is-in-view">
+          <img src="{{ section.settings.image | img_url: '' }}" alt="" data-scroll-zoom="0.07">
         </div>
       </div>
     </div>
-
   </section>
 
 {% endif %}
@@ -70,29 +62,29 @@
 
 {% schema %}
 {
-  "name": "Breadcrumb",
+  "name": "Image with Text",
   "tag": "div",
   "settings": [
-    {
-      "type": "textarea",
-      "id": "title_override",
-      "label": "Page title (override)"
-    },
     {
       "type": "select",
       "id": "layout",
       "label": "Layout",
       "options": [
         {
-          "value": "default",
-          "label": "Default"
+          "value": "image_left",
+          "label": "Image Left"
         },
         {
           "value": "image_right",
           "label": "Image Right"
         }
       ],
-      "default": "default"
+      "default": "image_left"
+    },
+    {
+      "type": "textarea",
+      "id": "heading",
+      "label": "Heading"
     },
     {
       "type": "richtext",
@@ -107,7 +99,7 @@
   ],
   "presets": [
     {
-      "name": "Breadcrumb"
+      "name": "Image with Text"
     }
   ]
 }
