@@ -3,7 +3,7 @@
     <a href="{{ product.url}}" class="s-card__link"></a>
     <div class="s-card__tags">
 
-      {% assign first_collection = product.collections.first %}
+      {% assign first_collection = product.collections.last %}
       {% if first_collection and first_collection.title != 'Featured'  %}
         <span class="tag">{{ first_collection.title }}</span>
       {% endif %}
