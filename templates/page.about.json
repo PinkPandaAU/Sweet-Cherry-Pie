@@ -44,6 +44,24 @@
         "floating_image_mobile": "shopify:\/\/shop_images\/Floating-Image-Mobile.png"
       }
     },
+    "d2cea3e3-ec9b-4df1-9f89-1c3fc075fa96": {
+      "type": "featured-products",
+      "settings": {
+        "heading": "Featured toys",
+        "collection": "featured",
+        "columns_desktop": 6,
+        "button_text": "View all",
+        "url": "shopify:\/\/collections\/all"
+      }
+    },
+    "4a882283-9a4d-4e75-971a-8dcce4e4ead7": {
+      "type": "recent-articles",
+      "settings": {
+        "title": "Recent articles",
+        "button_text": "View all",
+        "url": "shopify:\/\/blogs\/news"
+      }
+    },
     "47791f95-634a-4d4e-a839-9e2ee941dec9": {
       "type": "large-cta",
       "settings": {
@@ -61,6 +79,8 @@
     "35386bf7-68e7-41bc-b418-af25aeb1077e",
     "130a9cbd-237d-4cc8-9e08-0050c7cc31b7",
     "1047ed77-6adc-43b4-bca4-0cd214b12933",
+    "d2cea3e3-ec9b-4df1-9f89-1c3fc075fa96",
+    "4a882283-9a4d-4e75-971a-8dcce4e4ead7",
     "47791f95-634a-4d4e-a839-9e2ee941dec9"
   ]
 }
