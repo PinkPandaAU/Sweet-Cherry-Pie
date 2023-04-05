@@ -138,26 +138,40 @@
             div2.setAttribute('class', 's-instagram__images-block mobile-hide');
             let div1Child = document.createElement('div');
             div1Child.setAttribute('class', 's-instagram__img');
-            for (let i = 0; i <= get_data.data.length - 1; i++) {
-              if(get_data.data[i].media_url != undefined) {
-                if(i == 0) {
-                  image = document.createElement('img');
-                  image.setAttribute('src', get_data.data[i].media_url);
-                  div1Child.appendChild(image);
-                  div1.appendChild(div1Child);
-                }
-                if(i > 0 && i < 5) {
-                  const div2Child = document.createElement('div');
-                  div2Child.setAttribute('class', 's-instagram__img');
-                  image = document.createElement('img');
-                  image.setAttribute('src', get_data.data[i].media_url);
-                  div2Child.appendChild(image);
-                  div2.appendChild(div2Child);
+            if(get_data.data.length < 6) {
+              for (let i = 0; i <= get_data.data.length - 1; i++) {
+                const div1 = document.createElement('div');
+                div1.setAttribute('class', 's-instagram__images-block mobile-hide');
+                const div2 = document.createElement('div');
+                div2.setAttribute('class', 's-instagram__img');
+                div1.appendChild(div2);
+                const image = document.createElement('img');
+                image.setAttribute('src', get_data.data[i].media_url);
+                div2.appendChild(image);
+                document.querySelector('.s-instagram__images').appendChild(div1);
+              }
+            } else {
+              for (let i = 0; i <= get_data.data.length - 1; i++) {
+                if(get_data.data[i].media_url != undefined) {
+                  if(i == 0) {
+                    image = document.createElement('img');
+                    image.setAttribute('src', get_data.data[i].media_url);
+                    div1Child.appendChild(image);
+                    div1.appendChild(div1Child);
+                  }
+                  if(i > 0 && i < 5) {
+                    const div2Child = document.createElement('div');
+                    div2Child.setAttribute('class', 's-instagram__img');
+                    image = document.createElement('img');
+                    image.setAttribute('src', get_data.data[i].media_url);
+                    div2Child.appendChild(image);
+                    div2.appendChild(div2Child);
+                  }
                 }
               }
+              document.querySelector('.s-instagram__images').appendChild(div1);
+              document.querySelector('.s-instagram__images').appendChild(div2);
             }
-            document.querySelector('.s-instagram__images').appendChild(div1);
-            document.querySelector('.s-instagram__images').appendChild(div2);
           })
           .catch(error => console.log('error', error));
 
