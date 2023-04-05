@@ -11,11 +11,23 @@
     "main": {
       "type": "main-blog",
       "settings": {
+        "columns_desktop": 8
+      }
+    },
+    "e1e49aa3-8949-4067-b263-66f789d2a0ac": {
+      "type": "large-cta",
+      "settings": {
+        "subheading": "TAKE THE QUIZ",
+        "heading": "Not sure? Take the quiz and we can help you explore!",
+        "image": "shopify:\/\/shop_images\/s-banner.jpg",
+        "button_text": "Take the quiz",
+        "url": "#"
       }
     }
   },
   "order": [
     "08aaed49-4d9e-4052-8f40-7e4f2e4cd6f2",
-    "main"
+    "main",
+    "e1e49aa3-8949-4067-b263-66f789d2a0ac"
   ]
 }
