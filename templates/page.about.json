@@ -38,7 +38,10 @@
         "title": "About Us",
         "description_1": "<p>Here at Sweet Cherry Pie, we believe that all women and people with vulvas deserve to learn about their sexuality, connect with their body, and be empowered to explore and celebrate what makes them feel good through masturbation.<\/p>",
         "description_2": "<p>Whether you are planning a little ménage à moi, or looking for something to add a little extra spice to partnered play, we've got something to take your pleasure to the next level.<\/p>",
-        "image_desktop": "shopify:\/\/shop_images\/AdobeStock_516230991.jpg"
+        "image_desktop": "shopify:\/\/shop_images\/AdobeStock_516230991.jpg",
+        "image_mobile": "shopify:\/\/shop_images\/s-about-main_bg-mob.jpg",
+        "floating_image_desktop": "shopify:\/\/shop_images\/Floating-Image-Desktop.png",
+        "floating_image_mobile": "shopify:\/\/shop_images\/Floating-Image-Mobile.png"
       }
     },
     "47791f95-634a-4d4e-a839-9e2ee941dec9": {
