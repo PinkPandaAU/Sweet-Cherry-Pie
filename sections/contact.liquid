@@ -19,49 +19,56 @@
           </div>
         {% endif %}
       </div>
-      <form class="s-contacts__form">
-        <div class="s-contacts__form-row">
-          <div class="s-contacts__form-input">
-            <div class="s-input s-input--white">
-              <label for="firstname">First name</label>
-              <input type="text" name="firstname" id="firstname" placeholder="First name">
+      {% form 'contact', id: 'contact-form', class:"s-contacts__form" %}
+        {%- if form.posted_successfully? -%}
+            <p class="note"><b>Thanks for contacting us. We'll get back to you as soon as possible.</b></p>
+        {%- endif -%}
+
+        {%- if form.posted_successfully? != true -%}
+          {{ form.errors | default_errors }}
+          <div class="s-contacts__form-row">
+            <div class="s-contacts__form-input">
+              <div class="s-input s-input--white">
+                <label for="firstname">First name</label>
+                <input type="text" name="contact[First Name]" id="firstname" placeholder="First name" value="{% if customer %}{{ customer.first_name }}{% endif %}" required>
+              </div>
+            </div>
+            <div class="s-contacts__form-input">
+              <div class="s-input s-input--white">
+                <label for="firstname">Last name</label>
+                <input type="text" name="contact[Last Name]" id="lastname" placeholder="Last name" value="{% if customer %}{{ customer.last_name }}{% endif %}" required>
+              </div>
             </div>
           </div>
-          <div class="s-contacts__form-input">
-            <div class="s-input s-input--white">
-              <label for="firstname">Last name</label>
-              <input type="text" name="lastname" id="lastname" placeholder="Last name">
+          <div class="s-contacts__form-row">
+            <div class="s-contacts__form-input">
+              <div class="s-input s-input--white">
+                <label for="phone">Phone</label>
+                <input type="tel" name="contact[phone]" id="phone" pattern="[0-9\-]*" placeholder="Phone" value="{% if customer %}{{ customer.phone }}{% endif %}" required>
+              </div>
+            </div>
+            <div class="s-contacts__form-input">
+              <div class="s-input s-input--white">
+                <label for="email">Email</label>
+                <input type="email" name="contact[email]" id="email" placeholder="Email" value="{% if customer %}{{ customer.email }}{% endif %}" required>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="s-contacts__form-row">
-          <div class="s-contacts__form-input">
-            <div class="s-input s-input--white">
-              <label for="phone">Phone</label>
-              <input type="tel" name="phone" id="phone" placeholder="Phone">
+          <div class="s-contacts__form-row">
+            <div class="s-contacts__form-input">
+              <div class="s-input s-input--white">
+                <label for="message">Message</label>
+                <textarea name="contact[body]" id="message" placeholder="Message"></textarea>
+              </div>
             </div>
           </div>
-          <div class="s-contacts__form-input">
-            <div class="s-input s-input--white">
-              <label for="email">Email</label>
-              <input type="email" name="email" id="email" placeholder="Email">
-            </div>
+          <div class="s-contacts__form-submit">
+            <button type="submit" class="s-button s-button--big s-button--white">
+              <span>Submit</span>
+            </button>
           </div>
-        </div>
-        <div class="s-contacts__form-row">
-          <div class="s-contacts__form-input">
-            <div class="s-input s-input--white">
-              <label for="message">Message</label>
-              <textarea name="message" id="message" placeholder="Message"></textarea>
-            </div>
-          </div>
-        </div>
-        <div class="s-contacts__form-submit">
-          <button type="submit" class="s-button s-button--big s-button--white">
-            <span>Submit</span>
-          </button>
-        </div>
-      </form>
+        {%- endif -%}
+      {% endform %}
     </div>
     <div class="s-contacts__bottom">
       <a href="mailto:{{ settings.email }}">{{ settings.email }}</a>
