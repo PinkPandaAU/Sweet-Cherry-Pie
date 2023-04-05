@@ -32,6 +32,15 @@
         "image": "shopify:\/\/shop_images\/Zena-Hover.jpg"
       }
     },
+    "1047ed77-6adc-43b4-bca4-0cd214b12933": {
+      "type": "about-main",
+      "settings": {
+        "title": "About Us",
+        "description_1": "<p>Here at Sweet Cherry Pie, we believe that all women and people with vulvas deserve to learn about their sexuality, connect with their body, and be empowered to explore and celebrate what makes them feel good through masturbation.<\/p>",
+        "description_2": "<p>Whether you are planning a little ménage à moi, or looking for something to add a little extra spice to partnered play, we've got something to take your pleasure to the next level.<\/p>",
+        "image_desktop": "shopify:\/\/shop_images\/AdobeStock_516230991.jpg"
+      }
+    },
     "47791f95-634a-4d4e-a839-9e2ee941dec9": {
       "type": "large-cta",
       "settings": {
@@ -48,6 +57,7 @@
     "95bfaaf4-0d16-4df2-8d16-6d7a267882d5",
     "35386bf7-68e7-41bc-b418-af25aeb1077e",
     "130a9cbd-237d-4cc8-9e08-0050c7cc31b7",
+    "1047ed77-6adc-43b4-bca4-0cd214b12933",
     "47791f95-634a-4d4e-a839-9e2ee941dec9"
   ]
 }
