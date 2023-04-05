@@ -19,8 +19,8 @@
             <span>Subscribe</span>
           </button>
         </div>
-        {% endif %}
         {{ form.errors | default_errors }}
+        {% endif %}
       {% endform %}
       <div class="footer__shop">
         <a href="{{ section.settings.shop_url }}" class="footer__title mobile-hide">

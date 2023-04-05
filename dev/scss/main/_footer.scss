@@ -24,6 +24,15 @@
         }
       }
     }
+
+    .form-message {
+      color: $color-black;
+      font-family: $ff-aeonik-bolditalic;
+      padding: 30px 0;
+      font-size: 20px;
+      line-height: normal;
+      margin: 0 auto;
+    }
   }
   &__container {
     display: flex;

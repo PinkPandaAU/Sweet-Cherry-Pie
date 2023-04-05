@@ -2,19 +2,25 @@
   <div class="s-banner-popup" id="sign-up-popup">
     <div class="s-banner-popup__inner">
       <div class="s-banner-popup__content">
-        <form class="s-banner-popup__content-inner border-image border-image--medium-primary-star">
+        {% form 'contact', id: 'newsletter-popup-form', class:"s-banner-popup__content-inner border-image border-image--medium-primary-star" %}
           <div class="s-banner-popup__title">
             <span>{{ settings.popup_message }}</span>
           </div>
-          <div class="footer__form-input">
-            <input type="email" name="email" placeholder="Enter your email" required>
-          </div>
-          <div class="footer__form-btn">
-            <button class="s-button s-button--primary-light s-button--big" type="submit">
-              <span>Subscribe</span>
-            </button>
-          </div>
-        </form>
+          {% if form.posted_successfully? %}
+            <p class="form-message">Thank you for Subscribing!</p>
+          {% else %}
+            <div class="footer__form-input">
+              <input type="hidden" name="contact[tags]" value="newsletter">
+              <input type="email" name="contact[email]" placeholder="Enter your email" value="{% if customer %}{{ customer.email }}{% endif %}" autocorrect="off" autocapitalize="off" required>
+            </div>
+            <div class="footer__form-btn">
+              <button class="s-button s-button--primary-light s-button--big" type="submit">
+                <span>Subscribe</span>
+              </button>
+            </div>
+            {{ form.errors | default_errors }}
+          {% endif %}
+        {% endform %}
       </div>
       <div class="s-banner-popup__img">
         <img src="{{ settings.popup_image | img_url: '' }}" alt="" role="presentation">

@@ -2252,6 +2252,17 @@ a {
     }
   }
 
+  .form-message {
+    color: $color-white;
+    font-family: $ff-aeonik-bolditalic;
+    padding: 30px;
+    text-align: center;
+    font-size: 20px;
+    max-width: 400px;
+    line-height: normal;
+    margin: 0 auto;
+  }
+
   &__inner {
     display: flex;
     background: var(--color-black);
