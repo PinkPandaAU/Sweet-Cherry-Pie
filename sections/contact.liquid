@@ -19,7 +19,7 @@
           </div>
         {% endif %}
       </div>
-      {% form 'contact', id: 'contact-form', class:"s-contacts__form" %}
+      {% form 'contact' class:"s-contacts__form" %}
         {%- if form.posted_successfully? -%}
             <p class="note"><b>Thanks for contacting us. We'll get back to you as soon as possible.</b></p>
         {%- endif -%}
