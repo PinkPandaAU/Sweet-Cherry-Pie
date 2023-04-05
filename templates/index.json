@@ -37,17 +37,40 @@
     "141921e2-2b3f-45e0-8708-bbc781e4267b": {
       "type": "featured-collections",
       "blocks": {
-        "template--18562713157934__141921e2-2b3f-45e0-8708-bbc781e4267b-1680328208385095fa-0": {
+        "88f6ed41-5034-4be0-b2a5-ed120b26ae35": {
           "type": "Collection",
           "settings": {
-            "collection_title": "Featured",
-            "collection_collection": "featured",
-            "collection_image": "shopify:\/\/shop_images\/Featured.jpg"
+            "collection_title": "Solo",
+            "collection_collection": "solo"
+          }
+        },
+        "3592c74c-f0b7-4cde-b79d-b98e30b60d93": {
+          "type": "Collection",
+          "settings": {
+            "collection_title": "Partner",
+            "collection_collection": "partner"
+          }
+        },
+        "2565fc46-2189-4f62-a109-fa4fede3ff5c": {
+          "type": "Collection",
+          "settings": {
+            "collection_title": "Gifts",
+            "collection_collection": "gifting"
+          }
+        },
+        "48551445-8a49-489a-ac35-5bdf762d513a": {
+          "type": "Collection",
+          "settings": {
+            "collection_title": "Accessories",
+            "collection_collection": "him"
           }
         }
       },
       "block_order": [
-        "template--18562713157934__141921e2-2b3f-45e0-8708-bbc781e4267b-1680328208385095fa-0"
+        "88f6ed41-5034-4be0-b2a5-ed120b26ae35",
+        "3592c74c-f0b7-4cde-b79d-b98e30b60d93",
+        "2565fc46-2189-4f62-a109-fa4fede3ff5c",
+        "48551445-8a49-489a-ac35-5bdf762d513a"
       ],
       "settings": {
         "title": "",
