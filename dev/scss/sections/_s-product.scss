@@ -439,6 +439,7 @@
       text-transform: uppercase;
       display: block;
       transition: color var(--main-transition);
+      cursor: pointer;
       line{
         transition: stroke var(--main-transition);
       }
