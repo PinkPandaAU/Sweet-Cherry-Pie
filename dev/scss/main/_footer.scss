@@ -34,6 +34,16 @@
       margin: 0 auto;
     }
   }
+  .footer__success {
+    color: #b05959;
+    font-family: $ff-queensvar;
+    font-size: 30px;
+  }
+  .footer__error {
+    color: $color-black;
+    font-family: $ff-queensvar;
+    font-size: 30px;
+  }
   &__container {
     display: flex;
     justify-content: space-between;
