@@ -427,7 +427,9 @@
                   {% endif %}
                     <article class="s-product__also-item">
                       <div class="s-product__also-img">
-                        <img src="{{ dproduct.featured_image | img_url:'' }}" alt="{{ dproduct.featured_image.alt | escape }}">
+                        <a href="{{ dproduct.url }}">
+                          <img src="{{ dproduct.featured_image | img_url:'' }}" alt="{{ dproduct.featured_image.alt | escape }}">
+                        </a>
                       </div>
                       <div class="s-product__also-content">
                         <div class="s-product__also-name title-h5 title-animation" data-scroll data-scroll-call="title-visible">
