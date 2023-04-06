@@ -411,68 +411,97 @@
               <span>View Cart</span>
             </a>
           </div>
+
+          {% if product.metafields.custom.select_addon_products != blank %}
           <div class="s-product__also">
             <div class="s-product__also-title title-h4 title-animation" data-scroll data-scroll-call="title-visible">
               <h2>Add to your order</h2>
             </div>
-            <div class="s-product__also-container">
-              <article class="s-product__also-item">
-                <div class="s-product__also-img">
-                  <img src="{{ '3.jpg' | asset_url }}" alt="">
-                </div>
-                <div class="s-product__also-content">
-                  <div class="s-product__also-name title-h5 title-animation" data-scroll data-scroll-call="title-visible">
-                    <h3>Chinchilla</h3>
+
+            {% assign counter = 0 %}
+            {% for dproduct in product.metafields.custom.select_addon_products.value %}
+                {% if dproduct.has_only_default_variant %}
+                  {% assign mod = counter | modulo: 2 %}
+                  {% if mod == 0 %}
+                    <div class="s-product__also-container">
+                  {% endif %}
+                    <article class="s-product__also-item">
+                      <div class="s-product__also-img">
+                        <img src="{{ dproduct.featured_image | img_url:'' }}" alt="{{ dproduct.featured_image.alt | escape }}">
+                      </div>
+                      <div class="s-product__also-content">
+                        <div class="s-product__also-name title-h5 title-animation" data-scroll data-scroll-call="title-visible">
+                          <h3>{{ dproduct.title }}</h3>
+                        </div>
+                        <div class="s-product__also-row">
+                          <div class="s-price s-price--smallest">
+                            <div class="s-price__new">
+                              <span>{{ dproduct.price | money }}</span>
+                            </div>
+                          </div>
+                          <a href="" class="s-product__also-btn" data-id="{{ dproduct.selected_or_first_available_variant.id }}">
+                            <span>Add</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14">
+                              <g id="Group_11618" data-name="Group 11618" transform="translate(-1569 -769)">
+                                <line id="Line_29" data-name="Line 29" x2="14" transform="translate(1569 776)" fill="none" stroke="#1f454d" stroke-width="1"/>
+                                <line id="Line_30" data-name="Line 30" x2="14" transform="translate(1576 769) rotate(90)" fill="none" stroke="#1f454d" stroke-width="1"/>
+                              </g>
+                            </svg>
+                          </a>
+                        </div>
+                      </div>
+                    </article>
+                  {% if mod == 1 or forloop.last %}
+                    </div>
+                    <br>
+                    <br>
+                  {% endif %}
+                  {% assign counter = counter | plus: 1 %}
+                {% endif %}
+            {% endfor %}
+
+            {% comment %} <div class="s-product__also-container"> {% endcomment %}
+              {% for dproduct in product.metafields.custom.select_addon_products.value %}
+                {% comment %} TODO - Change this to false to support variant products {% endcomment %}
+                {% if dproduct.has_only_default_variant == 'DISABLED' %}
+                <article class="s-product__also-item">
+                  <div class="s-product__also-img">
+                    <img src="{{ dproduct.featured_image | img_url:'' }}" alt="{{ dproduct.featured_image.alt | escape }}">
                   </div>
-                  <div class="s-product__also-row">
-                    <div class="s-price s-price--smallest">
-                      <div class="s-price__new">
-                        <span>$129.99</span>
+                  <div class="s-product__also-content">
+                    <div class="s-product__also-name title-h5 title-animation" data-scroll data-scroll-call="title-visible">
+                      <h3>{{ dproduct.title }}</h3>
+                    </div>
+                    <div class="s-product__also-row">
+                      <div class="s-price s-price--smallest">
+                        <div class="s-price__new">
+                          <span>{{ dproduct.price | money }}</span>
+                        </div>
+                      </div>
+                      <div class="s-input s-input--select">
+                        {% if dproduct.variants.size > 1 %}
+                        <input type="text" placeholder="Choose option" class="selected-display" readonly>
+                        <input type="hidden" class="selected-var" readonly>
+                        <ul>
+                          <li data-value="" class="custom_related_sel_default"></li>
+                          {% for variant in dproduct.variants %}
+                          {% assign get_id = variant.id %}
+                            <li data-value="{{ variant.id }}" class="custom_related_sel">{{ variant.title }}</li>
+                          {% endfor %}
+                        </ul>
+                        <div class="remove-custom_related_sel">Remove</div>
+                        {% endif %}
                       </div>
                     </div>
-                    <a href="" class="s-product__also-btn">
-                      <span>Add</span>
-                      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14">
-                        <g id="Group_11618" data-name="Group 11618" transform="translate(-1569 -769)">
-                          <line id="Line_29" data-name="Line 29" x2="14" transform="translate(1569 776)" fill="none" stroke="#1f454d" stroke-width="1"/>
-                          <line id="Line_30" data-name="Line 30" x2="14" transform="translate(1576 769) rotate(90)" fill="none" stroke="#1f454d" stroke-width="1"/>
-                        </g>
-                      </svg>
-                    </a>
                   </div>
-                </div>
-              </article>
-              <article class="s-product__also-item">
-                <div class="s-product__also-img">
-                  <img src="{{ '3.jpg' | asset_url }}" alt="">
-                </div>
-                <div class="s-product__also-content">
-                  <div class="s-product__also-name title-h5 title-animation" data-scroll data-scroll-call="title-visible">
-                    <h3>Chinchilla</h3>
-                  </div>
-                  <div class="s-product__also-row">
-                    <div class="s-price s-price--smallest">
-                      <div class="s-price__new">
-                        <span>$129.99</span>
-                      </div>
-                      <div class="s-price__old">
-                        <span>$129.99</span>
-                      </div>
-                    </div>
-                    <a href="" class="s-product__also-btn">
-                      <span>Add</span>
-                      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14">
-                        <g id="Group_11618" data-name="Group 11618" transform="translate(-1569 -769)">
-                          <line id="Line_29" data-name="Line 29" x2="14" transform="translate(1569 776)" fill="none" stroke="#1f454d" stroke-width="1"/>
-                          <line id="Line_30" data-name="Line 30" x2="14" transform="translate(1576 769) rotate(90)" fill="none" stroke="#1f454d" stroke-width="1"/>
-                        </g>
-                      </svg>
-                    </a>
-                  </div>
-                </div>
-              </article>
-            </div>
+                </article>
+                {% endif %}
+              {% endfor %}
+            {% comment %} </div> {% endcomment %}
+
           </div>
+          {% endif %}
+
         </form>
 
         <div class="s-product__wrapper mobile-show">
