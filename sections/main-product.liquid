@@ -439,15 +439,9 @@
                               <span>{{ dproduct.price | money }}</span>
                             </div>
                           </div>
-                          <a href="" class="s-product__also-btn" data-id="{{ dproduct.selected_or_first_available_variant.id }}">
-                            <span>Add</span>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14">
-                              <g id="Group_11618" data-name="Group 11618" transform="translate(-1569 -769)">
-                                <line id="Line_29" data-name="Line 29" x2="14" transform="translate(1569 776)" fill="none" stroke="#1f454d" stroke-width="1"/>
-                                <line id="Line_30" data-name="Line 30" x2="14" transform="translate(1576 769) rotate(90)" fill="none" stroke="#1f454d" stroke-width="1"/>
-                              </g>
-                            </svg>
-                          </a>
+                          <div class="s-product__also-btn">
+                            <span data-id="{{ dproduct.selected_or_first_available_variant.id }}">Add +</span>
+                          </div>
                         </div>
                       </div>
                     </article>
@@ -725,6 +719,7 @@
             }
         });
     });
+
     primaryObj = Object.values(selectedValues);
 
     function getCartTotal() {
@@ -782,6 +777,7 @@
             }
         }
     });
+
     function getVariant() {
         var handle = "{{ product.handle }}";
         console.log(handle, "handle")
@@ -865,5 +861,27 @@
             }
         });
         getVariant();
+    }
+
+    const simpleAddons = document.querySelectorAll('.s-product__also-btn span');
+    if (simpleAddons != null && simpleAddons != "") {
+        simpleAddons.forEach(element => {
+            element.addEventListener('click', function (event) {
+                const productId = event.target.getAttribute("data-id");
+                if(event.target.classList.contains('added')) {
+                    event.target.classList.remove('added');
+                    event.target.textContent = "ADD +";
+                    var index = variantsObj.indexOf(productId);
+                    if (index !== -1) {
+                        variantsObj.splice(index, 1);
+                    }
+                } else {
+                    variantsObj.push(productId);
+                    event.target.textContent = "Remove -";
+                    event.target.classList.add('added');
+                }
+                console.log(variantsObj);
+            });
+        });
     }
 </script>
