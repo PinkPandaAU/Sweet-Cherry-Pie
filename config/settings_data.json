@@ -18,6 +18,9 @@
     "feed_image_4": "shopify:\/\/shop_images\/photo12.jpg",
     "feed_image_5": "shopify:\/\/shop_images\/photo13.jpg",
     "feed_image_6": "shopify:\/\/shop_images\/photo14.jpg",
+    "checkout_logo_image": "shopify:\/\/shop_images\/logo.svg",
+    "checkout_accent_color": "#1f454d",
+    "checkout_button_color": "#b36b77",
     "sections": {
       "header": {
         "type": "header",
