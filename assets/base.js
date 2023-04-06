@@ -1425,11 +1425,7 @@ function blocks() {
                     },
                     success: function(data) {
                         if (data.result != "success") {
-                            if (data.msg && data.msg.indexOf("already subscribed") >= 0) {
-                                $error.text('You are already subscribed to the list.');
-                            } else {
-                                $error.text(data.msg);
-                            }
+                            $error.text(data.msg);
                             $error.css('display', 'flex');
                             $success.css('display', 'none');
                             $form.find('#mc-embedded-subscribe').html('Subscribe');
@@ -1437,7 +1433,6 @@ function blocks() {
                             $form.hide();
                             $success.css('display', 'flex');
                             $error.css('display', 'none');
-                            $success.text('Successfully Subscribed!');
                         }
                     }
                 });
@@ -1460,7 +1455,7 @@ function blocks() {
             $error = $('#sign-up-popup .form-message.error');
 
             function register($form) {
-                $form.find('#newsletter-popup-form #mc-embedded-subscribe').html('Subscribing...');
+                $form.find('#mc-embedded-subscribe').html('Subscribing...');
                 $.ajax({
                     type: 'GET',
                     url: $form.attr('action'),
@@ -1476,19 +1471,14 @@ function blocks() {
                     },
                     success: function(data) {
                         if (data.result != "success") {
-                        if (data.msg && data.msg.indexOf("already subscribed") >= 0) {
-                            $error.text('You are already subscribed to the list.');
-                        } else {
                             $error.text(data.msg);
-                        }
-                        $error.css('display', 'flex');
-                        $success.css('display', 'none');
-                        $form.find('#mc-embedded-subscribe').html('Subscribe');
+                            $error.css('display', 'flex');
+                            $success.css('display', 'none');
+                            $form.find('#mc-embedded-subscribe').html('Subscribe');
                         } else {
-                        $form.hide();
-                        $success.css('display', 'flex');
-                        $error.css('display', 'none');
-                        $success.text('Successfully Subscribed!');
+                            $form.hide();
+                            $success.css('display', 'flex');
+                            $error.css('display', 'none');
                         }
                     }
                 });
