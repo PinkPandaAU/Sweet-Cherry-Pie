@@ -2,13 +2,10 @@
   <div class="s-banner-popup" id="sign-up-popup">
     <div class="s-banner-popup__inner">
       <div class="s-banner-popup__content">
-        {% form 'contact', id: 'newsletter-popup-form', class:"s-banner-popup__content-inner border-image border-image--medium-primary-star" %}
-          <div class="s-banner-popup__title">
-            <span>{{ settings.popup_message }}</span>
-          </div>
-          {% if form.posted_successfully? %}
-            <p class="form-message">Thank you for Subscribing!</p>
-          {% else %}
+        {% form 'contact', id: 'newsletter-popup-form', class:"s-banner-popup__content-inner border-image border-image--medium-primary-star", action:"https://sweetcherrypie.us21.list-manage.com/subscribe/post-json?u=2309812fe370368d9e64611ba&id=48131c0f94&f_id=00fca7e1f0" %}
+            <div class="s-banner-popup__title">
+              <span>{{ settings.popup_message }}</span>
+            </div>
             <div class="footer__form-input">
               <input type="hidden" name="contact[tags]" value="newsletter">
               <input type="email" name="contact[email]" placeholder="Enter your email" value="{% if customer %}{{ customer.email }}{% endif %}" autocorrect="off" autocapitalize="off" required>
@@ -19,8 +16,10 @@
               </button>
             </div>
             {{ form.errors | default_errors }}
-          {% endif %}
         {% endform %}
+
+        <p style="display: none;" class="form-message success">Successfully Subscribed!</p>
+        <p style="display: none;" class="form-message error">There was an error. Please try again later or contact us at <a href="mailto:info@sweetcherrypie.co">info@sweetcherrypie.co</a></p>
       </div>
       <div class="s-banner-popup__img">
         <img src="{{ settings.popup_image | img_url: '' }}" alt="" role="presentation">

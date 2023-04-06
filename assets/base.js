@@ -1409,7 +1409,7 @@ function blocks() {
             $error = $('.footer__error');
 
             function register($form) {
-                $('#mc-embedded-subscribe').html('Subscribing...');
+                $form.find('#mc-embedded-subscribe').html('Subscribing...');
                 $.ajax({
                     type: 'GET',
                     url: $form.attr('action'),
@@ -1421,7 +1421,7 @@ function blocks() {
                     error: function(error){
                         $form.hide();
                         $error.css('display', 'block');
-                        $('#mc-embedded-subscribe').html('Subscribe');
+                        $form.find('#mc-embedded-subscribe').html('Subscribe');
                     },
                     success: function(data) {
                         if (data.result != "success") {
@@ -1432,7 +1432,58 @@ function blocks() {
                         }
                         $error.css('display', 'block');
                         $success.css('display', 'none');
-                        $('#mc-embedded-subscribe').html('Subscribe');
+                        $form.find('#mc-embedded-subscribe').html('Subscribe');
+                        } else {
+                        $form.hide();
+                        $success.css('display', 'block');
+                        $error.css('display', 'none');
+                        $success.text('Successfully Subscribed!');
+                        }
+                    }
+                });
+            }
+
+            $form.find('input[type="submit"]').on('click', function (e) {
+                e.preventDefault();
+                register($form);
+            });
+            
+            // on submit, register the form
+            $form.submit(function(e){
+                e.preventDefault();
+                register($form);
+            });
+        },
+        '#newsletter-popup-form': function() {
+            var $form = $('#newsletter-popup-form'),
+            $success = $('#sign-up-popup .form-message.success'),
+            $error = $('#sign-up-popup .form-message.error');
+
+            function register($form) {
+                $form.find('#newsletter-popup-form #mc-embedded-subscribe').html('Subscribing...');
+                $.ajax({
+                    type: 'GET',
+                    url: $form.attr('action'),
+                    data: $form.serialize(),
+                    dataType : 'jsonp',
+                    cache: false,
+                    jsonp: 'c',
+                    contentType: 'application/json; charset=utf-8',
+                    error: function(error){
+                        $form.hide();
+                        $error.css('display', 'block');
+                        $form.find('#mc-embedded-subscribe').html('Subscribe');
+                    },
+                    success: function(data) {
+                        if (data.result != "success") {
+                        if (data.msg && data.msg.indexOf("already subscribed") >= 0) {
+                            $error.text('You are already subscribed to the list.');
+                        } else {
+                            $error.text(data.msg);
+                        }
+                        $error.css('display', 'block');
+                        $success.css('display', 'none');
+                        $form.find('#mc-embedded-subscribe').html('Subscribe');
                         } else {
                         $form.hide();
                         $success.css('display', 'block');
