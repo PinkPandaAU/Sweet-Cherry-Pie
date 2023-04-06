@@ -1494,6 +1494,26 @@ function blocks() {
                 e.preventDefault();
                 register($form);
             });
+        },
+        '#discount-form': function() {
+            // $('#discount-form').submit(function(event) {
+            //     event.preventDefault();
+            //     var discountCode = $('#discount-code').val();
+            //     $.ajax({
+            //         type: 'POST',
+            //         url: '/cart/update.js',
+            //         data: { discount_code: discountCode },
+            //         dataType: 'json',
+            //         success: function(cart) {
+            //             alert('Discount applied successfully!');
+            //             // Optional: update the cart's contents and totals on the page
+            //             // by calling a separate AJAX request to the /cart.js endpoint
+            //         },
+            //         error: function(XMLHttpRequest, textStatus) {
+            //             alert('Error applying discount code: ' + textStatus);
+            //         }
+            //     });
+            // });
         }
     }
 

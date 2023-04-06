@@ -68,23 +68,23 @@
       </ul>
 
       <div class="s-cart__block">
-        <div class="s-cart__block-item">
+        {% comment %} <div class="s-cart__block-item">
           <div class="s-coupon">
             <div class="s-coupon__title">
               <h3>Discount code</h3>
             </div>
-            <div class="s-coupon__row">
+            <form id="discount-form" class="s-coupon__row">
               <div class="s-coupon__input">
-                <input type="text" name="coupon" placeholder="XXXX-XXXX">
+                <input type="text" id="discount-code" name="discount_code" placeholder="XXXX-XXXX">
               </div>
               <div class="s-coupon__btn">
-                <button type="button" class="s-button s-button--transparent">
+                <button type="submit" class="s-button s-button--transparent">
                   <span>Apply</span>
                 </button>
               </div>
-            </div>
+            </form>
           </div>
-        </div>
+        </div> {% endcomment %}
         <div class="s-cart__block-item">
           <div class="s-cart__row">
             <div class="s-cart__row-label">
@@ -104,7 +104,6 @@
           <span>Checkout</span>
         </a>
       </div>
-      {% comment %} <button onclick="emptyCart()">Empty Cart</button> {% endcomment %}
     </div>
   </div>
 </section>
