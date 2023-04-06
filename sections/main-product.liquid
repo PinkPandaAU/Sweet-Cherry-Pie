@@ -693,177 +693,177 @@
   </div>
 </section>
 <script>
-  let variantsObj = [];
-  let primaryObj = [];
-  let primaryVariantID = [];
-  let adding = false;
-  let selectedValues = {};
+    let variantsObj = [];
+    let primaryObj = [];
+    let primaryVariantID = [];
+    let adding = false;
+    let selectedValues = {};
 
-  const inputElements = document.querySelectorAll('.variants-primary input[type="radio"]');
+    const inputElements = document.querySelectorAll('.variants-primary input[type="radio"]');
 
-  inputElements.forEach(input => {
+    inputElements.forEach(input => {
 
-    // Check if the input element is checked by default
-    if (input.checked) {
-      const groupName = input.getAttribute('name');
-      const groupValue = input.value;
+        // Check if the input element is checked by default
+        if (input.checked) {
+            const groupName = input.getAttribute('name');
+            const groupValue = input.value;
 
-      selectedValues[groupName] = groupValue;
+            selectedValues[groupName] = groupValue;
+        }
+        input.addEventListener('change', () => {
+            if (input.checked) { // Get the group name and value of the input element
+                const groupName = input.getAttribute('name');
+                const groupValue = input.value;
+                selectedValues[groupName] = groupValue;
+
+                // Get an array of selected values
+                const selectedValuesArray = Object.values(selectedValues);
+                primaryObj = [];
+                primaryObj = [...selectedValuesArray];
+                console.log(primaryObj);
+                getVariant();
+            }
+        });
+    });
+    primaryObj = Object.values(selectedValues);
+
+    function getCartTotal() {
+        const xhttp = new XMLHttpRequest();
+
+        // Define a callback function
+        xhttp.onload = function () {
+            document.getElementById('cart-total').innerHTML = JSON.parse(xhttp.responseText)['cart-total'];
+        }
+
+        // Send a request
+        xhttp.open('GET', '/?sections=cart-total', true);
+        xhttp.send();
     }
-    input.addEventListener('change', () => {
-      if (input.checked) { // Get the group name and value of the input element
-        const groupName = input.getAttribute('name');
-        const groupValue = input.value;
-        selectedValues[groupName] = groupValue;
 
-        // Get an array of selected values
-        const selectedValuesArray = Object.values(selectedValues);
-        primaryObj = [];
-        primaryObj = [...selectedValuesArray];
-        console.log(primaryObj);
+    function addToCart() {
+        let formData = {
+            'items': []
+        };
+        adding = true;
+        document.getElementById('buy-now').innerHTML = '<span>Adding...</span>';
+        let qauntity = document.getElementById('quantity').value;
+        formData.items.push({ 'id': primaryVariantID, 'quantity': qauntity });
+        variantsObj.forEach(function (value) {
+            formData.items.push({ 'id': value, 'quantity': qauntity });
+        });
+        fetch(window.Shopify.routes.root + 'cart/add.js', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(formData)
+        }).then(response => {
+            document.getElementById('buy-now').style.display = "none";
+            document.getElementById('view-cart').style.display = "inline-flex";
+            getCartTotal();
+            adding = false;
+        }).catch((error) => {
+            console.error('Error:', error);
+            document.getElementById('buy-now').innerHTML = '<span>ERROR</span>';
+            adding = false;
+        });
+    }
+
+    document.getElementById('buy-now').addEventListener('click', function (event) {
+        event.preventDefault();
+        if (event.currentTarget.classList.contains('view-cart')) {
+            window.location.href = '/cart';
+        } else {
+            if (event.currentTarget.classList.contains('simple-product')) {
+                primaryVariantID = document.querySelector('input[name="id[]"]').value;
+            }
+            if (!adding) {
+                addToCart();
+            }
+        }
+    });
+    function getVariant() {
+        var handle = "{{ product.handle }}";
+        console.log(handle, "handle")
+
+        fetch(window.Shopify.routes.root + 'products/' + handle + '.js')
+            .then(response => response.json())
+            .then(product => {
+                if (product.variants) {
+                    product.variants.forEach(element => {
+                        if (JSON.stringify(element.options) == JSON.stringify(primaryObj)) {
+                            primaryVariantID = element.id;
+                            document.querySelector('.s-price__new').childNodes[0].textContent = "$" + element.price / 100;
+                        }
+                    });
+                }
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+    }
+    const primaryOptions = document.querySelectorAll('.s-shop-category__sort-dropdown ul');
+
+    if (primaryOptions != null && primaryOptions != "") {
+        primaryOptions.forEach((element, counter) => {
+            let i = 0;
+            for (let child of element.children) {
+                if (child.classList.contains('primary_sel')) {
+                    child.addEventListener('click', function (event) {
+                        let productId = event.target.getAttribute("data-value");
+                        let previousVal = "";
+                        let siblingTarget = "";
+                        for (let sibling of event.target.parentNode.parentNode.children) {
+                            if (sibling.classList.contains('selected-var')) {
+                                siblingTarget = sibling;
+                            }
+                            if (sibling.classList.contains('remove-custom_related_sel')) {
+                                sibling.classList.add('active');
+                            }
+                        }
+                        previousVal = siblingTarget.value;
+                        event.target.parentNode.parentNode.classList.add('added');
+
+                        // Remove old variant ID
+                        var index = primaryObj.indexOf(previousVal);
+                        if (index !== -1) {
+                            primaryObj.splice(index, 1);
+                        }
+                        siblingTarget.value = productId;
+
+                        // primaryObj.push(productId);
+                        primaryObj.splice(counter, 0, productId);
+                    });
+
+                    if (i == 0) {
+                        let productId = child.getAttribute("data-value");
+                        let previousVal = "";
+                        let siblingTarget = "";
+                        for (let sibling of child.parentNode.parentNode.children) {
+                            if (sibling.classList.contains('selected-var')) {
+                                siblingTarget = sibling;
+                            }
+                            if (sibling.classList.contains('remove-custom_related_sel')) {
+                                sibling.classList.add('active');
+                            }
+                        }
+                        previousVal = siblingTarget.value;
+                        child.parentNode.parentNode.classList.add('added');
+
+                        // Remove old variant ID
+                        var index = primaryObj.indexOf(previousVal);
+                        if (index !== -1) {
+                            primaryObj.splice(index, 1);
+                        }
+                        siblingTarget.value = productId;
+
+                        // primaryObj.push(productId);
+                        primaryObj.splice(counter, 0, productId);
+                    }
+                }
+                i++;
+            }
+        });
         getVariant();
-      }
-    });
-  });
-  primaryObj = Object.values(selectedValues);
-
-  function getCartTotal() {
-    const xhttp = new XMLHttpRequest();
-
-    // Define a callback function
-    xhttp.onload = function () {
-      document.getElementById('cart-total').innerHTML = JSON.parse(xhttp.responseText)['cart-total'];
     }
-
-    // Send a request
-    xhttp.open('GET', '/?sections=cart-total', true);
-    xhttp.send();
-  }
-
-  function addToCart() {
-    let formData = {
-      'items': []
-    };
-    adding = true;
-    document.getElementById('buy-now').innerHTML = '<span>Adding...</span>';
-    let qauntity = document.getElementById('quantity').value;
-    formData.items.push({ 'id': primaryVariantID, 'quantity': qauntity });
-    variantsObj.forEach(function (value) {
-      formData.items.push({ 'id': value, 'quantity': qauntity });
-    });
-    fetch(window.Shopify.routes.root + 'cart/add.js', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(formData)
-    }).then(response => {
-      document.getElementById('buy-now').style.display = "none";
-      document.getElementById('view-cart').style.display = "inline-flex";
-      getCartTotal();
-      adding = false;
-    }).catch((error) => {
-      console.error('Error:', error);
-      document.getElementById('buy-now').innerHTML = '<span>ERROR</span>';
-      adding = false;
-    });
-  }
-
-  document.getElementById('buy-now').addEventListener('click', function (event) {
-    event.preventDefault();
-    if (event.currentTarget.classList.contains('view-cart')) {
-      window.location.href = '/cart';
-    } else {
-      if (event.currentTarget.classList.contains('simple-product')) {
-        primaryVariantID = document.querySelector('input[name="id[]"]').value;
-      }
-      if (!adding) {
-        addToCart();
-      }
-    }
-  });
-  function getVariant() {
-    var handle = "{{product.handle}}";
-    console.log(handle, "handle")
-
-    fetch(window.Shopify.routes.root + 'products/' + handle + '.js')
-      .then(response => response.json())
-      .then(product => {
-        if (product.variants) {
-          product.variants.forEach(element => {
-            if (JSON.stringify(element.options) == JSON.stringify(primaryObj)) {
-              primaryVariantID = element.id;
-              document.querySelector('.s-price__new').childNodes[0].textContent = "$" + element.price / 100;
-            }
-          });
-        }
-      })
-      .catch((error) => {
-        console.error('Error:', error);
-      });
-  }
-  const primaryOptions = document.querySelectorAll('.s-shop-category__sort-dropdown ul');
-
-  if (primaryOptions != null && primaryOptions != "") {
-    primaryOptions.forEach((element, counter) => {
-      let i = 0;
-      for (let child of element.children) {
-        if (child.classList.contains('primary_sel')) {
-          child.addEventListener('click', function (event) {
-            let productId = event.target.getAttribute("data-value");
-            let previousVal = "";
-            let siblingTarget = "";
-            for (let sibling of event.target.parentNode.parentNode.children) {
-              if (sibling.classList.contains('selected-var')) {
-                siblingTarget = sibling;
-              }
-              if (sibling.classList.contains('remove-custom_related_sel')) {
-                sibling.classList.add('active');
-              }
-            }
-            previousVal = siblingTarget.value;
-            event.target.parentNode.parentNode.classList.add('added');
-
-            // Remove old variant ID
-            var index = primaryObj.indexOf(previousVal);
-            if (index !== -1) {
-              primaryObj.splice(index, 1);
-            }
-            siblingTarget.value = productId;
-
-            // primaryObj.push(productId);
-            primaryObj.splice(counter, 0, productId);
-          });
-
-          if (i == 0) {
-            let productId = child.getAttribute("data-value");
-            let previousVal = "";
-            let siblingTarget = "";
-            for (let sibling of child.parentNode.parentNode.children) {
-              if (sibling.classList.contains('selected-var')) {
-                siblingTarget = sibling;
-              }
-              if (sibling.classList.contains('remove-custom_related_sel')) {
-                sibling.classList.add('active');
-              }
-            }
-            previousVal = siblingTarget.value;
-            child.parentNode.parentNode.classList.add('added');
-
-            // Remove old variant ID
-            var index = primaryObj.indexOf(previousVal);
-            if (index !== -1) {
-              primaryObj.splice(index, 1);
-            }
-            siblingTarget.value = productId;
-
-            // primaryObj.push(productId);
-            primaryObj.splice(counter, 0, productId);
-          }
-        }
-        i++;
-      }
-    });
-    getVariant();
-  }
 </script>
