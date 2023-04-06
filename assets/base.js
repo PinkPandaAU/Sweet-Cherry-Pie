@@ -1167,15 +1167,15 @@ function blocks() {
 
 
         '#sign-up-popup': function () {
-            // if(getCookie('sign-up-popup')) return;
+            if(getCookie('sign-up-popup')) return;
 
             setCookie('sign-up-popup', 'true', 10)
 
-            // setTimeout(function () {
+            setTimeout(function () {
                 $.fancybox.open({
                     'src': '#sign-up-popup'
                 })
-            // }, 10000)
+            }, 10000)
         },
         '.s-quiz': function (popup) {
             let container = popup.find('.s-quiz__container')
