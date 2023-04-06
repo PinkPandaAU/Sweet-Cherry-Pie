@@ -6,22 +6,34 @@
     <div class="s-banner__content">
 
       {% if section.settings.subheading != blank %}
-        <div class="subtitle">
+        <!--<div class="subtitle">
           <span>{{ section.settings.subheading }}</span>
-        </div>
+        </div>-->
       {% endif %}
+
+      <div class="subtitle">
+        <span>Shop now</span>
+      </div>
 
       {% if section.settings.heading != blank %}
-        <div class="title-h1 title-animation" data-scroll data-scroll-call="title-visible">
+        <!--<div class="title-h1 title-animation" data-scroll data-scroll-call="title-visible">
           <h2>{{ section.settings.heading }}</h2>
-        </div>
+        </div>-->
       {% endif %}
 
+      <div class="title-h1 title-animation" data-scroll data-scroll-call="title-visible">
+          <h2>Not sure which product is right for you? Visit our store to compare toys.</h2>
+      </div>
+
       {% if section.settings.button_text != blank and section.settings.url != blank %}
-          <a href="{{ section.settings.url }}" class="s-button s-button--transparent s-button--white s-button--big">
+          <!--<a href="{{ section.settings.url }}" class="s-button s-button--transparent s-button--white s-button--big">
             <span>{{ section.settings.button_text }}</span>
-          </a>
+          </a>-->
       {% endif %}
+
+      <a href="{{ collections.all.url }}" class="s-button s-button--transparent s-button--white s-button--big">
+          <span>Shop now</span>
+        </a>
 
     </div>
   </div>
