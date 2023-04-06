@@ -19,6 +19,7 @@
     "feed_image_5": "shopify:\/\/shop_images\/photo13.jpg",
     "feed_image_6": "shopify:\/\/shop_images\/photo14.jpg",
     "checkout_logo_image": "shopify:\/\/shop_images\/logo.svg",
+    "checkout_sidebar_background_image": "shopify:\/\/shop_images\/iPhone_14_Pro_1.png",
     "checkout_accent_color": "#1f454d",
     "checkout_button_color": "#b36b77",
     "sections": {
