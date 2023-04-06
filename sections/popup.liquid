@@ -7,18 +7,24 @@
               <span>{{ settings.popup_message }}</span>
             </div>
             <div class="footer__form-input">
-              <input type="hidden" name="contact[tags]" value="newsletter">
-              <input type="email" name="contact[email]" placeholder="Enter your email" value="{% if customer %}{{ customer.email }}{% endif %}" autocorrect="off" autocapitalize="off" required>
+              <input type="email" name="EMAIL" id="mce-EMAIL" placeholder="Enter your email" value="{% if customer %}{{ customer.email }}{% endif %}" autocorrect="off" autocapitalize="off" required>
+            </div>
+            <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups -->
+            <div style="position: absolute; left: -5000px;" aria-hidden="true">
+              <input type="text" name="b_2309812fe370368d9e64611ba_48131c0f94" tabindex="-1" value=""></input>
+              <div class="clear">
+                <input type="submit" value="Subscribe" name="subscribe"></input>
+              </div>
             </div>
             <div class="footer__form-btn">
               <button class="s-button s-button--primary-light s-button--big" type="submit">
-                <span>Subscribe</span>
+                <span id="mc-embedded-subscribe">Subscribe</span>
               </button>
             </div>
             {{ form.errors | default_errors }}
         {% endform %}
 
-        <p style="display: none;" class="form-message success">Successfully Subscribed!</p>
+        <p style="display: none;" class="form-message success">Thanks for subscribing!<br>Keep an eye on your inbox for the discount code x</p>
         <p style="display: none;" class="form-message error">There was an error. Please try again later or contact us at <a href="mailto:info@sweetcherrypie.co">info@sweetcherrypie.co</a></p>
       </div>
       <div class="s-banner-popup__img">

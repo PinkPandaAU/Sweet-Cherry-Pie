@@ -2254,13 +2254,19 @@ a {
 
   .form-message {
     color: $color-white;
-    font-family: $ff-aeonik-bolditalic;
+    font-family: $ff-queensvar;
     padding: 30px;
     text-align: center;
     font-size: 20px;
     max-width: 400px;
     line-height: normal;
     margin: 0 auto;
+    height: 100%;
+    align-items: center;
+
+    &.error {
+      color: $color-black;
+    }
   }
 
   &__inner {

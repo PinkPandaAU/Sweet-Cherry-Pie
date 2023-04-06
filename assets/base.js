@@ -1167,15 +1167,15 @@ function blocks() {
 
 
         '#sign-up-popup': function () {
-            if(getCookie('sign-up-popup')) return;
+            // if(getCookie('sign-up-popup')) return;
 
             setCookie('sign-up-popup', 'true', 10)
 
-            setTimeout(function () {
+            // setTimeout(function () {
                 $.fancybox.open({
                     'src': '#sign-up-popup'
                 })
-            }, 10000)
+            // }, 10000)
         },
         '.s-quiz': function (popup) {
             let container = popup.find('.s-quiz__container')
@@ -1420,24 +1420,24 @@ function blocks() {
                     contentType: 'application/json; charset=utf-8',
                     error: function(error){
                         $form.hide();
-                        $error.css('display', 'block');
+                        $error.css('display', 'flex');
                         $form.find('#mc-embedded-subscribe').html('Subscribe');
                     },
                     success: function(data) {
                         if (data.result != "success") {
-                        if (data.msg && data.msg.indexOf("already subscribed") >= 0) {
-                            $error.text('You are already subscribed to the list.');
+                            if (data.msg && data.msg.indexOf("already subscribed") >= 0) {
+                                $error.text('You are already subscribed to the list.');
+                            } else {
+                                $error.text(data.msg);
+                            }
+                            $error.css('display', 'flex');
+                            $success.css('display', 'none');
+                            $form.find('#mc-embedded-subscribe').html('Subscribe');
                         } else {
-                            $error.text(data.msg);
-                        }
-                        $error.css('display', 'block');
-                        $success.css('display', 'none');
-                        $form.find('#mc-embedded-subscribe').html('Subscribe');
-                        } else {
-                        $form.hide();
-                        $success.css('display', 'block');
-                        $error.css('display', 'none');
-                        $success.text('Successfully Subscribed!');
+                            $form.hide();
+                            $success.css('display', 'flex');
+                            $error.css('display', 'none');
+                            $success.text('Successfully Subscribed!');
                         }
                     }
                 });
@@ -1471,7 +1471,7 @@ function blocks() {
                     contentType: 'application/json; charset=utf-8',
                     error: function(error){
                         $form.hide();
-                        $error.css('display', 'block');
+                        $error.css('display', 'flex');
                         $form.find('#mc-embedded-subscribe').html('Subscribe');
                     },
                     success: function(data) {
@@ -1481,12 +1481,12 @@ function blocks() {
                         } else {
                             $error.text(data.msg);
                         }
-                        $error.css('display', 'block');
+                        $error.css('display', 'flex');
                         $success.css('display', 'none');
                         $form.find('#mc-embedded-subscribe').html('Subscribe');
                         } else {
                         $form.hide();
-                        $success.css('display', 'block');
+                        $success.css('display', 'flex');
                         $error.css('display', 'none');
                         $success.text('Successfully Subscribed!');
                         }
