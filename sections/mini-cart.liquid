@@ -15,7 +15,7 @@
 
         {% if cart.item_count > 0 %}
         <div class="s-mini-cart__body">
-            <ul class="s-mini-cart__list">
+            <ul class="s-mini-cart__list cart-list">
                 {% for item in cart.items %}
                 <li class="s-mini-cart__item">
                     <div class="s-mini-cart__item-img">
@@ -31,7 +31,7 @@
                                 <span>{{ item.original_line_price | money }}</span>
                             </div>
                         </div>
-                        <div class="s-quantity">
+                        <div class="s-quantitycart">
                             <button type="button"
                                 class="s-quantitycart__btn btn-minus s-button s-button--round s-button--transparent s-arrow-link">
                                 <span class="s-arrow-link__ico">
@@ -39,7 +39,7 @@
                                     <img src="{{ 'ico-minus.svg' | asset_url }}" alt="" role="presentation">
                                 </span>
                             </button>
-                            <input type="text" name="quantity" value="1" step="1" min="1" max="" readonly="">
+                            <input type="text" name="quantity" value="{{ item.quantity }}" step="1" data-index="{{ item.index | plus: 1 }}" step="1" min="1" readonly="">
                             <button type="button"
                                 class="s-quantitycart__btn btn-plus s-button s-button--round s-button--transparent s-arrow-link">
                                 <span class="s-arrow-link__ico">
@@ -118,7 +118,7 @@
         {% if cart.item_count == 0 %}
         <div class="s-mini-cart__empty">
             <div class="s-mini-cart__empty-ico">
-                <img src="images/ico-cart-big.svg" alt="Empty cart">
+                <img src="{{ 'ico-cart-big.svg' | asset_url }}" alt="Empty cart">
             </div>
             <div class="title-h2 title-animation" data-scroll data-scroll-call="title-visible">
                 <span>There are currently no items in your cart</span>

@@ -20,16 +20,16 @@
     width: 100%;
   }
 
-  &.is-empty{
-    .s-mini-cart__body{
-      display: none;
-    }
-  }
-  &:not(.is-empty){
-    .s-mini-cart__empty{
-      display: none;
-    }
-  }
+  // &.is-empty{
+  //   .s-mini-cart__body{
+  //     display: none;
+  //   }
+  // }
+  // &:not(.is-empty){
+  //   .s-mini-cart__empty{
+  //     display: none;
+  //   }
+  // }
   &__inner{
     display: flex;
     justify-content: flex-end;

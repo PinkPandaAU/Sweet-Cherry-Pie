@@ -737,6 +737,22 @@
         xhttp.send();
     }
 
+    function loadMiniCart() {
+        // Create an XMLHttpRequest object
+        const xhttp = new XMLHttpRequest();
+
+        // Define a callback function
+        xhttp.onload = function () {
+            // Here you can use the Data
+            jQuery('#mini-cart').html(JSON.parse(xhttp.responseText)['mini-cart']);
+            $('#mini-cart').removeClass('in-process');
+        }
+
+        // Send a request
+        xhttp.open('GET', '/?sections=mini-cart', true);
+        xhttp.send();
+    }
+
     function addToCart() {
         let formData = {
             'items': []
@@ -759,10 +775,12 @@
             document.getElementById('view-cart').style.display = "inline-flex";
             getCartTotal();
             adding = false;
+            loadMiniCart();
         }).catch((error) => {
             console.error('Error:', error);
             document.getElementById('buy-now').innerHTML = '<span>ERROR</span>';
             adding = false;
+            loadMiniCart();
         });
     }
 

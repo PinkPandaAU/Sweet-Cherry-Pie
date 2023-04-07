@@ -62,20 +62,21 @@ function loadCart() {
     xhttp.send();
 }
 
-function updateCart(empty = false) {
+function updateCart(empty = false, $cartList) {
     let quantityPlus = [];
     if (!empty) {
-        $('.s-cart__list .s-quantitycart input').each(function () {
+        $cartList.find('.s-quantitycart input').each(function () {
             quantityPlus.push($(this).val());
         });
     } else {
-        $('.s-cart__list .s-quantitycart input').each(function () {
+        $cartList.find('.s-quantitycart input').each(function () {
             quantityPlus.push(0);
         });
     }
 
     jQuery.post(window.Shopify.routes.root + 'cart/update.js', { updates: quantityPlus }, function (response) {
         loadCart();
+        loadMiniCart();
     });
 }
 
@@ -837,15 +838,12 @@ function blocks() {
                 (e = t.hasClass("btn-minus") ? !0 : e) ? m < (o = i - a) ? n.val(o) : n.val(m): (o = i + a, void 0 !== d && d <= o ? n.val(d) : n.val(o)), n.trigger("change")
             })
         },
-        '.s-quantitycart': function () {
-            let inpNumber = '.s-quantitycart'
-            let inpNumberEl = '.s-quantitycart input'
+        'body': function () {
+            let inpNumber = '.s-quantitycart';
+            let inpNumberEl = '.s-quantitycart input';
 
-            let minusBtn = '.s-quantitycart__btn.btn-minus'
-            let plusBtn = '.s-quantitycart__btn.btn-plus'
-
-
-
+            let minusBtn = '.s-quantitycart__btn.btn-minus';
+            let plusBtn = '.s-quantitycart__btn.btn-plus';
 
             $(document).on('click', minusBtn, function (e) {
                 e.preventDefault();
@@ -855,12 +853,12 @@ function blocks() {
 
                 $('#cart-items').addClass('in-process');
                 setTimeout(() => {
-                    updateCart();
+                    updateCart(false, $(this).parents('.cart-list'));
                 }, 500);
             })
             $(document).on('click', '#empty-cart', function (e) {
                 e.preventDefault();
-                updateCart(true);
+                updateCart(true, $(this).parents('.cart-list'));
             });
             $(document).on('click', plusBtn, function (e) {
                 e.preventDefault();
@@ -870,7 +868,7 @@ function blocks() {
                 inputEl.val(thisVal + 1);
                 $('#cart-items').addClass('in-process');
                 setTimeout(() => {
-                    updateCart();
+                    updateCart(false, $(this).parents('.cart-list'));
                 }, 500);
                 // }
             })
@@ -888,7 +886,7 @@ function blocks() {
                     $(this).val(thisMax)
 
                 setTimeout(() => {
-                    updateCart();
+                    updateCart(false, $(this).parents('.cart-list'));
                 }, 500);
             })
         },
@@ -1484,8 +1482,16 @@ function blocks() {
                 },200)
             }
 
-            btnClose.on('click', closePopup)
-            btnRemove.on('click', removeItem)
+            // btnClose.on('click', closePopup)
+            // btnRemove.on('click', removeItem)
+
+            $(document).on('click', '.s-mini-cart__close', function (e) {
+                closePopup();
+            });
+
+            $(document).on('click', '.s-mini-cart__item-remove', function (e) {
+                removeItem();
+            });
 
             $('a[href="mini-cart"]').on('click', function (e) {
                 e.preventDefault()
