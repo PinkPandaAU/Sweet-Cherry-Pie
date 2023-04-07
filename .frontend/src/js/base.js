@@ -1086,7 +1086,9 @@ function blocks() {
             let steps = popup.find('.s-quiz__step')
             let stepInputs = steps.find('[required]')
             let stepTitles = popup.find('.s-quiz__title>*')
+            let stepError = popup.find('.s-quiz__step-text')
             let stepNum = popup.find('.s-quiz__num')
+            let stepLastText = popup.find('.s-quiz__subtitle .is-last')
             let step = 0;
             let lastStep = steps.length - 1;
             let openOnce = true
@@ -1134,10 +1136,19 @@ function blocks() {
                 if(isValid){
                     if(e)
                         setStepNext()
-                    popup.removeClass('is-error')
+                    stepError.slideUp(300)
+                    setTimeout(function () {
+                        popup.removeClass('is-error')
+                    }, 200)
+
                 } else {
-                    if(!openOnce)
-                        popup.addClass('is-error')
+                    if(!openOnce) {
+                        stepError.slideDown(300)
+
+                        setTimeout(function () {
+                            popup.addClass('is-error')
+                        }, 200)
+                    }
                 }
 
                 return isValid;
@@ -1186,15 +1197,24 @@ function blocks() {
                     btnListLi.eq(step).addClass('is-active')
 
                     if(step !== 0){
-                        btnPrev.fadeIn(300)
+                        btnPrev.removeAttr('disabled')
                     } else {
-                        btnPrev.fadeOut(300)
+                        btnPrev.attr('disabled', 'disabled')
                     }
 
                     if(step !== lastStep){
                         popup.find('.s-quiz__bottom-next').fadeIn(300)
+
+                        stepLastText.fadeOut(300, function () {
+                            stepNum.parent().fadeIn(300)
+                        })
                     } else {
                         popup.find('.s-quiz__bottom-next').fadeOut(300)
+
+                        stepNum.parent().fadeOut(300, function () {
+                            stepLastText.fadeIn(300)
+                        })
+
                     }
 
                     if(step+1 < 10){
@@ -1243,6 +1263,12 @@ function blocks() {
                 openOnce = false
             }
             function setStepPrev() {
+                setTimeout(function () {
+                    stepError.slideUp(300)
+                    setTimeout(function () {
+                        popup.removeClass('is-error')
+                    }, 200)
+                }, 200)
                 if(step-1 >= 0)
                     setStep(step-1)
             }
@@ -1257,6 +1283,10 @@ function blocks() {
 
             function openPopup() {
                 popup.fadeIn(200)
+                if(!$('.header').hasClass('menu-open') && !$('.header').hasClass('menu-open-search')){
+                    scroller.stop()
+                    $('html').addClass('overflow-hidden')
+                }
                 setTimeout(function () {
                     popup.addClass('is-open')
                     popup.addClass('was-open')
@@ -1267,6 +1297,10 @@ function blocks() {
             }
             function closePopup() {
                 popup.removeClass('is-open')
+                if(!$('.header').hasClass('menu-open') && !$('.header').hasClass('menu-open-search')){
+                    scroller.start()
+                    $('html').removeClass('overflow-hidden')
+                }
                 setTimeout(function () {
                     popup.fadeOut(300)
                 },200)
