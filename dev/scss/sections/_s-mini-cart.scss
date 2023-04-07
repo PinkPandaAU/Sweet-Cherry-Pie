@@ -13,6 +13,13 @@
   display: none;
   overflow: hidden;
 
+  > .shopify-section {
+    display: flex;
+    justify-content: flex-end;
+    height: 100%;
+    width: 100%;
+  }
+
   &.is-empty{
     .s-mini-cart__body{
       display: none;

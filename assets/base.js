@@ -29,6 +29,56 @@ function isElementXPxInViewport(el) {
     );
 }
 
+
+function loadMiniCart() {
+    // Create an XMLHttpRequest object
+    const xhttp = new XMLHttpRequest();
+
+    // Define a callback function
+    xhttp.onload = function () {
+        // Here you can use the Data
+        jQuery('#mini-cart').html(JSON.parse(xhttp.responseText)['mini-cart']);
+        $('#mini-cart').removeClass('in-process');
+    }
+
+    // Send a request
+    xhttp.open('GET', '/?sections=mini-cart', true);
+    xhttp.send();
+}
+
+function loadCart() {
+    // Create an XMLHttpRequest object
+    const xhttp = new XMLHttpRequest();
+
+    // Define a callback function
+    xhttp.onload = function () {
+        // Here you can use the Data
+        jQuery('#cart-items').html(JSON.parse(xhttp.responseText)['cart-items']);
+        $('#cart-items').removeClass('in-process');
+    }
+
+    // Send a request
+    xhttp.open('GET', '/?sections=cart-items', true);
+    xhttp.send();
+}
+
+function updateCart(empty = false) {
+    let quantityPlus = [];
+    if (!empty) {
+        $('.s-cart__list .s-quantitycart input').each(function () {
+            quantityPlus.push($(this).val());
+        });
+    } else {
+        $('.s-cart__list .s-quantitycart input').each(function () {
+            quantityPlus.push(0);
+        });
+    }
+
+    jQuery.post(window.Shopify.routes.root + 'cart/update.js', { updates: quantityPlus }, function (response) {
+        loadCart();
+    });
+}
+
 function dropdown(options) {
     let opts = {
         closeOnClick: true,
@@ -795,38 +845,7 @@ function blocks() {
             let plusBtn = '.s-quantitycart__btn.btn-plus'
 
 
-            function loadCart() {
-                // Create an XMLHttpRequest object
-                const xhttp = new XMLHttpRequest();
 
-                // Define a callback function
-                xhttp.onload = function () {
-                    // Here you can use the Data
-                    jQuery('#cart-items').html(JSON.parse(xhttp.responseText)['cart-items']);
-                    $('#cart-items').removeClass('in-process');
-                }
-
-                // Send a request
-                xhttp.open('GET', '/?sections=cart-items', true);
-                xhttp.send();
-            }
-
-            function updateCart(empty = false) {
-                let quantityPlus = [];
-                if (!empty) {
-                    $('.s-cart__list .s-quantitycart input').each(function () {
-                        quantityPlus.push($(this).val());
-                    });
-                } else {
-                    $('.s-cart__list .s-quantitycart input').each(function () {
-                        quantityPlus.push(0);
-                    });
-                }
-
-                jQuery.post(window.Shopify.routes.root + 'cart/update.js', { updates: quantityPlus }, function (response) {
-                    loadCart();
-                });
-            }
 
             $(document).on('click', minusBtn, function (e) {
                 e.preventDefault();
@@ -1447,7 +1466,6 @@ function blocks() {
                 })
             }
 
-
             function openPopup() {
                 popup.fadeIn(200)
                 setTimeout(function () {
@@ -1458,6 +1476,7 @@ function blocks() {
                     scroller.update()
                 }, 600)
             }
+
             function closePopup() {
                 popup.removeClass('is-open')
                 setTimeout(function () {
@@ -1478,6 +1497,7 @@ function blocks() {
                 if(target.hasClass('s-mini-cart__inner'))
                     closePopup()
             })
+            loadMiniCart();
         },
         '#newsletter-form': function() {
             var $form = $('#newsletter-form'),
