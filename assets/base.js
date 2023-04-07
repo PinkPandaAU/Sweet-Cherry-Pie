@@ -1001,18 +1001,6 @@ function blocks() {
                 header.find('.header__search-inner input').blur()
             })
 
-            function animateSticky(down = true) {
-                if($(window).width() <= 768) return;
-                $('[data-scroll-sticky]').each(function () {
-                    if(typeof $(this).attr('data-scroll-dont-check') !== 'undefined') return;
-                    if((down && this.getBoundingClientRect().top < 5) || !down){
-                        let maxSticky = Math.round($(this).closest($(this).attr('data-scroll-target')).height() - $(this).height())
-                        let currentSticky = Math.round(parseFloat(this.style['transform'].split(',')[13]) + $('.header').height())
-                        if(down && (currentSticky >= maxSticky)) return;
-                        $(this).stop().animate({top: down ? header.height() : '0'}, 300)
-                    }
-                })
-            }
             scroller.on('scroll', function (e) {
                 if($('.header').hasClass('menu-open') || $('.header').hasClass('menu-open-search')) return;
                 if(e.scroll.y > header.height()) {
@@ -1025,10 +1013,8 @@ function blocks() {
                             }, 10)
                         } else if(!header.hasClass('is-hidden')) {
                             header.addClass('is-hidden')
-                            animateSticky(false)
                         }
                     } else if(header.hasClass('is-hidden')) {
-                        animateSticky()
                         header.removeClass('is-hidden')
                     }
                 } else {
@@ -1186,7 +1172,9 @@ function blocks() {
             let steps = popup.find('.s-quiz__step')
             let stepInputs = steps.find('[required]')
             let stepTitles = popup.find('.s-quiz__title>*')
+            let stepError = popup.find('.s-quiz__step-text')
             let stepNum = popup.find('.s-quiz__num')
+            let stepLastText = popup.find('.s-quiz__subtitle .is-last')
             let step = 0;
             let lastStep = steps.length - 1;
             let openOnce = true
@@ -1234,10 +1222,19 @@ function blocks() {
                 if(isValid){
                     if(e)
                         setStepNext()
-                    popup.removeClass('is-error')
+                    stepError.slideUp(300)
+                    setTimeout(function () {
+                        popup.removeClass('is-error')
+                    }, 200)
+
                 } else {
-                    if(!openOnce)
-                        popup.addClass('is-error')
+                    if(!openOnce) {
+                        stepError.slideDown(300)
+
+                        setTimeout(function () {
+                            popup.addClass('is-error')
+                        }, 200)
+                    }
                 }
 
                 return isValid;
@@ -1286,15 +1283,24 @@ function blocks() {
                     btnListLi.eq(step).addClass('is-active')
 
                     if(step !== 0){
-                        btnPrev.fadeIn(300)
+                        btnPrev.removeAttr('disabled')
                     } else {
-                        btnPrev.fadeOut(300)
+                        btnPrev.attr('disabled', 'disabled')
                     }
 
                     if(step !== lastStep){
                         popup.find('.s-quiz__bottom-next').fadeIn(300)
+
+                        stepLastText.fadeOut(300, function () {
+                            stepNum.parent().fadeIn(300)
+                        })
                     } else {
                         popup.find('.s-quiz__bottom-next').fadeOut(300)
+
+                        stepNum.parent().fadeOut(300, function () {
+                            stepLastText.fadeIn(300)
+                        })
+
                     }
 
                     if(step+1 < 10){
@@ -1343,6 +1349,12 @@ function blocks() {
                 openOnce = false
             }
             function setStepPrev() {
+                setTimeout(function () {
+                    stepError.slideUp(300)
+                    setTimeout(function () {
+                        popup.removeClass('is-error')
+                    }, 200)
+                }, 200)
                 if(step-1 >= 0)
                     setStep(step-1)
             }
@@ -1357,6 +1369,10 @@ function blocks() {
 
             function openPopup() {
                 popup.fadeIn(200)
+                if(!$('.header').hasClass('menu-open') && !$('.header').hasClass('menu-open-search')){
+                    scroller.stop()
+                    $('html').addClass('overflow-hidden')
+                }
                 setTimeout(function () {
                     popup.addClass('is-open')
                     popup.addClass('was-open')
@@ -1367,6 +1383,10 @@ function blocks() {
             }
             function closePopup() {
                 popup.removeClass('is-open')
+                if(!$('.header').hasClass('menu-open') && !$('.header').hasClass('menu-open-search')){
+                    scroller.start()
+                    $('html').removeClass('overflow-hidden')
+                }
                 setTimeout(function () {
                     popup.fadeOut(300)
                 },200)
@@ -1400,6 +1420,62 @@ function blocks() {
                 let target = $(e.target)
 
                 if((target.hasClass('s-quiz') || !target.closest('.s-quiz__container').length) && !target.closest('[href="take-quiz"]').length)
+                    closePopup()
+            })
+        },
+        '.s-mini-cart': function (popup) {
+            let btnClose = popup.find('.s-mini-cart__close')
+            let btnRemove = popup.find('.s-mini-cart__item-remove')
+
+
+            function removeItem() {
+                let thisBtn = $(this)
+                let thisItem = thisBtn.closest('.s-mini-cart__item')
+
+                thisItem.fadeOut(300, function () {
+                    thisItem.remove()
+
+                    if(!popup.find('.s-mini-cart__item').length) {
+                        popup.find('.s-mini-cart__body').fadeOut(300, function () {
+                            popup.addClass('is-empty')
+                            popup.find('.s-mini-cart__empty').hide().fadeIn(300, function () {
+                                scroller.update()
+                            })
+                        })
+
+                    }
+                })
+            }
+
+
+            function openPopup() {
+                popup.fadeIn(200)
+                setTimeout(function () {
+                    popup.addClass('is-open')
+                    popup.addClass('was-open')
+                },10)
+                setTimeout(function () {
+                    scroller.update()
+                }, 600)
+            }
+            function closePopup() {
+                popup.removeClass('is-open')
+                setTimeout(function () {
+                    popup.fadeOut(300)
+                },200)
+            }
+
+            btnClose.on('click', closePopup)
+            btnRemove.on('click', removeItem)
+
+            $('a[href="mini-cart"]').on('click', function (e) {
+                e.preventDefault()
+                openPopup()
+            })
+            $(document).on('click', '.s-mini-cart__inner', function (e) {
+                if(!popup.hasClass('is-open')) return;
+                let target = $(e.target)
+                if(target.hasClass('s-mini-cart__inner'))
                     closePopup()
             })
         },
