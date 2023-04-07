@@ -31,7 +31,6 @@ function isElementXPxInViewport(el) {
 
 
 function loadMiniCart() {
-    $('#mini-cart').addClass('in-process');
     // Create an XMLHttpRequest object
     const xhttp = new XMLHttpRequest();
     // Define a callback function
@@ -73,6 +72,7 @@ function updateCart(empty = false, $cartList) {
             quantityPlus.push(0);
         });
     }
+    $('#mini-cart').addClass('in-process');
 
     jQuery.post(window.Shopify.routes.root + 'cart/update.js', { updates: quantityPlus }, function (response) {
         loadCart();
@@ -852,6 +852,7 @@ function blocks() {
                 inputEl.val(thisVal - 1);
 
                 $('#cart-items').addClass('in-process');
+                $('#mini-cart').addClass('in-process');
                 setTimeout(() => {
                     updateCart(false, $(this).parents('.cart-list'));
                 }, 500);
@@ -867,6 +868,7 @@ function blocks() {
                 // if(thisVal < parseInt(inputEl.attr('max'))) {
                 inputEl.val(thisVal + 1);
                 $('#cart-items').addClass('in-process');
+                $('#mini-cart').addClass('in-process');
                 setTimeout(() => {
                     updateCart(false, $(this).parents('.cart-list'));
                 }, 500);
