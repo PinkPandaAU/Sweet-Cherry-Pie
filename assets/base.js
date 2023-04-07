@@ -31,9 +31,9 @@ function isElementXPxInViewport(el) {
 
 
 function loadMiniCart() {
+    $('#mini-cart').addClass('in-process');
     // Create an XMLHttpRequest object
     const xhttp = new XMLHttpRequest();
-
     // Define a callback function
     xhttp.onload = function () {
         // Here you can use the Data
@@ -1441,26 +1441,31 @@ function blocks() {
             })
         },
         '.s-mini-cart': function (popup) {
-            let btnClose = popup.find('.s-mini-cart__close')
-            let btnRemove = popup.find('.s-mini-cart__item-remove')
+            // let btnClose = popup.find('.s-mini-cart__close')
+            // let btnRemove = popup.find('.s-mini-cart__item-remove')
 
 
-            function removeItem() {
-                let thisBtn = $(this)
-                let thisItem = thisBtn.closest('.s-mini-cart__item')
+            function removeItem(target) {
+                let thisBtn = target;
+                let thisItem = thisBtn.closest('.s-mini-cart__item');
 
                 thisItem.fadeOut(300, function () {
-                    thisItem.remove()
+                    // thisItem.remove();
+                    thisItem.find('.s-quantitycart input').val(0);
 
-                    if(!popup.find('.s-mini-cart__item').length) {
-                        popup.find('.s-mini-cart__body').fadeOut(300, function () {
-                            popup.addClass('is-empty')
-                            popup.find('.s-mini-cart__empty').hide().fadeIn(300, function () {
-                                scroller.update()
-                            })
-                        })
-
-                    }
+                    // if(!popup.find('.s-mini-cart__item').length) {
+                        // popup.find('.s-mini-cart__body').fadeOut(300, function () {
+                        //     popup.addClass('is-empty');
+                        //     popup.find('.s-mini-cart__empty').hide().fadeIn(300, function () {
+                        //         scroller.update();
+                        //     });
+                        //     updateCart();
+                        //     loadMiniCart();
+                        //     loadCart();
+                        // })
+                    // }
+                    scroller.update();
+                    updateCart(false, $(this).parents('.cart-list'));
                 })
             }
 
@@ -1490,7 +1495,7 @@ function blocks() {
             });
 
             $(document).on('click', '.s-mini-cart__item-remove', function (e) {
-                removeItem();
+                removeItem($(this));
             });
 
             $('a[href="mini-cart"]').on('click', function (e) {

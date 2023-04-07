@@ -13,6 +13,11 @@
   display: none;
   overflow: hidden;
 
+  &.in-process {
+    filter: blur(3px) grayscale(1);
+    cursor: disabled;
+  }
+
   > .shopify-section {
     display: flex;
     justify-content: flex-end;
