@@ -241,4 +241,11 @@
     }
 
   }
+  @media (max-height: 666px) {
+    .s-mini-cart__container {
+        border-radius: 0;
+        max-width: 100%;
+      }
+
+  }
 }
