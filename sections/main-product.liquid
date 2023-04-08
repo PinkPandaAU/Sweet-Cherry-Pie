@@ -219,7 +219,7 @@
                 	{% assign star_rating = '4.5' %}
                 {% endif %}
 
-                <div class="s-stars stars-{{ star_rating | replace: '.', '-' | replace: '-0', '' }}">
+                <div class="s-stars stars-{{ star_rating | replace: '.', '-' | replace: '-0', '' }}" style="margin-left: 0;">
                   <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18" height="18" viewBox="0 0 18 18">
                     <defs>
                       <clipPath id="clip-path">
@@ -449,8 +449,7 @@
                     </article>
                   {% if mod == 1 or forloop.last %}
                     </div>
-                    <br>
-                    <br>
+                    
                   {% endif %}
                   {% assign counter = counter | plus: 1 %}
                 {% endif %}
