@@ -501,25 +501,17 @@
         </form>
 
         <div class="s-product__wrapper mobile-show">
+
+
           <ul class="s-product__info">
-            <li>
-              <div class="s-product__info-ico">
-                <img src="{{ 'ico-product-info.svg' | asset_url }}" alt="" width="32" height="32">
-              </div>
-              <span>Discreet packaging</span>
-            </li>
-            <li>
-              <div class="s-product__info-ico">
-                <img src="{{ 'ico-product-info.svg' | asset_url }}" alt="" width="32" height="32">
-              </div>
-              <span>Multi-patterns + intensities</span>
-            </li>
-            <li>
-              <div class="s-product__info-ico">
-                <img src="{{ 'ico-product-info.svg' | asset_url }}" alt="" width="32" height="32">
-              </div>
-              <span>Rechargeble battery</span>
-            </li>
+            {% for feature in product.metafields.custom.product_features.value %}
+              <li>
+                <div class="s-product__info-ico">
+                  <img src="{{ feature.image | img_url: '' }}" alt="" width="32" height="32">
+                </div>
+                <span>{{ feature.title }}</span>
+              </li>
+            {% endfor %}
           </ul>
 
           <div class="s-product__banner">
