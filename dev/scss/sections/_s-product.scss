@@ -565,6 +565,12 @@
 
     }
   }
+
+  .separator {
+    margin-bottom: 10px;
+    display: block;
+  }
+  
   @media (max-width: 991px) {
     .s-product__gallery {
       flex-direction: column-reverse;

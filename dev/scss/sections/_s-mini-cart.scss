@@ -15,7 +15,10 @@
 
   &.in-process {
     filter: blur(3px) grayscale(1);
-    cursor: disabled;
+    cursor: progress;
+    * {
+      pointer-events: none;
+    }
   }
 
   > .shopify-section {
