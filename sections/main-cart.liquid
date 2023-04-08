@@ -8,7 +8,9 @@
               <div class="s-cart__block-item">
                 <div class="s-cart__item">
                   <div class="s-cart__item-img">
-                    <img src="{{ item.image | img_url:'' }}" alt="{{ item.image.alt | escape }}">
+                    <a href="{{ item.url }}">
+                      <img src="{{ item.image | img_url:'' }}" alt="{{ item.image.alt | escape }}">
+                    </a>
                   </div>
                   <div class="s-cart__item-title title-h3 title-animation" data-scroll data-scroll-call="title-visible">
                     <h3>{{ item.product.title }}</h3>

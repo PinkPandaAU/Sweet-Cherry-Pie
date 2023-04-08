@@ -19,7 +19,9 @@
                 {% for item in cart.items %}
                 <li class="s-mini-cart__item">
                     <div class="s-mini-cart__item-img">
-                        <img src="{{ item.image | img_url:'' }}" alt="{{ item.image.alt | escape }}">
+                        <a href="{{ item.url }}">
+                            <img src="{{ item.image | img_url:'' }}" alt="{{ item.image.alt | escape }}">
+                        </a>
                     </div>
                     <div class="s-mini-cart__item-content">
                         <div class="s-cart__item-title title-h4">
