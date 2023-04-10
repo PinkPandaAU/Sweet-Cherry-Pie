@@ -449,7 +449,7 @@
                     </article>
                   {% if mod == 1 or forloop.last %}
                     </div>
-                    
+                    <span class="separator"></span>
                   {% endif %}
                   {% assign counter = counter | plus: 1 %}
                 {% endif %}
@@ -750,10 +750,11 @@
         };
         adding = true;
         document.getElementById('buy-now').innerHTML = '<span>Adding...</span>';
-        let qauntity = document.getElementById('quantity').value;
-        formData.items.push({ 'id': primaryVariantID, 'quantity': qauntity });
+        document.getElementById('buy-now-mobile').innerHTML = '<span>Adding...</span>';
+        let quantity = document.getElementById('quantity').value;
+        formData.items.push({ 'id': primaryVariantID, 'quantity': quantity });
         variantsObj.forEach(function (value) {
-            formData.items.push({ 'id': value, 'quantity': qauntity });
+            formData.items.push({ 'id': value, 'quantity': quantity });
         });
         fetch(window.Shopify.routes.root + 'cart/add.js', {
             method: 'POST',
@@ -763,19 +764,123 @@
             body: JSON.stringify(formData)
         }).then(response => {
             document.getElementById('buy-now').style.display = "none";
+            document.getElementById('buy-now-mobile').style.display = "none";
             document.getElementById('view-cart').style.display = "inline-flex";
-            getCartTotal();
+            document.getElementById('view-cart-mobile').style.display = "inline-flex";
             adding = false;
+            getCartTotal();
             loadMiniCart();
         }).catch((error) => {
             console.error('Error:', error);
             document.getElementById('buy-now').innerHTML = '<span>ERROR</span>';
             adding = false;
+            getCartTotal();
             loadMiniCart();
         });
     }
 
+    function addSimple(productID, event) {
+        let formData = {
+            'items': []
+        };
+        $.ajax({
+          type: 'GET',
+          url: '/cart.js',
+          dataType: 'json',
+          cache: false,
+          success: function(cartData) {
+            if(event.target.classList.contains('added')) {
+              const existingItem = cartData.items.find(item => item.id === parseInt(productID));
+              if (existingItem) {
+                removeSimpleFromCart(existingItem.id, event);
+              }
+            } else {
+              formData = {
+                  'items': []
+              };
+              formData.items.push({ 'id': productID, 'quantity': 1 });
+              addSimpleToCart(formData, event);
+            }
+          }
+        });
+    }
+
+    function updateButton(event, status) {
+      getCartTotal();
+      loadMiniCart();
+      if(status) {
+        if(event.target.classList.contains('added')) {
+            event.target.classList.remove('added');
+            event.target.textContent = "ADD +";
+        } else {
+            event.target.textContent = "Remove -";
+            event.target.classList.add('added');
+        }
+      } else {
+        if(event.target.classList.contains('added')) {
+            event.target.textContent = "Error Removing.";
+            setTimeout(function () {
+                event.target.textContent = "Remove -";
+            }, 2000);
+        } else {
+            event.target.textContent = "Error Adding.";
+            setTimeout(function () {
+                event.target.textContent = "ADD +";
+            }, 2000);
+        }
+      }
+
+    }
+
+    function addSimpleToCart(formData, event) {
+      fetch(window.Shopify.routes.root + 'cart/add.js', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(formData)
+      }).then(response => {
+          updateButton(event, true);
+      }).catch((error) => {
+          console.error('Error:', error);
+          updateButton(event, false);
+      });
+    }
+
+
+    function removeSimpleFromCart(lineItemId, event) {
+      // assuming `lineItemId` is the ID of the item you want to remove one quantity of
+      $.ajax({
+        type: 'POST',
+        url: '/cart/change.js',
+        dataType: 'json',
+        data: {
+          id: lineItemId,
+          quantity: -1
+        },
+        success: function(cartData) {
+          updateButton(event, true);
+        }, error: function() {
+          updateButton(event, false);
+        }
+      });
+    }
+
     document.getElementById('buy-now').addEventListener('click', function (event) {
+        event.preventDefault();
+        if (event.currentTarget.classList.contains('view-cart')) {
+            window.location.href = '/cart';
+        } else {
+            if (event.currentTarget.classList.contains('simple-product')) {
+                primaryVariantID = document.querySelector('input[name="id[]"]').value;
+            }
+            if (!adding) {
+                addToCart();
+            }
+        }
+    });
+
+    document.getElementById('buy-now-mobile').addEventListener('click', function (event) {
         event.preventDefault();
         if (event.currentTarget.classList.contains('view-cart')) {
             window.location.href = '/cart';
@@ -880,18 +985,11 @@
             element.addEventListener('click', function (event) {
                 const productId = event.target.getAttribute("data-id");
                 if(event.target.classList.contains('added')) {
-                    event.target.classList.remove('added');
-                    event.target.textContent = "ADD +";
-                    var index = variantsObj.indexOf(productId);
-                    if (index !== -1) {
-                        variantsObj.splice(index, 1);
-                    }
+                  event.target.textContent = "Removing...";
                 } else {
-                    variantsObj.push(productId);
-                    event.target.textContent = "Remove -";
-                    event.target.classList.add('added');
+                  event.target.textContent = "Adding...";
                 }
-                console.log(variantsObj);
+                addSimple(productId, event);
             });
         });
     }

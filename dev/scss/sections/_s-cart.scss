@@ -10,7 +10,10 @@
         
     &.in-process {
       opacity: 0.4;
-      cursor: disabled;
+      cursor: progress;
+      * {
+        pointer-events: none;
+      }
     }
   }
   &__list {

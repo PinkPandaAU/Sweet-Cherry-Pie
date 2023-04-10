@@ -73,14 +73,13 @@
     {% endif %}
 
     <div class="s-mini-cart" id="mini-cart"></div>
-
     {% if template == 'product' %}
       <div class="s-product__fixed-btn float-btn">
         <button type="submit" name="add" class="s-button s-button--big s-button--black{%if product.has_only_default_variant %} simple-product {% endif %}"
-              {% if product.available %} id="buy-now" {% else %} disabled="disabled" {% endif %}>
+              {% if product.available %} id="buy-now-mobile" {% else %} disabled="disabled" {% endif %}>
           <span>{% if product.available %}Add to cart{% else %}Sold out{% endif %}</span>
         </button>
-        <a href="/cart" name="view" id="view-cart" class="s-button s-button s-button--big s-button--black" style="display: none;">
+        <a href="/cart" name="view" id="view-cart-mobile" class="s-button s-button s-button--big s-button--black" style="display: none;">
             <span>View cart</span>
         </a>
       </div>
