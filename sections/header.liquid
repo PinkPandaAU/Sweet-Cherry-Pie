@@ -136,11 +136,17 @@
     <div class="header__mob-menu__inner">
       <div class="header__mob-menu__nav">
         <ul>
-          <li class="is-big"><a href=""><span class="s-link" data-text="Shop"><span>Shop</span></span></a></li>
-          <li class="is-big"><a href=""><span class="s-link" data-text="Quiz"><span>Quiz</span></span></a></li>
-          <li><a href=""><span class="s-link" data-text="Blog"><span>Blog</span></span></a></li>
-          <li><a href=""><span class="s-link" data-text="About"><span>About</span></span></a></li>
-          <li><a href=""><span class="s-link" data-text="Contact"><span>Contact</span></span></a></li>
+
+          {% assign my_menu = linklists.mobile-menu %}
+          {% for link in my_menu.links %}
+             <li class="is-big"><a href="{{ link.url }}"><span class="s-link" data-text="{{ link.title }}"><span>{{ link.title }}</span></span></a></li>
+          {% endfor %}
+
+          {% assign my_menu_small = linklists.mobile-small %}
+          {% for link in my_menu_small.links %}
+             <li><a href="{{ link.url }}"><span class="s-link" data-text="{{ link.title }}"><span>{{ link.title }}</span></span></a></li>
+          {% endfor %}
+
         </ul>
       </div>
 
