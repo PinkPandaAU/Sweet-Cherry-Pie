@@ -420,7 +420,7 @@
 
             {% assign counter = 0 %}
             {% for dproduct in product.metafields.custom.select_addon_products.value %}
-                {% if dproduct.has_only_default_variant %}
+                {% if dproduct.has_only_default_variant and dproduct.available %}
                   {% assign mod = counter | modulo: 2 %}
                   {% if mod == 0 %}
                     <div class="s-product__also-container">
@@ -458,7 +458,7 @@
             {% comment %} <div class="s-product__also-container"> {% endcomment %}
               {% for dproduct in product.metafields.custom.select_addon_products.value %}
                 {% comment %} TODO - Change this to false to support variant products {% endcomment %}
-                {% if dproduct.has_only_default_variant == 'DISABLED' %}
+                {% if dproduct.has_only_default_variant == 'DISABLED' and dproduct.available %}
                 <article class="s-product__also-item">
                   <div class="s-product__also-img">
                     <img src="{{ dproduct.featured_image | img_url:'' }}" alt="{{ dproduct.featured_image.alt | escape }}">
@@ -840,7 +840,11 @@
           },
           body: JSON.stringify(formData)
       }).then(response => {
-          updateButton(event, true);
+          if(response.status == 200) {
+            updateButton(event, true);
+          } else {
+            updateButton(event, false);
+          }
       }).catch((error) => {
           console.error('Error:', error);
           updateButton(event, false);
