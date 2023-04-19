@@ -219,7 +219,7 @@
                 	{% assign star_rating = '4.5' %}
                 {% endif %}
 
-                <div class="s-stars stars-{{ star_rating | replace: '.', '-' | replace: '-0', '' }}">
+                <div class="s-stars stars-{{ star_rating | replace: '.', '-' | replace: '-0', '' }}" style="margin-left: 0;">
                   <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18" height="18" viewBox="0 0 18 18">
                     <defs>
                       <clipPath id="clip-path">
@@ -411,90 +411,106 @@
               <span>View Cart</span>
             </a>
           </div>
+
+          {% if product.metafields.custom.select_addon_products != blank %}
           <div class="s-product__also">
             <div class="s-product__also-title title-h4 title-animation" data-scroll data-scroll-call="title-visible">
               <h2>Add to your order</h2>
             </div>
-            <div class="s-product__also-container">
-              <article class="s-product__also-item">
-                <div class="s-product__also-img">
-                  <img src="{{ '3.jpg' | asset_url }}" alt="">
-                </div>
-                <div class="s-product__also-content">
-                  <div class="s-product__also-name title-h5 title-animation" data-scroll data-scroll-call="title-visible">
-                    <h3>Chinchilla</h3>
+
+            {% assign counter = 0 %}
+            {% for dproduct in product.metafields.custom.select_addon_products.value %}
+                {% if dproduct.has_only_default_variant and dproduct.available %}
+                  {% assign mod = counter | modulo: 2 %}
+                  {% if mod == 0 %}
+                    <div class="s-product__also-container">
+                  {% endif %}
+                    <article class="s-product__also-item">
+                      <div class="s-product__also-img">
+                        <a href="{{ dproduct.url }}">
+                          <img src="{{ dproduct.featured_image | img_url:'' }}" alt="{{ dproduct.featured_image.alt | escape }}">
+                        </a>
+                      </div>
+                      <div class="s-product__also-content">
+                        <div class="s-product__also-name title-h5 title-animation" data-scroll data-scroll-call="title-visible">
+                          <h3>{{ dproduct.title }}</h3>
+                        </div>
+                        <div class="s-product__also-row">
+                          <div class="s-price s-price--smallest">
+                            <div class="s-price__new">
+                              <span>{{ dproduct.price | money }}</span>
+                            </div>
+                          </div>
+                          <div class="s-product__also-btn">
+                            <span data-id="{{ dproduct.selected_or_first_available_variant.id }}">Add +</span>
+                          </div>
+                        </div>
+                      </div>
+                    </article>
+                  {% if mod == 1 or forloop.last %}
+                    </div>
+                    <span class="separator"></span>
+                  {% endif %}
+                  {% assign counter = counter | plus: 1 %}
+                {% endif %}
+            {% endfor %}
+
+            {% comment %} <div class="s-product__also-container"> {% endcomment %}
+              {% for dproduct in product.metafields.custom.select_addon_products.value %}
+                {% comment %} TODO - Change this to false to support variant products {% endcomment %}
+                {% if dproduct.has_only_default_variant == 'DISABLED' and dproduct.available %}
+                <article class="s-product__also-item">
+                  <div class="s-product__also-img">
+                    <img src="{{ dproduct.featured_image | img_url:'' }}" alt="{{ dproduct.featured_image.alt | escape }}">
                   </div>
-                  <div class="s-product__also-row">
-                    <div class="s-price s-price--smallest">
-                      <div class="s-price__new">
-                        <span>$129.99</span>
+                  <div class="s-product__also-content">
+                    <div class="s-product__also-name title-h5 title-animation" data-scroll data-scroll-call="title-visible">
+                      <h3>{{ dproduct.title }}</h3>
+                    </div>
+                    <div class="s-product__also-row">
+                      <div class="s-price s-price--smallest">
+                        <div class="s-price__new">
+                          <span>{{ dproduct.price | money }}</span>
+                        </div>
+                      </div>
+                      <div class="s-input s-input--select">
+                        {% if dproduct.variants.size > 1 %}
+                        <input type="text" placeholder="Choose option" class="selected-display" readonly>
+                        <input type="hidden" class="selected-var" readonly>
+                        <ul>
+                          <li data-value="" class="custom_related_sel_default"></li>
+                          {% for variant in dproduct.variants %}
+                          {% assign get_id = variant.id %}
+                            <li data-value="{{ variant.id }}" class="custom_related_sel">{{ variant.title }}</li>
+                          {% endfor %}
+                        </ul>
+                        <div class="remove-custom_related_sel">Remove</div>
+                        {% endif %}
                       </div>
                     </div>
-                    <a href="" class="s-product__also-btn">
-                      <span>Add</span>
-                      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14">
-                        <g id="Group_11618" data-name="Group 11618" transform="translate(-1569 -769)">
-                          <line id="Line_29" data-name="Line 29" x2="14" transform="translate(1569 776)" fill="none" stroke="#1f454d" stroke-width="1"/>
-                          <line id="Line_30" data-name="Line 30" x2="14" transform="translate(1576 769) rotate(90)" fill="none" stroke="#1f454d" stroke-width="1"/>
-                        </g>
-                      </svg>
-                    </a>
                   </div>
-                </div>
-              </article>
-              <article class="s-product__also-item">
-                <div class="s-product__also-img">
-                  <img src="{{ '3.jpg' | asset_url }}" alt="">
-                </div>
-                <div class="s-product__also-content">
-                  <div class="s-product__also-name title-h5 title-animation" data-scroll data-scroll-call="title-visible">
-                    <h3>Chinchilla</h3>
-                  </div>
-                  <div class="s-product__also-row">
-                    <div class="s-price s-price--smallest">
-                      <div class="s-price__new">
-                        <span>$129.99</span>
-                      </div>
-                      <div class="s-price__old">
-                        <span>$129.99</span>
-                      </div>
-                    </div>
-                    <a href="" class="s-product__also-btn">
-                      <span>Add</span>
-                      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14">
-                        <g id="Group_11618" data-name="Group 11618" transform="translate(-1569 -769)">
-                          <line id="Line_29" data-name="Line 29" x2="14" transform="translate(1569 776)" fill="none" stroke="#1f454d" stroke-width="1"/>
-                          <line id="Line_30" data-name="Line 30" x2="14" transform="translate(1576 769) rotate(90)" fill="none" stroke="#1f454d" stroke-width="1"/>
-                        </g>
-                      </svg>
-                    </a>
-                  </div>
-                </div>
-              </article>
-            </div>
+                </article>
+                {% endif %}
+              {% endfor %}
+            {% comment %} </div> {% endcomment %}
+
           </div>
+          {% endif %}
+
         </form>
 
         <div class="s-product__wrapper mobile-show">
+
+
           <ul class="s-product__info">
-            <li>
-              <div class="s-product__info-ico">
-                <img src="{{ 'ico-product-info.svg' | asset_url }}" alt="" width="32" height="32">
-              </div>
-              <span>Discreet packaging</span>
-            </li>
-            <li>
-              <div class="s-product__info-ico">
-                <img src="{{ 'ico-product-info.svg' | asset_url }}" alt="" width="32" height="32">
-              </div>
-              <span>Multi-patterns + intensities</span>
-            </li>
-            <li>
-              <div class="s-product__info-ico">
-                <img src="{{ 'ico-product-info.svg' | asset_url }}" alt="" width="32" height="32">
-              </div>
-              <span>Rechargeble battery</span>
-            </li>
+            {% for feature in product.metafields.custom.product_features.value %}
+              <li>
+                <div class="s-product__info-ico">
+                  <img src="{{ feature.image | img_url: '' }}" alt="" width="32" height="32">
+                </div>
+                <span>{{ feature.title }}</span>
+              </li>
+            {% endfor %}
           </ul>
 
           <div class="s-product__banner">
@@ -664,177 +680,321 @@
   </div>
 </section>
 <script>
-  let variantsObj = [];
-  let primaryObj = [];
-  let primaryVariantID = [];
-  let adding = false;
-  let selectedValues = {};
+    let variantsObj = [];
+    let primaryObj = [];
+    let primaryVariantID = [];
+    let adding = false;
+    let selectedValues = {};
 
-  const inputElements = document.querySelectorAll('.variants-primary input[type="radio"]');
+    const inputElements = document.querySelectorAll('.variants-primary input[type="radio"]');
 
-  inputElements.forEach(input => {
+    inputElements.forEach(input => {
 
-    // Check if the input element is checked by default
-    if (input.checked) {
-      const groupName = input.getAttribute('name');
-      const groupValue = input.value;
+        // Check if the input element is checked by default
+        if (input.checked) {
+            const groupName = input.getAttribute('name');
+            const groupValue = input.value;
 
-      selectedValues[groupName] = groupValue;
-    }
-    input.addEventListener('change', () => {
-      if (input.checked) { // Get the group name and value of the input element
-        const groupName = input.getAttribute('name');
-        const groupValue = input.value;
-        selectedValues[groupName] = groupValue;
-
-        // Get an array of selected values
-        const selectedValuesArray = Object.values(selectedValues);
-        primaryObj = [];
-        primaryObj = [...selectedValuesArray];
-        console.log(primaryObj);
-        getVariant();
-      }
-    });
-  });
-  primaryObj = Object.values(selectedValues);
-
-  function getCartTotal() {
-    const xhttp = new XMLHttpRequest();
-
-    // Define a callback function
-    xhttp.onload = function () {
-      document.getElementById('cart-total').innerHTML = JSON.parse(xhttp.responseText)['cart-total'];
-    }
-
-    // Send a request
-    xhttp.open('GET', '/?sections=cart-total', true);
-    xhttp.send();
-  }
-
-  function addToCart() {
-    let formData = {
-      'items': []
-    };
-    adding = true;
-    document.getElementById('buy-now').innerHTML = '<span>Adding...</span>';
-    let qauntity = document.getElementById('quantity').value;
-    formData.items.push({ 'id': primaryVariantID, 'quantity': qauntity });
-    variantsObj.forEach(function (value) {
-      formData.items.push({ 'id': value, 'quantity': qauntity });
-    });
-    fetch(window.Shopify.routes.root + 'cart/add.js', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(formData)
-    }).then(response => {
-      document.getElementById('buy-now').style.display = "none";
-      document.getElementById('view-cart').style.display = "inline-flex";
-      getCartTotal();
-      adding = false;
-    }).catch((error) => {
-      console.error('Error:', error);
-      document.getElementById('buy-now').innerHTML = '<span>ERROR</span>';
-      adding = false;
-    });
-  }
-
-  document.getElementById('buy-now').addEventListener('click', function (event) {
-    event.preventDefault();
-    if (event.currentTarget.classList.contains('view-cart')) {
-      window.location.href = '/cart';
-    } else {
-      if (event.currentTarget.classList.contains('simple-product')) {
-        primaryVariantID = document.querySelector('input[name="id[]"]').value;
-      }
-      if (!adding) {
-        addToCart();
-      }
-    }
-  });
-  function getVariant() {
-    var handle = "{{product.handle}}";
-    console.log(handle, "handle")
-
-    fetch(window.Shopify.routes.root + 'products/' + handle + '.js')
-      .then(response => response.json())
-      .then(product => {
-        if (product.variants) {
-          product.variants.forEach(element => {
-            if (JSON.stringify(element.options) == JSON.stringify(primaryObj)) {
-              primaryVariantID = element.id;
-              document.querySelector('.s-price__new').childNodes[0].textContent = "$" + element.price / 100;
-            }
-          });
+            selectedValues[groupName] = groupValue;
         }
-      })
-      .catch((error) => {
-        console.error('Error:', error);
-      });
-  }
-  const primaryOptions = document.querySelectorAll('.s-shop-category__sort-dropdown ul');
+        input.addEventListener('change', () => {
+            if (input.checked) { // Get the group name and value of the input element
+                const groupName = input.getAttribute('name');
+                const groupValue = input.value;
+                selectedValues[groupName] = groupValue;
 
-  if (primaryOptions != null && primaryOptions != "") {
-    primaryOptions.forEach((element, counter) => {
-      let i = 0;
-      for (let child of element.children) {
-        if (child.classList.contains('primary_sel')) {
-          child.addEventListener('click', function (event) {
-            let productId = event.target.getAttribute("data-value");
-            let previousVal = "";
-            let siblingTarget = "";
-            for (let sibling of event.target.parentNode.parentNode.children) {
-              if (sibling.classList.contains('selected-var')) {
-                siblingTarget = sibling;
-              }
-              if (sibling.classList.contains('remove-custom_related_sel')) {
-                sibling.classList.add('active');
-              }
+                // Get an array of selected values
+                const selectedValuesArray = Object.values(selectedValues);
+                primaryObj = [];
+                primaryObj = [...selectedValuesArray];
+                console.log(primaryObj);
+                getVariant();
             }
-            previousVal = siblingTarget.value;
-            event.target.parentNode.parentNode.classList.add('added');
+        });
+    });
 
-            // Remove old variant ID
-            var index = primaryObj.indexOf(previousVal);
-            if (index !== -1) {
-              primaryObj.splice(index, 1);
-            }
-            siblingTarget.value = productId;
+    primaryObj = Object.values(selectedValues);
 
-            // primaryObj.push(productId);
-            primaryObj.splice(counter, 0, productId);
-          });
+    function getCartTotal() {
+        const xhttp = new XMLHttpRequest();
 
-          if (i == 0) {
-            let productId = child.getAttribute("data-value");
-            let previousVal = "";
-            let siblingTarget = "";
-            for (let sibling of child.parentNode.parentNode.children) {
-              if (sibling.classList.contains('selected-var')) {
-                siblingTarget = sibling;
+        // Define a callback function
+        xhttp.onload = function () {
+            document.getElementById('cart-total').innerHTML = JSON.parse(xhttp.responseText)['cart-total'];
+        }
+
+        // Send a request
+        xhttp.open('GET', '/?sections=cart-total', true);
+        xhttp.send();
+    }
+
+    function loadMiniCart() {
+        // Create an XMLHttpRequest object
+        const xhttp = new XMLHttpRequest();
+
+        // Define a callback function
+        xhttp.onload = function () {
+            // Here you can use the Data
+            jQuery('#mini-cart').html(JSON.parse(xhttp.responseText)['mini-cart']);
+            $('#mini-cart').removeClass('in-process');
+        }
+
+        // Send a request
+        xhttp.open('GET', '/?sections=mini-cart', true);
+        xhttp.send();
+    }
+
+    function addToCart() {
+        let formData = {
+            'items': []
+        };
+        adding = true;
+        document.getElementById('buy-now').innerHTML = '<span>Adding...</span>';
+        document.getElementById('buy-now-mobile').innerHTML = '<span>Adding...</span>';
+        let quantity = document.getElementById('quantity').value;
+        formData.items.push({ 'id': primaryVariantID, 'quantity': quantity });
+        variantsObj.forEach(function (value) {
+            formData.items.push({ 'id': value, 'quantity': quantity });
+        });
+        fetch(window.Shopify.routes.root + 'cart/add.js', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(formData)
+        }).then(response => {
+            document.getElementById('buy-now').style.display = "none";
+            document.getElementById('buy-now-mobile').style.display = "none";
+            document.getElementById('view-cart').style.display = "inline-flex";
+            document.getElementById('view-cart-mobile').style.display = "inline-flex";
+            adding = false;
+            getCartTotal();
+            loadMiniCart();
+        }).catch((error) => {
+            console.error('Error:', error);
+            document.getElementById('buy-now').innerHTML = '<span>ERROR</span>';
+            adding = false;
+            getCartTotal();
+            loadMiniCart();
+        });
+    }
+
+    function addSimple(productID, event) {
+        let formData = {
+            'items': []
+        };
+        $.ajax({
+          type: 'GET',
+          url: '/cart.js',
+          dataType: 'json',
+          cache: false,
+          success: function(cartData) {
+            if(event.target.classList.contains('added')) {
+              const existingItem = cartData.items.find(item => item.id === parseInt(productID));
+              if (existingItem) {
+                removeSimpleFromCart(existingItem.id, event);
               }
-              if (sibling.classList.contains('remove-custom_related_sel')) {
-                sibling.classList.add('active');
-              }
+            } else {
+              formData = {
+                  'items': []
+              };
+              formData.items.push({ 'id': productID, 'quantity': 1 });
+              addSimpleToCart(formData, event);
             }
-            previousVal = siblingTarget.value;
-            child.parentNode.parentNode.classList.add('added');
-
-            // Remove old variant ID
-            var index = primaryObj.indexOf(previousVal);
-            if (index !== -1) {
-              primaryObj.splice(index, 1);
-            }
-            siblingTarget.value = productId;
-
-            // primaryObj.push(productId);
-            primaryObj.splice(counter, 0, productId);
           }
+        });
+    }
+
+    function updateButton(event, status) {
+      getCartTotal();
+      loadMiniCart();
+      if(status) {
+        if(event.target.classList.contains('added')) {
+            event.target.classList.remove('added');
+            event.target.textContent = "ADD +";
+        } else {
+            event.target.textContent = "Remove -";
+            event.target.classList.add('added');
         }
-        i++;
+      } else {
+        if(event.target.classList.contains('added')) {
+            event.target.textContent = "Error Removing.";
+            setTimeout(function () {
+                event.target.textContent = "Remove -";
+            }, 2000);
+        } else {
+            event.target.textContent = "Error Adding.";
+            setTimeout(function () {
+                event.target.textContent = "ADD +";
+            }, 2000);
+        }
       }
+
+    }
+
+    function addSimpleToCart(formData, event) {
+      fetch(window.Shopify.routes.root + 'cart/add.js', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(formData)
+      }).then(response => {
+          if(response.status == 200) {
+            updateButton(event, true);
+          } else {
+            updateButton(event, false);
+          }
+      }).catch((error) => {
+          console.error('Error:', error);
+          updateButton(event, false);
+      });
+    }
+
+
+    function removeSimpleFromCart(lineItemId, event) {
+      // assuming `lineItemId` is the ID of the item you want to remove one quantity of
+      $.ajax({
+        type: 'POST',
+        url: '/cart/change.js',
+        dataType: 'json',
+        data: {
+          id: lineItemId,
+          quantity: -1
+        },
+        success: function(cartData) {
+          updateButton(event, true);
+        }, error: function() {
+          updateButton(event, false);
+        }
+      });
+    }
+
+    document.getElementById('buy-now').addEventListener('click', function (event) {
+        event.preventDefault();
+        if (event.currentTarget.classList.contains('view-cart')) {
+            window.location.href = '/cart';
+        } else {
+            if (event.currentTarget.classList.contains('simple-product')) {
+                primaryVariantID = document.querySelector('input[name="id[]"]').value;
+            }
+            if (!adding) {
+                addToCart();
+            }
+        }
     });
-    getVariant();
-  }
+
+    document.getElementById('buy-now-mobile').addEventListener('click', function (event) {
+        event.preventDefault();
+        if (event.currentTarget.classList.contains('view-cart')) {
+            window.location.href = '/cart';
+        } else {
+            if (event.currentTarget.classList.contains('simple-product')) {
+                primaryVariantID = document.querySelector('input[name="id[]"]').value;
+            }
+            if (!adding) {
+                addToCart();
+            }
+        }
+    });
+
+    function getVariant() {
+        var handle = "{{ product.handle }}";
+        console.log(handle, "handle")
+
+        fetch(window.Shopify.routes.root + 'products/' + handle + '.js')
+            .then(response => response.json())
+            .then(product => {
+                if (product.variants) {
+                    product.variants.forEach(element => {
+                        if (JSON.stringify(element.options) == JSON.stringify(primaryObj)) {
+                            primaryVariantID = element.id;
+                            document.querySelector('.s-price__new').childNodes[0].textContent = "$" + element.price / 100;
+                        }
+                    });
+                }
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+    }
+    const primaryOptions = document.querySelectorAll('.s-shop-category__sort-dropdown ul');
+
+    if (primaryOptions != null && primaryOptions != "") {
+        primaryOptions.forEach((element, counter) => {
+            let i = 0;
+            for (let child of element.children) {
+                if (child.classList.contains('primary_sel')) {
+                    child.addEventListener('click', function (event) {
+                        let productId = event.target.getAttribute("data-value");
+                        let previousVal = "";
+                        let siblingTarget = "";
+                        for (let sibling of event.target.parentNode.parentNode.children) {
+                            if (sibling.classList.contains('selected-var')) {
+                                siblingTarget = sibling;
+                            }
+                            if (sibling.classList.contains('remove-custom_related_sel')) {
+                                sibling.classList.add('active');
+                            }
+                        }
+                        previousVal = siblingTarget.value;
+                        event.target.parentNode.parentNode.classList.add('added');
+
+                        // Remove old variant ID
+                        var index = primaryObj.indexOf(previousVal);
+                        if (index !== -1) {
+                            primaryObj.splice(index, 1);
+                        }
+                        siblingTarget.value = productId;
+
+                        // primaryObj.push(productId);
+                        primaryObj.splice(counter, 0, productId);
+                    });
+
+                    if (i == 0) {
+                        let productId = child.getAttribute("data-value");
+                        let previousVal = "";
+                        let siblingTarget = "";
+                        for (let sibling of child.parentNode.parentNode.children) {
+                            if (sibling.classList.contains('selected-var')) {
+                                siblingTarget = sibling;
+                            }
+                            if (sibling.classList.contains('remove-custom_related_sel')) {
+                                sibling.classList.add('active');
+                            }
+                        }
+                        previousVal = siblingTarget.value;
+                        child.parentNode.parentNode.classList.add('added');
+
+                        // Remove old variant ID
+                        var index = primaryObj.indexOf(previousVal);
+                        if (index !== -1) {
+                            primaryObj.splice(index, 1);
+                        }
+                        siblingTarget.value = productId;
+
+                        // primaryObj.push(productId);
+                        primaryObj.splice(counter, 0, productId);
+                    }
+                }
+                i++;
+            }
+        });
+        getVariant();
+    }
+
+    const simpleAddons = document.querySelectorAll('.s-product__also-btn span');
+    if (simpleAddons != null && simpleAddons != "") {
+        simpleAddons.forEach(element => {
+            element.addEventListener('click', function (event) {
+                const productId = event.target.getAttribute("data-id");
+                if(event.target.classList.contains('added')) {
+                  event.target.textContent = "Removing...";
+                } else {
+                  event.target.textContent = "Adding...";
+                }
+                addSimple(productId, event);
+            });
+        });
+    }
 </script>

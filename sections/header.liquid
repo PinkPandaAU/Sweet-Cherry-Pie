@@ -40,12 +40,12 @@
         {% endif %}
 
         <div class="header__burger">
-          <img src="{{ "ico-burger-open.svg" | asset_url }}" class="header__burger-open" alt="menu">
-          <img src="{{ "ico-burger-close.svg" | asset_url }}" class="header__burger-close" alt="close">
+          <img src="{{ 'ico-burger-open.svg' | asset_url }}" class="header__burger-open" alt="menu">
+          <img src="{{ 'ico-burger-close.svg' | asset_url }}" class="header__burger-close" alt="close">
         </div>
       </div>
       <a href="{{ shop.url }}" class="header__logo">
-        <img src="{{ "logo.svg" | asset_url }}" alt="Sweet Cherry Pie Logo">
+        <img src="{{ 'logo.svg' | asset_url }}" alt="Sweet Cherry Pie Logo">
       </a>
       <div class="header__block">
         <div class="header__btns">
@@ -99,7 +99,7 @@
           </div>
 
           <div class="header__btns-cart">
-            <a href="{{ routes.cart_url }}" class="s-button s-button--round s-arrow-link">
+            <a href="mini-cart" class="s-button s-button--round s-arrow-link">
               <span class="s-arrow-link__ico">
                 <svg xmlns="http://www.w3.org/2000/svg" width="13.25" height="15" viewBox="0 0 13.25 15">
                 <g id="bag" transform="translate(-4.5 -2.5)">
@@ -136,11 +136,17 @@
     <div class="header__mob-menu__inner">
       <div class="header__mob-menu__nav">
         <ul>
-          <li class="is-big"><a href=""><span class="s-link" data-text="Shop"><span>Shop</span></span></a></li>
-          <li class="is-big"><a href=""><span class="s-link" data-text="Quiz"><span>Quiz</span></span></a></li>
-          <li><a href=""><span class="s-link" data-text="Blog"><span>Blog</span></span></a></li>
-          <li><a href=""><span class="s-link" data-text="About"><span>About</span></span></a></li>
-          <li><a href=""><span class="s-link" data-text="Contact"><span>Contact</span></span></a></li>
+
+          {% assign my_menu = linklists.mobile-menu %}
+          {% for link in my_menu.links %}
+             <li class="is-big"><a href="{{ link.url }}"><span class="s-link" data-text="{{ link.title }}"><span>{{ link.title }}</span></span></a></li>
+          {% endfor %}
+
+          {% assign my_menu_small = linklists.mobile-small %}
+          {% for link in my_menu_small.links %}
+             <li><a href="{{ link.url }}"><span class="s-link" data-text="{{ link.title }}"><span>{{ link.title }}</span></span></a></li>
+          {% endfor %}
+
         </ul>
       </div>
 
@@ -165,31 +171,6 @@
     </div>
   </div>
 </header>
-
-
-<div class="float-btn">
-  <a href="{{ collections.all.url }}" class="s-button s-arrow-link">
-    <span>Shop now</span>
-    <div class="s-arrow-link__ico">
-      <svg viewBox="0 0 18.726 10.009">
-        <g transform="translate(-372.307 -637.821)">
-          <g transform="translate(367.675 654.976) rotate(-90)">
-            <path d="M16.8,18l-4.651,4.651L7.5,18" transform="translate(0)" fill="none" stroke="#fff" stroke-width="1"></path>
-          </g>
-          <path d="M-13643.693,642.825h17.615" transform="translate(14016)" fill="none" stroke="#fff" stroke-width="1"></path>
-        </g>
-      </svg>
-      <svg viewBox="0 0 18.726 10.009">
-        <g transform="translate(-372.307 -637.821)">
-          <g transform="translate(367.675 654.976) rotate(-90)">
-            <path d="M16.8,18l-4.651,4.651L7.5,18" transform="translate(0)" fill="none" stroke="#fff" stroke-width="1"></path>
-          </g>
-          <path d="M-13643.693,642.825h17.615" transform="translate(14016)" fill="none" stroke="#fff" stroke-width="1"></path>
-        </g>
-      </svg>
-    </div>
-  </a>
-</div>
 
 
 {% schema %}

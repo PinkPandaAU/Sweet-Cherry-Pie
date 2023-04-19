@@ -10,7 +10,10 @@
         
     &.in-process {
       opacity: 0.4;
-      cursor: disabled;
+      cursor: progress;
+      * {
+        pointer-events: none;
+      }
     }
   }
   &__list {
@@ -37,7 +40,7 @@
     margin: 0 -2.125rem;
     align-items: flex-end;
     &-item{
-      width: calc(50% - 4.25rem);
+      width: calc(100% - 4.25rem);
       margin: 0 2.125rem;
     }
   }

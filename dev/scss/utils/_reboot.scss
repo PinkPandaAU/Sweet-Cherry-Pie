@@ -272,11 +272,11 @@ a {
   }
   &.s-radio--big{
     .s-radio__btn {
-      padding: 18px 30px;
-      font-size: 26px;
-      line-height: 31px;
+      padding: rem(18) rem(30);
+      font-size: rem(26);
+      line-height: rem(31);
       text-transform: none;
-      border-radius: 34px;
+      border-radius: rem(34);
 
       @media (max-width: 768px) {
         padding: 14px;
@@ -651,12 +651,23 @@ a {
     &__img{
       display: flex;
       margin-top: rem(36);
+      margin-left: -0.3125rem;
+      margin-right: -0.3125rem;
+      width: calc(100% + 0.625rem);
+      overflow: hidden;
       &:not(:last-child) {
         margin-bottom: rem(36);
       }
       & img{
-        width: 100%;
         margin: 0 rem(5);
+        width: calc(100% - 0.625rem);
+      }
+
+      @media (max-width: 768px) {
+        flex-direction: column;
+        img:not(:last-child) {
+          margin-bottom: 10px;
+        }
       }
     }
 
@@ -752,8 +763,12 @@ a {
   @media (max-width: 768px) {
     &>* {
       padding: 10px;
+      &:not(:first-child)::before {
+        top: 12px;
+        bottom: 12px;
+      }
       &:not(:last-child) {
-        margin-right: -16px;
+        margin-right: -11px;
       }
     }
   }
@@ -931,6 +946,12 @@ a {
     -moz-appearance: textfield;
   }
 
+  input[type='number']::-webkit-inner-spin-button, 
+  input[type='number']::-webkit-outer-spin-button { 
+      -webkit-appearance: none;
+      margin: 0;
+  }
+  
   @media (max-width: 768px) {
     &>*,
     .s-button.s-button--round{
@@ -2254,13 +2275,19 @@ a {
 
   .form-message {
     color: $color-white;
-    font-family: $ff-aeonik-bolditalic;
+    font-family: $ff-queensvar;
     padding: 30px;
     text-align: center;
     font-size: 20px;
     max-width: 400px;
     line-height: normal;
     margin: 0 auto;
+    height: 100%;
+    align-items: center;
+
+    &.error {
+      color: $color-black;
+    }
   }
 
   &__inner {

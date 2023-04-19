@@ -1,0 +1,134 @@
+<div class="s-mini-cart__inner">
+    <div class="s-mini-cart__container">
+        <div class="s-mini-cart__head">
+            <div class="title-h2 title-animation" data-scroll data-scroll-call="title-visible">
+                <span>Cart</span>
+            </div>
+            <button type="button"
+                class="s-mini-cart__close s-button s-button--transparent s-button--round s-arrow-link">
+                <span class="s-arrow-link__ico">
+                    <img src="{{ 'ico-close_black.svg' | asset_url }}" alt="Close">
+                    <img src="{{ 'ico-close_black.svg' | asset_url }}" alt="" role="presentation">
+                </span>
+            </button>
+        </div>
+
+        {% if cart.item_count > 0 %}
+        <div class="s-mini-cart__body">
+            <ul class="s-mini-cart__list cart-list">
+                {% for item in cart.items %}
+                <li class="s-mini-cart__item">
+                    <div class="s-mini-cart__item-img">
+                        <a href="{{ item.url }}">
+                            <img src="{{ item.image | img_url:'' }}" alt="{{ item.image.alt | escape }}">
+                        </a>
+                    </div>
+                    <div class="s-mini-cart__item-content">
+                        <div class="s-cart__item-title title-h4">
+                            <h2>{{ item.product.title }}</h2>
+                            {% if item.variant != blank and item.variant.title != 'Default Title' %}<div class="variant">{{ item.variant.title }}</div>{% endif %}
+                        </div>
+                        <div class="s-price s-price--smallest">
+                            <div class="s-price__new">
+                                <span>{{ item.original_line_price | money }}</span>
+                            </div>
+                        </div>
+                        <div class="s-quantitycart">
+                            <button type="button"
+                                class="s-quantitycart__btn btn-minus s-button s-button--round s-button--transparent s-arrow-link">
+                                <span class="s-arrow-link__ico">
+                                    <img src="{{ 'ico-minus.svg' | asset_url }}" alt="-">
+                                    <img src="{{ 'ico-minus.svg' | asset_url }}" alt="" role="presentation">
+                                </span>
+                            </button>
+                            <input type="text" name="quantity" value="{{ item.quantity }}" step="1" data-index="{{ item.index | plus: 1 }}" step="1" min="1" readonly="">
+                            <button type="button"
+                                class="s-quantitycart__btn btn-plus s-button s-button--round s-button--transparent s-arrow-link">
+                                <span class="s-arrow-link__ico">
+                                    <img src="{{ 'ico-plus.svg' | asset_url }}" alt="+">
+                                    <img src="{{ 'ico-plus.svg' | asset_url }}" alt="" role="presentation">
+                                </span>
+                            </button>
+                        </div>
+                    </div>
+                    <button type="button" class="s-mini-cart__item-remove">
+                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="15"
+                            height="15" viewBox="0 0 15 15">
+                            <defs>
+                                <clipPath id="clip-path">
+                                    <rect id="Rectangle_2158" data-name="Rectangle 2158" width="15" height="15"
+                                        transform="translate(1850.5 299.5)" fill="#fff" stroke="#707070"
+                                        stroke-width="1" />
+                                </clipPath>
+                            </defs>
+                            <g id="Mask_Group_86" data-name="Mask Group 86" transform="translate(-1850.5 -299.5)"
+                                clip-path="url(#clip-path)">
+                                <g id="Group_12073" data-name="Group 12073" transform="translate(21.535 -52.464)">
+                                    <line id="Line_29" data-name="Line 29" x2="11.314"
+                                        transform="translate(1832.465 363.464) rotate(-45)" fill="none" stroke="#1f454d"
+                                        stroke-width="1" />
+                                    <line id="Line_30" data-name="Line 30" x2="11.314"
+                                        transform="translate(1832.465 355.464) rotate(45)" fill="none" stroke="#1f454d"
+                                        stroke-width="1" />
+                                </g>
+                            </g>
+                        </svg>
+                    </button>
+                </li>
+                 {% endfor %}
+            </ul>
+            <div class="s-mini-cart__bottom s-cart__block">
+                {% comment %}
+                <div class="s-cart__block-item">
+                    <div class="s-coupon">
+                        <div class="s-coupon__title">
+                            <h3>Discount code</h3>
+                        </div>
+                        <div class="s-coupon__row">
+                            <div class="s-coupon__input">
+                                <input type="text" name="coupon" placeholder="XXXX-XXXX">
+                            </div>
+                            <div class="s-coupon__btn">
+                                <button type="button" class="s-button s-button--transparent">
+                                    <span>Apply</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endcomment %}
+                <div class="s-cart__block-item">
+                    <div class="s-cart__row">
+                        <div class="s-cart__row-label">
+                            <h2>SubTotal:</h2>
+                        </div>
+                        <div class="s-price s-price--big">
+                            <div class="s-price__new">
+                                <span>{{ cart.total_price | money }}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="s-mini-cart__btn">
+                <a href="{{ 'checkout' | checkout_url }}" class="s-button s-button--black s-button--big">
+                    <span>Checkout</span>
+                </a>
+            </div>
+        </div>
+        {% endif %}
+        {% if cart.item_count == 0 %}
+        <div class="s-mini-cart__empty">
+            <div class="s-mini-cart__empty-ico">
+                <img src="{{ 'ico-cart-big.svg' | asset_url }}" alt="Empty cart">
+            </div>
+            <div class="title-h2 title-animation" data-scroll data-scroll-call="title-visible">
+                <span>There are currently no items in your cart</span>
+            </div>
+            <a href="{{ collections.all.url }}" class="s-button s-button--big s-button--black">
+                <span>Shop now</span>
+            </a>
+        </div>
+        {% endif %}
+    </div>
+</div>

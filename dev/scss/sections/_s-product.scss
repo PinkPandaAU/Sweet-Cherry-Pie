@@ -439,6 +439,7 @@
       text-transform: uppercase;
       display: block;
       transition: color var(--main-transition);
+      cursor: pointer;
       line{
         transition: stroke var(--main-transition);
       }
@@ -564,6 +565,12 @@
 
     }
   }
+
+  .separator {
+    margin-bottom: 10px;
+    display: block;
+  }
+  
   @media (max-width: 991px) {
     .s-product__gallery {
       flex-direction: column-reverse;
@@ -793,6 +800,7 @@
     .s-product__also-btn {
       font-size: 16px;
       line-height: 19px;
+      cursor: pointer;
     }
 
 

@@ -787,6 +787,92 @@ function blocks() {
                 (e = t.hasClass("btn-minus") ? !0 : e) ? m < (o = i - a) ? n.val(o) : n.val(m): (o = i + a, void 0 !== d && d <= o ? n.val(d) : n.val(o)), n.trigger("change")
             })
         },
+        '.s-quantitycart': function () {
+            let inpNumber = '.s-quantitycart'
+            let inpNumberEl = '.s-quantitycart input'
+
+            let minusBtn = '.s-quantitycart__btn.btn-minus'
+            let plusBtn = '.s-quantitycart__btn.btn-plus'
+
+
+            function loadCart() {
+                // Create an XMLHttpRequest object
+                const xhttp = new XMLHttpRequest();
+
+                // Define a callback function
+                xhttp.onload = function () {
+                    // Here you can use the Data
+                    jQuery('#cart-items').html(JSON.parse(xhttp.responseText)['cart-items']);
+                    $('#cart-items').removeClass('in-process');
+                }
+
+                // Send a request
+                xhttp.open('GET', '/?sections=cart-items', true);
+                xhttp.send();
+            }
+
+            function updateCart(empty = false) {
+                let quantityPlus = [];
+                if (!empty) {
+                    $('.s-cart__list .s-quantitycart input').each(function () {
+                        quantityPlus.push($(this).val());
+                    });
+                } else {
+                    $('.s-cart__list .s-quantitycart input').each(function () {
+                        quantityPlus.push(0);
+                    });
+                }
+
+                jQuery.post(window.Shopify.routes.root + 'cart/update.js', { updates: quantityPlus }, function (response) {
+                    loadCart();
+                });
+            }
+
+            $(document).on('click', minusBtn, function (e) {
+                e.preventDefault();
+                let inputEl = $(this).closest(inpNumber).find('input');
+                let thisVal = parseInt(inputEl.val());
+                inputEl.val(thisVal - 1);
+
+                $('#cart-items').addClass('in-process');
+                setTimeout(() => {
+                    updateCart();
+                }, 500);
+            })
+            $(document).on('click', '#empty-cart', function (e) {
+                e.preventDefault();
+                updateCart(true);
+            });
+            $(document).on('click', plusBtn, function (e) {
+                e.preventDefault();
+                let inputEl = $(this).closest(inpNumber).find('input');
+                let thisVal = parseInt(inputEl.val())
+                // if(thisVal < parseInt(inputEl.attr('max'))) {
+                inputEl.val(thisVal + 1);
+                $('#cart-items').addClass('in-process');
+                setTimeout(() => {
+                    updateCart();
+                }, 500);
+                // }
+            })
+            $(document).on('focusout', inpNumberEl, function () {
+                let inputEl = $(this)
+                let thisMin = (inputEl.attr('min') && parseInt(inputEl.attr('min')) >= 0) ? parseInt(inputEl.attr('min')) : 1
+                let thisMax = (inputEl.attr('max') && parseInt(inputEl.attr('max')) >= thisMin) ? parseInt(inputEl.attr('max')) : false
+                let thisVal = parseInt(inputEl.val())
+
+                if (!thisVal)
+                    $(this).val(thisMin)
+                if (thisVal < thisMin)
+                    $(this).val(thisMin)
+                if (thisMax && thisVal > thisMax)
+                    $(this).val(thisMax)
+
+                setTimeout(() => {
+                    updateCart();
+                }, 500);
+            })
+        },
         '.title-animation': function (allTitles) {
                 const titles = gsap.utils.toArray('.title-animation>*')
 
@@ -1086,7 +1172,9 @@ function blocks() {
             let steps = popup.find('.s-quiz__step')
             let stepInputs = steps.find('[required]')
             let stepTitles = popup.find('.s-quiz__title>*')
+            let stepError = popup.find('.s-quiz__step-text')
             let stepNum = popup.find('.s-quiz__num')
+            let stepLastText = popup.find('.s-quiz__subtitle .is-last')
             let step = 0;
             let lastStep = steps.length - 1;
             let openOnce = true
@@ -1134,10 +1222,19 @@ function blocks() {
                 if(isValid){
                     if(e)
                         setStepNext()
-                    popup.removeClass('is-error')
+                    stepError.slideUp(300)
+                    setTimeout(function () {
+                        popup.removeClass('is-error')
+                    }, 200)
+
                 } else {
-                    if(!openOnce)
-                        popup.addClass('is-error')
+                    if(!openOnce) {
+                        stepError.slideDown(300)
+
+                        setTimeout(function () {
+                            popup.addClass('is-error')
+                        }, 200)
+                    }
                 }
 
                 return isValid;
@@ -1186,15 +1283,24 @@ function blocks() {
                     btnListLi.eq(step).addClass('is-active')
 
                     if(step !== 0){
-                        btnPrev.fadeIn(300)
+                        btnPrev.removeAttr('disabled')
                     } else {
-                        btnPrev.fadeOut(300)
+                        btnPrev.attr('disabled', 'disabled')
                     }
 
                     if(step !== lastStep){
                         popup.find('.s-quiz__bottom-next').fadeIn(300)
+
+                        stepLastText.fadeOut(300, function () {
+                            stepNum.parent().fadeIn(300)
+                        })
                     } else {
                         popup.find('.s-quiz__bottom-next').fadeOut(300)
+
+                        stepNum.parent().fadeOut(300, function () {
+                            stepLastText.fadeIn(300)
+                        })
+
                     }
 
                     if(step+1 < 10){
@@ -1243,6 +1349,12 @@ function blocks() {
                 openOnce = false
             }
             function setStepPrev() {
+                setTimeout(function () {
+                    stepError.slideUp(300)
+                    setTimeout(function () {
+                        popup.removeClass('is-error')
+                    }, 200)
+                }, 200)
                 if(step-1 >= 0)
                     setStep(step-1)
             }
@@ -1257,6 +1369,10 @@ function blocks() {
 
             function openPopup() {
                 popup.fadeIn(200)
+                if(!$('.header').hasClass('menu-open') && !$('.header').hasClass('menu-open-search')){
+                    scroller.stop()
+                    $('html').addClass('overflow-hidden')
+                }
                 setTimeout(function () {
                     popup.addClass('is-open')
                     popup.addClass('was-open')
@@ -1267,6 +1383,10 @@ function blocks() {
             }
             function closePopup() {
                 popup.removeClass('is-open')
+                if(!$('.header').hasClass('menu-open') && !$('.header').hasClass('menu-open-search')){
+                    scroller.start()
+                    $('html').removeClass('overflow-hidden')
+                }
                 setTimeout(function () {
                     popup.fadeOut(300)
                 },200)
@@ -1359,6 +1479,118 @@ function blocks() {
                     closePopup()
             })
         },
+        '#newsletter-form': function() {
+            var $form = $('#newsletter-form'),
+            $success = $('.footer__success'),
+            $error = $('.footer__error');
+
+            function register($form) {
+                $form.find('#mc-embedded-subscribe').html('Subscribing...');
+                $.ajax({
+                    type: 'GET',
+                    url: $form.attr('action'),
+                    data: $form.serialize(),
+                    dataType : 'jsonp',
+                    cache: false,
+                    jsonp: 'c',
+                    contentType: 'application/json; charset=utf-8',
+                    error: function(error){
+                        $form.hide();
+                        $error.css('display', 'flex');
+                        $form.find('#mc-embedded-subscribe').html('Subscribe');
+                    },
+                    success: function(data) {
+                        if (data.result != "success") {
+                            $error.text(data.msg);
+                            $error.css('display', 'flex');
+                            $success.css('display', 'none');
+                            $form.find('#mc-embedded-subscribe').html('Subscribe');
+                        } else {
+                            $form.hide();
+                            $success.css('display', 'flex');
+                            $error.css('display', 'none');
+                        }
+                    }
+                });
+            }
+
+            $form.find('input[type="submit"]').on('click', function (e) {
+                e.preventDefault();
+                register($form);
+            });
+            
+            // on submit, register the form
+            $form.submit(function(e){
+                e.preventDefault();
+                register($form);
+            });
+        },
+        '#newsletter-popup-form': function() {
+            var $form = $('#newsletter-popup-form'),
+            $success = $('#sign-up-popup .form-message.success'),
+            $error = $('#sign-up-popup .form-message.error');
+
+            function register($form) {
+                $form.find('#mc-embedded-subscribe').html('Subscribing...');
+                $.ajax({
+                    type: 'GET',
+                    url: $form.attr('action'),
+                    data: $form.serialize(),
+                    dataType : 'jsonp',
+                    cache: false,
+                    jsonp: 'c',
+                    contentType: 'application/json; charset=utf-8',
+                    error: function(error){
+                        $form.hide();
+                        $error.css('display', 'flex');
+                        $form.find('#mc-embedded-subscribe').html('Subscribe');
+                    },
+                    success: function(data) {
+                        if (data.result != "success") {
+                            $error.text(data.msg);
+                            $error.css('display', 'flex');
+                            $success.css('display', 'none');
+                            $form.find('#mc-embedded-subscribe').html('Subscribe');
+                        } else {
+                            $form.hide();
+                            $success.css('display', 'flex');
+                            $error.css('display', 'none');
+                        }
+                    }
+                });
+            }
+
+            $form.find('input[type="submit"]').on('click', function (e) {
+                e.preventDefault();
+                register($form);
+            });
+            
+            // on submit, register the form
+            $form.submit(function(e){
+                e.preventDefault();
+                register($form);
+            });
+        },
+        '#discount-form': function() {
+            // $('#discount-form').submit(function(event) {
+            //     event.preventDefault();
+            //     var discountCode = $('#discount-code').val();
+            //     $.ajax({
+            //         type: 'POST',
+            //         url: '/cart/update.js',
+            //         data: { discount_code: discountCode },
+            //         dataType: 'json',
+            //         success: function(cart) {
+            //             alert('Discount applied successfully!');
+            //             // Optional: update the cart's contents and totals on the page
+            //             // by calling a separate AJAX request to the /cart.js endpoint
+            //         },
+            //         error: function(XMLHttpRequest, textStatus) {
+            //             alert('Error applying discount code: ' + textStatus);
+            //         }
+            //     });
+            // });
+        }
     }
 
 

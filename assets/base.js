@@ -29,6 +29,57 @@ function isElementXPxInViewport(el) {
     );
 }
 
+
+function loadMiniCart() {
+    // Create an XMLHttpRequest object
+    const xhttp = new XMLHttpRequest();
+    // Define a callback function
+    xhttp.onload = function () {
+        // Here you can use the Data
+        jQuery('#mini-cart').html(JSON.parse(xhttp.responseText)['mini-cart']);
+        $('#mini-cart').removeClass('in-process');
+    }
+
+    // Send a request
+    xhttp.open('GET', '/?sections=mini-cart', true);
+    xhttp.send();
+}
+
+function loadCart() {
+    // Create an XMLHttpRequest object
+    const xhttp = new XMLHttpRequest();
+
+    // Define a callback function
+    xhttp.onload = function () {
+        // Here you can use the Data
+        jQuery('#cart-items').html(JSON.parse(xhttp.responseText)['cart-items']);
+        $('#cart-items').removeClass('in-process');
+    }
+
+    // Send a request
+    xhttp.open('GET', '/?sections=cart-items', true);
+    xhttp.send();
+}
+
+function updateCart(empty = false, $cartList) {
+    let quantityPlus = [];
+    if (!empty) {
+        $cartList.find('.s-quantitycart input').each(function () {
+            quantityPlus.push($(this).val());
+        });
+    } else {
+        $cartList.find('.s-quantitycart input').each(function () {
+            quantityPlus.push(0);
+        });
+    }
+    $('#mini-cart').addClass('in-process');
+
+    jQuery.post(window.Shopify.routes.root + 'cart/update.js', { updates: quantityPlus }, function (response) {
+        loadCart();
+        loadMiniCart();
+    });
+}
+
 function dropdown(options) {
     let opts = {
         closeOnClick: true,
@@ -787,46 +838,12 @@ function blocks() {
                 (e = t.hasClass("btn-minus") ? !0 : e) ? m < (o = i - a) ? n.val(o) : n.val(m): (o = i + a, void 0 !== d && d <= o ? n.val(d) : n.val(o)), n.trigger("change")
             })
         },
-        '.s-quantitycart': function () {
-            let inpNumber = '.s-quantitycart'
-            let inpNumberEl = '.s-quantitycart input'
+        'body': function () {
+            let inpNumber = '.s-quantitycart';
+            let inpNumberEl = '.s-quantitycart input';
 
-            let minusBtn = '.s-quantitycart__btn.btn-minus'
-            let plusBtn = '.s-quantitycart__btn.btn-plus'
-
-
-            function loadCart() {
-                // Create an XMLHttpRequest object
-                const xhttp = new XMLHttpRequest();
-
-                // Define a callback function
-                xhttp.onload = function () {
-                    // Here you can use the Data
-                    jQuery('#cart-items').html(JSON.parse(xhttp.responseText)['cart-items']);
-                    $('#cart-items').removeClass('in-process');
-                }
-
-                // Send a request
-                xhttp.open('GET', '/?sections=cart-items', true);
-                xhttp.send();
-            }
-
-            function updateCart(empty = false) {
-                let quantityPlus = [];
-                if (!empty) {
-                    $('.s-cart__list .s-quantitycart input').each(function () {
-                        quantityPlus.push($(this).val());
-                    });
-                } else {
-                    $('.s-cart__list .s-quantitycart input').each(function () {
-                        quantityPlus.push(0);
-                    });
-                }
-
-                jQuery.post(window.Shopify.routes.root + 'cart/update.js', { updates: quantityPlus }, function (response) {
-                    loadCart();
-                });
-            }
+            let minusBtn = '.s-quantitycart__btn.btn-minus';
+            let plusBtn = '.s-quantitycart__btn.btn-plus';
 
             $(document).on('click', minusBtn, function (e) {
                 e.preventDefault();
@@ -835,13 +852,14 @@ function blocks() {
                 inputEl.val(thisVal - 1);
 
                 $('#cart-items').addClass('in-process');
+                $('#mini-cart').addClass('in-process');
                 setTimeout(() => {
-                    updateCart();
+                    updateCart(false, $(this).parents('.cart-list'));
                 }, 500);
             })
             $(document).on('click', '#empty-cart', function (e) {
                 e.preventDefault();
-                updateCart(true);
+                updateCart(true, $(this).parents('.cart-list'));
             });
             $(document).on('click', plusBtn, function (e) {
                 e.preventDefault();
@@ -850,8 +868,9 @@ function blocks() {
                 // if(thisVal < parseInt(inputEl.attr('max'))) {
                 inputEl.val(thisVal + 1);
                 $('#cart-items').addClass('in-process');
+                $('#mini-cart').addClass('in-process');
                 setTimeout(() => {
-                    updateCart();
+                    updateCart(false, $(this).parents('.cart-list'));
                 }, 500);
                 // }
             })
@@ -869,7 +888,7 @@ function blocks() {
                     $(this).val(thisMax)
 
                 setTimeout(() => {
-                    updateCart();
+                    updateCart(false, $(this).parents('.cart-list'));
                 }, 500);
             })
         },
@@ -1001,18 +1020,6 @@ function blocks() {
                 header.find('.header__search-inner input').blur()
             })
 
-            function animateSticky(down = true) {
-                if($(window).width() <= 768) return;
-                $('[data-scroll-sticky]').each(function () {
-                    if(typeof $(this).attr('data-scroll-dont-check') !== 'undefined') return;
-                    if((down && this.getBoundingClientRect().top < 5) || !down){
-                        let maxSticky = Math.round($(this).closest($(this).attr('data-scroll-target')).height() - $(this).height())
-                        let currentSticky = Math.round(parseFloat(this.style['transform'].split(',')[13]) + $('.header').height())
-                        if(down && (currentSticky >= maxSticky)) return;
-                        $(this).stop().animate({top: down ? header.height() : '0'}, 300)
-                    }
-                })
-            }
             scroller.on('scroll', function (e) {
                 if($('.header').hasClass('menu-open') || $('.header').hasClass('menu-open-search')) return;
                 if(e.scroll.y > header.height()) {
@@ -1025,10 +1032,8 @@ function blocks() {
                             }, 10)
                         } else if(!header.hasClass('is-hidden')) {
                             header.addClass('is-hidden')
-                            animateSticky(false)
                         }
                     } else if(header.hasClass('is-hidden')) {
-                        animateSticky()
                         header.removeClass('is-hidden')
                     }
                 } else {
@@ -1186,7 +1191,9 @@ function blocks() {
             let steps = popup.find('.s-quiz__step')
             let stepInputs = steps.find('[required]')
             let stepTitles = popup.find('.s-quiz__title>*')
+            let stepError = popup.find('.s-quiz__step-text')
             let stepNum = popup.find('.s-quiz__num')
+            let stepLastText = popup.find('.s-quiz__subtitle .is-last')
             let step = 0;
             let lastStep = steps.length - 1;
             let openOnce = true
@@ -1234,10 +1241,19 @@ function blocks() {
                 if(isValid){
                     if(e)
                         setStepNext()
-                    popup.removeClass('is-error')
+                    stepError.slideUp(300)
+                    setTimeout(function () {
+                        popup.removeClass('is-error')
+                    }, 200)
+
                 } else {
-                    if(!openOnce)
-                        popup.addClass('is-error')
+                    if(!openOnce) {
+                        stepError.slideDown(300)
+
+                        setTimeout(function () {
+                            popup.addClass('is-error')
+                        }, 200)
+                    }
                 }
 
                 return isValid;
@@ -1286,15 +1302,24 @@ function blocks() {
                     btnListLi.eq(step).addClass('is-active')
 
                     if(step !== 0){
-                        btnPrev.fadeIn(300)
+                        btnPrev.removeAttr('disabled')
                     } else {
-                        btnPrev.fadeOut(300)
+                        btnPrev.attr('disabled', 'disabled')
                     }
 
                     if(step !== lastStep){
                         popup.find('.s-quiz__bottom-next').fadeIn(300)
+
+                        stepLastText.fadeOut(300, function () {
+                            stepNum.parent().fadeIn(300)
+                        })
                     } else {
                         popup.find('.s-quiz__bottom-next').fadeOut(300)
+
+                        stepNum.parent().fadeOut(300, function () {
+                            stepLastText.fadeIn(300)
+                        })
+
                     }
 
                     if(step+1 < 10){
@@ -1343,6 +1368,12 @@ function blocks() {
                 openOnce = false
             }
             function setStepPrev() {
+                setTimeout(function () {
+                    stepError.slideUp(300)
+                    setTimeout(function () {
+                        popup.removeClass('is-error')
+                    }, 200)
+                }, 200)
                 if(step-1 >= 0)
                     setStep(step-1)
             }
@@ -1357,6 +1388,10 @@ function blocks() {
 
             function openPopup() {
                 popup.fadeIn(200)
+                if(!$('.header').hasClass('menu-open') && !$('.header').hasClass('menu-open-search')){
+                    scroller.stop()
+                    $('html').addClass('overflow-hidden')
+                }
                 setTimeout(function () {
                     popup.addClass('is-open')
                     popup.addClass('was-open')
@@ -1367,6 +1402,10 @@ function blocks() {
             }
             function closePopup() {
                 popup.removeClass('is-open')
+                if(!$('.header').hasClass('menu-open') && !$('.header').hasClass('menu-open-search')){
+                    scroller.start()
+                    $('html').removeClass('overflow-hidden')
+                }
                 setTimeout(function () {
                     popup.fadeOut(300)
                 },200)
@@ -1403,13 +1442,83 @@ function blocks() {
                     closePopup()
             })
         },
+        '.s-mini-cart': function (popup) {
+            // let btnClose = popup.find('.s-mini-cart__close')
+            // let btnRemove = popup.find('.s-mini-cart__item-remove')
+
+
+            function removeItem(target) {
+                let thisBtn = target;
+                let thisItem = thisBtn.closest('.s-mini-cart__item');
+
+                thisItem.fadeOut(300, function () {
+                    // thisItem.remove();
+                    thisItem.find('.s-quantitycart input').val(0);
+
+                    // if(!popup.find('.s-mini-cart__item').length) {
+                        // popup.find('.s-mini-cart__body').fadeOut(300, function () {
+                        //     popup.addClass('is-empty');
+                        //     popup.find('.s-mini-cart__empty').hide().fadeIn(300, function () {
+                        //         scroller.update();
+                        //     });
+                        //     updateCart();
+                        //     loadMiniCart();
+                        //     loadCart();
+                        // })
+                    // }
+                    scroller.update();
+                    updateCart(false, $(this).parents('.cart-list'));
+                })
+            }
+
+            function openPopup() {
+                popup.fadeIn(200)
+                setTimeout(function () {
+                    popup.addClass('is-open')
+                    popup.addClass('was-open')
+                },10)
+                setTimeout(function () {
+                    scroller.update()
+                }, 600)
+            }
+
+            function closePopup() {
+                popup.removeClass('is-open')
+                setTimeout(function () {
+                    popup.fadeOut(300)
+                },200)
+            }
+
+            // btnClose.on('click', closePopup)
+            // btnRemove.on('click', removeItem)
+
+            $(document).on('click', '.s-mini-cart__close', function (e) {
+                closePopup();
+            });
+
+            $(document).on('click', '.s-mini-cart__item-remove', function (e) {
+                removeItem($(this));
+            });
+
+            $('a[href="mini-cart"]').on('click', function (e) {
+                e.preventDefault()
+                openPopup()
+            })
+            $(document).on('click', '.s-mini-cart__inner', function (e) {
+                if(!popup.hasClass('is-open')) return;
+                let target = $(e.target)
+                if(target.hasClass('s-mini-cart__inner'))
+                    closePopup()
+            })
+            loadMiniCart();
+        },
         '#newsletter-form': function() {
             var $form = $('#newsletter-form'),
             $success = $('.footer__success'),
             $error = $('.footer__error');
 
             function register($form) {
-                $('#mc-embedded-subscribe').html('Subscribing...');
+                $form.find('#mc-embedded-subscribe').html('Subscribing...');
                 $.ajax({
                     type: 'GET',
                     url: $form.attr('action'),
@@ -1420,24 +1529,19 @@ function blocks() {
                     contentType: 'application/json; charset=utf-8',
                     error: function(error){
                         $form.hide();
-                        $error.css('display', 'block');
-                        $('#mc-embedded-subscribe').html('Subscribe');
+                        $error.css('display', 'flex');
+                        $form.find('#mc-embedded-subscribe').html('Subscribe');
                     },
                     success: function(data) {
                         if (data.result != "success") {
-                        if (data.msg && data.msg.indexOf("already subscribed") >= 0) {
-                            $error.text('You are already subscribed to the list.');
-                        } else {
                             $error.text(data.msg);
-                        }
-                        $error.css('display', 'block');
-                        $success.css('display', 'none');
-                        $('#mc-embedded-subscribe').html('Subscribe');
+                            $error.css('display', 'flex');
+                            $success.css('display', 'none');
+                            $form.find('#mc-embedded-subscribe').html('Subscribe');
                         } else {
-                        $form.hide();
-                        $success.css('display', 'block');
-                        $error.css('display', 'none');
-                        $success.text('Successfully Subscribed!');
+                            $form.hide();
+                            $success.css('display', 'flex');
+                            $error.css('display', 'none');
                         }
                     }
                 });
@@ -1453,6 +1557,72 @@ function blocks() {
                 e.preventDefault();
                 register($form);
             });
+        },
+        '#newsletter-popup-form': function() {
+            var $form = $('#newsletter-popup-form'),
+            $success = $('#sign-up-popup .form-message.success'),
+            $error = $('#sign-up-popup .form-message.error');
+
+            function register($form) {
+                $form.find('#mc-embedded-subscribe').html('Subscribing...');
+                $.ajax({
+                    type: 'GET',
+                    url: $form.attr('action'),
+                    data: $form.serialize(),
+                    dataType : 'jsonp',
+                    cache: false,
+                    jsonp: 'c',
+                    contentType: 'application/json; charset=utf-8',
+                    error: function(error){
+                        $form.hide();
+                        $error.css('display', 'flex');
+                        $form.find('#mc-embedded-subscribe').html('Subscribe');
+                    },
+                    success: function(data) {
+                        if (data.result != "success") {
+                            $error.text(data.msg);
+                            $error.css('display', 'flex');
+                            $success.css('display', 'none');
+                            $form.find('#mc-embedded-subscribe').html('Subscribe');
+                        } else {
+                            $form.hide();
+                            $success.css('display', 'flex');
+                            $error.css('display', 'none');
+                        }
+                    }
+                });
+            }
+
+            $form.find('input[type="submit"]').on('click', function (e) {
+                e.preventDefault();
+                register($form);
+            });
+            
+            // on submit, register the form
+            $form.submit(function(e){
+                e.preventDefault();
+                register($form);
+            });
+        },
+        '#discount-form': function() {
+            // $('#discount-form').submit(function(event) {
+            //     event.preventDefault();
+            //     var discountCode = $('#discount-code').val();
+            //     $.ajax({
+            //         type: 'POST',
+            //         url: '/cart/update.js',
+            //         data: { discount_code: discountCode },
+            //         dataType: 'json',
+            //         success: function(cart) {
+            //             alert('Discount applied successfully!');
+            //             // Optional: update the cart's contents and totals on the page
+            //             // by calling a separate AJAX request to the /cart.js endpoint
+            //         },
+            //         error: function(XMLHttpRequest, textStatus) {
+            //             alert('Error applying discount code: ' + textStatus);
+            //         }
+            //     });
+            // });
         }
     }
 

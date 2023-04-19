@@ -38,11 +38,15 @@
     color: #b05959;
     font-family: $ff-queensvar;
     font-size: 30px;
+    line-height: 40px;
+    max-width: 400px;
   }
   .footer__error {
     color: $color-black;
     font-family: $ff-queensvar;
     font-size: 30px;
+    line-height: 40px;
+    max-width: 400px;
   }
   &__container {
     display: flex;
