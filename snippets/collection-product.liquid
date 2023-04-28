@@ -3,10 +3,19 @@
     <a href="{{ product.url}}" class="s-card__link"></a>
     <div class="s-card__tags">
       
-      {% assign first_collection = product.collections.first %}
+      {% comment %} {% assign first_collection = product.collections.first %}
       {% if first_collection %}
         <span class="tag">{{ first_collection.title }}</span>
-      {% endif %}
+      {% endif %} {% endcomment %}
+
+
+      {% assign exclude_collection_handle = 'all' %}
+      {% for collection in product.collections %}
+        {% unless collection.handle == exclude_collection_handle %}
+          <span class="tag">{{ collection.title }}</span>
+          {% break %}
+        {% endunless %}
+      {% endfor %}
 
       {% if product.compare_at_price > product.price %}
         <span class="tag tag--off">{% if product.compare_at_price_max > product.price %}{{ product.compare_at_price_max | minus: product.price | times: 100.0 | divided_by: product.compare_at_price_max | money_without_currency | times: 100 | remove: '.0'}}% off{% endif %}</span>

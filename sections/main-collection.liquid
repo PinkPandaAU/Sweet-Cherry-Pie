@@ -396,7 +396,7 @@
         </div>
         <div class="s-shop-category__filter-links">
           {% for collection in collections %}
-            {% if collection.handle != 'frontpage' %}
+            {% if collection.handle != 'frontpage' and collection.handle != 'all' %}
               <a href="{{ collection.url }}" class="s-radio__btn">{{ collection.title }}</a>
             {% endif %}
           {% endfor %}
