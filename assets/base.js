@@ -1476,7 +1476,7 @@ function blocks() {
                         // }
                         console.log($form.find('.quiz-field').serialize());
                         
-                        window.location.href = '/collections/all/?' + $form.find('.quiz-field').serialize();
+                        window.location.href = '/pages/quiz-results/?' + $form.find('.quiz-field').serialize();
                     }
                 });
             }

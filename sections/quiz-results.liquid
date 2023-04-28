@@ -1,3 +1,22 @@
+{%- assign page_url = content_for_header | split:'"pageurl":"' | last | split:'"' | first | split: request.host | last | replace:'\/','/' | replace:'%20',' ' | replace:'\u0026','&'  -%}
+{% assign level = blank %}
+
+{%- for i in (1..1) -%}
+  {%- unless page_url contains "?" -%}{% break %}{%- endunless -%}
+  {%- assign query_string = page_url | split:'?' | last -%}
+  {%- assign qry_parts= query_string | split:'&' -%}
+
+  {%- for part in qry_parts -%}
+    {%- assign key_and_value = part | split:'=' -%}
+    {%- if key_and_value.size > 1 -%}
+      {% if key_and_value[0] == 'level' %}
+        {% assign level = key_and_value[1] %}
+      {% endif %}
+    {%- endif -%}
+  {%- endfor -%}
+{%- endfor -%}
+  
+  
   <section class="s-promo" data-scroll-section>
     <div class="container">
       <div class="s-promo__container">
@@ -6,21 +25,46 @@
             <ul>
               <li><a href="{{ shop.url }}">Home</a></li>
               <li>
-                {% if page_title == 'Products' %}
-                  <h1>Shop</h1>
-                {% else %}
-                  <h1>{{ collection.title }}</h1>
-                {% endif %}
+                  <h1>Quiz Results</h1>
               </li>
             </ul>
           </div>
           <div class="title-epic title-animation" data-scroll data-scroll-call="title-visible">
-            {% if page_title == 'Products' %}
-              <h1>Shop</h1>
-            {% else %}
-              <h1>{{ collection.title }}</h1>
-            {% endif %}
+              <h1>Quiz Results</h1>
           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="s-shop-category" data-scroll-section>
+    <div class="container">
+
+      <div class="s-shop-category__container" id="s-shop-category">
+        <div class="s-shop-category__filter" data-scroll data-scroll-sticky data-scroll-target="#s-shop-category">
+          <div class="s-shop-category__filter-label">
+            <span>Shop by category</span>
+          </div>
+          <div class="s-shop-category__filter-links">
+            {% for collection in collections %}
+              {% if collection.handle != 'frontpage' and collection.handle != 'all' %}
+                <a href="{{ collection.url }}" class="s-radio__btn">{{ collection.title }}</a>
+              {% endif %}
+            {% endfor %}
+          </div>
+        </div>
+
+        <div class="s-shop-category__list">
+            {% assign layout_style = "grid" %}
+            {% for product in collections.all.products %}
+              {% render 'collection-product',
+                product: product,
+                grid_style:layout_style,
+                filter_tag: get_tag,
+                product_level: level,
+                product_level: level,
+              %}
+            {% endfor %}
         </div>
       </div>
     </div>
