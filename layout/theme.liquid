@@ -65,7 +65,7 @@
 <body class="{% if customer %}customer-logged-in {% endif %}template-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }}{% if template.suffix != blank %} template-suffix-{{ template.suffix }}{% endif %}{% if template contains 'customers' %} template-customer-area{% endif %}">
     <div class="viewport-height"></div>
 
-    {% comment %} {% render 'quiz' %} {% endcomment %}
+    {% render 'quiz' %}
 
     {% if template != 'product' and template != 'cart' and template != 'collection' %}
       <div class="float-btn">

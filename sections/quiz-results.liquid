@@ -1,0 +1,62 @@
+  <section class="s-promo" data-scroll-section>
+    <div class="container">
+      <div class="s-promo__container">
+        <div class="s-promo__content">
+          <div class="s-breadcrumbs">
+            <ul>
+              <li><a href="{{ shop.url }}">Home</a></li>
+              <li>
+                {% if page_title == 'Products' %}
+                  <h1>Shop</h1>
+                {% else %}
+                  <h1>{{ collection.title }}</h1>
+                {% endif %}
+              </li>
+            </ul>
+          </div>
+          <div class="title-epic title-animation" data-scroll data-scroll-call="title-visible">
+            {% if page_title == 'Products' %}
+              <h1>Shop</h1>
+            {% else %}
+              <h1>{{ collection.title }}</h1>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+{% schema %}
+{
+  "name": "quiz-results",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "range",
+      "id": "columns_desktop",
+      "min": 9,
+      "max": 27,
+      "step": 3,
+      "default": 9,
+      "label": "Products Per Page"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_sorting",
+      "default": true,
+      "label": "Enable filtering"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_filter",
+      "default": true,
+      "label": "Enable Filter"
+    },
+    {
+      "type": "text",
+      "id": "filter_tag",
+      "label": "Add Tags and separated with ','"
+    }
+  ]
+}
+{% endschema %}

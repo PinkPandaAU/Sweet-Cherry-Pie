@@ -1441,6 +1441,56 @@ function blocks() {
                 if((target.hasClass('s-quiz') || !target.closest('.s-quiz__container').length) && !target.closest('[href="take-quiz"]').length)
                     closePopup()
             })
+
+            var $form = $('#quiz-form');
+            // $success = $('.footer__success'),
+            // $error = $('.footer__error');
+
+            console.log("TEST");
+
+            function register($form) {
+                $form.find('#mc-embedded-subscribe').html('Loading...');
+                $.ajax({
+                    type: 'GET',
+                    url: $form.attr('action'),
+                    data: $form.serialize(),
+                    dataType : 'jsonp',
+                    cache: false,
+                    jsonp: 'c',
+                    contentType: 'application/json; charset=utf-8',
+                    error: function(error){
+                        $form.hide();
+                        $error.css('display', 'flex');
+                        $form.find('#mc-embedded-subscribe-2').html('Show results');
+                    },
+                    success: function(data) {
+                        // if (data.result != "success") {
+                        //     $error.text(data.msg);
+                        //     $error.css('display', 'flex');
+                        //     $success.css('display', 'none');
+                        //     $form.find('#mc-embedded-subscribe-2').html('Subscribe');
+                        // } else {
+                        //     $form.hide();
+                        //     $success.css('display', 'flex');
+                        //     $error.css('display', 'none');
+                        // }
+                        console.log($form.find('.quiz-field').serialize());
+                        
+                        window.location.href = '/collections/all/?' + $form.find('.quiz-field').serialize();
+                    }
+                });
+            }
+
+            $form.find('input[type="submit"]').on('click', function (e) {
+                e.preventDefault();
+                register($form);
+            });
+            
+            // on submit, register the form
+            $form.submit(function(e){
+                e.preventDefault();
+                register($form);
+            });
         },
         '.s-mini-cart': function (popup) {
             // let btnClose = popup.find('.s-mini-cart__close')
