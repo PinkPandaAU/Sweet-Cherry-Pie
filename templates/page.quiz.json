@@ -2,12 +2,21 @@
   "sections": {
     "main": {
       "type": "main-page",
-      "disabled": true,
       "settings": {
+      }
+    },
+    "b19b588c-b684-4748-b58c-64072f248804": {
+      "type": "quiz-results",
+      "settings": {
+        "columns_desktop": 9,
+        "enable_sorting": true,
+        "enable_filter": true,
+        "filter_tag": ""
       }
     }
   },
   "order": [
-    "main"
+    "main",
+    "b19b588c-b684-4748-b58c-64072f248804"
   ]
 }
