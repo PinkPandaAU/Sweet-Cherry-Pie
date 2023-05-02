@@ -91,7 +91,7 @@
                 {% endif %}
               {% endfor %}
 
-              {%if levels == true and useWith == true and functions == true %}
+              {%if levels and useWith and functions %}
                 {% render 'collection-product',
                   product: product
                 %}
