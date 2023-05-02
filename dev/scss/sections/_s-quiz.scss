@@ -48,10 +48,10 @@
     width: calc(100% + 20px);
   }
   &__close {
-    position: absolute;
+    position: absolute !important;
     top: rem(50);
     right: rem(46);
-    z-index: 2;
+    z-index: 2 !important;
     .s-arrow-link__ico{
       margin-right: rem(.5);
     }
