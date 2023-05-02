@@ -1,13 +1,10 @@
 {% assign levels = false %}
-{% for level in product.metafields.custom.level.value %} 
-  {% comment %} {% assign temp = level | handleize %}
-  {% assign levels = levels | append: ' ' | append: temp %} {% endcomment %}
+{% for level in product.metafields.custom.level.value %}
   {% if level == product_level %}
     {% assign levels = true  %}
   {% endif %}
 {% endfor %}
 
-{%if levels == true %}
 <article class="s-card" data-pointer-area="View" data-filter-brand="1" data-filter-colour="brown" data-scroll data-scroll-call="is-in-view">
   <div class="s-card__inner border-image border-image--small-primary-star">
     <a href="{{ product.url}}" class="s-card__link"></a>
@@ -76,4 +73,3 @@
     </a>
   </div>
 </article>
-{% endif %}
