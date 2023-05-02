@@ -1,5 +1,8 @@
 {%- assign page_url = content_for_header | split:'"pageurl":"' | last | split:'"' | first | split: request.host | last | replace:'\/','/' | replace:'%20',' ' | replace:'\u0026','&'  -%}
 {% assign level = blank %}
+{% assign function = blank %}
+{% assign use_with = blank %}
+{% assign noProducts = true %}
 
 {%- for i in (1..1) -%}
   {%- unless page_url contains "?" -%}{% break %}{%- endunless -%}
@@ -11,6 +14,12 @@
     {%- if key_and_value.size > 1 -%}
       {% if key_and_value[0] == 'level' %}
         {% assign level = key_and_value[1] %}
+      {% endif %}
+      {% if key_and_value[0] == 'function' %}
+        {% assign function = key_and_value[1] %}
+      {% endif %}
+      {% if key_and_value[0] == 'use_with' %}
+        {% assign use_with = key_and_value[1] %}
       {% endif %}
     {%- endif -%}
   {%- endfor -%}
@@ -37,9 +46,8 @@
     </div>
   </section>
 
-  <section class="s-shop-category" data-scroll-section>
+  <section class="s-shop-category" data-scroll-section id="products-list">
     <div class="container">
-
       <div class="s-shop-category__container" id="s-shop-category">
         <div class="s-shop-category__filter" data-scroll data-scroll-sticky data-scroll-target="#s-shop-category">
           <div class="s-shop-category__filter-label">
@@ -55,20 +63,68 @@
         </div>
 
         <div class="s-shop-category__list">
-            {% assign layout_style = "grid" %}
+            {% assign hasProducts = "grid" %}
             {% for product in collections.all.products %}
-              {% render 'collection-product',
-                product: product,
-                grid_style:layout_style,
-                filter_tag: get_tag,
-                product_level: level,
-                product_level: level,
-              %}
+              {% assign levels = false %}
+              {% assign functions = false %}
+              {% assign useWith = false %}
+
+              {% for item in product.metafields.custom.level.value %}
+                {% if item == level %}
+                  {% assign levels = true  %}
+                {% endif %}
+              {% endfor %}
+
+              {% for item in product.metafields.custom.functions.value %}
+                {% if function == 'all' %}
+                  {% assign functions = true  %}
+                {% elsif item == function %}
+                  {% assign functions = true  %}
+                {% endif %}
+
+              {% endfor %}
+              {% for item in product.metafields.custom.use_with.value %}
+                {% if use_with == 'all' %}
+                  {% assign useWith = true  %}
+                {% elsif item == use_with %}
+                  {% assign useWith = true  %}
+                {% endif %}
+              {% endfor %}
+
+              {%if levels == true and useWith == true and functions == true %}
+                {% render 'collection-product',
+                  product: product
+                %}
+                {% assign noProducts = false %}
+              {% endif %}
             {% endfor %}
         </div>
       </div>
     </div>
   </section>
+
+  {% if noProducts %}
+    <script>
+      const sectionToHide = document.getElementById('products-list');
+      sectionToHide.style.display = 'none';
+    </script>
+    <section class="s-promo s-promo--bg" data-scroll-section>
+      <div class="container">
+        <div class="s-promo__container">
+          <div class="s-promo__content">
+            <div class="title-epic title-animation" data-scroll data-scroll-call="title-visible">
+              <h1><i>Unfortunately</i> no products match your criteria</h1>
+            </div>
+            <div class="s-promo__btn">
+              <a href="{{ shop.url }}" class="s-button s-button--white s-button--big">
+                <span>Back to home</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  {% endif %}
 
 {% schema %}
 {
