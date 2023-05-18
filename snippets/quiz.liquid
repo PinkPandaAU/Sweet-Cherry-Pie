@@ -56,19 +56,19 @@
                     <div class="s-quiz__step">
                         <div class="s-quiz__step-row anim-fade">
                             <label class="s-radio s-radio--big">
-                                <input type="radio" class="quiz-field" value="External Stimulation" required>
+                                <input type="radio" class="quiz-field" name="stimulation" value="External" required>
                                 <span class="s-radio__btn">External Stimulation</span>
                             </label>
                         </div>
                         <div class="s-quiz__step-row anim-fade">
                             <label class="s-radio s-radio--big">
-                                <input type="radio" class="quiz-field" value="Internal Stimulation" required>
+                                <input type="radio" class="quiz-field" name="stimulation" value="Internal" required>
                                 <span class="s-radio__btn">Internal Stimulation</span>
                             </label>
                         </div>
                         <div class="s-quiz__step-row anim-fade">
                             <label class="s-radio s-radio--big">
-                                <input type="radio" class="quiz-field" value="all" required>
+                                <input type="radio" class="quiz-field" name="stimulation" value="all" required>
                                 <span class="s-radio__btn">Both</span>
                             </label>
                         </div>
@@ -102,19 +102,19 @@
                     <div class="s-quiz__step">
                         <div class="s-quiz__step-row anim-fade">
                             <label class="s-radio s-radio--big">
-                                <input type="radio" class="quiz-field" name="location" value="In bed" required>
+                                <input type="radio" class="quiz-field" name="location" value="Bed" required>
                                 <span class="s-radio__btn">In bed</span>
                             </label>
                         </div>
                         <div class="s-quiz__step-row anim-fade">
                             <label class="s-radio s-radio--big">
-                                <input type="radio" class="quiz-field" name="location" value="In the shower" required>
+                                <input type="radio" class="quiz-field" name="location" value="Shower" required>
                                 <span class="s-radio__btn">In the shower</span>
                             </label>
                         </div>
                         <div class="s-quiz__step-row anim-fade">
                             <label class="s-radio s-radio--big">
-                                <input type="radio" class="quiz-field" name="location" value="In the bath" required>
+                                <input type="radio" class="quiz-field" name="location" value="Bath" required>
                                 <span class="s-radio__btn">In the bath</span>
                             </label>
                         </div>
@@ -214,6 +214,7 @@
                             <button type="submit" class="s-button s-button--big s-button--black">
                                 <span id="mc-embedded-subscribe-2">Show results</span>
                             </button>
+                            <p style="display: none;" class="quiz__error">There was an error. Please try again later or contact us at <a href="mailto:info@sweetcherrypie.co">info@sweetcherrypie.co</a></p>
                             <button type="button" class="s-arrow-link s-quiz__step-skip">
                                 <span>Skip</span>
                                 <div class="s-arrow-link__ico">

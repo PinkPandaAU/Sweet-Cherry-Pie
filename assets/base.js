@@ -1196,8 +1196,9 @@ function blocks() {
             let stepLastText = popup.find('.s-quiz__subtitle .is-last')
             let step = 0;
             let lastStep = steps.length - 1;
-            let openOnce = true
-            let prevHeight = 0
+            let openOnce = true;
+            let prevHeight = 0;
+            let $error = $('.quiz__error');
 
             let twice = 2
 
@@ -1258,8 +1259,11 @@ function blocks() {
 
                 return isValid;
             }
-            function setStep(index) {
-                let isValid = validateStep()
+            function setStep(index, skip = false) {
+                let isValid = true;
+                if(!skip) {
+                    isValid = validateStep(skip);
+                }
                 if(index !== 0 && !isValid) return;
                 let animInputsTimeout = 0
 
@@ -1369,13 +1373,14 @@ function blocks() {
             }
             function setStepPrev() {
                 setTimeout(function () {
-                    stepError.slideUp(300)
+                    // stepError.slideUp(300)
+                    stepError.slideDown(300)
                     setTimeout(function () {
                         popup.removeClass('is-error')
                     }, 200)
                 }, 200)
                 if(step-1 >= 0)
-                    setStep(step-1)
+                    setStep(step-1, true)
             }
             function setStepNext() {
                 if (step+1 <= steps.length-1) {
@@ -1443,47 +1448,47 @@ function blocks() {
             })
 
             var $form = $('#quiz-form');
-            // $success = $('.footer__success'),
-            // $error = $('.footer__error');
 
-            console.log("TEST");
-
-            function register($form) {
-                $form.find('#mc-embedded-subscribe').html('Loading...');
-                $.ajax({
-                    type: 'GET',
-                    url: $form.attr('action'),
-                    data: $form.serialize(),
-                    dataType : 'jsonp',
-                    cache: false,
-                    jsonp: 'c',
-                    contentType: 'application/json; charset=utf-8',
-                    error: function(error){
-                        $form.hide();
-                        $error.css('display', 'flex');
-                        $form.find('#mc-embedded-subscribe-2').html('Show results');
-                    },
-                    success: function(data) {
-                        // if (data.result != "success") {
-                        //     $error.text(data.msg);
-                        //     $error.css('display', 'flex');
-                        //     $success.css('display', 'none');
-                        //     $form.find('#mc-embedded-subscribe-2').html('Subscribe');
-                        // } else {
-                        //     $form.hide();
-                        //     $success.css('display', 'flex');
-                        //     $error.css('display', 'none');
-                        // }
-                        console.log($form.find('.quiz-field').serialize());
-                        
-                        window.location.href = '/pages/quiz-results/?' + $form.find('.quiz-field').serialize();
-                    }
-                });
+            function register($form, subscribe = true) {
+                if(subscribe) {
+                    $form.find('#mc-embedded-subscribe-2').html('Loading...');
+                    $.ajax({
+                        type: 'GET',
+                        url: $form.attr('action'),
+                        data: $form.serialize(),
+                        dataType : 'jsonp',
+                        cache: false,
+                        jsonp: 'c',
+                        contentType: 'application/json; charset=utf-8',
+                        error: function(error){
+                            $form.hide();
+                            $error.css('display', 'flex');
+                            $form.find('#mc-embedded-subscribe-2').html('Show results');
+                        },
+                        success: function(data) {
+                            if (data.result != "success") {
+                                $error.text(data.msg);
+                                $form.find('#mc-embedded-subscribe-2').html('Subscribe');
+                            } else {
+                                $form.hide();
+                                $error.css('display', 'none');
+                                window.location.href = '/pages/quiz-results/?' + $form.find('.quiz-field').serialize();
+                            }
+                        }
+                    });
+                } else {
+                    window.location.href = '/pages/quiz-results/?' + $form.find('.quiz-field').serialize();
+                }
             }
 
             $form.find('input[type="submit"]').on('click', function (e) {
                 e.preventDefault();
                 register($form);
+            });
+            
+            $form.find('.s-quiz__step-skip').on('click', function (e) {
+                e.preventDefault();
+                register($form, false);
             });
             
             // on submit, register the form

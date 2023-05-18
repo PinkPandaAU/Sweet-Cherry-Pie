@@ -19,6 +19,7 @@
         {% if section.settings.menu != blank %}
           <nav class="header__nav mobile-hide">
             <ul>
+              <li><a href="take-quiz"><span class="s-link" data-text="Quiz"><span>Quiz</span></span></a></li>
               {% for link in section.settings.menu.links %}
                 {% if link.links != blank %}
                 <!--<li class="has-child">
@@ -141,6 +142,8 @@
           {% for link in my_menu.links %}
              <li class="is-big"><a href="{{ link.url }}"><span class="s-link" data-text="{{ link.title }}"><span>{{ link.title }}</span></span></a></li>
           {% endfor %}
+
+          <li><a href="take-quiz"><span class="s-link" data-text="Quiz"><span>Quiz</span></span></a></li>
 
           {% assign my_menu_small = linklists.mobile-small %}
           {% for link in my_menu_small.links %}
